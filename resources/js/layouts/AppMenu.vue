@@ -38,9 +38,21 @@ const model = ref([
         ]
     },
     {
+        label: 'Prueba',
+        items: [
+            { label: 'Prueba', icon: 'pi pi-fw pi-id-card', to: '/admin/prueba', permision: 'post-list' }
+        ]
+    },
+    {
         label: 'Posts',
         items: [
             { label: 'Posts', icon: 'pi pi-fw pi-id-card', to: '/admin/posts', permision: 'post-list' }
+        ]
+    },
+    {
+        label: 'Tasks',
+        items: [
+            { label: 'Tasks', icon: 'pi pi-fw pi-id-card', to: '/admin/tasks', permision: 'category-list' }
         ]
     }
 ]);
