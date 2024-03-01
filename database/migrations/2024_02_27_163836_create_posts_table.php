@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('ID_User');
             $table->foreign('ID_User')->references('id')->on('pppussers')->onDelete('cascade');
-            $table->unsignedBigInteger('ID_Comments');
-            $table->foreign('ID_Comments')->references('id')->on('pppcomments')->onDelete('cascade');
             $table->unsignedBigInteger('ID_Category');
             $table->foreign('ID_Category')->references('id')->on('pppcategory_names')->onDelete('cascade');
             $table->string('Post');
-            $table->string('Image');
+            $table->string('Image')->nullable();
             $table->integer('Upvote');
             $table->integer('Downvote');
             $table->timestamps();
