@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ExerciseController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TaskController;
+use App\Http\Controllers\Api\pppPostController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
@@ -21,6 +22,16 @@ Route::get('tasks',[TaskController::class,'index']);
 Route::post('tasks/',[TaskController::class,'store']);
 Route::put('tasks/update/{id}',[TaskController::class,'update']);
 Route::delete('tasks/{id}',[TaskController::class,'destroy']);
+
+//-------------------------------------
+Route::get('pepe',[pppPostController::class,'index']);
+Route::delete('pepe/{id}',[pppPostController::class,'destroy']);
+Route::post('pepe/',[TaskController::class,'store']);
+Route::put('pepe/update/{id}',[TaskController::class,'update']);
+
+
+//-----------------------------------------
+
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('users', UserController::class);

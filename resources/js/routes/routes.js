@@ -12,6 +12,10 @@ const ExercisesCreate  = ()  => import('../views/admin/exercises/Create.vue');
 const ExercisesEdit  = ()  => import('../views/admin/exercises/Edit.vue');
 const TasksList  = ()  => import('../views/admin/tasks/Index.vue');
 const TasksCreate  = ()  => import('../views/admin/tasks/Create.vue');
+const Prueba  = ()  => import('../views/admin/prueba/Index.vue');
+const PruebaCreate  = ()  => import('../views/admin/prueba/Create.vue');
+
+
 
 function requireLogin(to, from, next) {
     let isLogin = false;
@@ -143,6 +147,25 @@ export default [
                         path: 'create',
                         component: TasksCreate,
                         meta: { breadCrumb: 'Crear tareas' }
+                    }
+                ]
+            },
+            {
+                name: 'prueba',
+                path: 'prueba',
+                meta: { breadCrumb: 'Pruebas'},
+                children: [
+                    {
+                        name: 'prueba.index',
+                        path: '',
+                        component: Prueba,
+                        meta: { breadCrumb: 'Listado pruebas' }
+                    },
+                    {
+                        name: 'prueba.create',
+                        path: 'create',
+                        component: PruebaCreate,
+                        meta: { breadCrumb: 'Crear pruebas' }
                     }
                 ]
             },
