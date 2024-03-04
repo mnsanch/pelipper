@@ -25,6 +25,9 @@
                         <li class="nav-item">
                             <router-link class="nav-link" to="/register">{{ $t('register') }}</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" to="/login2">Login nuestro</router-link>
+                        </li>
                     </template>
                     <li v-if="user?.name" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
