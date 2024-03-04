@@ -9,7 +9,7 @@
                         </div>
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
                             <div class="card-body p-4 p-lg-5 text-black">
-                                <form>
+                                <form @submit.prevent="submitLogin">
                                     <div class="d-flex align-items-center mb-3 pb-1">
                                         <img src="" width="40" height="40">
                                         <span class="h1 fw-bold mb-0 mx-2">Log in</span>
@@ -18,11 +18,11 @@
                                     <h5 class="fw-normal mb-5 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                                     <div class="form-floating mb-4">
-                                        <input type="email" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com">
+                                        <input v-model="loginForm.email" type="email" class="form-control form-control-lg" id="floatingInput" placeholder="name@example.com" required autofocus autocomplete="username">
                                         <label for="floatingInput">Email address</label>
                                     </div>
                                     <div class="form-floating">
-                                        <input type="password" class="form-control form-control-lg" id="floatingPassword" placeholder="Password">
+                                        <input v-model="loginForm.password" type="password" class="form-control form-control-lg" id="floatingPassword" placeholder="Password" required autocomplete="current-password"  >
                                         <label for="floatingPassword">Password</label>
                                     </div>
 
@@ -33,7 +33,7 @@
                                         </button>
                                     </div>
 
-                                    <!--<a class="small text-muted" href="#!">Forgot password?</a>-->
+                                    <!-- <a class="small text-muted" href="#!">Forgot password?</a> -->
                                     <p class="mb-3 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!" style="color: #393f81;">Register here</a></p>
                                     <a href="#!" class="small text-muted">Terms of use.</a>
                                     <a href="#!" class="small text-muted">Privacy policy</a>
@@ -51,6 +51,6 @@
 
 import useAuth from '@/composables/auth'
 
-const { registerForm, validationErrors, processing, submitRegister } = useAuth();
+const { loginForm, validationErrors, processing, submitLogin } = useAuth();
 
 </script>
