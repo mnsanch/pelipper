@@ -9,7 +9,7 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-                                    <form>
+                                    <form @submit.prevent="submitLogin">
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <img src="/images/pelipper_icon.png" width="40" height="40">
                                             <span class="h1 fw-bold mb-0 mx-2 page-title">Log in</span>
@@ -18,11 +18,11 @@
                                         <h5 class="fw-normal mb-5 pb-3">Sign into your account</h5>
 
                                         <div class="form-floating mb-4">
-                                            <input type="email" class="form-control form-control-lg login-input" id="floatingInput" placeholder="name@example.com">
+                                            <input v-model="loginForm.email" type="email" class="form-control form-control-lg login-input" id="floatingInput" placeholder="name@example.com" required>
                                             <label class="px-4" for="floatingInput">Email address</label>
                                         </div>
                                         <div class="form-floating position-relative">
-                                            <input type="password" class="form-control form-control-lg login-input" id="floatingPassword" placeholder="Password">
+                                            <input v-model="loginForm.password" type="password" class="form-control form-control-lg login-input" id="floatingPassword" placeholder="Password" required>
                                             <label class="px-4" for="floatingPassword">Password</label>
                                             <button type="button" id="togglePassword" class="btn-login-password" onclick="togglePasswordVisibility()">
                                                 <!-- SVG por defecto -->
