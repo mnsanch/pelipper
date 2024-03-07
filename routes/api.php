@@ -26,8 +26,8 @@ Route::delete('tasks/{id}',[TaskController::class,'destroy']);
 //-------------------------------------
 Route::get('pepe',[pppPostController::class,'index']);
 Route::delete('pepe/{id}',[pppPostController::class,'destroy']);
-Route::post('pepe/',[TaskController::class,'store']);
-Route::put('pepe/update/{id}',[TaskController::class,'update']);
+Route::post('pepe/',[pppPostController::class,'store']);
+Route::put('pepe/update/{id}',[pppPostController::class,'update']);
 
 
 //-----------------------------------------

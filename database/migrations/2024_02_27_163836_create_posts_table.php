@@ -18,9 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('ID_Category');
             $table->foreign('ID_Category')->references('id')->on('pppcategory_names')->onDelete('cascade');
             $table->string('Post');
-            $table->string('Image')->nullable();
-            $table->integer('Upvote');
-            $table->integer('Downvote');
+            $table->integer('Upvote')->default(0);
+            $table->integer('Downvote')->default(0);
             $table->timestamps();
         });
     }

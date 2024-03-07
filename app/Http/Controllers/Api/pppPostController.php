@@ -9,7 +9,6 @@ use App\Models\pppposts;
 class pppPostController extends Controller
 {
     public function index() {
-        // return "Hola mundo";
         $posts = pppposts::all()->toarray();
         return $posts;
     }
@@ -26,6 +25,24 @@ class pppPostController extends Controller
         return response()->json(['success'=>true, 'data'=> $postscreado]);
 
     }
+    // public function store(StoreExerciseRequest $request)
+    // {
+    //     $this->authorize('exercise-create');
+
+    //     $validatedData = $request->validated();
+    //     $validatedData['user_id'] = auth()->id();
+    //     $exercise = Exercise::create($validatedData);
+
+    //     $categories = explode(",", $request->categories);
+    //     $category = Category::findMany($categories);
+    //     $exercise->categories()->attach($category);
+
+    //     if ($request->hasFile('thumbnail')) {
+    //         $exercise->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-exercises');
+    //     }
+
+    //     return new ExerciseResource($exercise);
+    // }
     
 
 }

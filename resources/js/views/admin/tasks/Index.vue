@@ -6,7 +6,7 @@
                     <div class="d-flex justify-content-between pb-2 mb-2">
                         <h5 class="card-title">Todas las tareas</h5>
                         <div>
-                            <router-link :to="{name: 'tasks.create'}" class="btn btn-success">Nueva Tarea</router-link>
+                            <router-link :to="{name: 'prueba.create'}" class="btn btn-success">Nueva Tarea</router-link>
                         </div>
 
                     </div>

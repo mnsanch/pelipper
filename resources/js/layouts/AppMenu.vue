@@ -40,7 +40,7 @@ const model = ref([
     {
         label: 'Prueba',
         items: [
-            { label: 'Prueba', icon: 'pi pi-fw pi-id-card', to: '/admin/prueba', permision: 'post-list' }
+            { label: 'Post', icon: 'pi pi-fw pi-id-card', to: '/admin/prueba', permision: 'post-list' }
         ]
     },
     {
