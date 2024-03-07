@@ -1,18 +1,18 @@
 <template>
         <section class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-xl-10">
-                    <div class="login-container card">
+            <div class="row d-flex justify-content-center align-items-center h-100 mx-0">
+                <div class="col-10 col-xl-10">
+                    <div class="login-container p-0 card">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
                                 <div class="login-banner m-0 p-0"></div>
                             </div>
-                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="col-md-6 col-lg-7 px-5 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
                                     <form @submit.prevent="submitLogin">
                                         <div class="d-flex align-items-center mb-3 pb-1">
-                                            <img src="/images/pelipper_icon.png" width="40" height="40">
-                                            <span class="h1 fw-bold mb-0 mx-2 page-title">Log in</span>
+                                            <img class="py-0 my-0" src="/images/pelipper_icon.png" width="40" height="40">
+                                            <span class="h1 fw-bold py-0 my-0 mx-2 page-title">Log in</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-5 pb-3">Sign into your account</h5>
@@ -42,7 +42,7 @@
 
                                         <!--<a class="small text-muted" href="#!">Forgot password?</a>-->
                                         <p class="mb-3 pb-lg-2">Don't have an account? <a href="#!">Register here</a></p>
-                                        <a href="#!" class="small text-muted">Terms of use.</a>
+                                        <a href="#!" class="small text-muted">Terms of use.  </a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
                                 </div>

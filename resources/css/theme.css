@@ -145,10 +145,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .login-banner {
-    width: 447px; /* Ancho de la imagen */
+    width: 100%; /*Ancho de la imagen */
     height: 632px; /* Altura de la imagen */
     background-image: url('images/login_banner.png') !important; /* Ruta de la imagen */
-    background-size: cover; /* Ajustar la imagen al tamaño del div */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%; /* Ajustar la imagen al tamaño del contenedor */
+    /* background-size: cover; Ajustar la imagen al tamaño del div */
     border-radius: 1rem 0 0 1rem; /* Establecer el radio de borde para el lado izquierdo */
     opacity: var(--switchopacity-login-banner); /* Establecer la opacidad de la imagen */
 }
