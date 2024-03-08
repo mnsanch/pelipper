@@ -117,7 +117,7 @@ export default function useCategories() {
     }
 
     const getCategoryList = async () => {
-        axios.get('/api/category-list')
+        axios.get('/api/pppcategories')
             .then(response => {
                 categoryList.value = response.data.data;
             })

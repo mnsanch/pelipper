@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pppcategory_names', function (Blueprint $table) {
+        Schema::create('pppcategories', function (Blueprint $table) {
             $table->id();
             $table->string('Category_Name');
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pppcategory_names');
+        Schema::dropIfExists('pppcategories');
     }
 };

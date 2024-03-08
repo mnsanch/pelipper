@@ -58,7 +58,7 @@
     onMounted(()=>{
         // console.log('mi vista esta montada');
 
-        axios.get('/api/pepe')
+        axios.get('/api/pppposts')
         .then(response => {
             posts.value = response.data;
             console.log(response);
@@ -67,7 +67,7 @@
     })
 
     const deletepost = (id,index)=>{
-        axios.delete('/api/pepe/'+id)
+        axios.delete('/api/pppposts/'+id)
         .then(response =>{
             posts.value.splice(index,1)
             swal({

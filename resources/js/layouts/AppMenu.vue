@@ -14,7 +14,7 @@ import AppMenuItem from './AppMenuItem.vue';
 import {useAbility} from '@casl/vue'
 const {can} = useAbility();
 
-const vela = "pepe";
+const vela = "pppposts";
 
 
 const model = ref([

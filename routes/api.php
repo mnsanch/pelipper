@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TaskController;
 use App\Http\Controllers\Api\pppPostController;
+use App\Http\Controllers\Api\pppCategory;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
@@ -24,10 +25,12 @@ Route::put('tasks/update/{id}',[TaskController::class,'update']);
 Route::delete('tasks/{id}',[TaskController::class,'destroy']);
 
 //-------------------------------------
-Route::get('pepe',[pppPostController::class,'index']);
-Route::delete('pepe/{id}',[pppPostController::class,'destroy']);
-Route::post('pepe/',[pppPostController::class,'store']);
-Route::put('pepe/update/{id}',[pppPostController::class,'update']);
+Route::get('pppposts',[pppPostController::class,'index']);
+Route::delete('pppposts/{id}',[pppPostController::class,'destroy']);
+Route::post('pppposts/',[pppPostController::class,'store']);
+Route::put('pppposts/update/{id}',[pppPostController::class,'update']);
+
+Route::get('pppcategories',[pppCategory::class,'index']);
 
 
 //-----------------------------------------
