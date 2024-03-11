@@ -15,6 +15,7 @@ class pppposts extends Model implements HasMedia
     protected $fillable = [
         'ID_User',
         'ID_Category',
+        'Title',
         'Post'
     ];
 

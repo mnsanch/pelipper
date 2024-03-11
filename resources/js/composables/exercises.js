@@ -57,7 +57,7 @@ export default function useExercises() {
             }
         }
 
-        axios.post('/api/exercises', serializedExercise, {
+        axios.post('/api/pppposts', serializedExercise, {
             headers: {
                 "content-type": "multipart/form-data"
             }

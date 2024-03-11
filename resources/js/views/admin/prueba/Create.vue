@@ -7,12 +7,12 @@
 
                         <!-- Title -->
                         <div class="mb-3">
-                            <label for="exercise-title" class="form-label">
+                            <label for="exercise-Title" class="form-label">
                                 Titulo
                             </label>
-                            <input v-model="exercise.title" id="exercise-title" type="text" class="form-control">
+                            <input v-model="exercise.Title" id="exercise-title" type="text" class="form-control">
                             <div class="text-danger mt-1">
-                                {{ errors.title }}
+                                {{ errors.Title }}
                             </div>
                             <div class="text-danger mt-1">
                                 <div v-for="message in validationErrors?.title">
@@ -22,15 +22,15 @@
                         </div>
                         <!-- Content -->
                         <div class="mb-3">
-                            <label for="exercise-content" class="form-label">
+                            <label for="exercise-Post" class="form-label">
                                 Contenido
                             </label>
-                            <TextEditorComponent v-model="exercise.content"/>
+                            <TextEditorComponent v-model="exercise.Post"/>
                             <div class="text-danger mt-1">
-                                {{ errors.content }}
+                                {{ errors.Post }}
                             </div>
                             <div class="text-danger mt-1">
-                                <div v-for="message in validationErrors?.content">
+                                <div v-for="message in validationErrors?.Post">
                                     {{ message }}
                                 </div>
                             </div>
@@ -65,13 +65,13 @@
                         </h6>
 
                         <div class="mb-3">
-                            <v-select multiple v-model="exercise.categories" :options="categoryList"
+                            <v-select multiple v-model="exercise.ID_Category" :options="categoryList"
                                       :reduce="category => category.id" label="name" class="form-control" placeholder="Select category"/>
                             <div class="text-danger mt-1">
-                                {{ errors.categories }}
+                                {{ errors.ID_Category }}
                             </div>
                             <div class="text-danger mt-1">
-                                <div v-for="message in validationErrors?.categories">
+                                <div v-for="message in validationErrors?.ID_Category">
                                     {{ message }}
                                 </div>
                             </div>
@@ -95,6 +95,7 @@
             </div>
         </div>
     </form>
+    {{ exercise }}
 </template>
 <script setup>
 import {onMounted, reactive, ref} from "vue";
@@ -111,21 +112,23 @@ defineRule('min', min);
 const dropZoneActive = ref(true)
 
 const schema = {
-    // title: 'required|min:5',
-    // content: 'required|min:50',
-    // categories: 'required'
+    // Title: 'required|min:5',
+    // Post: 'required|min:50',
+    //categories: 'required'
 }
 const {validate, errors} = useForm({validationSchema: schema})
-const {value: title} = useField('title', null, {initialValue: ''});
-const {value: content} = useField('content', null, {initialValue: ''});
-const {value: categories} = useField('categories', null, {initialValue: '', label: 'category'});
+const {value: Title} = useField('Title', null, {initialValue: ''});
+const {value: Post} = useField('Post', null, {initialValue: ''});
+const {value: ID_Category} = useField('categories', null, {initialValue: '', label: 'category'});
 const {categoryList, getCategoryList} = useCategories()
 const {storeExercise, validationErrors, isLoading} = useExercises()
 const exercise = reactive({
-    title,
-    content,
-    categories,
-    thumbnail: ''
+    Title,
+    Post,
+    ID_Category,
+    // thumbnail: '',
+    ID_User: 1,
+    // ID_Category:1,
 })
 
 const thefile = ref('')
