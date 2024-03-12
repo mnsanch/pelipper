@@ -25,7 +25,7 @@
                             <label for="exercise-Post" class="form-label">
                                 Contenido
                             </label>
-                            <TextEditorComponent v-model="exercise.Post"/>
+                            <textarea v-model="exercise.Post"></textarea>
                             <div class="text-danger mt-1">
                                 {{ errors.Post }}
                             </div>
@@ -104,16 +104,17 @@ import DropZone from "@/components/DropZone.vue";
 import useCategories from "@/composables/categories";
 import useExercises from "@/composables/exercises";
 import {useForm, useField, defineRule} from "vee-validate";
-import {required, min} from "@/validation/rules"
+import {required, min, max} from "@/validation/rules"
 
 defineRule('required', required)
-defineRule('min', min);
+defineRule('min', min)
+defineRule('max', max);
 
 const dropZoneActive = ref(true)
 
 const schema = {
     // Title: 'required|min:5',
-    // Post: 'required|min:50',
+     Post: 'required|min:3|max:5',
     //categories: 'required'
 }
 const {validate, errors} = useForm({validationSchema: schema})

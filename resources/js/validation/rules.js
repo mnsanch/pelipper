@@ -26,4 +26,16 @@ const min = (value, [limit], { field }) => {
     return true
 }
 
-export { required, min, email }
+const max = (value, [limit], { field }) => {
+    if (!value || !value.length) {
+        return true
+    }
+
+    if (value.length >limit) {
+        return `The ${field} must be maximum ${limit} characters.`
+    }
+
+    return true
+}
+
+export { required, min, email, max }
