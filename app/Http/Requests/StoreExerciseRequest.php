@@ -24,9 +24,9 @@ class StoreExerciseRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'content' => 'required',
-            'categories' => 'required'
+            'Title' => 'required',
+            'Post' => 'required',
+            'ID_Category' => 'required'
         ];
     }
 }

@@ -14,19 +14,22 @@ class pppposts extends Model implements HasMedia
 
     protected $fillable = [
         'ID_User',
-        'ID_Category',
         'Title',
         'Post'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_exercise');
+        return $this->belongsToMany(pppcategories::class, 'ppppost_categories');
     }
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('images/exercises')
+        $this->addMediaCollection('images')
             ->useFallbackUrl('/images/placeholder.jpg')
             ->useFallbackPath(public_path('/images/placeholder.jpg'));
     }

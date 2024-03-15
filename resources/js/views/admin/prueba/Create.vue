@@ -102,7 +102,7 @@ import {onMounted, reactive, ref} from "vue";
 import TextEditorComponent from "@/components/TextEditorComponent.vue";
 import DropZone from "@/components/DropZone.vue";
 import useCategories from "@/composables/categories";
-import useExercises from "@/composables/exercises";
+import useExercises from "@/composables/pppposts";
 import {useForm, useField, defineRule} from "vee-validate";
 import {required, min, max} from "@/validation/rules"
 
@@ -122,21 +122,19 @@ const {value: Title} = useField('Title', null, {initialValue: ''});
 const {value: Post} = useField('Post', null, {initialValue: ''});
 const {value: ID_Category} = useField('categories', null, {initialValue: '', label: 'category'});
 const {categoryList, getCategoryList} = useCategories()
-const {storeExercise, validationErrors, isLoading} = useExercises()
+const {storePost, validationErrors, isLoading} = useExercises()
 const exercise = reactive({
     Title,
     Post,
     ID_Category,
-    // thumbnail: '',
-    ID_User: 1,
-    // ID_Category:1,
+    thumbnail: '',
 })
 
 const thefile = ref('')
 
 function submitForm() {
     validate().then(form => {
-        if (form.valid) storeExercise(exercise)
+        if (form.valid) storePost(exercise)
     })
 }
 

@@ -18,19 +18,24 @@
                                 <th>Categoria</th>
                                 <th>Nombre Usuario</th>
                                 <th>Imagen</th>
+                                <th>Titulo</th>
                                 <th>Post</th>
                                 <th>Votos positivos</th>
                                 <th>Votos negativos</th>
-                                <th>creado</th>
+                                <th>Creado</th>
                                 <th class="text-center" width="200">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(post,index) in posts">
+                            <!-- <tr v-for="(post, index) in posts" :key="post.id"> -->
+                            <tr v-for="(post, index) in posts.data" :key="post.id">
                                 <td class="text-center">{{post.id}}</td>
-                                <td>{{post.ID_Category}}</td>
-                                <td>{{post.ID_User}}</td>
-                                <td>{{post.Image}}</td>
+                                <td>{{post.ID_Category}}</td> 
+                                <td>{{post.id}}</td>
+                                <td>  
+                                    <img :src="post.original_image" alt="image" height="70">
+                                </td>
+                                <td>{{post.Title}}</td>
                                 <th>{{post.Post}}</th>
                                 <th>{{post.Upvote}}</th>
                                 <th>{{post.Downvote}}</th>
@@ -39,54 +44,51 @@
                                     <a class="btn btn-warning mr-1">Edit</a>
                                     <button class="btn btn-danger" @click="deletepost(post.id, index)">Delete</button>
                                 </td>
+                                <td class="px-6 py-4 text-sm">
+                                    <!-- <router-link v-if="can('post-edit')"
+                                                 :to="{ name: 'posts.edit', params: { id: post.id } }" class="badge bg-primary">Edit
+                                    </router-link> -->
+                                    <!-- <a href="#" v-if="can('post-delete')" @click="deletePost(post.id)"
+                                       class="ms-2 badge bg-danger">Delete</a> -->
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            {{ posts }}
+
         </div>
     </div>
 </template>
 
 
 <script setup>
-    import axios from "axios";
-    import {ref, onMounted, inject} from "vue"
-    const posts = ref();
-    const swal = inject('$swal');
+    import {ref, onMounted, watch} from "vue";
+    import usePosts from "@/composables/posts";
+    import useCategories from "@/composables/categories";
+    import {useAbility} from '@casl/vue'
 
-    onMounted(()=>{
-        // console.log('mi vista esta montada');
-
+    const search_category = ref('')
+    const search_id = ref('')
+    const search_title = ref('')
+    const search_content = ref('')
+    const search_global = ref('')
+    const orderColumn = ref('created_at')
+    const orderDirection = ref('desc')
+    const {posts, getPosts, deletePost} = usePosts()
+    const {categoryList, getCategoryList} = useCategories()
+    const {can} = useAbility();
+    onMounted(() => {
         axios.get('/api/pppposts')
         .then(response => {
             posts.value = response.data;
             console.log(response);
             console.log(response.data);
         })
+        getCategoryList()
     })
 
-    const deletepost = (id,index)=>{
-        axios.delete('/api/pppposts/'+id)
-        .then(response =>{
-            posts.value.splice(index,1)
-            swal({
-                icon:'success',
-                title:'Tarea eliminada correctamente'
-            })
-        }).catch( error =>{
-            console.log(error)
-            swal({
-                icon:'error',
-                title:'No se ha podido eliminar la tarea'
-            })
-        });
-    }
+
 
 </script>
-    
-
-<style>
-
-
-</style>

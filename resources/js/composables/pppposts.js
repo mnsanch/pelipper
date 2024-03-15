@@ -24,7 +24,24 @@ export default function useExercises() {
         order_column = 'created_at',
         order_direction = 'desc'
     ) => {
-        axios.get('/api/exercises?page=' + page +
+        axios.get('/api/pppposts')
+        .then(response => {
+            posts.value = response.data;
+            console.log(response);
+            console.log(response.data);
+        })
+    }
+    const getPosts = async (
+        page = 1,
+        search_category = '',
+        search_id = '',
+        search_title = '',
+        search_content = '',
+        search_global = '',
+        order_column = 'created_at',
+        order_direction = 'desc'
+    ) => {
+        axios.get('/api/posts?page=' + page +
             '&search_category=' + search_category +
             '&search_id=' + search_id +
             '&search_title=' + search_title +
@@ -33,7 +50,15 @@ export default function useExercises() {
             '&order_column=' + order_column +
             '&order_direction=' + order_direction)
             .then(response => {
-                exercises.value = response.data;
+                console.log(response.data);
+                posts.value = response.data;
+            })
+    }
+
+    const getPost = async (id) => {
+        axios.get('/api/posts/' + id)
+            .then(response => {
+                post.value = response.data.data;
             })
     }
 
@@ -44,7 +69,7 @@ export default function useExercises() {
             })
     }
 
-    const storeExercise = async (exercise) => {
+    const storePost = async (exercise) => {
         if (isLoading.value) return;
 
         isLoading.value = true
@@ -57,13 +82,13 @@ export default function useExercises() {
             }
         }
 
-        axios.post('/api/exercises', serializedExercise, {
+        axios.post('/api/pppposts', serializedExercise, {
             headers: {
                 "content-type": "multipart/form-data"
             }
         })
             .then(response => {
-                router.push({ name: 'exercises.index' })
+                router.push({ name: 'prueba.index' })
                 swal({
                     icon: 'success',
                     title: 'Exercise saved successfully'
@@ -143,7 +168,8 @@ export default function useExercises() {
         exercise,
         getExercises,
         getExercise,
-        storeExercise,
+        getPosts,
+        storePost,
         updateExercise,
         deleteExercise,
         validationErrors,
