@@ -27,11 +27,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <tr v-for="(post, index) in posts" :key="post.id"> -->
                             <tr v-for="(post, index) in posts.data" :key="post.id">
                                 <td class="text-center">{{post.id}}</td>
                                 <td>{{post.ID_Category}}</td> 
-                                <td>{{post.id}}</td>
+                                <td></td>
                                 <td>  
                                     <img :src="post.original_image" alt="image" height="70">
                                 </td>
@@ -40,16 +39,12 @@
                                 <th>{{post.Upvote}}</th>
                                 <th>{{post.Downvote}}</th>
                                 <th>{{post.created_at}}</th>
-                                <td class="text-center">
-                                    <a class="btn btn-warning mr-1">Edit</a>
-                                    <button class="btn btn-danger" @click="deletepost(post.id, index)">Delete</button>
-                                </td>
                                 <td class="px-6 py-4 text-sm">
-                                    <!-- <router-link v-if="can('post-edit')"
-                                                 :to="{ name: 'posts.edit', params: { id: post.id } }" class="badge bg-primary">Edit
-                                    </router-link> -->
-                                    <!-- <a href="#" v-if="can('post-delete')" @click="deletePost(post.id)"
-                                       class="ms-2 badge bg-danger">Delete</a> -->
+                                    <router-link v-if="can('post-edit')"
+                                                 :to="{ name: 'prueba.edit', params: { id: post.id } }" class="badge bg-primary">Edit
+                                    </router-link>
+                                    <a href="#" v-if="can('post-delete')" @click="deletePost(post.id)"
+                                       class="ms-2 badge bg-danger">Delete</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -65,7 +60,7 @@
 
 <script setup>
     import {ref, onMounted, watch} from "vue";
-    import usePosts from "@/composables/posts";
+    import usePosts from "@/composables/pppposts";
     import useCategories from "@/composables/categories";
     import {useAbility} from '@casl/vue'
 
@@ -80,12 +75,7 @@
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
     onMounted(() => {
-        axios.get('/api/pppposts')
-        .then(response => {
-            posts.value = response.data;
-            console.log(response);
-            console.log(response.data);
-        })
+        getPosts()
         getCategoryList()
     })
 

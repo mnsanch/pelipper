@@ -14,6 +14,7 @@ const TasksList  = ()  => import('../views/admin/tasks/Index.vue');
 const TasksCreate  = ()  => import('../views/admin/tasks/Create.vue');
 const Prueba  = ()  => import('../views/admin/prueba/Index.vue');
 const PruebaCreate  = ()  => import('../views/admin/prueba/Create.vue');
+const PruebaEdit  = ()  => import('../views/admin/prueba/Edit.vue');
 
 
 
@@ -172,8 +173,16 @@ export default [
                         path: 'create',
                         component: PruebaCreate,
                         meta: { breadCrumb: 'Crear pruebas' }
+                    },
+                    {
+                        name: 'prueba.edit',
+                        path: 'edit',
+                        component: PruebaEdit,
+                        meta: { breadCrumb: 'Editar pruebas' }
                     }
                 ]
+
+                
             },
             {
                 name: 'exercises',

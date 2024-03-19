@@ -1,12 +1,12 @@
 import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 
-export default function useExercises() {
-    const exercises = ref({})
-    const exercise = ref({
-        title: '',
-        content: '',
-        category_id: '',
+export default function usePosts() {
+    const posts = ref({})
+    const post = ref({
+        Title: '',
+        Post: '',
+        ID_Category: '',
         thumbnail: ''
     })
     const router = useRouter()
@@ -14,16 +14,7 @@ export default function useExercises() {
     const isLoading = ref(false)
     const swal = inject('$swal')
 
-    const getExercises = async (
-        page = 1,
-        search_category = '',
-        search_id = '',
-        search_title = '',
-        search_content = '',
-        search_global = '',
-        order_column = 'created_at',
-        order_direction = 'desc'
-    ) => {
+    const getPosts = async () => {
         axios.get('/api/pppposts')
         .then(response => {
             posts.value = response.data;
@@ -31,41 +22,11 @@ export default function useExercises() {
             console.log(response.data);
         })
     }
-    const getPosts = async (
-        page = 1,
-        search_category = '',
-        search_id = '',
-        search_title = '',
-        search_content = '',
-        search_global = '',
-        order_column = 'created_at',
-        order_direction = 'desc'
-    ) => {
-        axios.get('/api/posts?page=' + page +
-            '&search_category=' + search_category +
-            '&search_id=' + search_id +
-            '&search_title=' + search_title +
-            '&search_content=' + search_content +
-            '&search_global=' + search_global +
-            '&order_column=' + order_column +
-            '&order_direction=' + order_direction)
-            .then(response => {
-                console.log(response.data);
-                posts.value = response.data;
-            })
-    }
 
     const getPost = async (id) => {
         axios.get('/api/posts/' + id)
             .then(response => {
                 post.value = response.data.data;
-            })
-    }
-
-    const getExercise = async (id) => {
-        axios.get('/api/exercises/' + id)
-            .then(response => {
-                exercise.value = response.data.data;
             })
     }
 
@@ -102,34 +63,29 @@ export default function useExercises() {
             .finally(() => isLoading.value = false)
     }
 
-    const updateExercise = async (exercise) => {
+    const updatePost = async (post) => {
         if (isLoading.value) return;
 
         isLoading.value = true
         validationErrors.value = {}
-
-        axios.post('/api/exercises/update/' + exercise.id, exercise, {
-            headers: {
-                "content-type": "multipart/form-data"
-            }
-        })
-        .then(response => {
-            router.push({ name: 'exercises.index' })
-            console.log(response);
-            swal({
-                icon: 'success',
-                title: 'Exercise updated successfully'
+        console.log(post);
+        axios.put('/api/posts/' + post.id, post)
+            .then(response => {
+                router.push({name: 'posts.index'})
+                swal({
+                    icon: 'success',
+                    title: 'Post updated successfully'
+                })
             })
-        })
-        .catch(error => {
-            if (error.response?.data) {
-                validationErrors.value = error.response.data.errors
-            }
-        })
-        .finally(() => isLoading.value = false)
+            .catch(error => {
+                if (error.response?.data) {
+                    validationErrors.value = error.response.data.errors
+                }
+            })
+            .finally(() => isLoading.value = false)
     }
 
-    const deleteExercise = async (id) => {
+    const deletePost = async (id) => {
         swal({
             title: 'Are you sure?',
             text: 'You won\'t be able to revert this action!',
@@ -143,13 +99,13 @@ export default function useExercises() {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    axios.delete('/api/exercises/' + id)
+                    axios.delete('/api/pppposts/' + id)
                         .then(response => {
-                            getExercises()
-                            router.push({ name: 'exercises.index' })
+                            getPosts()
+                            router.push({name: 'prueba.index'})
                             swal({
                                 icon: 'success',
-                                title: 'Exercise deleted successfully'
+                                title: 'Post deleted successfully'
                             })
                         })
                         .catch(error => {
@@ -164,16 +120,14 @@ export default function useExercises() {
     }
 
     return {
-        exercises,
-        exercise,
-        getExercises,
-        getExercise,
+        posts,
+        post,
         getPosts,
+        getPost,
         storePost,
-        updateExercise,
-        deleteExercise,
+        updatePost,
+        deletePost,
         validationErrors,
-        isLoading,
-        router
+        isLoading
     }
 }
