@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Pokémon Mundo Misterioso Aleatorio</title>
+<style>
+  .pokemon-portrait {
+    border: 1px solid black;
+    border-radius: 90px;
+    width: 50px;
+    height: 50px;
+  }
+</style>
+</head>
+<body>
+  <h2>Ask those questions:</h2>
+  <ol>
+    <li>
+      <strong>You discover a treasure:</strong><br>
+      <label><input type="radio" name="treasure" value="a"> I run to tell my friends.</label><br>
+      <label><input type="radio" name="treasure" value="b"> I keep it in secret.</label><br>
+      <label><input type="radio" name="treasure" value="c"> I look for the owner.</label>
+    </li>
+    <li>
+      <strong>Someone talks to you loudly:</strong><br>
+      <label><input type="radio" name="loudly" value="a"> I cry.</label><br>
+      <label><input type="radio" name="loudly" value="b"> I talk to him louder.</label><br>
+      <label><input type="radio" name="loudly" value="c"> I explain my discomfort.</label>
+    </li>
+    <li>
+      <strong>Let's going a trip with your friends:</strong><br>
+      <label><input type="radio" name="trip" value="a"> Mountain.</label><br>
+      <label><input type="radio" name="trip" value="b"> Beach.</label><br>
+      <label><input type="radio" name="trip" value="c"> No place like home...</label>
+    </li>
+  </ol>
+
+  <button onclick="generarPokemon()">Generar foto de perfil</button><br><br>
+  
+  <div id="pokemonContainer">
+    <!-- Aquí se mostrará el retrato del Pokémon -->
+  </div>
+
+  <script>
+    const legendaryPokemonIds = [144, 145, 146, 150, 151, 243, 244, 245, 249, 250, 251, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 716, 717, 718, 719, 720, 721, 772, 773, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 888, 889, 890, 891, 892];
+
+    function hashString(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) + str.charCodeAt(i);
+        hash = hash & hash;
+      }
+      return Math.abs(hash);
+    }
+
+    function generarPokemon() {
+      const treasure = document.querySelector('input[name="treasure"]:checked').value;
+      const loudly = document.querySelector('input[name="loudly"]:checked').value;
+      const trip = document.querySelector('input[name="trip"]:checked').value;
+
+      // Generar una semilla única basada en las respuestas a las preguntas
+      const seed = hashString(treasure + loudly + trip);
+
+      // Generar IDs de Pokémon a partir de la semilla y descartar los legendarios
+      const pokemonIds = [];
+      let counter = 0;
+      while (pokemonIds.length < 1000 && counter < 5000) { // Intentar hasta obtener 1000 resultados únicos o máximo 5000 intentos
+        const pokemonId = (seed + counter) % 150 + 1;
+        if (!legendaryPokemonIds.includes(pokemonId) && !pokemonIds.includes(pokemonId)) {
+          pokemonIds.push(pokemonId);
+        }
+        counter++;
+      }
+
+      // Mostrar uno de los retratos de Pokémon generados
+      const randomIndex = Math.floor(Math.random() * pokemonIds.length);
+      const pokemonId = pokemonIds[randomIndex];
+      const paddedPokemonId = pokemonId.toString().padStart(4, '0');
+      const pokemonPortraitUrl = `https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/${paddedPokemonId}/Normal.png`;
+      const pokemonContainer = document.getElementById('pokemonContainer');
+      pokemonContainer.innerHTML = `<img src="${pokemonPortraitUrl}" alt="Retrato de Pokémon" class="pokemon-portrait">`;
+    }
+  </script>
+</body>
+</html>

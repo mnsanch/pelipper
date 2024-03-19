@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="title" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descripción de tu sitio web aquí">
+    <meta name="keywords" content="palabras clave, separadas, por, comas">
+    <meta name="author" content="Tu nombre o nombre de tu empresa">
+    <title>design_test_space/header.html</title>
+    <!-- Bootstrap stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+<body>
+
+<div style="height: 40px; width: 40px; margin-left: 4px; margin-right: 4px">
+    <button onclick="toggleDarkMode()" class="circular-button p-0 d-flex justify-content-center align-items-center">
+        <!-- Dark mode icon-->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path class="svg-background-color" d="M9.875 19a9.073 9.073 0 0 1-8.48-5.78 1.094 1.094 0 0 1 .247-1.191 1.145 1.145 0 0 1 1.232-.255c1.13.449 2.361.587 3.564.4A6.89 6.89 0 0 0 12.17 6.44a6.806 6.806 0 0 0-.394-3.564 1.148 1.148 0 0 1 .255-1.231 1.1 1.1 0 0 1 1.193-.248 9.082 9.082 0 0 1 5.746 9.254 9.184 9.184 0 0 1-8.32 8.32 11.93 11.93 0 0 1-.775.028Zm-7.206-5.967A7.871 7.871 0 1 0 13.033 2.668 8.116 8.116 0 0 1 2.669 13.033Z" />
+        </svg>
+        <!-- <svg width="20px" height="20px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji" preserveAspectRatio="xMidYMid meet">
+            <path fill="#FFAC33" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"></path>
+            <circle fill="#FFAC33" cx="18" cy="18" r="10"></circle>
+        </svg> -->
+    </button>
+</div>
+
+
+        <section class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                    <div class="login-container card">
+                        <div class="row g-0">
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <div class="login-banner m-0 p-0"></div>
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5 text-black">
+                                    <form>
+                                        <div class="d-flex align-items-center mb-3 pb-1">
+                                            <img src="images/pelipper_icon.png" width="40" height="40">
+                                            <span class="h1 fw-bold mb-0 mx-2 page-title">log in</span>
+                                        </div>
+
+                                        <h5 class="fw-normal mb-5 pb-3">Sign into your account</h5>
+
+                                        <div class="form-floating mb-4">
+                                            <input type="email" class="form-control form-control-lg login-input" id="floatingInput" placeholder="name@example.com">
+                                            <label class="px-4" for="floatingInput">Email address</label>
+                                        </div>
+                                        <div class="form-floating position-relative">
+                                            <input type="password" class="form-control form-control-lg login-input" id="floatingPassword" placeholder="Password">
+                                            <label class="px-4" for="floatingPassword">Password</label>
+                                            <button type="button" id="togglePassword" class="btn-login-password" onclick="togglePasswordVisibility()">
+                                                <!-- SVG por defecto -->
+                                                <svg id="showIcon" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path class="svg-background-color" d="M1 10c0-3.9 3.1-7 7-7s7 3.1 7 7h-1c0-3.3-2.7-6-6-6s-6 2.7-6 6H1zm4 0c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm1 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        
+                                        
+                                        <div class="mt-4 mb-5 mx-0">
+                                            <button onclick="" class="simple-button login-submit-button p-0 d-flex justify-content-center align-items-center h-100">
+                                                <!-- Iniciar sesion form button -->
+                                                <span>Log in</span>
+                                            </button>
+                                        </div>
+
+                                        <!--<a class="small text-muted" href="#!">Forgot password?</a>-->
+                                        <p class="mb-3 pb-lg-2">Don't have an account? <a href="#!">Register here</a></p>
+                                        <a href="#!" class="small text-muted">Terms of use.</a>
+                                        <a href="#!" class="small text-muted">Privacy policy</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+    <script src="./script_passwordinput.js"></script>
+</body>
+
+</html>

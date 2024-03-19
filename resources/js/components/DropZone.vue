@@ -42,14 +42,17 @@
         </div>
 
         <label for="fileInput" class="file-label text-center" v-if=" !thumbnail && !modelValue">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-image"
-                 viewBox="0 0 16 16">
+
+            <div style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FFFFFF" class="bi bi-image"
+                viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                 <path
                     d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
             </svg>
             <div v-if="isDragging">Release to drop files here.</div>
             <div v-else>Drop files here or <u>click here</u> to upload.</div>
+            </div>
         </label>
     </div>
 </template>
@@ -183,9 +186,8 @@ watch(thumbnail, () => {
 
 <style scoped>
 .dropzone-container {
-    padding: 0rem;
-    background: #f7fafc;
-    border: 1px solid #e2e8f0;
+padding: 5%;
+    background: #EAEDEF;
 }
 
 .hidden-input {
@@ -197,7 +199,8 @@ watch(thumbnail, () => {
 }
 
 .file-label {
-    font-size: 20px;
+margin-top: 0rem  !important;
+    font-size: 14px;
     display: block;
     cursor: pointer;
 }
@@ -209,15 +212,16 @@ watch(thumbnail, () => {
 
 .preview-card {
     display: flex;
-    border: 1px solid #a2a2a2;
+    border: 0px;
     padding: 5px;
     margin-left: 5px;
     object-fit: cover;
 }
 
 .preview-img {
-    height: 100%;
-    width: 100%;
+    padding-top: 0%;
+    height: 70%;
+    width: 70%;
     object-fit: cover;
     border-radius: 5px;
     border: 1px solid #a2a2a2;
