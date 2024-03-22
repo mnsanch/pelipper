@@ -29,6 +29,9 @@ Route::get('pppposts',[pppPostController::class,'index']);
 Route::delete('pppposts/{id}',[pppPostController::class,'destroy']);
 Route::post('pppposts/',[pppPostController::class,'store']);
 Route::put('pppposts/update/{id}',[pppPostController::class,'update']);
+Route::get('ppppost/{id}', [pppPostController::class, 'getPost']);
+Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);
+Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
 
 Route::get('pppcategories',[pppCategory::class,'index']);
 

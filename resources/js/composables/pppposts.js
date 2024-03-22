@@ -24,9 +24,10 @@ export default function usePosts() {
     }
 
     const getPost = async (id) => {
-        axios.get('/api/posts/' + id)
+        axios.get('/api/ppppost/' + id)
             .then(response => {
-                post.value = response.data.data;
+                post.value = response.data;
+                console.log(response.data);
             })
     }
 
@@ -49,7 +50,7 @@ export default function usePosts() {
             }
         })
             .then(response => {
-                router.push({ name: 'prueba.index' })
+                router.push({ name: 'home' })
                 swal({
                     icon: 'success',
                     title: 'Exercise saved successfully'
@@ -69,7 +70,7 @@ export default function usePosts() {
         isLoading.value = true
         validationErrors.value = {}
         console.log(post);
-        axios.put('/api/posts/' + post.id, post)
+        axios.put('/api/pppposts/update/' + post.id, post)
             .then(response => {
                 router.push({name: 'posts.index'})
                 swal({
@@ -119,6 +120,43 @@ export default function usePosts() {
 
     }
 
+    const upvote = async (post) => {
+        if (isLoading.value) return;
+
+        isLoading.value = true
+        validationErrors.value = {}
+        console.log(post);
+        axios.put('/api/pppposts/update/' + post.id, post)
+            .then(response => {
+                console.log('si',response.data.data);
+            })
+            .catch(error => {
+                if (error.response?.data) {
+                    validationErrors.value = error.response.data.errors
+                }
+            })
+            .finally(() => isLoading.value = false)
+    }
+
+    const sumarVoto = async (post) => {
+            axios.put('/api/pppposts/'+post.id+'/upvote')  
+            .then(response => {
+                console.log(response.data.message);
+                post.Upvote++;;
+            })
+    }
+
+    const restarVoto = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/downvote')  
+        .then(response => {
+            console.log(response.data.message);
+            post.Downvote--;;
+        })
+}
+
+    
+    
+
     return {
         posts,
         post,
@@ -128,6 +166,8 @@ export default function usePosts() {
         updatePost,
         deletePost,
         validationErrors,
-        isLoading
+        isLoading,
+        sumarVoto,
+        restarVoto
     }
 }
