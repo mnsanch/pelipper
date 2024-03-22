@@ -4,7 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreExerciseRequest;
+use App\Http\Requests\StorepppPostRequest;
 use App\Models\pppposts;
 use App\Http\Resources\pruebaresource;
 use App\Models\pppcategories;
@@ -16,9 +16,8 @@ class pppPostController extends Controller
 {
     public function index() {
         $posts = pppposts::with('media')->get();
-        return pruebaresource::collection($posts);
-        // $posts = pppposts::all()->toarray();
-        // return $posts;
+        $reversedPosts = $posts->reverse();
+        return pruebaresource::collection($reversedPosts);
     }
 
     public function destroy($id){
@@ -27,7 +26,7 @@ class pppPostController extends Controller
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
-    public function store(StoreExerciseRequest $request) {
+    public function store(StorepppPostRequest $request) {
         // $posts = $request->all();
         // $postscreado = pppposts::create($posts);
         // return response()->json(['success'=>true, 'data'=> $postscreado]);
@@ -47,5 +46,38 @@ class pppPostController extends Controller
         return new pruebaresource($exercise);
 
     }
+
+    public function getPost($id)
+    {
+        return pppposts::findOrFail($id);
+    }
+
+
+    public function update(pppposts $post, StorepppPostRequest $request)
+    {
+
+        
+        if ($post->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('post-all')) {
+            return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own posts']);
+        } else {
+            $post->update($request->validated());
+            //error_log(json_encode($request->categories));
+
+            return new pruebaresource($post);
+        }
+    }
+
+    public function upvote($id) {
+        $post = pppposts::findOrFail($id);
+        $post->increment('Upvote');
+        return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
+    }
+
+    public function downvote($id) {
+        $post = pppposts::findOrFail($id);
+        $post->decrement('Downvote');
+        return response()->json(['status' => 'success', 'message' => 'Downvote count updated successfully']);
+    }
+    
 
 }

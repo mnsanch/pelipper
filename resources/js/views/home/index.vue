@@ -6,9 +6,53 @@
             </div>
         </div>
     </div>
+    <div class="grid">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between pb-2 mb-2">
+                        <h5 class="card-title">Todos los posts</h5>
+                    </div>
+
+                            <div class="mt-5" v-for="(post, index) in posts.data" :key="post.id">
+                                <div>categorias: {{post.ID_Category}}</div> 
+                                <div v-if="post.original_image!==null">  
+                                    <p>imagen:<img :src="post.original_image" alt="image" height="70"></p>
+                                </div>
+                                <div>Title: {{post.Title}}</div>
+                                <div>Post: {{post.Post}}</div>
+                                <div>Upvote: {{post.Upvote}}</div>
+                                <button @click="sumarVoto(post)">
+                                    sumar
+                                </button>
+                                <div>Downvote: {{post.Downvote}}</div>
+                                <button @click="restarVoto(post)">
+                                    restar
+                                </button>
+                                <div>Votos totales: {{ post.Upvote - post.Downvote }}</div>
+                                <div>fecha creacion: {{post.created_at}}</div>
+                            </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
+    import {onMounted} from "vue";
+    import usePosts from "@/composables/pppposts";
+    import useCategories from "@/composables/categories";
+    import {useAbility} from '@casl/vue'
+
+    const {posts, getPosts, sumarVoto, restarVoto} = usePosts()
+    const {categoryList, getCategoryList} = useCategories()
+    const {can} = useAbility();
+    onMounted(() => {
+        getPosts()
+        getCategoryList()
+    })
+    
 </script>
 
 <style scoped>
