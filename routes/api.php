@@ -26,6 +26,7 @@ Route::delete('tasks/{id}',[TaskController::class,'destroy']);
 
 //-------------------------------------
 Route::get('pppposts',[pppPostController::class,'index']);
+Route::get('ppppostsreverse',[pppPostController::class,'indexreverse']);
 Route::delete('pppposts/{id}',[pppPostController::class,'destroy']);
 Route::post('pppposts/',[pppPostController::class,'store']);
 Route::put('pppposts/update/{id}',[pppPostController::class,'update']);
@@ -34,6 +35,9 @@ Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);
 Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
 
 Route::get('pppcategories',[pppCategory::class,'index']);
+
+Route::get('avatar/{id}',[UserController::class,'getAvatar']);
+Route::get('id',[UserController::class,'getID']);
 
 
 //-----------------------------------------
