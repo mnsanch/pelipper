@@ -79,11 +79,19 @@ class AuthenticatedSessionController extends Controller
         if ($user) {
             return response(['error' => 1, 'message' => 'user already exists'], 409);
         }
-
+        $hola=rand(1, 150);
+        if ($hola < 10) {
+            $resultado = '000' . str($hola);
+        } elseif ($hola < 100) {
+            $resultado = '00' . str($hola);
+        } else {
+            $resultado = '0' . str($hola);
+        }
         $user = User::create([
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'name' => $request['name'],
+            'avatar' => $resultado,
         ]);
 
         return $this->successResponse($user, 'Registration Successfully');

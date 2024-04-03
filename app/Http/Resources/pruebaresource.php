@@ -29,10 +29,13 @@ class pruebaresource extends JsonResource
         return [
             'id' => $this->id,
             'Title' => $this->Title,
-            // 'ID_Category' => $this->ID_Category,
+            // 'ID_Category' => $this->categories,
+            'ID_User' => $this->ID_User,
+            'Usuario' => $this->nombre_usuario,
             'Post' => $this->Post,
             'Upvote' => $this->Upvote,
             'Downvote' => $this->Downvote,
+            'Avatar' => $this->Avatar,
             'original_image' => count($this->getMedia('*')) > 0 ? $this->getMedia('*')[0]->getUrl() : null,
             'resized_image' => $resized_image,
             'created_at' => $this->created_at?->toDateString()

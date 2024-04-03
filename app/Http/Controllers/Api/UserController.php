@@ -120,4 +120,22 @@ class UserController extends Controller
 
         return response()->noContent();
     }
+
+    public function getAvatar($id)
+    {
+        $user = User::findOrFail($id);
+        return $user->avatar;
+    }
+
+    public function getID()
+    {
+        $userId = auth()->id(); // Obtener el ID del usuario autenticado
+        return response()->json(['userId' => $userId]);
+    }
+
+    public function getNombre($id)
+    {
+        $user = User::findOrFail($id);
+        return $user->name;
+    }
 }
