@@ -54,7 +54,6 @@
     import {onMounted, ref} from "vue";
     import usePosts from "@/composables/pppposts";
     import useCategories from "@/composables/categories";
-    import AppSidebar from '../../layouts/AppSidebarhome.vue';
 
     import {useAbility} from '@casl/vue'
 
