@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Models\pppposts;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -113,12 +114,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $this->authorize('user-delete');
+        $posts = pppposts::where('ID_User', $id)->get();
+        // return $posts;
+        foreach ($posts as $post) {
+            $post->delete();
+        }
+        $user = User::find($id);
+        // $this->authorize('user-delete');
         $user->delete();
 
-        return response()->noContent();
+        return response()->json(['success'=>true, 'data'=> 'usurio eliminado']);
     }
 
     public function getAvatar($id)
@@ -129,7 +136,7 @@ class UserController extends Controller
 
     public function getID()
     {
-        $userId = auth()->id(); // Obtener el ID del usuario autenticado
+        $userId = auth()->id(); 
         return response()->json(['userId' => $userId]);
     }
 

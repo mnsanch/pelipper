@@ -101,6 +101,7 @@
                                     <li><router-link to="/admin/posts" class="dropdown-item">Post</router-link></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a></li>
+                                    <li><a href="#" class="ms-2 badge bg-danger" @click="deleteuser(userId)">Delete</a></li>
                                 </ul>
                             </li>
                         </div>
