@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('pppussers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ID_Avatar');
-            $table->foreign('ID_Avatar')->references('id')->on('pppavatars')->onDelete('cascade');
             $table->unsignedBigInteger('ID_Rol');
             $table->foreign('ID_Rol')->references('id')->on('ppprols')->onDelete('cascade');
             $table->string('Username');
             $table->string('Mail')->unique();
+            $table->unsignedBigInteger('avatar');
             $table->timestamps();
         });
     }

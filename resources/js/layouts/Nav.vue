@@ -90,7 +90,11 @@
                             <!-- Profile picture example -->
                             <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown"
                                 style="background-color: white">
-                                <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class=" nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white"/>
+                                <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
+
 
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><router-link class="dropdown-item" to="/admin">Admin</router-link></li>
@@ -112,10 +116,28 @@
 <script setup>
 import { useStore} from "vuex";
 import useAuth from "@/composables/auth";
-import {computed} from "vue";
+import {computed, onMounted, ref} from "vue";
+import axios from "axios";
 import LocaleSwitcher from "../components/LocaleSwitcher.vue";
 
     const store = useStore();
     const user = computed(() => store.getters["auth/user"])
     const { processing, logout } = useAuth();
+    let numero = ref(0);
+
+
+    
+    onMounted(() => {
+
+    axios.get('/api/id')
+    .then(response => {
+        const $userId = response.data.userId;
+        // Ahora, puedes usar userId en tu solicitud para obtener el avatar
+        axios.get(`/api/avatar/${$userId}`)
+            .then(response => {
+                console.log(response.data);
+                numero.value = response.data;
+            });
+    })
+});
 </script>

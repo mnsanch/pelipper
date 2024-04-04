@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorepppPostRequest;
 use App\Models\pppposts;
+use App\Models\User;
 use App\Http\Resources\pruebaresource;
 use App\Models\pppcategories;
 
@@ -14,8 +15,25 @@ use App\Models\pppcategories;
 
 class pppPostController extends Controller
 {
-    public function index() {
+    public function index()
+    {
+        $posts = pppposts::with(['media', 'user'])->get();
+    
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+        }
+        
+        return pruebaresource::collection($posts);
+    }
+    
+    
+    public function indexreverse() {
         $posts = pppposts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+        }
         $reversedPosts = $posts->reverse();
         return pruebaresource::collection($reversedPosts);
     }
@@ -27,10 +45,6 @@ class pppPostController extends Controller
     }
 
     public function store(StorepppPostRequest $request) {
-        // $posts = $request->all();
-        // $postscreado = pppposts::create($posts);
-        // return response()->json(['success'=>true, 'data'=> $postscreado]);
-
         $this->authorize('exercise-create');
 
         $validatedData = $request->validated();

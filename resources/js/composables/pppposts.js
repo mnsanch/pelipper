@@ -14,8 +14,17 @@ export default function usePosts() {
     const isLoading = ref(false)
     const swal = inject('$swal')
 
-    const getPosts = async () => {
-        axios.get('/api/pppposts')
+        const getPosts = async () => {
+            axios.get('/api/pppposts')
+            .then(response => {
+                posts.value = response.data;
+                console.log(response);
+                console.log(response.data);
+            })
+        }
+
+    const getreversePosts = async () => {
+        axios.get('/api/ppppostsreverse')
         .then(response => {
             posts.value = response.data;
             console.log(response);
@@ -120,6 +129,39 @@ export default function usePosts() {
 
     }
 
+    const deletePosthome = async (id) => {
+        swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this action!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            confirmButtonColor: '#ef4444',
+            timer: 20000,
+            timerProgressBar: true,
+            reverseButtons: true
+        })
+            .then(result => {
+                if (result.isConfirmed) {
+                    axios.delete('/api/pppposts/' + id)
+                        .then(response => {
+                            getPosts()
+                            swal({
+                                icon: 'success',
+                                title: 'Post deleted successfully'
+                            })
+                        })
+                        .catch(error => {
+                            swal({
+                                icon: 'error',
+                                title: 'Something went wrong'
+                            })
+                        })
+                }
+            })
+
+    }
+
     const upvote = async (post) => {
         if (isLoading.value) return;
 
@@ -161,10 +203,12 @@ export default function usePosts() {
         posts,
         post,
         getPosts,
+        getreversePosts,
         getPost,
         storePost,
         updatePost,
         deletePost,
+        deletePosthome,
         validationErrors,
         isLoading,
         sumarVoto,

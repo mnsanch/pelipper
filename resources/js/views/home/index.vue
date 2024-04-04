@@ -13,12 +13,20 @@
                     <div class="d-flex justify-content-between pb-2 mb-2">
                         <h5 class="card-title">Todos los posts</h5>
                     </div>
-
+                    <label for="orden">Orden:</label>
+                    <select name="orden" id="orden" @change="handleOrdenChange">
+                    <option value="ultimo">ultimo</option>
+                    <option value="primero">primero</option>
+                    </select>
                             <div class="mt-5" v-for="(post, index) in posts.data" :key="post.id">
                                 <div>categorias: {{post.ID_Category}}</div> 
                                 <div v-if="post.original_image!==null">  
                                     <p>imagen:<img :src="post.original_image" alt="image" height="70"></p>
                                 </div>
+                                <div>Avatar: 
+                                    <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white"/>
+                                </div>
+                                <div>Nombre: {{post.Usuario}}</div>
                                 <div>Title: {{post.Title}}</div>
                                 <div>Post: {{post.Post}}</div>
                                 <div>Upvote: {{post.Upvote}}</div>
@@ -29,28 +37,50 @@
                                 <button @click="restarVoto(post)">
                                     restar
                                 </button>
-                                <div>Votos totales: {{ post.Upvote - post.Downvote }}</div>
+                                <div>Votos totales: {{ post.Upvote + post.Downvote }}</div>
                                 <div>fecha creacion: {{post.created_at}}</div>
+                                <div>fecha d: {{post.ID_User }}</div>
+                                <a href="#" v-if="post.ID_User==id" @click="deletePosthome(post.id)"
+                                       class="ms-2 badge bg-danger">Delete</a>
                             </div>
 
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
 </template>
 
 <script setup>
-    import {onMounted} from "vue";
+    import {onMounted, ref} from "vue";
     import usePosts from "@/composables/pppposts";
     import useCategories from "@/composables/categories";
+
     import {useAbility} from '@casl/vue'
 
-    const {posts, getPosts, sumarVoto, restarVoto} = usePosts()
+    const {posts, getPosts, getreversePosts, sumarVoto, restarVoto, deletePosthome} = usePosts()
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
+
+    let id = ref(0);
+
+    const handleOrdenChange = (event) => {
+        const selectedOption = event.target.value;
+        if (selectedOption === "primero") {
+            getreversePosts();
+        }else if(selectedOption === "ultimo") {
+            getPosts();
+        }
+    }
+
     onMounted(() => {
-        getPosts()
+        axios.get('/api/id')
+        .then(response => {
+            id = response.data.userId;
+        })
+        .then(getPosts())
         getCategoryList()
+
+        
     })
     
 </script>
