@@ -117,28 +117,70 @@
 <script setup>
 import { useStore} from "vuex";
 import useAuth from "@/composables/auth";
-import {computed, onMounted, ref} from "vue";
+import {computed, onMounted, ref, inject} from "vue";
 import axios from "axios";
 import LocaleSwitcher from "../components/LocaleSwitcher.vue";
+import { useRouter } from 'vue-router'
 
     const store = useStore();
     const user = computed(() => store.getters["auth/user"])
     const { processing, logout } = useAuth();
     let numero = ref(0);
+    let userId = ref(0);
+    const swal = inject('$swal')
+    const router = useRouter()
 
+    const deleteuser = (userId) => {
+        console.log(userId);
+    swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this action!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            confirmButtonColor: '#ef4444',
+            timer: 20000,
+            timerProgressBar: true,
+            reverseButtons: true
+        }) 
+        .then(result => {
+                if (result.isConfirmed) {
+                    console.log(userId);
+                    axios.delete('/api/deleteuser/'+ userId)
+                        .then(response => {
+                            swal({
+                                icon: 'success',
+                                title: 'Post deleted successfully'
+                            })
+                            router.push({name: 'home'})
+                            location.reload();
+                        })
+                        .catch(error => {
+                            swal({
+                                icon: 'error',
+                                title: 'Something went wrong'
+                            })
+                        })
 
+                }
+            })
+            
+};
     
     onMounted(() => {
 
     axios.get('/api/id')
     .then(response => {
-        const $userId = response.data.userId;
+        userId = response.data.userId;
         // Ahora, puedes usar userId en tu solicitud para obtener el avatar
-        axios.get(`/api/avatar/${$userId}`)
+        axios.get('/api/avatar/' + userId)
             .then(response => {
                 console.log(response.data);
+                console.log(userId);
                 numero.value = response.data;
             });
     })
+
+    
 });
 </script>

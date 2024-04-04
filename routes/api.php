@@ -36,7 +36,7 @@ Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
 
 Route::get('pppcategories',[pppCategory::class,'index']);
 
-Route::delete('user/{id}',[UserController::class,'destroy']); 
+Route::delete('deleteuser/{id}',[UserController::class,'destroy']); 
 Route::get('avatar/{id}',[UserController::class,'getAvatar']);
 Route::get('id',[UserController::class,'getID']);
 
