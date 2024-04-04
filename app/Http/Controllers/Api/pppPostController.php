@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorepppPostRequest;
 use App\Models\pppposts;
+use App\Models\User;
 use App\Http\Resources\pruebaresource;
 use App\Models\pppcategories;
 
@@ -14,19 +15,25 @@ use App\Models\pppcategories;
 
 class pppPostController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $posts = pppposts::with(['media', 'user'])->get();
     
         foreach ($posts as $post) {
-            $post->Avatar = (new UserController())->getAvatar($post->ID_User); 
-            $post->nombre_usuario = (new UserController())->getNombre($post->ID_User); 
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
         }
         
         return pruebaresource::collection($posts);
     }
     
+    
     public function indexreverse() {
         $posts = pppposts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+        }
         $reversedPosts = $posts->reverse();
         return pruebaresource::collection($reversedPosts);
     }
