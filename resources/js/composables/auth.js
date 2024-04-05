@@ -57,6 +57,7 @@ export default function useAuth() {
                     timer: 1500
                 })
                 await router.push({ name: 'home' })
+                location.reload();
             })
             .catch(error => {
                 if (error.response?.data) {
@@ -163,7 +164,7 @@ export default function useAuth() {
                 user.name = ''
                 user.email = ''
                 store.dispatch('auth/logout')
-                router.push({ name: 'auth.login' })
+                router.push({ name: 'home' })
             })
             .catch(error => {
                 // swal({

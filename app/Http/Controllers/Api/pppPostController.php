@@ -45,8 +45,6 @@ class pppPostController extends Controller
     }
 
     public function store(StorepppPostRequest $request) {
-        $this->authorize('exercise-create');
-
         $validatedData = $request->validated();
         $validatedData['ID_User'] = auth()->id();   
         $exercise = pppposts::create($validatedData);

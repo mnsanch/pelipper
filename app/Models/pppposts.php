@@ -18,9 +18,11 @@ class pppposts extends Model implements HasMedia
         'Post'
     ];
 
+    protected $table = 'pppposts';
+
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'ID_User');
     }
     public function categories()
     {

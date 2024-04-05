@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pppposts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('ID_User');
-            $table->foreign('ID_User')->references('id')->on('pppussers')->onDelete('cascade');
+            $table->foreign('ID_User')->references('id')->on('users')->onDelete('cascade');
             $table->string('Title');
             $table->string('Post');
             $table->integer('Upvote')->default(0);
