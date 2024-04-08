@@ -5,7 +5,7 @@
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
                 <div class="col-2 p-0 container-fluid d-flex flex-row align-items-center" style="height: 6dvh">
                     <router-link to="/" class="navbar-brand logo">
-                        <img src="images/logo.png" width="115" height="34">
+                        <img src="images/logo_pelipper_claro.svg" width="115" height="34">
                     </router-link>
                 </div>
                 <ul class="col-1 navbar-nav mt-2 mt-lg-0 me-auto mb-2 mb-lg-0">

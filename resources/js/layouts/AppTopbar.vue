@@ -1,7 +1,7 @@
 <template>
     <div class="layout-topbar">
         <router-link to="/" class="layout-topbar-logo">
-            <img src="/images/logo.png" alt="logo" />
+            <img src="/images/logo_pelipper_claro.svg" alt="logo" />
             <span></span>
         </router-link>
 
