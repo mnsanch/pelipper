@@ -32,6 +32,42 @@ export default function usePosts() {
         })
     }
 
+    const getPostsbestrated = async () => {
+        axios.get('/api/ppppostsmasupvote')
+        .then(response => {
+            posts.value = response.data;
+            console.log(response);
+            console.log(response.data);
+        })
+    }
+
+    const getPostslowestrated = async () => {
+        axios.get('/api/ppppostsmasdownvote')
+        .then(response => {
+            posts.value = response.data;
+            console.log(response);
+            console.log(response.data);
+        })
+    }
+
+    const getPostsmostnegativevotes = async () => {
+        axios.get('/api/ppppostsmasodiado')
+        .then(response => {
+            posts.value = response.data;
+            console.log(response);
+            console.log(response.data);
+        })
+    }
+
+    const getPostsmostvoted = async () => {
+        axios.get('/api/ppppostsmasvotado')
+        .then(response => {
+            posts.value = response.data;
+            console.log(response);
+            console.log(response.data);
+        })
+    }
+
     const getPost = async (id) => {
         axios.get('/api/ppppost/' + id)
             .then(response => {
@@ -185,6 +221,7 @@ export default function usePosts() {
             .then(response => {
                 console.log(response.data.message);
                 post.Upvote++;;
+                post.Totalvotes++;;
             })
     }
 
@@ -193,6 +230,7 @@ export default function usePosts() {
         .then(response => {
             console.log(response.data.message);
             post.Downvote--;;
+            post.Totalvotes--;;
         })
 }
 
@@ -204,6 +242,10 @@ export default function usePosts() {
         post,
         getPosts,
         getreversePosts,
+        getPostsbestrated,
+        getPostslowestrated,
+        getPostsmostnegativevotes,
+        getPostsmostvoted,
         getPost,
         storePost,
         updatePost,

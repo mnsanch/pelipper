@@ -13,10 +13,14 @@
                     <div class="d-flex justify-content-between pb-2 mb-2">
                         <h5 class="card-title">Todos los posts</h5>
                     </div>
-                    <label for="orden">Orden:</label>
+                    <label for="orden" class="me-2">Orden:</label>
                     <select name="orden" id="orden" @change="handleOrdenChange">
-                    <option value="ultimo">ultimo</option>
-                    <option value="primero">primero</option>
+                    <option value="ultimo">Mas reciente</option>
+                    <option value="primero">Mas antiguo</option>
+                    <option value="positivo">Mejor valorado</option>
+                    <option value="negativo">Menor valorado</option>
+                    <option value="negativonegativo">Mas votos negativos</option>
+                    <option value="votado">Mas Votado</option>
                     </select>
                             <div class="mt-5" v-for="(post, index) in posts.data" :key="post.id">
                                 <div>categorias: {{post.ID_Category}}</div> 
@@ -37,9 +41,8 @@
                                 <button @click="restarVoto(post)">
                                     restar
                                 </button>
-                                <div>Votos totales: {{ post.Upvote + post.Downvote }}</div>
+                                <div>Votos totales: {{ post.Totalvotes }}</div>
                                 <div>fecha creacion: {{post.created_at}}</div>
-                                <div>fecha d: {{post.ID_User }}</div>
                                 <a href="#" v-if="post.ID_User==id" @click="deletePosthome(post.id)"
                                        class="ms-2 badge bg-danger">Delete</a>
                             </div>
@@ -57,7 +60,7 @@
 
     import {useAbility} from '@casl/vue'
 
-    const {posts, getPosts, getreversePosts, sumarVoto, restarVoto, deletePosthome} = usePosts()
+    const {posts, getPosts, getreversePosts, getPostsbestrated, getPostslowestrated, getPostsmostnegativevotes, getPostsmostvoted, sumarVoto, restarVoto, deletePosthome} = usePosts()
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
 
@@ -65,10 +68,18 @@
 
     const handleOrdenChange = (event) => {
         const selectedOption = event.target.value;
-        if (selectedOption === "primero") {
+        if (selectedOption === "ultimo") {
             getreversePosts();
-        }else if(selectedOption === "ultimo") {
+        }else if(selectedOption === "primero") {
             getPosts();
+        }else if(selectedOption === "positivo") {
+            getPostsbestrated();
+        }else if(selectedOption === "negativo") {
+            getPostslowestrated();
+        }else if(selectedOption === "negativonegativo") {
+            getPostsmostnegativevotes();
+        }else if(selectedOption === "votado") {
+            getPostsmostvoted();
         }
     }
 
@@ -77,7 +88,7 @@
         .then(response => {
             id = response.data.userId;
         })
-        .then(getPosts())
+        .then(getreversePosts())
         getCategoryList()
 
         

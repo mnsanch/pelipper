@@ -21,7 +21,8 @@ class pppPostController extends Controller
     
         foreach ($posts as $post) {
             $post->Avatar = $post->user->avatar; 
-            $post->nombre_usuario = $post->user->name; 
+            $post->nombre_usuario = $post->user->name;
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
         
         return pruebaresource::collection($posts);
@@ -33,10 +34,59 @@ class pppPostController extends Controller
         foreach ($posts as $post) {
             $post->Avatar = $post->user->avatar; 
             $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
         $reversedPosts = $posts->reverse();
         return pruebaresource::collection($reversedPosts);
     }
+
+    public function indexpositivo() {
+        $posts = pppposts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        }
+        $posts = $posts->sortByDesc('Totalvotes');
+        
+        return pruebaresource::collection($posts);
+    } 
+
+    public function indexnegativo() {
+        $posts = pppposts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        }
+        $posts = $posts->sortBy('Totalvotes');
+        
+        return pruebaresource::collection($posts);
+    } 
+
+    public function indexodiado() {
+        $posts = pppposts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        }
+        $posts = $posts->sortBy('Downvote');
+        
+        return pruebaresource::collection($posts);
+    } 
+    public function indexvotado() {
+        $posts = pppposts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+            $post->Globalvotes = (($post->Upvote) - ($post->Downvote)); 
+        }
+        $posts = $posts->sortByDesc('Globalvotes');
+        
+        return pruebaresource::collection($posts);
+    } 
 
     public function destroy($id){
         $posts = pppposts::find($id);
