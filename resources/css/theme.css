@@ -8,6 +8,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+.puto-avatar {
+    width:28px !important;
+    height:28px !important;
+    padding: 0% !important;
+    margin: 0% !important
+}
 
 :root {
     --switchcolor-background: #FFFFFF;
