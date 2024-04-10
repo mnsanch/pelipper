@@ -21,9 +21,6 @@
                 <i class="pi pi-user"></i>
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-sm">
                     <li>
-                        <router-link :to="{ name: 'profile.index' }" class="dropdown-item">Perfil</router-link>
-                    </li>
-                    <li>
                         <a class="dropdown-item" href="#">Preferencias</a>
                     </li>
                     <li>

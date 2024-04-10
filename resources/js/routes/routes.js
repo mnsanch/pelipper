@@ -15,6 +15,9 @@ const TasksCreate  = ()  => import('../views/admin/tasks/Create.vue');
 const Prueba  = ()  => import('../views/admin/prueba/Index.vue');
 const PruebaCreate  = ()  => import('../views/admin/prueba/Create.vue');
 const PruebaEdit  = ()  => import('../views/admin/prueba/Edit.vue');
+const Perfil  = ()  => import('../views/profile/index.vue');
+const PerfilEdit  = ()  => import('../views/profile/edit.vue');
+
 
 
 
@@ -91,6 +94,18 @@ export default [
                 component: () => import('../views/auth/passwords/Reset.vue'),
                 beforeEnter: guest,
             },
+            {
+                name: 'perfil.index',
+                path: 'profile',
+                component: Perfil,
+                meta: { breadCrumb: 'Profile' }
+            },
+            {
+                name: 'perfil.edit',
+                path: 'perfil.edit',
+                component: PerfilEdit,
+                meta: { breadCrumb: 'Profile' }
+            },
         ]
     },
     {
@@ -107,12 +122,6 @@ export default [
                 path: '',
                 component: () => import('../views/admin/index.vue'),
                 meta: { breadCrumb: 'Admin' }
-            },
-            {
-                name: 'profile.index',
-                path: 'profile',
-                component: () => import('../views/admin/profile/index.vue'),
-                meta: { breadCrumb: 'Profile' }
             },
             {
                 name: 'posts.index',

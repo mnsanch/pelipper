@@ -101,7 +101,7 @@
                                     <li><router-link to="/admin/posts" class="dropdown-item">Post</router-link></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a></li>
-                                    <li><a href="#" class="ms-2 badge bg-danger" @click="deleteuser(userId)">Delete</a></li>
+                                    <router-link :to="{ name: 'perfil.index' }" class="dropdown-item">Perfil</router-link>
                                 </ul>
                             </li>
                         </div>
@@ -130,42 +130,6 @@ import { useRouter } from 'vue-router'
     const swal = inject('$swal')
     const router = useRouter()
 
-    const deleteuser = (userId) => {
-        console.log(userId);
-    swal({
-            title: 'Are you sure?',
-            text: 'You won\'t be able to revert this action!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            confirmButtonColor: '#ef4444',
-            timer: 20000,
-            timerProgressBar: true,
-            reverseButtons: true
-        }) 
-        .then(result => {
-                if (result.isConfirmed) {
-                    console.log(userId);
-                    axios.delete('/api/deleteuser/'+ userId)
-                        .then(response => {
-                            swal({
-                                icon: 'success',
-                                title: 'Post deleted successfully'
-                            })
-                            router.push({name: 'home'})
-                            location.reload();
-                        })
-                        .catch(error => {
-                            swal({
-                                icon: 'error',
-                                title: 'Something went wrong'
-                            })
-                        })
-
-                }
-            })
-            
-};
     
     onMounted(() => {
 
