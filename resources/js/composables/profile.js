@@ -31,7 +31,7 @@ export default function useProfile() {
             .then(({data}) => {
                 if (data.success) {
                     store.commit('auth/SET_USER', data.data)
-                    // router.push({name: 'profile.index'})
+                    router.push({name: 'perfil.index'})
                     swal({
                         icon: 'success',
                         title: 'Profile updated successfully'
