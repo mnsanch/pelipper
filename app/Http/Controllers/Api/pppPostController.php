@@ -88,6 +88,22 @@ class pppPostController extends Controller
         return pruebaresource::collection($posts);
     } 
 
+    public function indexusuario($id)
+    {
+        $posts = pppposts::with(['media', 'user'])->get();
+        $postsuser = [];
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name;
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+            if ($post->ID_User==$id) {
+                array_push($postsuser, $post);
+            }
+        }
+        
+        return pruebaresource::collection($postsuser);
+    }
+
     public function destroy($id){
         $posts = pppposts::find($id);
         $posts->delete();

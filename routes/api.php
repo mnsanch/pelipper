@@ -37,6 +37,8 @@ Route::put('pppposts/update/{id}',[pppPostController::class,'update']);
 Route::get('ppppost/{id}', [pppPostController::class, 'getPost']);
 Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);
 Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
+Route::get('pppposts/{id}',[pppPostController::class,'indexusuario']);
+
 
 Route::get('pppcategories',[pppCategory::class,'index']);
 
