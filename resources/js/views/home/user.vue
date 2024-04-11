@@ -239,7 +239,7 @@
 
                             </button>
                         </div>
-                        <a href="#" v-if="post.ID_User==id" @click="deletePosthome(post.id)"class="ms-2 badge bg-danger">Delete</a>
+                        <a href="#" v-if="post.ID_User==user.id" @click="deletePosthome(post.id)"class="ms-2 badge bg-danger">Delete</a>
                     </div>
                     <hr style="width: 100%; margin-top: 8px; margin-bottom: 8px">
                 </div>
@@ -392,10 +392,12 @@ background-color: rgb(63, 111, 255);
 }
 </style>
 <script setup>
-    import {onMounted, ref} from "vue";
+    import {onMounted, ref, computed} from "vue";
     import usePosts from "@/composables/pppposts";
     import useCategories from "@/composables/categories";
     import { useRoute } from "vue-router";
+    import { useStore } from 'vuex';
+
 
 
     import {useAbility} from '@casl/vue'
@@ -405,8 +407,8 @@ background-color: rgb(63, 111, 255);
     const {can} = useAbility();
     const route = useRoute()
 
-
-    let id = ref(0);
+    const store = useStore();
+    const user = computed(() => store.state.auth.user)
 
     const handleOrdenChange = (event) => {
         const selectedOption = event.target.value;
@@ -426,12 +428,7 @@ background-color: rgb(63, 111, 255);
     }
 
     onMounted(() => {
-        console.log(route.params.id);
-        axios.get('/api/id')
-        .then(response => {
-            id = response.data.userId;
-        })
-        .then(getPostsuser(route.params.id))
+        getPostsuser(route.params.id)
         getCategoryList()
 
 
