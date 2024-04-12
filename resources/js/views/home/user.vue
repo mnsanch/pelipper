@@ -196,8 +196,7 @@
                 <div style="width: auto; padding: 20px; border-radius: 16px;" class="post-bg "  v-for="(post, index) in posts.data" :key="post.id">
                     <div class="d-flex align-items-center post-user-data" style="flex-direction: row; align-items: flex-start; margin-bottom: 16px">
                         <div style="border-radius:90px; padding: 0% !important" class="p-0">
-                            <a href="k" class="small text-muted">Privacy policy</a>
-                            <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture w-40 h-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle"/>
+                            <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle"/>
                         </div>
                         <span class="mx-2 post-user-data">{{post.Usuario}}</span>
                         <span> · </span>
