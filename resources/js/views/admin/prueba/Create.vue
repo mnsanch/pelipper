@@ -111,9 +111,9 @@ defineRule('max', max);
 const dropZoneActive = ref(true)
 
 const schema = {
-    // Title: 'required|min:5',
+    Title: 'required',
     Post: 'required|min:3|max:300',
-    //categories: 'required'
+    categories: 'required'
 }
 const {validate, errors} = useForm({validationSchema: schema})
 const {value: Title} = useField('Title', null, {initialValue: ''});

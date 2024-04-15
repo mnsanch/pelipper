@@ -126,7 +126,7 @@ export default function usePosts() {
         console.log(post);
         axios.put('/api/pppposts/update/' + post.id, post)
             .then(response => {
-                router.push({name: 'posts.index'})
+                router.push({name: 'home'})
                 swal({
                     icon: 'success',
                     title: 'Post updated successfully'

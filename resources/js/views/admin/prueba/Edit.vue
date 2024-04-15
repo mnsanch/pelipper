@@ -112,22 +112,22 @@
 
     // Define a validation schema
     const schema = {
-    // Title: 'required|min:5',
+    Title: 'required',
     Post: 'required|min:3|max:300',
-    //categories: 'required'
+    ID_Category: 'required'
 }
     // Create a form context with the validation schema
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
     // Define actual fields for validation
     const { value: Title } = useField('Title', null, { initialValue: '' });
     const { value: Post } = useField('Post', null, { initialValue: '' });
-    const { value: categories } = useField('categories', null, { initialValue: '', label: 'category' });
+    const { value: ID_Category } = useField('ID_Category', null, { initialValue: '', label: 'category' });
     const { categoryList, getCategoryList } = useCategories()
     const { post: postData, getPost, updatePost, validationErrors, isLoading } = usePosts()
     const post = reactive({
         Title,
         Post,
-        categories,
+        ID_Category,
         thumbnail: ''
     })
     const route = useRoute()
@@ -146,6 +146,6 @@
         post.Title = postData.value.Title
         post.Post = postData.value.Post
         post.thumbnail = postData.value.original_image
-        // post.categories = postData.value.categories
+        // post.ID_Category = postData.value.ID_Category
     })
 </script>
