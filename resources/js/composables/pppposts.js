@@ -71,8 +71,8 @@ export default function usePosts() {
     const getPost = async (id) => {
         axios.get('/api/ppppost/' + id)
             .then(response => {
-                post.value = response.data;
-                console.log(response.data);
+                post.value = response.data.data;
+                console.log(response.data.data);
             })
     }
 

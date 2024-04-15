@@ -103,18 +103,19 @@
     import useCategories from "@/composables/categories";
     import usePosts from "@/composables/pppposts";
     import { useForm, useField, defineRule } from "vee-validate";
-    import { required, min } from "@/validation/rules"
+    import { required, min, max } from "@/validation/rules"
     import TextEditorComponent from "@/components/TextEditorComponent.vue";
     import DropZone from "@/components/DropZone.vue";
     defineRule('required', required)
     defineRule('min', min);
+    defineRule('max', max);
 
     // Define a validation schema
     const schema = {
-        Title: 'required|min:5',
-        Post: 'required|min:50',
-        categories: 'required'
-    }
+    // Title: 'required|min:5',
+    Post: 'required|min:3|max:300',
+    //categories: 'required'
+}
     // Create a form context with the validation schema
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
     // Define actual fields for validation
@@ -136,6 +137,8 @@
     onMounted(() => {
         getPost(route.params.id)
         getCategoryList()
+        console.log(route.params.id);
+        console.log(route.params.id);
     })
     // https://vuejs.org/api/reactivity-core.html#watcheffect
     watchEffect(() => {
@@ -143,6 +146,6 @@
         post.Title = postData.value.Title
         post.Post = postData.value.Post
         post.thumbnail = postData.value.original_image
-        post.categories = postData.value.categories
+        // post.categories = postData.value.categories
     })
 </script>

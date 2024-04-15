@@ -127,7 +127,10 @@ class pppPostController extends Controller
 
     public function getPost($id)
     {
-        return pppposts::findOrFail($id);
+        $post= pppposts::with(['media'])->findOrFail($id);
+        return new pruebaresource($post);
+
+        
     }
 
 

@@ -182,7 +182,7 @@ export default [
                     },
                     {
                         name: 'prueba.edit',
-                        path: 'edit',
+                        path: 'edit:id',
                         component: PruebaEdit,
                         meta: { breadCrumb: 'Editar pruebas' }
                     }
