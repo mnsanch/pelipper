@@ -127,25 +127,29 @@ class pppPostController extends Controller
 
     public function getPost($id)
     {
-        $post= pppposts::with(['media'])->findOrFail($id);
+        $post = pppposts::findOrFail($id);
         return new pruebaresource($post);
 
         
     }
 
 
-    public function update(pppposts $post, StorepppPostRequest $request)
+    public function update( $id, StorepppPostRequest $request)
     {
-
-        
-        if ($post->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('post-all')) {
-            return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own posts']);
-        } else {
+        $post = pppposts::find($id);
             $post->update($request->validated());
-            //error_log(json_encode($request->categories));
 
             return new pruebaresource($post);
-        }
+            
+        
+        // if ($post->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('post-all')) {
+        //     return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own posts']);
+        // } else {
+        //     $post->update($request->validated());
+        //     //error_log(json_encode($request->categories));
+
+        //     return $post;
+        // }
     }
 
     public function upvote($id) {

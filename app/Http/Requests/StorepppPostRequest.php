@@ -26,7 +26,6 @@ class StorepppPostRequest extends FormRequest
         return [
             'Title' => 'required',
             'Post' => 'required',
-            'Upvote' => 'integer'
         ];
     }
 }
