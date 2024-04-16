@@ -161,9 +161,12 @@
                         </div>
 
                         <!-- Post content -->
-                        <div>
+                        <div style="height: fit-content !important">
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
+                            <div class="p-0 d-flex align-items-center justify-content-center" style="border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color:aquamarine"  v-if="(post.original_image!=null)"> 
+                                <img :src='post.original_image' style="max-width: 100%; max-height: 500px !important">
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-between">
