@@ -125,8 +125,8 @@ import { useRouter } from 'vue-router'
     const store = useStore();
     const user = computed(() => store.getters["auth/user"])
     const { processing, logout } = useAuth();
-    let numero = ref(0);
-    let userId = ref(0);
+    const numero = ref(0);
+    const userId = ref('');
     const swal = inject('$swal')
     const router = useRouter()
 
@@ -135,9 +135,9 @@ import { useRouter } from 'vue-router'
 
     axios.get('/api/id')
     .then(response => {
-        userId = response.data.userId;
+        userId.value = response.data;
         // Ahora, puedes usar userId en tu solicitud para obtener el avatar
-        axios.get('/api/avatar/' + userId)
+        axios.get('/api/avatar/' + userId.value)
             .then(response => {
                 console.log(response.data);
                 console.log(userId);
