@@ -137,7 +137,7 @@ class UserController extends Controller
     public function getID()
     {
         $userId = auth()->id(); 
-        return response()->json(['userId' => $userId]);
+        return $userId;
     }
 
     public function getNombre($id)
