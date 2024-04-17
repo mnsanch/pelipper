@@ -113,43 +113,36 @@ class pppPostController extends Controller
     public function store(StorepppPostRequest $request) {
         $validatedData = $request->validated();
         $validatedData['ID_User'] = auth()->id();   
-        $exercise = pppposts::create($validatedData);
-        // $categories = explode(",", $request->ID_Category);
-        // $category = pppcategories::findMany($categories);
-        // $exercise->categories()->attach($category);
+        $post = pppposts::create($validatedData);
+        $categories = explode(",", $request->ID_Category);
+        $category = pppcategories::findMany($categories);
+        $post->categories()->attach($category);
         if ($request->hasFile('thumbnail')) {
-            $exercise->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
+            $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
         }
-        var_dump($exercise);
-        return new pruebaresource($exercise);
+        var_dump($post);
+        return new pruebaresource($post);
 
     }
 
     public function getPost($id)
     {
         $post = pppposts::findOrFail($id);
-        return new pruebaresource($post);
+        $posts = new pruebaresource($post);
 
-        
+        if ($posts->ID_User != auth()->id()) {
+            return false;
+        } else {
+            return $posts;
+        }
     }
 
 
     public function update( $id, StorepppPostRequest $request)
     {
         $post = pppposts::find($id);
-            $post->update($request->validated());
-
-            return new pruebaresource($post);
-            
+        return new pruebaresource($post);
         
-        // if ($post->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('post-all')) {
-        //     return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own posts']);
-        // } else {
-        //     $post->update($request->validated());
-        //     //error_log(json_encode($request->categories));
-
-        //     return $post;
-        // }
     }
 
     public function upvote($id) {
