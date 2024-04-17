@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ppppost_categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('post_id');
-            $table->foreign('category_id')->references('id')->on('pppcategories')->onDelete('cascade');
-            $table->foreign('post_id')->references('id')->on('pppposts')->onDelete('cascade');
-            $table->primary(['category_id', 'post_id']);
+            $table->unsignedBigInteger('pppcategories_id');
+            $table->unsignedBigInteger('pppposts_id');
+            $table->foreign('pppcategories_id')->references('id')->on('pppcategories')->onDelete('cascade');
+            $table->foreign('pppposts_id')->references('id')->on('pppposts')->onDelete('cascade');
+            $table->primary(['pppcategories_id', 'pppposts_id']);
         });
     }
 
