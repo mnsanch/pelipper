@@ -12,7 +12,7 @@
                                 <div class="card-body p-4 p-lg-5 text-black">
                                     <form @submit.prevent="submitForm" class="p-5">
                                         <div class="d-flex align-items-center mb-3 pb-1">
-                                            <img src="/images/pelipper_icon.png" width="40" height="40">
+                                            <img src="/images/logo_pelipper_banner.PNG" width="40" height="40">
                                             <span class="h1 fw-bold mb-0 mx-2 page-title">create a post</span>
                                         </div>
 

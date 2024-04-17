@@ -4,10 +4,10 @@
 
 <br>
 
-<div class="home-main-container">
+<div class="home-main-container" style="margin-top: 78px !important">
     <!-- Menú lateral izquierdo -->
     <aside class="aside-main-left">
-        <div class="block-disapear aside-container-left">
+        <div class="block-disapear aside-container-left" style= "height: 80dvh; overflow-y: scroll;">
             <!-- Aquí va el menú izquierdo -->
             <ul class="block-disapear aside-ul-container-left">
                 <div class="d-flex align-items-center aside-menu-nav-element">
@@ -126,15 +126,17 @@
         <!-- Banner principal -->
         <div class="row p-0 m-0 home-banner-container">
             <div class="row justify-content-end p-0 m-0">
-                <div class="home-banner-element-a">
+                <div class="home-banner-element-a" style="border: 1px solid black;">
+                    <img src="" style="display: block; width: 100%; height: 100%;" class="home-banner-element-a">
                 </div>
             </div>
             <div class="row p-0 m-0 home-banner-subcontainer">
                 <div class="col-1 m-0 home-banner-element-b">
-                    <div class="px-2 mx-4 home-banner-element-c"></div>
+                    <!-- <div class="px-2 mx-4 home-banner-element-c"></div> -->
+                    <img src="/images/logo_pelipper_banner.PNG" class="mx-4 home-banner-element-c" style="border: 1px solid black; outline: 2px solid white">
                 </div>
                 <div class="col mx-2">
-                    <h2>Title of pelipper</h2>
+                    <h2 class="page-title" style="font-size: 32px; font-weight: bold; color: orangered">pelipper community</h2>
                 </div>
             </div>
         </div>
@@ -143,7 +145,7 @@
 
 
 
-        <div class="row p-0 m-0">
+        <div class="row p-0 mx-0 my-5">
             <main class="col-9 home-main-snippet">
                 <!-- Contenido central -->
                 <div class="m-0 p-0 w-100 h-100" v-for="(post, index) in posts.data" :key="post.id">
@@ -164,8 +166,8 @@
                         <div style="height: fit-content !important">
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
-                            <div class="p-0 d-flex align-items-center justify-content-center" style="border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color:aquamarine"  v-if="(post.original_image!=null)"> 
-                                <img :src='post.original_image' style="max-width: 100%; max-height: 500px !important">
+                            <div class="px-0 d-flex align-items-center justify-content-center" style="border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color: gainsboro"  v-if="(post.original_image!=null)"> 
+                                <img :src='post.original_image' style="max-width: 100%; max-height: 480px !important">
                             </div>
                         </div>
 
@@ -200,7 +202,7 @@
                         <!-- Botones edit + delete -->
                         <div class="d-flex d-flex flex-row align-items-end">
                             <!--Boton edit-->
-                            <router-link v-if="post.ID_User==user.id" :to="{ name: 'prueba.edit', params: { id: post.id } }" class="box-40">
+                            <router-link v-if="post.ID_User==user.id" :to="{ name: 'prueba.edit', params: { id: post.id } }" class="box-40 mx-2">
                                 <button onclick="" class="post-edit-button p-0 d-flex justify-content-center align-items-center">
                                     <svg rpl="" fill="currentColor" height="20" icon-name="edit-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                                         <path d="m18.236 3.158-1.4-1.4a2.615 2.615 0 0 0-3.667-.021L1.336 13.318a1.129 1.129 0 0 0-.336.8v3.757A1.122 1.122 0 0 0 2.121 19h3.757a1.131 1.131 0 0 0 .8-.337L18.256 6.826a2.616 2.616 0 0 0-.02-3.668ZM5.824 17.747H2.25v-3.574l9.644-9.435L15.259 8.1l-9.435 9.647ZM17.363 5.952l-1.23 1.257-3.345-3.345 1.257-1.23a1.362 1.362 0 0 1 1.91.01l1.4 1.4a1.364 1.364 0 0 1 .008 1.908Z"></path>
@@ -225,7 +227,7 @@
             </main>
 
             <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
-                <div class="right-aside-container-bg aside-container-right ">
+                <div class="right-aside-container-bg aside-container-right " style="background-color: gainsboro;">
                     <ul class="m-0 aside-ul-container-right">
                         <li class="scoreboard-title">TOP MONTHLY POSTS</li>
                         <li class="scoreboard-top-users">#1 <span class="px-2">Usuario a</span></li>
@@ -241,7 +243,7 @@
                     </ul>
                 </div>
                 <br>
-                <div class="right-aside-container-bg aside-container-right">
+                <div class="right-aside-container-bg aside-container-right"  style="background-color: gainsboro;">
                     <ul class="m-0 aside-ul-container-right">
                         <li class="guidelines-title">OFFICIAL GUIDELINES</li>
                         <li class="guidelines-text">The rules of Pelipper include no harassing, no spamming, no posting illegal content, no sharing personal information without consent, and respecting copyright.</li>

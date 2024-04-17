@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-0">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-0" style="z-index: 99999 !important; position: fixed">
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 6dvh; padding-left: 2dvw; padding-right: 2dvw">
             <div class="row header-separator" style="height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw;">
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
