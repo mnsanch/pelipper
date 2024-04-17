@@ -14,14 +14,18 @@ export default function usePosts() {
     const isLoading = ref(false)
     const swal = inject('$swal')
 
-        const getPosts = async () => {
-            axios.get('/api/pppposts')
-            .then(response => {
-                posts.value = response.data;
-                console.log(response);
-                console.log(response.data);
-            })
-        }
+    const getPosts = async () => {
+        axios.get('/api/pppposts')
+        .then(response => {
+            posts.value = response.data;
+            console.log(response);
+            console.log(response.data);
+        })
+    }
+
+    const avatrlink = async (id) => {
+        router.push({ name: 'post.usuario', params: { id: id } })
+    }
 
     const getreversePosts = async () => {
         axios.get('/api/ppppostsreverse')
@@ -250,6 +254,7 @@ export default function usePosts() {
         posts,
         post,
         getPosts,
+        avatrlink,
         getreversePosts,
         getPostsbestrated,
         getPostslowestrated,

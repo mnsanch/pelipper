@@ -153,7 +153,7 @@
                         <!-- User data -->
                         <div class="d-flex align-items-center post-user-data">
                             <div class="p-0 avatar-image">  
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
                             </div>
                             <router-link :to="{ name: 'post.usuario', params: { id: post.ID_User } }"><span class="mx-2 post-user-data">{{post.Usuario}}</span></router-link>
                             <span class="post-user-data-separator"> · </span>
@@ -265,7 +265,7 @@
 
     import {useAbility} from '@casl/vue'
 
-    const {posts, getPosts, getreversePosts, getPostsbestrated, getPostslowestrated, getPostsmostnegativevotes, getPostsmostvoted, sumarVoto, restarVoto, deletePosthome} = usePosts()
+    const {posts, avatrlink, getPosts, getreversePosts, getPostsbestrated, getPostslowestrated, getPostsmostnegativevotes, getPostsmostvoted, sumarVoto, restarVoto, deletePosthome} = usePosts()
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
 
