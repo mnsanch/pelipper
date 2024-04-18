@@ -51,13 +51,13 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating mb-4 mx-0" style="width: 100%; border: 0px"> 
-                                                    <v-select multiple v-model="post.ID_Category" :options="categoryList":reduce="category => category.id" label="name" 
+                                                    <v-select multiple v-model="post.ID_Category" :options="categoryList":reduce="category => category.id" label="Category_Name" 
                                                     class="form-control form-control-lg createpost-input py-2 no-border" placeholder="Select category"/>
                                                     <div class="text-danger mt-1">
-                                                        {{ errors.ID_Category }}
+                                                        {{ errors.categories }}
                                                     </div>
                                                     <div class="text-danger mt-1">
-                                                        <div v-for="message in validationErrors?.ID_Category">
+                                                        <div v-for="message in validationErrors?.categories">
                                                             {{ message }}
                                                         </div>
                                                     </div>

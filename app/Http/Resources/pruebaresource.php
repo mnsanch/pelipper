@@ -31,7 +31,7 @@ class pruebaresource extends JsonResource
         return [
             'id' => $this->id,
             'Title' => $this->Title,
-            // 'ID_Category' => $this->categories,
+            'ID_Category' => $this->categories,
             'ID_User' => $this->ID_User,
             'Usuario' => $this->nombre_usuario,
             'Post' => $this->Post,

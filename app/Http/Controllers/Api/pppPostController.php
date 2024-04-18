@@ -120,7 +120,6 @@ class pppPostController extends Controller
         if ($request->hasFile('thumbnail')) {
             $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
         }
-        var_dump($post);
         return new pruebaresource($post);
 
     }
