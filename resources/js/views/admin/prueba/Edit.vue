@@ -66,12 +66,12 @@
 
                         <div class="mb-3">
                             <v-select multiple v-model="post.ID_Category" :options="categoryList"
-                                      :reduce="category => category.id" label="name" class="form-control" placeholder="Select category"/>
+                                      :reduce="category => category.id" label="Category_Name" class="form-control" placeholder="Select category"/>
                             <div class="text-danger mt-1">
-                                {{ errors.ID_Category }}
+                                {{ errors.categories }}
                             </div>
                             <div class="text-danger mt-1">
-                                <div v-for="message in validationErrors?.ID_Category">
+                                <div v-for="message in validationErrors?.categories">
                                     {{ message }}
                                 </div>
                             </div>

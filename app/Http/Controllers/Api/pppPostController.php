@@ -140,6 +140,13 @@ class pppPostController extends Controller
     public function update( $id, StorepppPostRequest $request)
     {
         $post = pppposts::find($id);
+        $post->update($request->validated());
+        $category = pppcategories::findMany($request->ID_Category);
+        $post->categories()->sync($category);
+        if($request->hasFile('thumbnail')) {
+            $post->media()->delete();
+            $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
+        }
         return new pruebaresource($post);
         
     }
