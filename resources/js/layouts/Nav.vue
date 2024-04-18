@@ -28,13 +28,13 @@
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px;">
                         <div style="height: 40px; width: 100px; margin-left: 4px; margin-right: 4px">
                             <button class="simple-button p-0 d-flex justify-content-center align-items-center nav-item">
-                                <router-link class="nav-link" to="/login" style="margin-left: 5px; margin-right: 5px">Log in</router-link>
+                                <router-link class="nav-link" to="/register" style="margin-left: 5px; margin-right: 5px">Sign up</router-link>
                             </button>
                         </div>
                         <div style="height: 40px; width: auto; margin-left: 4px; margin-right: 4px">
                             <button onclick="" class="special-button p-0 d-flex justify-content-center align-items-center nav-item">
                                 <!-- Log in button -->
-                                <router-link class="nav-link" to="/register" style="margin-left: 5px; margin-right: 5px">{{ $t('register') }}</router-link>
+                                <router-link class="nav-a-link" to="/login" style="margin-left: 5px; margin-right: 5px"> Log in </router-link>
                             </button>
                         </div>
                         <div style="height: 40px; width: 40px; margin-left: 4px; margin-right: 4px">

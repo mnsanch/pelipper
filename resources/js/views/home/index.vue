@@ -31,28 +31,23 @@
                 <hr>
                 <li class="aside-title">COMMUNITIES</li>
                 <div class="d-flex align-items-center aside-menu-nav-element">
-                    <div style="background-color: yellow; width: 30px; height: 30px; border-radius: 90px" class="m-0 p-0">
-                    </div>
+                    <img src="/images/riot_logo.png" class="m-0 p-0 community-icon">
                     <li class="aside-list-c-element">c/riot</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element">
-                    <div style="background-color: pink; width: 30px; height: 30px; border-radius: 90px" class="m-0 p-0">
-                    </div>
+                    <img src="/images/memes_logo.jpg" class="m-0 p-0 community-icon">
                     <li class="aside-list-c-element">c/memes</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element">
-                    <div style="background-color: green; width: 30px; height: 30px; border-radius: 90px" class="m-0 p-0">
-                    </div>
+                    <img src="/images/warcraft_logo.jpg" class="m-0 p-0 community-icon">
                     <li class="aside-list-c-element">c/warcraft</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element">
-                    <div style="background-color: cyan; width: 30px; height: 30px; border-radius: 90px" class="m-0 p-0">
-                    </div>
+                    <img src="/images/twitch_logo.png" class="m-0 p-0 community-icon">
                     <li class="aside-list-c-element">c/twitch</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element">
-                    <div style="background-color: coral; width: 30px; height: 30px; border-radius: 90px" class="m-0 p-0">
-                    </div>
+                    <img src="/images/programming_logo.png" class="m-0 p-0 community-icon">
                     <li class="aside-list-c-element">c/programming</li>
                 </div>
                 <hr>
@@ -126,8 +121,9 @@
         <!-- Banner principal -->
         <div class="row p-0 m-0 home-banner-container">
             <div class="row justify-content-end p-0 m-0">
-                <div class="home-banner-element-a" style="border: 1px solid black;">
-                    <img src="" style="display: block; width: 100%; height: 100%;" class="home-banner-element-a">
+                <div class="home-banner-element-a">
+                    <!-- <img src="/images/Captura_banner.png" style="display:flex; width: 100%; height: 100%;" class="home-banner-element-a"> -->
+                    <img src="/images/main_banner_pelipper.svg" style="display:block; width: 100%" class="home-banner-element-a">
                 </div>
             </div>
             <div class="row p-0 m-0 home-banner-subcontainer">

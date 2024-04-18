@@ -5,15 +5,16 @@
                 <div class="col col-xl-10">
                     <div class="createpost-container card p-0">
                         <div class="row g-0">
-                            <div class="col-md-12 col-lg-12 d-none d-md-block">
-                                <div class="createpost-banner m-0 p-0"></div>
+                            <div class="col-md-12 col-lg-12 d-none d-md-block" >
+                                <!-- <div class="createpost-banner m-0 p-0"></div> -->
+                                <img src="/images/createpost_banner.svg" class="m-0 p-0" style="width: 100%; height: auto; background-color: transparent">
                             </div>
-                            <div class="col-md-12 col-lg-12 d-flex align-items-center">
+                            <div class="col-md-12 col-lg-12 d-flex align-items-center" style="border: 1px solid gainsboro">
                                 <div class="card-body p-4 p-lg-5 text-black">
                                     <form @submit.prevent="submitForm" class="p-5">
-                                        <div class="d-flex align-items-center mb-3 pb-1">
-                                            <img src="/images/logo_pelipper_banner.PNG" width="40" height="40">
-                                            <span class="h1 fw-bold mb-0 mx-2 page-title">create a post</span>
+                                        <div class="d-flex align-items-center mb-3 p-0">
+                                            <img src="/images/logo_pelipper_banner.PNG" width="40" height="40" class="p-0 m-0">
+                                            <span class="h1 fw-bold mx-2 my-0 p-0 page-title">create a post</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-5 pb-3">Tell others what you are thinking about...</h5>
