@@ -146,6 +146,6 @@
         post.Title = postData.value.Title
         post.Post = postData.value.Post
         post.thumbnail = postData.value.original_image
-        // post.ID_Category = postData.value.ID_Category
+        post.ID_Category = postData.value.ID_Category
     })
 </script>
