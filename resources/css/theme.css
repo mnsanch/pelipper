@@ -16,50 +16,50 @@
 }
 
 :root {
-    --switchcolor-background: #FFFFFF;
-    --switchcolor-container-background: #FFFFFF;
-    --switchcolor-container-background-hover: #F9FAFA;
-    --switchcolor-button: #EAEDEF;
-    --switchcolor-searchbar: #EAEDEF;
-    --switchcolor-button-hover: #E2E7E9;
-    --switchcolor-searchbar-hover: #E2E7E9;
-    --switchcolor-text: #2A3C42;
-    --switchcolor-title-text: #000000;
-    --switchcolor-icon: #000000;
-	--switchcolor-separator-border: #EBEBEB;
-    --switchcolor-special-button: #EF324C; /* BRAND COLOR */
-    --switchopacity-login-banner: 1; 
+    --switchcolor1: #FFFFFF;
+    --switchcolor2: #FFFFFF;
+    --switchcolor3: #F9FAFA;
+    --switchcolor3: #EAEDEF;
+    --switchcolor4: #EAEDEF;
+    --switchcolor5: #E2E7E9;
+    --switchcolor6: #E2E7E9;
+    --switchcolor7: #2A3C42;
+    --switchcolor8: #000000;
+    --switchcolor9: #000000;
+	--switchcolor10: #EBEBEB;
+    --switchcolor11: #EF324C; /* BRAND COLOR */
+
 }
 
 .dark-mode {
-    --switchcolor-background: #0B1416;
-    --switchcolor-container-background: #0B1416;
-    --switchcolor-container-background-hover: #1A282D;
-    --switchcolor-button: #2B383D;
-    --switchcolor-searchbar: #2B383D;
-    --switchcolor-button-hover: #223237;
-    --switchcolor-searchbar-hover: #223237;
-    --switchcolor-text: #B2C5C9;
-    --switchcolor-title-text: #FFFFFF;
-    --switchcolor-icon: #FFFFFF;
-	--switchcolor-separator-border: #1F2729;
-    --switchcolor-special-button: #EF324C; /* BRAND COLOR */
-    --switchopacity-login-banner: 0.7; 
+    --switchcolor1: #0B1416;
+    --switchcolor2: #0B1416;
+    --switchcolor3: #1A282D;
+    --switchcolor3: #2B383D;
+    --switchcolor4: #2B383D;
+    --switchcolor5: #223237;
+    --switchcolor6: #223237;
+    --switchcolor7: #B2C5C9;
+    --switchcolor8: #FFFFFF;
+    --switchcolor9: #FFFFFF;
+	--switchcolor10: #1F2729;
+    --switchcolor11: #EF324C; /* BRAND COLOR */
+
 }
 
 * {
-    color: var(--switchcolor-text);
+    color: var(--switchcolor7);
     caret-color: #F9AD5B; /* cursor texto */
     font-family: Nunito;
 }
 
 body {
-    background-color: var(--switchcolor-background) !important;
+    background-color: var(--switchcolor1) !important;
 
 }
 
 span {
-    color: var(--switchcolor-text);
+    color: var(--switchcolor7);
 }
 
 a { /* Currarse un hover guapo y un visited*/
@@ -82,7 +82,7 @@ textarea {
 }
 
 .svg-background-color {
-    fill: var(--switchcolor-icon);
+    fill: var(--switchcolor9);
 }
 
 .box-40 {
@@ -92,31 +92,42 @@ textarea {
 /*----------------------------------------- HEADER --------------------------------------------------------*/
 
 .header-separator {
-	border-bottom: 1px solid var(--switchcolor-separator-border);
+	border-bottom: 1px solid var(--switchcolor10);
 }
 
 /* BUTTONS */
 
+.addpost-circular-button {
+    background: linear-gradient(to right, #F35F0E, #ec068c);    
+    border: 0px;
+    border-radius: 90px;
+    height: 40px;
+    width: 40px;
+}
+    .addpost-circular-button:hover {
+        background-color: var(--switchcolor5);
+    }
+
 .circular-button {
-    background-color: var(--switchcolor-background);
+    background-color: var(--switchcolor1);
     border: 0px;
     border-radius: 90px;
     height: 40px;
     width: 40px;
 }
     .circular-button:hover {
-        background-color: var(--switchcolor-button-hover);
+        background-color: var(--switchcolor5);
     }
 
 .simple-button {
-        background-color: var(--switchcolor-button);
+        background-color: var(--switchcolor3);
         border: 0px;
         border-radius: 90px;
         height: 40px;
         width: 100px;
 }
         .simple-button:hover {
-            background-color: var(--switchcolor-button-hover);
+            background-color: var(--switchcolor5);
         }
 
 .special-button {
@@ -143,11 +154,11 @@ textarea {
 	padding-bottom: 8px; 
 	padding-left: 20px; 
 	padding-right: 20px; 
-	background-color: var(--switchcolor-searchbar); 
+	background-color: var(--switchcolor4); 
 	border-radius: 45px
 }
 	.searchbar:hover {
-		background-color: var(--switchcolor-searchbar-hover); 
+		background-color: var(--switchcolor6); 
 	}
 
     @media (max-width: 800px) {
@@ -166,14 +177,14 @@ textarea {
 /* -------------------------------- FOOTER -------------------------- */
 
 .footer-separator {
-	border-top: 1px solid var(--switchcolor-separator-border);
+	border-top: 1px solid var(--switchcolor10);
 }
 
 /* -------------------------------- LOGIN ---------------------------- */
 
 .login-container {
-    background-color: var(--switchcolor-background);
-    border: 1px solid var(--switchcolor-separator-border);
+    background-color: var(--switchcolor1);
+    border: 1px solid var(--switchcolor10);
     border-radius: 1rem;
 }
 
@@ -186,22 +197,21 @@ textarea {
     background-size: 100% 100%; /* Ajustar la imagen al tamaño del contenedor */
     /* background-size: cover; Ajustar la imagen al tamaño del div */
     border-radius: 1rem 0 0 1rem; /* Establecer el radio de borde para el lado izquierdo */
-    opacity: var(--switchopacity-login-banner); /* Establecer la opacidad de la imagen */
 }
 
 .login-input {
     height: 3.5rem !important;
-	background-color: var(--switchcolor-searchbar);
+	background-color: var(--switchcolor4);
     border: 0px;
 	border-radius: 1.25rem;
     padding-left: 20px !important;
     border: 2px solid transparent; /* Establece un borde transparente */
     outline: none; /* Elimina el borde predeterminado cuando el input está seleccionado */
     transition: border-color 0.3s ease; /* Transición para suavizar el cambio de color del borde */
-    color: var(--switchcolor-text) !important; /* Color del texto dentro del input */
+    color: var(--switchcolor7) !important; /* Color del texto dentro del input */
 }
     .login-input:focus {
-		background-color: var(--switchcolor-searchbar-hover);
+		background-color: var(--switchcolor6);
         border-color: #F9AD5B !important; /* Cambia el color del borde cuando el input está seleccionado */
         box-shadow: 0 0 10px #F9AD5B; /* Añade un efecto de sombra para un aspecto más difuminado o neón */
 	}
@@ -215,7 +225,7 @@ textarea {
 }
 
 .btn-login-password {
-    color: var(--switchcolor-text);
+    color: var(--switchcolor7);
     font-size: 14px;
     position: absolute;
     top: 33%; /* Centra verticalmente */
@@ -275,28 +285,27 @@ textarea {
     background-color: none;
     /* background-size: cover; Ajustar la imagen al tamaño del div */
     border-radius: 1rem 1rem 0 0; /* Establecer el radio de borde para el lado izquierdo */
-    opacity: var(--switchopacity-login-banner); /* Establecer la opacidad de la imagen */
 }
 
 .createpost-container {
-    background-color: var(--switchcolor-background);
-    border: 1px solid var(--switchcolor-separator-border);
+    background-color: var(--switchcolor1);
+    border: 1px solid var(--switchcolor10);
     border-radius: 1rem;
 }
 
 .createpost-input {
     height: 3.5rem !important;
-	background-color: var(--switchcolor-searchbar);
+	background-color: var(--switchcolor4);
     border: 0px;
 	border-radius: 1.25rem;
     padding-left: 20px !important;
     border: 1px solid transparent; /* Establece un borde transparente */
     outline: none; /* Elimina el borde predeterminado cuando el input está seleccionado */
     transition: border-color 0.3s ease; /* Transición para suavizar el cambio de color del borde */
-    color: var(--switchcolor-text) !important; /* Color del texto dentro del input */
+    color: var(--switchcolor7) !important; /* Color del texto dentro del input */
 }
 .createpost-input:focus {
-    background-color: var(--switchcolor-searchbar-hover);
+    background-color: var(--switchcolor6);
     border-color: #ec068c !important; /* Cambia el color del borde cuando el input está seleccionado */
     box-shadow: 0 0 10px 0 #F35F0E; /* Añade un efecto de sombra para un aspecto más difuminado o neón */
 }
@@ -330,7 +339,7 @@ textarea::-webkit-scrollbar-thumb {
 /* ---------------------------------------------------------------- MAIN PAGE -------------------------------------------------- */
 
 right-aside-container-bg { 
-    background-color: var(--switchcolor-container-background-hover);
+    background-color: var(--switchcolor3);
 }
 
 .home-main-container {

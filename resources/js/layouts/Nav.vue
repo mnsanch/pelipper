@@ -38,7 +38,7 @@
                             </button>
                         </div>
                         <div style="height: 40px; width: 40px; margin-left: 4px; margin-right: 4px">
-                            <button onclick="toggleDarkMode()" class="circular-button p-0 d-flex justify-content-center align-items-center">
+                            <button @click="toggleDarkMode" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Dark mode icon-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path class="svg-background-color" d="M9.875 19a9.073 9.073 0 0 1-8.48-5.78 1.094 1.094 0 0 1 .247-1.191 1.145 1.145 0 0 1 1.232-.255c1.13.449 2.361.587 3.564.4A6.89 6.89 0 0 0 12.17 6.44a6.806 6.806 0 0 0-.394-3.564 1.148 1.148 0 0 1 .255-1.231 1.1 1.1 0 0 1 1.193-.248 9.082 9.082 0 0 1 5.746 9.254 9.184 9.184 0 0 1-8.32 8.32 11.93 11.93 0 0 1-.775.028Zm-7.206-5.967A7.871 7.871 0 1 0 13.033 2.668 8.116 8.116 0 0 1 2.669 13.033Z" />
@@ -50,7 +50,7 @@
                 <template v-if="user?.name" class="nav-item dropdown">
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px">
                         <div style="height: 40px; width: 40px">
-                            <router-link :to="{name: 'prueba.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
+                            <router-link :to="{name: 'prueba.create'}" class="addpost-circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Add post icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path class="svg-background-color" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
@@ -58,8 +58,7 @@
                             </router-link>
                         </div>
                         <div style="height: 40px; width: 40px">
-                            <button onclick="toggleDarkMode()"
-                                class="circular-button p-0 d-flex justify-content-center align-items-center">
+                            <button @click="toggleDarkMode" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Dark mode icon-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path class="svg-background-color"
@@ -82,7 +81,7 @@
                                 style="background-color: white">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
 
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
                                 <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
 
 
@@ -110,7 +109,7 @@ import useAuth from "@/composables/auth";
 import {computed, onMounted, ref, inject} from "vue";
 import axios from "axios";
 import LocaleSwitcher from "../components/LocaleSwitcher.vue";
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 
     const store = useStore();
     const user = computed(() => store.getters["auth/user"])
@@ -119,6 +118,33 @@ import { useRouter } from 'vue-router'
     const userId = ref('');
     const swal = inject('$swal')
     const router = useRouter()
+
+    const test = () => {
+        console.log('hola')
+    }
+
+    const toggleDarkMode = () => {
+    var element = document.body;
+    var modeToggleBtn = document.querySelector('button');
+    
+    // Toggle dark mode class
+    element.classList.toggle("dark-mode");
+
+    // Update button text and localStorage
+    if (element.classList.contains("dark-mode")) {
+        localStorage.setItem('darkModeEnabled', 'true');
+    } else {
+        localStorage.removeItem('darkModeEnabled');
+    }
+}
+
+// Check if dark mode is enabled on page load
+window.onload = function() {
+    var darkModeEnabled = localStorage.getItem('darkModeEnabled');
+    if (darkModeEnabled === 'true') {
+        document.body.classList.add("dark-mode");
+    }
+};
 
     
     onMounted(() => {
@@ -137,4 +163,6 @@ import { useRouter } from 'vue-router'
 
     
 });
+
+
 </script>
