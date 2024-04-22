@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\TaskController;
 use App\Http\Controllers\Api\pppPostController;
 use App\Http\Controllers\Api\pppCategory;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\pppcommentsController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,8 @@ Route::get('ppppostsmasvotado',[pppPostController::class,'indexvotado']);
 Route::delete('pppposts/{id}',[pppPostController::class,'destroy']);
 Route::post('pppposts/',[pppPostController::class,'store']);
 Route::put('pppposts/update/{id}',[pppPostController::class,'update']);
-Route::get('ppppost/{id}', [pppPostController::class, 'getPost']);
+Route::get('ppppost/{id}', [pppPostController::class, 'getPostedit']);
+Route::get('ppppostuser/{id}', [pppPostController::class, 'getPost']);
 Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);
 Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
 Route::get('pppposts/{id}',[pppPostController::class,'indexusuario']);
@@ -45,6 +47,10 @@ Route::get('pppcategories',[pppCategory::class,'index']);
 Route::delete('deleteuser/{id}',[UserController::class,'destroy']); 
 Route::get('avatar/{id}',[UserController::class,'getAvatar']);
 Route::get('id',[UserController::class,'getID']);
+
+Route::get('comments',[pppcommentsController::class,'index']);
+Route::post('comments/{id}',[pppcommentsController::class,'store']);
+Route::get('commentspost/{id}',[pppcommentsController::class,'commentspost']);
 
 
 //-----------------------------------------

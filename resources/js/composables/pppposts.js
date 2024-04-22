@@ -84,6 +84,14 @@ export default function usePosts() {
             })
     }
 
+    const getPostuser = async (id) => {
+        axios.get('/api/ppppostuser/' + id)
+            .then(response => {
+                post.value = response.data.data;
+                console.log(response.data.data);
+            })
+    }
+
     
     const getPostsuser = async (id) => {
         axios.get('/api/pppposts/' + id)
@@ -265,6 +273,7 @@ export default function usePosts() {
         getPostsmostnegativevotes,
         getPostsmostvoted,
         getPost,
+        getPostuser,
         getPostsuser,
         storePost,
         updatePost,

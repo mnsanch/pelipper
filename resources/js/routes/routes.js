@@ -18,6 +18,7 @@ const PruebaEdit  = ()  => import('../views/admin/prueba/Edit.vue');
 const Perfil  = ()  => import('../views/profile/index.vue');
 const PerfilEdit  = ()  => import('../views/profile/edit.vue');
 const PostUsuario  = ()  => import('../views/home/user.vue');
+const PostComentario = ()  => import('../views/admin/prueba/comentario.vue');
 
 
 
@@ -108,6 +109,10 @@ export default [
                 name: 'post.usuario',
                 path: 'usuario/:id',
                 component: PostUsuario,
+            },{
+                name: 'post.comentario',
+                path: 'post/:id',
+                component: PostComentario,
             },
         ]
     },

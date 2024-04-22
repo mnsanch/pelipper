@@ -123,6 +123,14 @@ class pppPostController extends Controller
     public function getPost($id)
     {
         $post = pppposts::findOrFail($id);
+        $post->Avatar = $post->user->avatar; 
+        $post->nombre_usuario = $post->user->name; 
+        $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        return new pruebaresource($post);
+    }
+    public function getPostedit($id)
+    {
+        $post = pppposts::findOrFail($id);
         $posts = new pruebaresource($post);
 
         if ($posts->ID_User != auth()->id()) {
