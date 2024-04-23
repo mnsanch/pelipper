@@ -29,6 +29,11 @@ class pppposts extends Model implements HasMedia
         return $this->belongsToMany(pppcategories::class, 'ppppost_categories');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(pppcomments::class, 'ID_Post');
+    }
+
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('images')

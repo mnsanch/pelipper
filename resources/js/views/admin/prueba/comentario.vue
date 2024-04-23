@@ -199,8 +199,8 @@
                     </div>
                     </div>
                     <button @click="adolfo(post.id, HOLA)">Haz clic para llamar a adolfo</button>
-                    <div class="m-0 p-0 w-100 h-100" v-for="(comment) in comments" :key="post.id">
-                        <p v-if="post.id==comment.ID_Post">{{ comment.Comment }}</p>
+                    <div class="m-0 p-0 w-100 h-100" v-for="(comment) in post.comments">
+                        <p>{{ comment.Comment }}</p>
                     </div>
                     <hr class="post-hr-separator">
                 </div>
@@ -356,7 +356,6 @@ background-color: rgb(63, 111, 255);
 <script setup>
     import {onMounted, ref, computed} from "vue";
     import usePosts from "@/composables/pppposts";
-    import useComments from "@/composables/pppcomments";
     import useCategories from "@/composables/categories";
     import { useRoute } from "vue-router";
     import { useStore } from 'vuex';
@@ -366,7 +365,6 @@ background-color: rgb(63, 111, 255);
     import {useAbility} from '@casl/vue'
 
     const {post, getPostuser, sumarVoto, restarVoto} = usePosts()
-    const {comments, getCommentspost} = useComments()
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
     const route = useRoute()
@@ -396,12 +394,6 @@ background-color: rgb(63, 111, 255);
     onMounted(() => {
         getPostuser(route.params.id)
         getCategoryList()
-        console.log(post)
-        console.log(route.params.id)
-        getCommentspost(route.params.id)
-        console.log(comments)
-        console.log(post)
-
     })
     
 </script>
