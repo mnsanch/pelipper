@@ -26,8 +26,7 @@ class pppcommentsController extends Controller
     }
 
     public function store($id, StoreCommentRequest $request) {
-        $validatedData = $request->validated();
-        $validatedData['ID_User'] = 2;   
+        $validatedData['ID_User'] = auth()->id();   
         $validatedData['ID_Post'] = $id;   
         $post = pppcomments::create($validatedData);
         return new commentresource($post);
