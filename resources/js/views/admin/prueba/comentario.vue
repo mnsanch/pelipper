@@ -204,7 +204,7 @@
                             <label for="post-Comment" class="form-label">
                                 Comentario
                             </label>
-                            <textarea v-model="jamon.Comment" id="post-Comment" type="text" class="form-control"></textarea> 
+                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control"></textarea> 
                             <div class="text-danger mt-1">
                                 {{ errors.Comment }}
                             </div>
@@ -409,13 +409,13 @@ background-color: rgb(63, 111, 255);
 
     const { value: Comment } = useField('Comment', null, { initialValue: '' });
     const {comment,storecomment} = useComments()
-    const jamon = reactive({
+    const comentario = reactive({
         Comment
 })
 
     function submitForm() {
         console.log(route.params.id)
-        storecomment(route.params.id,jamon)
+        storecomment(route.params.id,comentario)
     }
 
     const {post, getPostuser, sumarVoto, restarVoto} = usePosts()
