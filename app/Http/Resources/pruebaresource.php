@@ -39,6 +39,7 @@ class pruebaresource extends JsonResource
             'Downvote' => $this->Downvote,
             'Totalvotes' => $this->Totalvotes,
             'Avatar' => $this->Avatar,
+            'comments' => $this->comments,
             'original_image' => count($this->getMedia('*')) > 0 ? $this->getMedia('*')[0]->getUrl() : null,
             'resized_image' => $resized_image,
             'created_at' => $this->created_at?->toDateString()

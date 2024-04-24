@@ -199,11 +199,39 @@
                     </div>
                     </div>
                     <button @click="adolfo(post.id, HOLA)">Haz clic para llamar a adolfo</button>
+                    <form @submit.prevent="submitForm">
+                        <div class="mb-3">
+                            <label for="post-Comment" class="form-label">
+                                Comentario
+                            </label>
+                            <textarea v-model="jamon.Comment" id="post-Comment" type="text" class="form-control"></textarea> 
+                            <div class="text-danger mt-1">
+                                {{ errors.Comment }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.Comment">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-center">
+                            <button :disabled="isLoading" class="btn btn-primary">
+                                <div v-show="isLoading" class=""></div>
+                                <span v-if="isLoading">Processing...</span>
+                                <span v-else>Publish</span>
+                            </button>
+                        </div>
+                    </form>
+
+
+
+
+
                     <div class="m-0 p-0 w-100 h-100" v-for="(comment) in post.comments">
                         <p>{{ comment.Comment }}</p>
                     </div>
                     <hr class="post-hr-separator">
-                </div>
+                </div> 
 
 
             </main>
@@ -354,15 +382,39 @@ background-color: rgb(63, 111, 255);
 }
 </style>
 <script setup>
-    import {onMounted, ref, computed} from "vue";
+    import {onMounted,reactive, ref, computed} from "vue";
     import usePosts from "@/composables/pppposts";
+    import useComments from "@/composables/pppcomments";
     import useCategories from "@/composables/categories";
     import { useRoute } from "vue-router";
     import { useStore } from 'vuex';
 
     
+    import { useForm, useField, defineRule } from "vee-validate";
+    import { required, min, max } from "@/validation/rules"
 
+
+    defineRule('required', required)
+    defineRule('min', min);
+    defineRule('max', max);
     import {useAbility} from '@casl/vue'
+    
+
+    const schema = {
+    Comment: 'min:1|max:400',
+}
+    const { validate, errors, resetForm } = useForm({ validationSchema: schema })
+
+    const { value: Comment } = useField('Comment', null, { initialValue: '' });
+    const {comment,storecomment} = useComments()
+    const jamon = reactive({
+        Comment
+})
+
+    function submitForm() {
+        console.log(route.params.id)
+        storecomment(route.params.id,jamon)
+    }
 
     const {post, getPostuser, sumarVoto, restarVoto} = usePosts()
     const {categoryList, getCategoryList} = useCategories()
@@ -371,25 +423,6 @@ background-color: rgb(63, 111, 255);
 
     const store = useStore();
     const user = computed(() => store.state.auth.user)
-
-    const handleOrdenChange = (event) => {
-        const selectedOption = event.target.value;
-        if (selectedOption === "ultimo") {
-            getreversePosts();
-        }else if(selectedOption === "primero") {
-            getPosts();
-        }else if(selectedOption === "positivo") {
-            getPostsbestrated();
-        }else if(selectedOption === "negativo") {
-            getPostslowestrated();
-        }else if(selectedOption === "negativonegativo") {
-            getPostsmostnegativevotes();
-        }else if(selectedOption === "votado") {
-            getPostsmostvoted();
-        }
-    }
-
-    
 
     onMounted(() => {
         getPostuser(route.params.id)

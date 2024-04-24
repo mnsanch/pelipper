@@ -3,6 +3,7 @@ import { useRouter } from 'vue-router'
 
 export default function useComments() {
     const comments = ref({})
+    const comment = ref({})
     
     const router = useRouter()
     const validationErrors = ref({})
@@ -27,11 +28,17 @@ export default function useComments() {
             console.log(comments);
         })
     } 
+
+    const storecomment = async (id, comment) => {   
+        axios.post('/api/comments/'+ id, comment)
+    }
     
 
     return {
         comments,
+        comment,
         getComments,
-        getCommentspost
+        getCommentspost,
+        storecomment
     }
 }

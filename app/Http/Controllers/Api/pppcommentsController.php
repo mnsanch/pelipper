@@ -15,13 +15,13 @@ class pppcommentsController extends Controller
 {
     public function index()
     {
-        $comments = pppcomments::with(['user'])->get();
+        $comments = pppcomments::get();
         return commentresource::collection($comments);
     }
 
     public function commentspost($id)
     {
-        $comments = pppcomments::with(['user'])->where('ID_Post',$id)->get();
+        $comments = pppcomments::where('ID_Post',$id)->get();
         return commentresource::collection($comments);
     }
 
