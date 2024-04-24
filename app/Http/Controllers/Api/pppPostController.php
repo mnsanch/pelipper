@@ -17,7 +17,7 @@ class pppPostController extends Controller
 {
     public function index()
     {
-        $posts = pppposts::with(['media', 'user'])->get();
+        $posts = pppposts::with('media')->get();
     
         foreach ($posts as $post) {
             $post->Avatar = $post->user->avatar; 
@@ -65,7 +65,7 @@ class pppPostController extends Controller
     } 
 
     public function indexodiado() {
-        $posts = pppposts::with('media')->get();
+        $posts = pppposts::with('media','comments')->get();
         foreach ($posts as $post) {
             $post->Avatar = $post->user->avatar; 
             $post->nombre_usuario = $post->user->name; 
