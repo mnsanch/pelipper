@@ -31,6 +31,11 @@ class pppcommentsController extends Controller
         $validatedData['ID_Post'] = $id;   
         $post = pppcomments::create($validatedData);
         return new commentresource($post);
+    }
 
+    public function destroy($id){
+        $posts = pppcomments::find($id);
+        $posts->delete();
+        return response()->json(['success'=>true, 'data'=> 'Comentario eliminada']);
     }
 }

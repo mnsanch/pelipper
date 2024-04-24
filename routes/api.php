@@ -51,6 +51,8 @@ Route::get('id',[UserController::class,'getID']);
 Route::get('comments',[pppcommentsController::class,'index']);
 Route::post('comments/{id}',[pppcommentsController::class,'store']);
 Route::get('commentspost/{id}',[pppcommentsController::class,'commentspost']);
+Route::delete('comment/{id}',[pppcommentsController::class,'destroy']);
+
 
 
 //-----------------------------------------
