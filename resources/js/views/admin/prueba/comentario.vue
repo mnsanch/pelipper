@@ -215,11 +215,7 @@
                             </div>
                         </div>
                         <div class="mt-3 text-center">
-                            <button :disabled="isLoading" class="btn btn-primary">
-                                <div v-show="isLoading" class=""></div>
-                                <span v-if="isLoading">Processing...</span>
-                                <span v-else>Publish</span>
-                            </button>
+                            <button class="btn btn-primary">Publish</button>
                         </div>
                     </form>
 
@@ -229,6 +225,12 @@
 
                     <div class="m-0 p-0 w-100 h-100" v-for="(comment) in post.comments">
                         <p>{{ comment.Comment }}</p>
+                        <p>{{ comment.user.name }}</p>
+                        <div class="p-0 avatar-image">  
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
+                        </div>
+                        <p>{{ comment.user.created_at.substring(0, 10) }}</p>
+                        
                     </div>
                     <hr class="post-hr-separator">
                 </div> 
