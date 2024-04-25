@@ -15,7 +15,6 @@ const TasksCreate  = ()  => import('../views/admin/tasks/Create.vue');
 const Prueba  = ()  => import('../views/admin/prueba/Index.vue');
 const PruebaCreate  = ()  => import('../views/admin/prueba/Create.vue');
 const PruebaEdit  = ()  => import('../views/admin/prueba/Edit.vue');
-const Perfil  = ()  => import('../views/profile/index.vue');
 const PerfilEdit  = ()  => import('../views/profile/edit.vue');
 const PostUsuario  = ()  => import('../views/home/user.vue');
 const PostComentario = ()  => import('../views/admin/prueba/comentario.vue');
@@ -98,11 +97,6 @@ export default [
             {
                 name: 'perfil.index',
                 path: 'perfil',
-                component: Perfil,
-            },
-            {
-                name: 'perfil.edit',
-                path: 'perfil/edit',
                 component: PerfilEdit,
             },
             {
