@@ -12,7 +12,8 @@
                                 <form @submit.prevent="submitForm" class="p-5">
                                     <div class="d-flex align-items-center mb-3 p-0">
                                         <img src="/images/logo_pelipper_banner.PNG" width="40" height="40" class="p-0 m-0">
-                                        <span class="h1 fw-bold mx-2 my-0 p-0 page-title">profile</span>
+                                        <!-- <span class="h1 fw-bold mx-2 my-0 p-0 page-title">profile</span> -->
+                                        <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">profile</span>
                                     </div>
 
                                     <h5 class="fw-normal mb-5 pb-3">Edit your profile.</h5>
@@ -20,7 +21,7 @@
                                     <div class="row d-flex justify-items-center">
                                         <div class="form-floating mb-4">
                                             <input v-model="profile.name" type="text" class="form-control form-control-lg createpost-input" id="floatingInput" required>
-                                            <label class="px-4" for="floatingInput">Username</label>
+                                            <label class="px-4 bg-transparent" for="floatingInput">Username</label>
                                             <div class="text-danger mt-1">
                                                 {{ errors.Title }}
                                             </div>
