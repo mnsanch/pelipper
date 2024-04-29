@@ -1,13 +1,13 @@
 <template>
     <section class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100 mx-0">
-            <div class="col-10 col-xl-10">
-                <div class="login-container p-0 card">
-                    <div class="row g-0">
-                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+            <div class="row">
+                <div class="login-container p-0 card w-100">
+                    <div class="row g-0" style="border: 1px solid green">
+                        <div class="col-md-1 col-lg-1 d-none d-md-block">
                             <div class="login-banner m-0 p-0"></div>
                         </div>
-                        <div class="col-md-6 col-lg-7 px-5 d-flex align-items-center">
+                        <div class="col-md-6 col-lg-6 px-5 d-flex align-items-center" style="border: 1px solid red">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <form @submit.prevent="submitLogin">
                                     <div class="d-flex align-items-center mb-3 pb-1">

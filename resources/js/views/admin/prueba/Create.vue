@@ -85,7 +85,7 @@
                                             </button>
                                         </div>
         
-                                        <a href="#!" class="small text-muted">Community guidelines. </a>
+                                        <a href="#!" class="small text-muted">Communeity guidelines. </a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
                                 </div>

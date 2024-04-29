@@ -14,7 +14,7 @@ const logoUrl = computed(() => {
         <div class="container-fluid footer-separator d-flex justify-content-center align-items-center" style="height: 57px;">
             <div class="row" style="height: 57px; width: fit-content">
                 <div class="col-3 p-0 d-flex flex-row align-items-center" style="height: 57px;">
-                    <div style="height: 40px; width: 40px" class="mx-4">
+                    <div style="height: 40px; width: 40px" class="mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Add post icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="">
@@ -23,7 +23,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-4">
+                    <div style="height: 40px; width: 40px" class="mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Advertise icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="topic-activism-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-4">
+                    <div style="height: 40px; width: 40px" class="mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Help icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="help-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-4">
+                    <div style="height: 40px; width: 40px" class="mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Blog icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="topic-reading-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-4">
+                    <div style="height: 40px; width: 40px" class="mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Careers icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="topic-careers-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +55,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-4">
+                    <div style="height: 40px; width: 40px" class="mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Press icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="author-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">

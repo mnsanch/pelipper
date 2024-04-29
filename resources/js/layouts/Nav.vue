@@ -1,5 +1,56 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-0" style="z-index: 99999 !important; position: fixed">
+    <!-- <nav class="navbar navbar-expand-lg bg-black display-mode-off-dos" style="z-index: 999999; background-color: black; position: fixed">
+  <div class="container-fluid">
+    <a class="navbar-brand nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto">
+      <div class="logo" style="background-image: url('images/logo_pelipper_claro.svg'); margin-left: 0px; background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
+    </a>
+    <ul class=" d-flex flex-row navbar-nav" style>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto"><img src="assets/icons/home.svg" width="35" height="35" alt="Icono de inicio."></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto&action=carta"><img src="assets/icons/carta.svg" width="35" height="35" alt="Icono de carta."></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=user&action=login"><img src="assets/icons/login.svg" width="35" height="35" alt="Icono de panel de usuario."></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=cesta&action=cesta"><img src="assets/icons/cesta.svg" width="35" height="35" alt="Icono de cesta.">
+        </a>
+      </li>
+      <li class="nav-item">
+        <button class="navbar-toggler my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img src="assets/icons/hamburger-icon.png" alt="Icono desplegable." width="30" height="30"></span>
+        </button>
+      </li>
+    </ul>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto"><button class="btn text-white header-menu-link" type="submit">Home</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto&action=carta"><button class="btn text-white header-menu-link" type="submit">Popular</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=cesta&action=cesta"><button class="btn text-white header-menu-link" type="submit">Most hated</button></a></li>
+
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">About Pelipper</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Advertise</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Help</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Blog</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Careers</button></a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Press</button></a></li>
+
+      </ul>
+      <form class="d-flex m-auto searchbar-dos" role="search">
+        <input class="form-control me-2 text-black-50 searchbar-mini" type="search" placeholder="¿Qué te apetece para comer?" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</nav> -->
+    <nav class="navbar navbar-expand-md navbar-light py-0 header-main-container" style="">
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 6dvh; padding-left: 2dvw; padding-right: 2dvw">
             <div class="row header-separator" style="height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw;">
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
@@ -52,8 +103,8 @@
                         <div style="height: 40px; width: 40px">
                             <router-link :to="{name: 'prueba.create'}" class="addpost-circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Add post icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path class="svg-background-color" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="white">
+                                    <path class="svg-addpost-color" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
                                 </svg>
                             </router-link>
                         </div>

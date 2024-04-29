@@ -49,7 +49,6 @@ export default [
         // redirect: { name: 'login' },
         component: GuestLayout,
         children: [
-           
             {
                 path: '/',
                 name: 'home',
