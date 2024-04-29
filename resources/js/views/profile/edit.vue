@@ -19,7 +19,7 @@
 
                                     <div class="row d-flex justify-items-center">
                                         <div class="form-floating mb-4">
-                                            <input v-model="a" type="text" class="form-control form-control-lg createpost-input" id="floatingInput" placeholder="Username" required> <!--value="{{profile.name}}"-->
+                                            <input v-model="profile.name" type="text" class="form-control form-control-lg createpost-input" id="floatingInput" required>
                                             <label class="px-4" for="floatingInput">Username</label>
                                             <div class="text-danger mt-1">
                                                 {{ errors.Title }}
@@ -31,8 +31,8 @@
                                             </div>
                                         </div>
                                         <div class="form-floating mb-4">
-                                            <input v-model="a" type="email" class="form-control form-control-lg createpost-input" id="floatingInput" placeholder="{{ profile.email }}" required> <!--value="{{ profile.email }}"-->
-                                            <label class="px-4" for="floatingInput">Email: {{ profile.email }}</label>
+                                            <input v-model="profile.email" type="email" class="form-control form-control-lg createpost-input" id="floatingInput" required>
+                                            <label class="px-4" for="floatingInput">Email</label>
                                             <div class="text-danger mt-1">
                                                 {{ errors.Title }}
                                             </div>
@@ -83,10 +83,10 @@
                                             <span v-else>Confirm changes</span>
                                         </button>
 
-                                        <button onclick="" class="simple-button login-submit-button mx-0 py-0 px-2 d-flex justify-content-center align-items-center h-100" style="background-color: salmon; width: fit-content">
+                                        <div  @click="deleteuser(user.id)" onclick="" class="simple-button login-submit-button mx-0 py-0 px-2 d-flex justify-content-center align-items-center h-100" style="background-color:  salmon; cursor: pointer;width: fit-content">
                                             <!-- Iniciar sesion form button -->
-                                            <span @click="deleteuser(user.id)">Delete account</span>
-                                        </button>
+                                            <span>Delete account</span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
