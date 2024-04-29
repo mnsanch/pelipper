@@ -46,10 +46,48 @@ export default function useProfile() {
             .finally(() => isLoading.value = false)
     }
 
+    const deleteuser = (userId) => {
+        console.log(userId);
+    swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this action!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            confirmButtonColor: '#ef4444',
+            timer: 20000,
+            timerProgressBar: true,
+            reverseButtons: true
+        }) 
+        .then(result => {
+                if (result.isConfirmed) {
+                    console.log(userId);
+                    axios.delete('/api/deleteuser/'+ userId)
+                        .then(response => {
+                            swal({
+                                icon: 'success',
+                                title: 'Post deleted successfully'
+                            })
+                            router.push({name: 'home'})
+                            location.reload();
+                        })
+                        .catch(error => {
+                            swal({
+                                icon: 'error',
+                                title: 'Something went wrong'
+                            })
+                        })
+
+                }
+            })
+            
+};
+
     return {
         profile,
         getProfile,
         updateProfile,
+        deleteuser,
         validationErrors,
         isLoading
     }

@@ -85,7 +85,7 @@
 
                                         <button onclick="" class="simple-button login-submit-button mx-0 py-0 px-2 d-flex justify-content-center align-items-center h-100" style="background-color: salmon; width: fit-content">
                                             <!-- Iniciar sesion form button -->
-                                            <span>Delete account</span>
+                                            <span @click="deleteuser(user.id)">Delete account</span>
                                         </button>
                                     </div>
                                 </form>
@@ -140,11 +140,13 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, watchEffect, ref, inject} from "vue";
+import { onMounted, reactive, watchEffect, ref, inject, computed} from "vue";
 import { useForm, useField, defineRule } from "vee-validate";
 import { required, min } from "@/validation/rules"
 import useProfile from "@/composables/profile";
 import { useRouter } from 'vue-router'
+import { useStore } from 'vuex';
+
 
 defineRule('required', required)
 // defineRule('email', email)
@@ -157,13 +159,16 @@ defineRule('min', min);
     let userId = ref(0);
     const swal = inject('$swal')
     const router = useRouter()
+    const store = useStore();
+    const user = computed(() => store.state.auth.user)
+
 
     // Create a form context with the validation schema
     const { validate, errors } = useForm({ validationSchema: schema })
     // Define actual fields for validation
     const { value: name } = useField('name', null, { initialValue: '' });
     const { value: email } = useField('email', null, { initialValue: '' });
-    const { profile: profileData, getProfile, updateProfile, validationErrors, isLoading } = useProfile()
+    const { profile: profileData, getProfile, updateProfile, validationErrors, isLoading, deleteuser } = useProfile()
     const profile = reactive({
         name,
         email
@@ -171,43 +176,6 @@ defineRule('min', min);
     function submitForm() {
         validate().then(form => { if (form.valid) updateProfile(profile) })
     }
-    
-    const deleteuser = (userId) => {
-        console.log(userId);
-    swal({
-            title: 'Are you sure?',
-            text: 'You won\'t be able to revert this action!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            confirmButtonColor: '#ef4444',
-            timer: 20000,
-            timerProgressBar: true,
-            reverseButtons: true
-        }) 
-        .then(result => {
-                if (result.isConfirmed) {
-                    console.log(userId);
-                    axios.delete('/api/deleteuser/'+ userId)
-                        .then(response => {
-                            swal({
-                                icon: 'success',
-                                title: 'Post deleted successfully'
-                            })
-                            router.push({name: 'home'})
-                            location.reload();
-                        })
-                        .catch(error => {
-                            swal({
-                                icon: 'error',
-                                title: 'Something went wrong'
-                            })
-                        })
-
-                }
-            })
-            
-};
     
 
 
