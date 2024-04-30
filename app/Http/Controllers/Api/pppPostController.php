@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorepppPostRequest;
 use App\Models\pppposts;
-use App\Models\User;
+use App\Models\pppvote;
 use App\Http\Resources\pruebaresource;
 use App\Models\pppcategories;
 
@@ -157,15 +157,38 @@ class pppPostController extends Controller
 
     public function upvote($id) {
         $post = pppposts::findOrFail($id);
+        $creacion['pppuser_id'] = auth()->id();   
+        $creacion['vote'] = 1;   
+        $creacion['pppposts_id'] = $id;   
+        $voto = pppvote::create($creacion);
         $post->increment('Upvote');
         return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
     }
 
     public function downvote($id) {
         $post = pppposts::findOrFail($id);
+        $creacion['pppuser_id'] = auth()->id();   
+        $creacion['vote'] = 0;   
+        $creacion['pppposts_id'] = $id;   
+        $voto = pppvote::create($creacion);
         $post->decrement('Downvote');
-        return response()->json(['status' => 'success', 'message' => 'Downvote count updated successfully']);
+        return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
     }
-    
+
+    public function quitarupvote($id) {
+        $post = pppposts::findOrFail($id);
+        $post->decrement('Downvote');
+        $voto = pppvote::where('pppuser_id', auth()->id())->where('pppposts_id', $id)->firstOrFail();
+        $voto->delete();
+        return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
+    }
+
+    public function quitardownvote($id) {
+        $post = pppposts::findOrFail($id);
+        $post->increment('Upvote');
+        $voto = pppvote::where('pppuser_id', auth()->id())->where('pppposts_id', $id)->firstOrFail();
+        $voto->delete();
+        return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
+    }
 
 }

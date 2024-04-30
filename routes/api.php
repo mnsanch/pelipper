@@ -39,6 +39,8 @@ Route::get('ppppost/{id}', [pppPostController::class, 'getPostedit']);
 Route::get('ppppostuser/{id}', [pppPostController::class, 'getPost']);
 Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);
 Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
+Route::put('/pppposts/{id}/quitarupvote', [pppPostController::class, 'quitarupvote']);
+Route::put('/pppposts/{id}/quitardownvote', [pppPostController::class, 'quitardownvote']);
 Route::get('pppposts/{id}',[pppPostController::class,'indexusuario']);
 
 

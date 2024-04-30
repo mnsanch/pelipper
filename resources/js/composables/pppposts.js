@@ -248,6 +248,14 @@ export default function usePosts() {
                 post.Upvote++;;
                 post.Totalvotes++;;
             })
+            .catch(error => {
+                swal({
+                    icon: 'error',
+                    title: 'Post updated successfully',
+                    timer: 5000,
+                    timerProgressBar: true,        
+                })
+            })
     }
 
     const restarVoto = async (post) => {
@@ -257,7 +265,33 @@ export default function usePosts() {
             post.Downvote--;;
             post.Totalvotes--;;
         })
-}
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Post updated successfully',
+                timer: 5000,
+                timerProgressBar: true,  
+            })
+        })
+    }
+
+    const quitarupvote = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
+        .then(response => {
+            console.log(response.data);
+            post.Downvote--;;
+            post.Totalvotes--;;
+        }) 
+    }
+
+    const quitardownvote = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
+        .then(response => {
+            console.log(response.data);
+            post.Upvote++;;
+            post.Totalvotes++;;
+        }) 
+    }
 
     
     
@@ -279,6 +313,8 @@ export default function usePosts() {
         updatePost,
         deletePost,
         deletePosthome,
+        quitarupvote,
+        quitardownvote,
         validationErrors,
         isLoading,
         sumarVoto,
