@@ -14,7 +14,8 @@
                                 <form @submit.prevent="submitLogin">
                                     <div class="d-flex align-items-center mb-3 pb-1">
                                         <img class="py-0 my-0" src="/images/logo_pelipper_banner.png" width="40" height="40">
-                                        <span class="h1 fw-bold py-0 my-0 mx-2 page-title">Log in</span>
+                                        <!-- <span class="h1 fw-bold py-0 my-0 mx-2 page-title">Log in</span> -->
+                                        <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Log in</span>
                                     </div>
 
                                     <h5 class="fw-normal mb-5 pb-3">Sign into your account</h5>
@@ -53,7 +54,7 @@
                                     </div>
 
                                     <!--<a class="small text-muted" href="#!">Forgot password?</a>-->
-                                    <router-link class="nav-link mb-3 p-0 pb-lg-2" to="/register" >Don't have an account? <a href="#!">Register here</a></router-link>
+                                    <router-link class="nav-link mb-3 p-0 pb-lg-2" to="/register" >Don't have an account? <a href="/register">Register here</a></router-link>
                                     <a href="#!" class="small text-muted">Terms of use.  </a>
                                     <a href="#!" class="small text-muted">Privacy policy</a>
                                 </form>

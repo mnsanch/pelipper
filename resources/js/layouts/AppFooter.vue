@@ -10,7 +10,7 @@ const logoUrl = computed(() => {
 </script>
 
 <template>
-    <footer style=" text-align: center; margin-left: 24px; margin-right: 24px; border-top: 1px solid #EBEBEB;">
+    <footer style=" text-align: center; padding-left: 24px; padding-right: 24px; border-top: 1px solid #EBEBEB; position:fixed; bottom: 0; width:100dvw">
         <div class="container-fluid footer-separator d-flex justify-content-center align-items-center" style="height: 57px;">
             <div class="row" style="height: 57px; width: fit-content">
                 <div class="col-3 p-0 d-flex flex-row align-items-center" style="height: 57px;">

@@ -14,7 +14,8 @@
                                     <form @submit.prevent="submitForm" class="p-5">
                                         <div class="d-flex align-items-center mb-3 p-0">
                                             <img src="/images/logo_pelipper_banner.PNG" width="40" height="40" class="p-0 m-0">
-                                            <span class="h1 fw-bold mx-2 my-0 p-0 page-title">create a post</span>
+                                            <!-- <span class="h1 fw-bold mx-2 my-0 p-0 page-title">create a post</span> -->
+                                            <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">create a post</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-5 pb-3">Tell others what you are thinking about...</h5>

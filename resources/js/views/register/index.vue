@@ -71,7 +71,7 @@
     <!----------------------------------- LO MIO ------------------------------------------>
     <section class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-xl-6">
+                <div class="col-md-6 col-xl-6">
                     <div class="createpost-container card p-0">
                         <div class="row g-0" style="border: 1px solid salmon">
                             <div class="d-none d-md-block"> <!-- D-NONE ELIMINA-->
@@ -82,7 +82,8 @@
                                     <form class="p-5">
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <img src="/images/pelipper_icon.png" width="40" height="40">
-                                            <span class="h1 fw-bold mb-0 mx-2 page-title">Create account</span>
+                                            <!-- <span class="h1 fw-bold mb-0 mx-2 page-title">Create account</span> -->
+                                            <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">create account</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-5 pb-3">Welcome to Pelipper.</h5>
@@ -109,12 +110,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-4">
-                                                <input type="text" class="form-control form-control-lg createpost-input"
-                                                    id="floatingInput" placeholder="name@example.com">
-                                                <label class="px-4" for="floatingInput">Nombre</label>
+                                                <input v-model="a" type="email" class="form-control form-control-lg createpost-input" id="floatingInput" placeholder="{{ profile.email }}" required> <!--value="{{ profile.email }}"-->
+                                                <label class="px-4" for="floatingInput">Email</label>
+                                                <div class="text-danger mt-1">
+                                                </div>
                                             </div>
                                             <div class="text-danger mt-1">
-                                                <div v-for="message in validationErrors?.name">
+                                                <div v-for="message in validationErrors?.title">
                                                     {{ message }}
                                                 </div>
                                             </div>
