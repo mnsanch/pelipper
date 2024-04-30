@@ -27,6 +27,7 @@
     --switchcolor9: #000000;
 	--switchcolor10: #EBEBEB;
     --switchcolor11: #EF324C; /* BRAND COLOR */
+    /* --switchcolor12 */
 
 }
 
@@ -511,8 +512,14 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 
+.post-image-container {
+    border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background: var(--switchcolor2);
+}
 
-
+.post-image {
+    max-width: 100%;
+    max-height: 480px !important
+}
 
 
 

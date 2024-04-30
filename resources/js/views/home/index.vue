@@ -134,7 +134,7 @@
                     <img src="/images/logo_pelipper_banner.PNG" class="mx-4 home-banner-element-c" style="border: 1px solid black; outline: 2px solid white">
                 </div>
                 <div class="col mx-2">
-                    <h2 class="page-title" style="font-size: 32px; font-weight: bold; color: orangered">pelipper community</h2>
+                    <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">pelipper community</h2>
                 </div>
             </div>
         </div>
@@ -164,8 +164,8 @@
                         <div style="height: fit-content !important">
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
-                            <div class="px-0 d-flex align-items-center justify-content-center" style="border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color: gainsboro"  v-if="(post.original_image!=null)"> 
-                                <img :src='post.original_image' style="max-width: 100%; max-height: 480px !important">
+                            <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
+                                <img :src='post.original_image' class="post-image">
                             </div>
                         </div>
 
