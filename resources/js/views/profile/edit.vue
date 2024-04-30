@@ -46,7 +46,7 @@
                                         <div class="form-floating position-relative mb-4">
                                             <input v-model="a" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword" placeholder="Password" required>
                                             <label class="px-4" for="floatingPassword">New password</label>
-                                            <button type="button" id="togglePassword" class="btn-login-password" @click="togglePasswordVisibility('floatingPassword')">
+                                            <button type="button" id="togglePassword" class="btn-login-password" @click="togglePasswordVisibility('floatingPassword','togglePassword')">
                                                 <!-- SVG por defecto -->
                                                 <svg id="showIcon" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                                     <path class="svg-background-color" d="M1 10c0-3.9 3.1-7 7-7s7 3.1 7 7h-1c0-3.3-2.7-6-6-6s-6 2.7-6 6H1zm4 0c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm1 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"/>
@@ -60,9 +60,9 @@
                                         </div>
 
                                         <div class="form-floating position-relative">
-                                            <input v-model="a" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword" placeholder="Password" required>
-                                            <label class="px-4" for="floatingPassword">Confirm password</label>
-                                            <button type="button" id="togglePassword" class="btn-login-password" @click="togglePasswordVisibility('floatingPassword')">
+                                            <input v-model="a" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword2" placeholder="Password" required>
+                                            <label class="px-4" for="floatingPassword2">Confirm password</label>
+                                            <button type="button" id="togglePassword2" class="btn-login-password" @click="togglePasswordVisibility('floatingPassword2','togglePassword2')">
                                                 <!-- SVG por defecto -->
                                                 <svg id="showIcon" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                                     <path class="svg-background-color" d="M1 10c0-3.9 3.1-7 7-7s7 3.1 7 7h-1c0-3.3-2.7-6-6-6s-6 2.7-6 6H1zm4 0c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm1 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"/>
@@ -180,9 +180,9 @@ defineRule('min', min);
     
 
 
-const togglePasswordVisibility = (id)=> {
+const togglePasswordVisibility = (id,id2)=> {
   var passwordInput = document.getElementById(id);
-  var button = document.getElementById('togglePassword');
+  var button = document.getElementById(id2);
   var showIcon = '<svg id="showIcon" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path class="svg-background-color" fill-rule="evenodd" clip-rule="evenodd" d="M1 10c0-3.9 3.1-7 7-7s7 3.1 7 7h-1c0-3.3-2.7-6-6-6s-6 2.7-6 6H1zm4 0c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3-3-1.3-3-3zm1 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"/></svg>';
   var hideIcon = '<svg id="hideIcon" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path class="svg-background-color" fill-rule="evenodd" clip-rule="evenodd" d="M8 2c-1.5 0-2.8.4-3.9 1.2l.8.7C5.8 3.3 6.8 3 8 3c3.3 0 6 2.7 6 6h1c0-3.9-3.1-7-7-7zM1 3l1.6 1.5C1.6 5.7 1 7.3 1 9h1c0-1.5.5-2.8 1.4-3.8l2.2 2C5.2 7.7 5 8.3 5 9c0 1.7 1.3 3 3 3 .8 0 1.5-.3 2-.8l3 2.8.7-.7-12-11L1 3zm5.3 4.9l2.9 2.7c-.3.2-.7.4-1.2.4-1.1 0-2-.9-2-2 0-.4.1-.8.3-1.1zM11 9.5l-1-.9c-.2-.8-.9-1.5-1.8-1.6l-1-.9c.3-.1.5-.1.8-.1 1.7 0 3 1.3 3 3v.5z"/></svg>';
 
