@@ -15,7 +15,7 @@
                                         <div class="d-flex align-items-center mb-3 p-0">
                                             <img src="/images/logo_pelipper_banner.PNG" width="40" height="40" class="p-0 m-0">
                                             <!-- <span class="h1 fw-bold mx-2 my-0 p-0 page-title">create a post</span> -->
-                                            <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">create a post</span>
+                                            <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Log in</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-5 pb-3">Tell others what you are thinking about...</h5>
@@ -77,7 +77,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="mt-4 mb-5 mx-0">
                                             <button onclick=""
                                                 class="simple-button createpost-submit-button p-0 d-flex justify-content-center align-items-center h-100">
@@ -104,9 +103,10 @@ import DropZone from "@/components/DropZone.vue";
 import useCategories from "@/composables/categories";
 import usePosts from "@/composables/pppposts";
 import {useForm, useField, defineRule} from "vee-validate";
-import {required, min, max} from "@/validation/rules"
+import {required, notnull, min, max} from "@/validation/rules"
 
 defineRule('required', required)
+defineRule('notnull', notnull)
 defineRule('min', min)
 defineRule('max', max);
 
@@ -115,7 +115,7 @@ const dropZoneActive = ref(true)
 const schema = {
     Title: 'required',
     Post: 'required|min:3|max:300',
-    categories: 'required'
+    categories: 'required|notnull'
 }
 const {validate, errors} = useForm({validationSchema: schema})
 const {value: Title} = useField('Title', null, {initialValue: ''});
