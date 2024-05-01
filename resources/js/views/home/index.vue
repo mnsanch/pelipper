@@ -169,39 +169,20 @@
                         </div>
 
                         <!-- Post content -->
-                        <div> <!--height: fit-content???-->
+                        <div style="height: fit-content !important">
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
                             <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
                                 <img :src='post.original_image' class="post-image">
                             </div>
                         </div>
-
-                        <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row">
-                            <!--Boton upvote/downvote-->
-                            <div v-if="post.votes.length==0" class="d-flex align-items-center post-vote-button">
-                                <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVoto(post)">
-                                    <span>
-                                        <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
-                                        </svg>
-                                    </span>
-                                </button>
-                                <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVoto(post)">
-                                    <span>
-                                        <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
-                            <p v-for="vote in post.votes">
-                                <p v-if="vote.vote==1">
-                                    <div class="d-flex align-items-center post-vote-button">
-                                    <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="quitarupvote(post)">
-                                        <span style="background-color: greenyellow;">
+                        
+                        <div class="d-flex justify-content-between post-button-container">
+                            <div class="d-flex flex-row">
+                                <!--Boton upvote/downvote-->
+                                <div v-if="post.votes.length==0" class="d-flex align-items-center post-vote-button">
+                                    <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVoto(post)">
+                                        <span>
                                             <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
                                             </svg>
@@ -215,58 +196,77 @@
                                             </svg>
                                         </span>
                                     </button>
-                                    </div>
+                                </div>
+                                <p v-for="vote in post.votes">
+                                    <p v-if="vote.vote==1">
+                                        <div class="d-flex align-items-center post-vote-button">
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="quitarupvote(post)">
+                                            <span style="background-color: aqua;">
+                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVoto(post)">
+                                            <span>
+                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        </div>
+                                    </p>
+                                    <p v-if="vote.vote==0">
+                                        <div class="d-flex align-items-center post-vote-button">
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVoto(post)">
+                                            <span>
+                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="quitardownvote(post)">
+                                            <span style="background-color: greenyellow;">
+                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        </div>
+                                    </p>
                                 </p>
-                                <p v-if="vote.vote==0">
-                                    <div class="d-flex align-items-center post-vote-button">
-                                    <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVoto(post)">
-                                        <span>
-                                            <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
+                                <!--Boton comentarios-->
+                                    <router-link :to="{ name: 'post.comentario', params: { id: post.id } }">
+                                        <div class="simple-button p-0 px-2 d-flex justify-content-center align-items-center post-comment-button">
+                                            <svg class="mx-2 icon-comment" rpl="" aria-hidden="true" fill="currentColor" height="20" icon-name="comment-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.725 19.872a.718.718 0 0 1-.607-.328.725.725 0 0 1-.118-.397V16H3.625A2.63 2.63 0 0 1 1 13.375v-9.75A2.629 2.629 0 0 1 3.625 1h12.75A2.63 2.63 0 0 1 19 3.625v9.75A2.63 2.63 0 0 1 16.375 16h-4.161l-4 3.681a.725.725 0 0 1-.489.191ZM3.625 2.25A1.377 1.377 0 0 0 2.25 3.625v9.75a1.377 1.377 0 0 0 1.375 1.375h4a.625.625 0 0 1 .625.625v2.575l3.3-3.035a.628.628 0 0 1 .424-.165h4.4a1.377 1.377 0 0 0 1.375-1.375v-9.75a1.377 1.377 0 0 0-1.374-1.375H3.625Z"></path>
                                             </svg>
-                                        </span>
-                                    </button>
-                                    <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                    <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="quitardownvote(post)">
-                                        <span style="background-color: orange;">
-                                            <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                    </div>
-                                </p>
-                            </p>
-                            <!--Boton comentarios-->
-                                <router-link :to="{ name: 'post.comentario', params: { id: post.id } }">
-                                    <div class="simple-button p-0 px-2 d-flex justify-content-center align-items-center post-comment-button">
-                                        <svg class="mx-2 icon-comment" rpl="" aria-hidden="true" fill="currentColor" height="20" icon-name="comment-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7.725 19.872a.718.718 0 0 1-.607-.328.725.725 0 0 1-.118-.397V16H3.625A2.63 2.63 0 0 1 1 13.375v-9.75A2.629 2.629 0 0 1 3.625 1h12.75A2.63 2.63 0 0 1 19 3.625v9.75A2.63 2.63 0 0 1 16.375 16h-4.161l-4 3.681a.725.725 0 0 1-.489.191ZM3.625 2.25A1.377 1.377 0 0 0 2.25 3.625v9.75a1.377 1.377 0 0 0 1.375 1.375h4a.625.625 0 0 1 .625.625v2.575l3.3-3.035a.628.628 0 0 1 .424-.165h4.4a1.377 1.377 0 0 0 1.375-1.375v-9.75a1.377 1.377 0 0 0-1.374-1.375H3.625Z"></path>
+                                            <span class="p-0 d-flex justify-content-center align-items-center post-quantity-indicator">{{ post.comments.length }}</span>
+                                        </div>
+                                    </router-link>
+                            </div>
+                            <!-- Botones edit + delete -->
+                            <div class="d-flex d-flex flex-row align-items-end">
+                                <!--Boton edit-->
+                                <router-link v-if="post.ID_User==user.id" :to="{ name: 'prueba.edit', params: { id: post.id } }" class="box-40 mx-2">
+                                    <button onclick="" class="post-edit-button p-0 d-flex justify-content-center align-items-center">
+                                        <svg rpl="" fill="currentColor" height="20" icon-name="edit-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m18.236 3.158-1.4-1.4a2.615 2.615 0 0 0-3.667-.021L1.336 13.318a1.129 1.129 0 0 0-.336.8v3.757A1.122 1.122 0 0 0 2.121 19h3.757a1.131 1.131 0 0 0 .8-.337L18.256 6.826a2.616 2.616 0 0 0-.02-3.668ZM5.824 17.747H2.25v-3.574l9.644-9.435L15.259 8.1l-9.435 9.647ZM17.363 5.952l-1.23 1.257-3.345-3.345 1.257-1.23a1.362 1.362 0 0 1 1.91.01l1.4 1.4a1.364 1.364 0 0 1 .008 1.908Z"></path>
                                         </svg>
-                                        <span class="p-0 d-flex justify-content-center align-items-center post-quantity-indicator">{{ post.comments.length }}</span>
-                                    </div>
+                                    </button>
                                 </router-link>
-                        </div>
-                        <!-- Botones edit + delete -->
-                        <div class="d-flex d-flex flex-row align-items-end">
-                            <!--Boton edit-->
-                            <router-link v-if="post.ID_User==user.id" :to="{ name: 'prueba.edit', params: { id: post.id } }" class="box-40 mx-2">
-                                <button onclick="" class="post-edit-button p-0 d-flex justify-content-center align-items-center">
-                                    <svg rpl="" fill="currentColor" height="20" icon-name="edit-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="m18.236 3.158-1.4-1.4a2.615 2.615 0 0 0-3.667-.021L1.336 13.318a1.129 1.129 0 0 0-.336.8v3.757A1.122 1.122 0 0 0 2.121 19h3.757a1.131 1.131 0 0 0 .8-.337L18.256 6.826a2.616 2.616 0 0 0-.02-3.668ZM5.824 17.747H2.25v-3.574l9.644-9.435L15.259 8.1l-9.435 9.647ZM17.363 5.952l-1.23 1.257-3.345-3.345 1.257-1.23a1.362 1.362 0 0 1 1.91.01l1.4 1.4a1.364 1.364 0 0 1 .008 1.908Z"></path>
-                                    </svg>
-                                </button>
-                            </router-link>
-                            <!--Boton delete-->
-                            <div class="box-40 mx-0" v-if="post.ID_User==user.id" @click="deletePosthome(post.id)">
-                                <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
-                                    <svg rpl="" fill="currentColor" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
-                                    </svg>
-                                </button>
+                                <!--Boton delete-->
+                                <div class="box-40 mx-0" v-if="post.ID_User==user.id" @click="deletePosthome(post.id)">
+                                    <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
+                                        <svg rpl="" fill="currentColor" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     <hr class="post-hr-separator">
                 </div>

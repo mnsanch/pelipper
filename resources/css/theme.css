@@ -325,7 +325,7 @@ textarea {
 .createpost-input:focus {
     background-color: var(--switchcolor6);
     border-color: #ec068c !important; /* Cambia el color del borde cuando el input está seleccionado */
-    box-shadow: 0 0 10px 0 #F35F0E; /* Añade un efecto de sombra para un aspecto más difuminado o neón */
+    box-shadow: 0 0 10px 0 #F35F0E !important; /* Añade un efecto de sombra para un aspecto más difuminado o neón */
 }
 
 
@@ -418,8 +418,12 @@ textarea::-webkit-scrollbar-thumb {
     margin-bottom: 14px !important
 }
 
-.post-button-container {
+/* .post-button-container {
     flex-direction: row; align-items: flex-start;  margin-top: 10px; margin-bottom: -10px
+} */
+
+.post-button-container {
+    height: 40px;
 }
 
     .post-vote-button {
@@ -814,6 +818,79 @@ a {
       background-position: 0% 50%;
     }
   }
+
+
+
+.comment {
+    background-color: var(--switchcolor3);
+    border-radius: 15px;
+    width: 100%;
+    height: fit-content;
+    /*padding: 10px 20px 10px 20px;*/
+    margin: 0px;
+    padding: 0px;
+}
+
+.comment-info {
+    padding: 20px 20px 0px 20px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.comment-context {
+    padding: 0px 20px 20px 20px;
+}
+
+.comment-user-avatar {
+    width: 35px;
+    height: 35px;
+    background: orange;
+    border-radius: 90px;
+    transition: background 0.33s, width 0.33s, height 0.33s
+}
+    .comment-user-avatar:hover {
+        width: 50px;
+        height: 50px;
+        background: salmon;
+    }
+
+.delete-comment-button {
+    background: salmon; 
+    width: 20px; 
+    height: 20px; 
+    position: relative;
+    border-radius: 90px;
+    float: right !important;
+    margin: -5px -5px 0px 0px;
+    transition: background 0.33s, width 0.33s, height 0.33s, margin 0.33s;
+}
+    .delete-comment-button:hover {
+        background: orange;
+        width: 22px; 
+        height: 22px; 
+        margin: -7px -7px 0px 0px;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
