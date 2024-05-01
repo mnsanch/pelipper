@@ -5,17 +5,26 @@
 <br>
 
 <div class="home-main-container" style="margin-top: 78px !important">
-    <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
+    <!-- <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;">
+        <pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect>
+    </svg> -->
 
     <!-- Menú lateral izquierdo -->
-    <aside class="aside-main-left">
-        <div class="block-disapear aside-container-left" style= "height: 80dvh; overflow-y: scroll;">
+    <aside class="aside-main-left block-disapear">
+        <div class="block-disapear aside-container-left">
             <!-- Aquí va el menú izquierdo -->
             <ul class="block-disapear aside-ul-container-left">
-                <div class="d-flex align-items-center aside-menu-nav-element">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="position-absolute">
-                        <path d="m17.71 8.549 1.244.832v8.523a1.05 1.05 0 0 1-1.052 1.046H12.73a.707.707 0 0 1-.708-.707v-4.507c0-.76-1.142-1.474-2.026-1.474-.884 0-2.026.714-2.026 1.474v4.507a.71.71 0 0 1-.703.707H2.098a1.046 1.046 0 0 1-1.052-1.043V9.381l1.244-.835v9.158h4.44v-3.968c0-1.533 1.758-2.72 3.27-2.72s3.27 1.187 3.27 2.72v3.968h4.44V8.549Zm2.04-1.784L10.646.655a1.12 1.12 0 0 0-1.28-.008L.25 6.765l.696 1.036L10 1.721l9.054 6.08.696-1.036Z"></path>
+                <div class="d-flex align-items-center aside-menu-nav-element-marked">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="position-absolute">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color: #ec068c"></stop>
+                            <stop offset="100%" style="stop-color: #F35F0E"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path d="m19.724 6.765-9.08-6.11A1.115 1.115 0 0 0 9.368.647L.276 6.765a.623.623 0 0 0 .35 1.141h.444v10.001c.001.278.113.544.31.74.196.195.462.304.739.303h5.16a.704.704 0 0 0 .706-.707v-4.507c0-.76 1.138-1.475 2.02-1.475.882 0 2.02.715 2.02 1.475v4.507a.71.71 0 0 0 .707.707h5.16c.274-.001.538-.112.732-.307.195-.195.305-.46.306-.736v-10h.445a.618.618 0 0 0 .598-.44.625.625 0 0 0-.25-.702Z" fill="url(#gradient)"></path>
                     </svg>
+
                     <li class="aside-list-element ">Home</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element">
@@ -124,14 +133,13 @@
         <div class="row p-0 m-0 home-banner-container">
             <div class="row justify-content-end p-0 m-0">
                 <div class="home-banner-element-a">
-                    <!-- <img src="/images/Captura_banner.png" style="display:flex; width: 100%; height: 100%;" class="home-banner-element-a"> -->
-                    <img src="/images/main_banner_pelipper.svg" style="display:block; width: 100%" class="home-banner-element-a">
+                    <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100">
                 </div>
             </div>
             <div class="row p-0 m-0 home-banner-subcontainer">
                 <div class="col-1 m-0 home-banner-element-b">
                     <!-- <div class="px-2 mx-4 home-banner-element-c"></div> -->
-                    <img src="/images/logo_pelipper_banner.PNG" class="mx-4 home-banner-element-c" style="border: 1px solid black; outline: 2px solid white">
+                    <img src="/images/logo_pelipper_banner.PNG" class="mx-4 home-banner-element-c">
                 </div>
                 <div class="col mx-2">
                     <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">pelipper community</h2>
@@ -161,7 +169,7 @@
                         </div>
 
                         <!-- Post content -->
-                        <div style="height: fit-content !important">
+                        <div> <!--height: fit-content???-->
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
                             <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
@@ -193,7 +201,7 @@
                                 <p v-if="vote.vote==1">
                                     <div class="d-flex align-items-center post-vote-button">
                                     <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="quitarupvote(post)">
-                                        <span style="background-color: aqua;">
+                                        <span style="background-color: greenyellow;">
                                             <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
                                             </svg>
@@ -220,7 +228,7 @@
                                     </button>
                                     <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
                                     <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="quitardownvote(post)">
-                                        <span style="background-color: greenyellow;">
+                                        <span style="background-color: orange;">
                                             <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
                                             </svg>
@@ -267,7 +275,7 @@
             </main>
 
             <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
-                <div class="right-aside-container-bg aside-container-right " style="background-color: gainsboro;">
+                <div class="right-aside-container-bg aside-container-right">
                     <ul class="m-0 aside-ul-container-right">
                         <li class="scoreboard-title">TOP MONTHLY POSTS</li>
                         <li class="scoreboard-top-users">#1 <span class="px-2">Usuario a</span></li>
@@ -283,7 +291,7 @@
                     </ul>
                 </div>
                 <br>
-                <div class="right-aside-container-bg aside-container-right"  style="background-color: gainsboro;">
+                <div class="right-aside-container-bg aside-container-right">
                     <ul class="m-0 aside-ul-container-right">
                         <li class="guidelines-title">OFFICIAL GUIDELINES</li>
                         <li class="guidelines-text">The rules of Pelipper include no harassing, no spamming, no posting illegal content, no sharing personal information without consent, and respecting copyright.</li>

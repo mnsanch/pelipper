@@ -525,13 +525,28 @@ textarea::-webkit-scrollbar-thumb {
 
 
     @media (max-width: 1000px) {
+        .aside-main-left {
+            background: red;
+            width: 0%;
+            height: 0%;
+            padding: 0px;
+            display: none;
+            flex-direction: column;
+        }
+        aside {
+            display:none; 
+            width: 0%; 
+            height: 0%;
+        }
+
         .block-disapear,
         .block-disapear * {
             display: none; /* Oculta el bloque cuando el ancho del navegador sea menor a 600px */
             width: 0px !important
         }
         .block-expand {
-            width: 100dvw !important
+            width: 95dvw !important;
+            padding: 0 2.5dvw 0 2.5dvw !important;
         }
         .home-banner-container {
             height: 0% !important; 
@@ -548,12 +563,12 @@ textarea::-webkit-scrollbar-thumb {
             align-items: center;
             justify-content: center !important;
             padding: 0px 0px 0px 0px;
-            width: fit-content;
+            width: 100%;
             /* overflow-x: hidden;  */
         }
         .post-container {
             margin: 0%;
-            padding: 0%
+            padding: 8px 8px 8px 8px !important;
         }
         /* * {
             overflow-x: hidden; 
@@ -574,22 +589,29 @@ textarea::-webkit-scrollbar-thumb {
             margin: 0% !important
         }
 
-        .createpost-container {width: 100% !important;}
+        .createpost-container {
+            width: 100% !important;
+        }
 
-        .login-container{width: 100% !important;}
+        .login-container {
+            width: 100% !important;
+        }
     }
 
     .community-icon {
         width: 30px; height: 30px; border-radius: 90px
     }
 
-    .aside-menu-nav-element {
-        /* Estilos predeterminados */
+    .aside-menu-nav-element-marked {
+        background: var(--switchcolor3);
         border-radius: 15px;
+        margin-left: -8px;
+        padding-left: 8px;
     }
 
     .aside-menu-nav-element {
         background-color: none;
+        border-radius: 15px;
         transition: background-color 0.3s, border-radius 0.3s, padding-left 0.3s; /* Agregamos una transición suave */
     }
         .aside-menu-nav-element:hover {
@@ -647,8 +669,15 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .aside-container-left {
-    width: 15dvw; height: fit-content; padding: 0px; display: flex; flex-direction: column; position: fixed;
+    width: 15dvw;  
+    height: 80dvh;
+    overflow-y: scroll;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
 }
+
 .aside-ul-container-left {
     list-style: none;
     padding: 40px 20px 20px 20px;
@@ -687,14 +716,17 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .home-banner-container {
-    height: 188px; width: 100%; border: 0.5px solid rgb(0, 255, 115); justify-content: center;
+    height: 188px;
+    width: 100%;
+    justify-content: center;
 }
     .home-banner-subcontainer {
         width: 95%
     }
         .home-banner-element-a {
             height:128px;
-            width:96%;
+            display:block;
+            width: 96%;
             background-color:#CACACA;
             border-radius: 16px;
             margin:0;
@@ -705,10 +737,18 @@ textarea::-webkit-scrollbar-thumb {
                 opacity: 80%
         }
             .home-banner-element-b {
-                height:50px; width: 100px;justify-content: center;
+                height:50px;
+                width: 100px;
+                justify-content: center;
             }
                 .home-banner-element-c {
-                    height:80px; width: 80px; background-color: grey; border-radius: 90px; border: 1px solid black; outline: 3px solid var(--switchcolor1); position:absolute; top: 185px
+                    height:80px;
+                    width: 80px;
+                    background-color: grey;
+                    border-radius: 90px;
+                    border: 1px solid black;
+                    outline: 3px solid var(--switchcolor1);
+                    position:absolute; top: 185px
                 }
 
 .home-mid-main-container {
