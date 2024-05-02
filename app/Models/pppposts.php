@@ -38,7 +38,9 @@ class pppposts extends Model implements HasMedia
     public function votes()
     {
         $userId = Auth::id();
-        return $this->hasMany(pppvote::class, 'pppposts_id')->where('pppuser_id', $userId);
+        return $this->belongsToMany(users::class, 'pppvotes')->select('pppvotes.pppposts_id', 'pppvotes.users_id', 'pppvotes.vote')->where('pppvotes.users_id', $userId);
+        // $userId = Auth::id();
+        // return $this->hasMany(pppvote::class, 'pppposts_id')->where('pppuser_id', $userId);
     }
 
     public function registerMediaCollections(): void

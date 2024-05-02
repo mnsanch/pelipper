@@ -157,20 +157,26 @@ class pppPostController extends Controller
 
     public function upvote($id) {
         $post = pppposts::findOrFail($id);
+        $creado = pppvote::where('pppposts_id', $id)->first();
+        if ($creado!=null) {
+            $post->increment('Downvote');
+            $post->votes()->detach();
+        }
         $creacion['pppuser_id'] = auth()->id();   
-        $creacion['vote'] = 1;   
-        $creacion['pppposts_id'] = $id;   
-        $voto = pppvote::create($creacion);
+        $post->votes()->attach($creacion, ['vote' => 1]);
         $post->increment('Upvote');
-        return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
+        return new pruebaresource($post);
     }
 
     public function downvote($id) {
         $post = pppposts::findOrFail($id);
+        $creado = pppvote::where('pppposts_id', $id)->first();
+        if ($creado!=null) {
+            $post->decrement('Upvote');
+            $post->votes()->detach();
+        }
         $creacion['pppuser_id'] = auth()->id();   
-        $creacion['vote'] = 0;   
-        $creacion['pppposts_id'] = $id;   
-        $voto = pppvote::create($creacion);
+        $post->votes()->attach($creacion, ['vote' => 0]);
         $post->decrement('Downvote');
         return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
     }
@@ -178,16 +184,14 @@ class pppPostController extends Controller
     public function quitarupvote($id) {
         $post = pppposts::findOrFail($id);
         $post->decrement('Downvote');
-        $voto = pppvote::where('pppuser_id', auth()->id())->where('pppposts_id', $id)->firstOrFail();
-        $voto->delete();
+        $post->votes()->detach();
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
     public function quitardownvote($id) {
         $post = pppposts::findOrFail($id);
         $post->increment('Upvote');
-        $voto = pppvote::where('pppuser_id', auth()->id())->where('pppposts_id', $id)->firstOrFail();
-        $voto->delete();
+        $post->votes()->detach();
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 

@@ -9,7 +9,7 @@ class pppvote extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'pppuser_id',
+        'users_id ',
         'pppposts_id',
         'vote'
     ];
