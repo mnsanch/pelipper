@@ -14,17 +14,10 @@
             <div class="block-disapear aside-container-left">
                 <!-- Aquí va el menú izquierdo -->
                 <ul class="block-disapear aside-ul-container-left">
-                    <div class="d-flex align-items-center aside-menu-nav-element-marked">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="position-absolute">
-                            <defs>
-                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color: #ec068c"></stop>
-                                <stop offset="100%" style="stop-color: #F35F0E"></stop>
-                                </linearGradient>
-                            </defs>
-                            <path d="m19.724 6.765-9.08-6.11A1.115 1.115 0 0 0 9.368.647L.276 6.765a.623.623 0 0 0 .35 1.141h.444v10.001c.001.278.113.544.31.74.196.195.462.304.739.303h5.16a.704.704 0 0 0 .706-.707v-4.507c0-.76 1.138-1.475 2.02-1.475.882 0 2.02.715 2.02 1.475v4.507a.71.71 0 0 0 .707.707h5.16c.274-.001.538-.112.732-.307.195-.195.305-.46.306-.736v-10h.445a.618.618 0 0 0 .598-.44.625.625 0 0 0-.25-.702Z" fill="url(#gradient)"></path>
+                    <div class="d-flex align-items-center aside-menu-nav-element">
+                        <svg rpl="" fill="currentColor" height="20" icon-name="home-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg" class="position-absolute">
+                            <path d="m17.71 8.549 1.244.832v8.523a1.05 1.05 0 0 1-1.052 1.046H12.73a.707.707 0 0 1-.708-.707v-4.507c0-.76-1.142-1.474-2.026-1.474-.884 0-2.026.714-2.026 1.474v4.507a.71.71 0 0 1-.703.707H2.098a1.046 1.046 0 0 1-1.052-1.043V9.381l1.244-.835v9.158h4.44v-3.968c0-1.533 1.758-2.72 3.27-2.72s3.27 1.187 3.27 2.72v3.968h4.44V8.549Zm2.04-1.784L10.646.655a1.12 1.12 0 0 0-1.28-.008L.25 6.765l.696 1.036L10 1.721l9.054 6.08.696-1.036Z"></path>
                         </svg>
-    
                         <li class="aside-list-element ">Home</li>
                     </div>
                     <div class="d-flex align-items-center aside-menu-nav-element">
@@ -230,7 +223,9 @@
                                                 <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + comment.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
                                             </div>
                                         </div>
-                                        <p class="my-0 mx-2 p-0">{{ comment.user.name }}</p>
+                                        <!-- <router-link :to="{ name: 'comment.user.name', params: { id: post.ID_User } }"> -->
+                                            <p class="my-0 mx-2 p-0">{{ comment.user.name }}</p>
+                                        <!-- </router-link> -->
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <p class="m-0 p-0">23/04/2024</p>
@@ -273,7 +268,7 @@
         </div>
     </div>
     </body>
-    </template>
+</template>
 <style>
 </style>
 <script setup>

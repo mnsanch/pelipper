@@ -23,8 +23,8 @@ export default function usePosts() {
         })
     }
 
-    const avatrlink = async (id) => {
-        router.push({ name: 'post.usuario', params: { id: id } })
+    const avatrlink = async (id,avatar) => {
+        router.push({ name: 'post.usuario', params: { id: id, avatar: avatar } })
     }
 
     const getreversePosts = async () => {

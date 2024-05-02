@@ -100,7 +100,7 @@ export default [
             },
             {
                 name: 'post.usuario',
-                path: 'usuario/:id',
+                path: 'usuario/:id/:avatar',
                 component: PostUsuario,
             },{
                 name: 'post.comentario',
