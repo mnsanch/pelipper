@@ -244,14 +244,12 @@ export default function usePosts() {
     const sumarVoto = async (post) => {
             axios.put('/api/pppposts/'+post.id+'/upvote')  
             .then(response => {
-                console.log(response.data.message);
-                post.Upvote++;;
-                post.Totalvotes++;;
+                getPosts()
             })
             .catch(error => {
                 swal({
                     icon: 'error',
-                    title: 'Post updated successfully',
+                    title: 'Logeate',
                     timer: 5000,
                     timerProgressBar: true,        
                 })
@@ -261,14 +259,12 @@ export default function usePosts() {
     const restarVoto = async (post) => {
         axios.put('/api/pppposts/'+post.id+'/downvote')  
         .then(response => {
-            console.log(response.data.message);
-            post.Downvote--;;
-            post.Totalvotes--;;
+            getPosts()
         })
         .catch(error => {
             swal({
                 icon: 'error',
-                title: 'Post updated successfully',
+                title: 'Logeate',
                 timer: 5000,
                 timerProgressBar: true,  
             })
@@ -278,18 +274,14 @@ export default function usePosts() {
     const quitarupvote = async (post) => {
         axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
         .then(response => {
-            console.log(response.data);
-            post.Downvote--;;
-            post.Totalvotes--;;
+            getPosts()
         }) 
     }
 
     const quitardownvote = async (post) => {
         axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
         .then(response => {
-            console.log(response.data);
-            post.Upvote++;;
-            post.Totalvotes++;;
+            getPosts()
         }) 
     }
 
