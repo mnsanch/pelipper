@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Models\pppposts;
+use App\Models\pppcomments;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -117,9 +118,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         $posts = pppposts::where('ID_User', $id)->get();
-        // return $posts;
         foreach ($posts as $post) {
             $post->delete();
+        }
+        $comments = pppcomments::where('ID_User', $id)->get();
+        foreach ($comments as $comment) {
+                $comment->delete();
         }
         $user = User::find($id);
         // $this->authorize('user-delete');
