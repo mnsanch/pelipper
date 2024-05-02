@@ -311,7 +311,7 @@
         storecomment(route.params.id,comentario)
     }
 
-    const {post, getPostuser, sumarVoto, restarVoto} = usePosts()
+    const {post, getPostuser, sumarVoto, restarVoto, avatrlink} = usePosts()
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
     const route = useRoute()
