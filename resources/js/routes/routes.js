@@ -107,6 +107,18 @@ export default [
                 path: 'post/:id',
                 component: PostComentario,
             },
+            {
+                name: 'prueba.edit',
+                path: 'edit/:id',
+                component: PruebaEdit,
+                meta: { breadCrumb: 'Editar pruebas' }
+            },
+            {
+                name: 'prueba.create',
+                path: 'create',
+                component: PruebaCreate,
+                meta: { breadCrumb: 'Crear pruebas' }
+            }
         ]
     },
     {
@@ -172,18 +184,18 @@ export default [
                         component: Prueba,
                         meta: { breadCrumb: 'Listado pruebas' }
                     },
-                    {
-                        name: 'prueba.create',
-                        path: 'create',
-                        component: PruebaCreate,
-                        meta: { breadCrumb: 'Crear pruebas' }
-                    },
-                    {
-                        name: 'prueba.edit',
-                        path: 'edit/:id',
-                        component: PruebaEdit,
-                        meta: { breadCrumb: 'Editar pruebas' }
-                    }
+                    // {
+                    //     name: 'prueba.create',
+                    //     path: 'create',
+                    //     component: PruebaCreate,
+                    //     meta: { breadCrumb: 'Crear pruebas' }
+                    // }
+                    // {
+                    //     name: 'prueba.edit',
+                    //     path: 'edit/:id',
+                    //     component: PruebaEdit,
+                    //     meta: { breadCrumb: 'Editar pruebas' }
+                    // }
                 ]
 
                 

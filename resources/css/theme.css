@@ -8,6 +8,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+
+.pointer-custom {
+    cursor: pointer !important;
+}
+
 .puto-avatar {
     width:28px !important;
     height:28px !important;
@@ -778,7 +783,7 @@ textarea::-webkit-scrollbar-thumb {
 
 .footer-text {font-size: 12px; color: #606060}
 
-.footer-snippet {text-align: center; margin-left: 24px; margin-right: 24px; border-top: 1px solid #EBEBEB; }
+.footer-snippet {text-align: center; margin-left: 24px; margin-right: 24px; }
 
 .footer-row-height {
     height: 57px
