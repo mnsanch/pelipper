@@ -152,9 +152,9 @@
                         <!-- User data -->
                         <div class="d-flex align-items-center post-user-data">
                             <div class="p-0 avatar-image">  
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar)"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar,post.Usuario)"/>
                             </div>
-                            <span  class="mx-2 post-user-data pointer-custom" @click="avatrlink(post.ID_User,post.Avatar)">{{post.Usuario}}</span>
+                            <span  class="mx-2 post-user-data pointer-custom" @click="avatrlink(post.ID_User,post.Avatar,post.Usuario)">{{post.Usuario}}</span>
                             <span class="post-user-data-separator"> · </span>
                             <span v-for="category in post.ID_Category" class="mx-2 post-user-data">{{ category.Category_Name }}</span>
                             <span class="post-user-data-separator"> · </span>
@@ -220,10 +220,10 @@
                                     <div class="d-flex align-items-center">
                                         <div>                                           
                                             <div class="p-0 avatar-image">  
-                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + comment.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(comment.ID_User,comment.user.avatar)"/>
+                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + comment.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(comment.ID_User,comment.user.avatar, comment.user.name)"/>
                                             </div>
                                         </div>
-                                        <router-link :to="{ name: 'post.usuario', params: { id: comment.ID_User, avatar: comment.user.avatar } }">
+                                        <router-link :to="{ name: 'post.usuario', params: { id: comment.ID_User, avatar: comment.user.avatar, nombre:comment.user.name } }">
                                             <p class="my-0 mx-2 p-0">{{ comment.user.name }}</p>
                                         </router-link>
                                     </div>

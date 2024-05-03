@@ -138,7 +138,7 @@
 
                     </div>
                     <div class="col mx-2">
-                        <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">pelipper community</h2>
+                        <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">{{nombre}}</h2>
                     </div>
                 </div>
             </div>
@@ -316,6 +316,7 @@
     const store = useStore();
     const user = computed(() => store.state.auth.user)
     const avatar= ref({})
+    const nombre= ref({})
 
     const handleOrdenChange = (event) => {
         const selectedOption = event.target.value;
@@ -338,7 +339,7 @@
         getPostsuser(route.params.id)
         getCategoryList()
         avatar.value=route.params.avatar
-
+        nombre.value=route.params.nombre
         
     })
     
