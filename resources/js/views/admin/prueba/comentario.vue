@@ -152,9 +152,9 @@
                         <!-- User data -->
                         <div class="d-flex align-items-center post-user-data">
                             <div class="p-0 avatar-image">  
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar)"/>
                             </div>
-                            <router-link :to="{ name: 'post.usuario', params: { id: post.ID_User } }"><span class="mx-2 post-user-data">{{post.Usuario}}</span></router-link>
+                            <span  class="mx-2 post-user-data pointer-custom" @click="avatrlink(post.ID_User,post.Avatar)">{{post.Usuario}}</span>
                             <span class="post-user-data-separator"> · </span>
                             <span v-for="category in post.ID_Category" class="mx-2 post-user-data">{{ category.Category_Name }}</span>
                             <span class="post-user-data-separator"> · </span>
@@ -220,12 +220,12 @@
                                     <div class="d-flex align-items-center">
                                         <div>                                           
                                             <div class="p-0 avatar-image">  
-                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + comment.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
+                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + comment.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(comment.ID_User,comment.user.avatar)"/>
                                             </div>
                                         </div>
-                                        <!-- <router-link :to="{ name: 'comment.user.name', params: { id: post.ID_User } }"> -->
+                                        <router-link :to="{ name: 'post.usuario', params: { id: comment.ID_User, avatar: comment.user.avatar } }">
                                             <p class="my-0 mx-2 p-0">{{ comment.user.name }}</p>
-                                        <!-- </router-link> -->
+                                        </router-link>
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <p class="m-0 p-0">23/04/2024</p>
@@ -289,7 +289,6 @@
     defineRule('max', max);
     import {useAbility} from '@casl/vue'
     
-
     const schema = {
     Comment: 'min:1|max:400',
 }
