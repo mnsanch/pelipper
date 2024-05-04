@@ -19,7 +19,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="mt-4">
                             <button :disabled="isLoading" class="btn btn-primary">
                                 <div v-show="isLoading" class=""></div>

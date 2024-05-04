@@ -5,9 +5,9 @@
                 <div class="col col-xl-10">
                     <div class="createpost-container card p-0">
                         <div class="row g-0">
-                            <div class="col-md-12 col-lg-12 d-none d-md-block" >
+                            <div class="col-md-12 col-lg-12 d-none d-md-block" style="height: 80px" >
                                 <!-- <div class="createpost-banner m-0 p-0"></div> -->
-                                <img src="/images/createpost_banner.svg" class="m-0 p-0" style="width: 100%; height: auto; background-color: transparent">
+                                <img src="/images/createpost_banner.svg" class="m-0 p-0" style="width: 100%; height: 80px; background-color: transparent">
                             </div>
                             <div class="col-md-12 col-lg-12 d-flex align-items-center" style="border: 1px solid gainsboro">
                                 <div class="card-body p-4 p-lg-5 text-black">
@@ -15,7 +15,7 @@
                                         <div class="d-flex align-items-center mb-3 p-0">
                                             <img src="/images/logo_pelipper_banner.PNG" width="40" height="40" class="p-0 m-0">
                                             <!-- <span class="h1 fw-bold mx-2 my-0 p-0 page-title">create a post</span> -->
-                                            <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Log in</span>
+                                            <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Create a post</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-5 pb-3">Tell others what you are thinking about...</h5>
@@ -95,8 +95,10 @@
                 </div>
             </div>
         </section>
+        <app-footer></app-footer>
 </template>
 <script setup>
+import AppFooter from '@/layouts/AppFooter.vue';
 import {onMounted, reactive, ref} from "vue";
 import TextEditorComponent from "@/components/TextEditorComponent.vue";
 import DropZone from "@/components/DropZone.vue";

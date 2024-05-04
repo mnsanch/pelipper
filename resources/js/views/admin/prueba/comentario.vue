@@ -126,7 +126,8 @@
             <div class="row p-0 m-0 home-banner-container">
                 <div class="row justify-content-end p-0 m-0">
                     <div class="home-banner-element-a">
-                        <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100">
+                        <p></p>
+                        <!-- <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100"> -->
                     </div>
                 </div>
                 <div class="row p-0 m-0 home-banner-subcontainer">

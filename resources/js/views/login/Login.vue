@@ -64,9 +64,12 @@
                 </div>
         </div>
 </section>
+<app-footer></app-footer>
 </template>
 
 <script setup>
+
+import AppFooter from '@/layouts/AppFooter.vue';
 
 import useAuth from '@/composables/auth'
 
