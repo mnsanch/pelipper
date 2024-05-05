@@ -1,4 +1,6 @@
 <template>
+    <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
+
     <section class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100 border-0">
                 <div class="createpost-container p-0 w-50" style="margin: 21px"> <!--card-->
@@ -97,50 +99,13 @@
 
             </div>
         </section>
-    <!-- <div class="card border-0">
-        <div class="card-header bg-transparent">
-            <h5 class="float-start">Profile</h5>
-        </div>
-        <div class="card-body">
-            <form @submit.prevent="submitForm">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" v-model="profile.name" class="form-control" id="name">
-                    <div class="text-danger mt-1">
-                        {{ errors.name }}
-                    </div>
-                    <div class="text-danger mt-1">
-                        <div v-for="message in validationErrors?.name">
-                            {{ message }}
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" v-model="profile.email" class="form-control" id="email">
-                    <div class="text-danger mt-1">
-                        {{ errors.email }}
-                    </div>
-                    <div class="text-danger mt-1">
-                        <div v-for="message in validationErrors?.email">
-                            {{ message }}
-                        </div>
-                    </div>
-                </div>
+        <app-footer></app-footer>
 
-                <div class="mb-3">
-                    <button :disabled="isLoading" class="btn btn-primary">
-                        <div v-show="isLoading" class=""></div>
-                        <span v-if="isLoading">Processing...</span>
-                        <span v-else>Update</span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div> -->
 </template>
 
+
 <script setup>
+import AppFooter from '@/layouts/AppFooter.vue';
 import { onMounted, reactive, watchEffect, ref, inject, computed} from "vue";
 import { useForm, useField, defineRule } from "vee-validate";
 import { required, min } from "@/validation/rules"

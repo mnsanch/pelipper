@@ -14,16 +14,13 @@ const logoUrl = computed(() => {
         <div class="container-fluid footer-separator d-flex justify-content-center align-items-center" style="height: 57px;">
             <div class="row" style="height: 57px; width: fit-content">
                 <div class="col-3 p-0 d-flex flex-row align-items-center" style="height: 57px;">
-                    <div style="height: 40px; width: 40px" class="mx-2">
+                    <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
-                            <!-- Add post icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="">
-                                <path class="color11"
-                                    d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
-                            </svg>
+                            <!-- Logo -->
+                            <img class="py-0 my-0" src="/images/logo_pelipper.svg" width="30" height="30">
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-2">
+                    <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Advertise icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="topic-activism-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +28,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-2">
+                    <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Help icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="help-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +36,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-2">
+                    <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Blog icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="topic-reading-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +44,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-2">
+                    <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Careers icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="topic-careers-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +52,7 @@ const logoUrl = computed(() => {
                             </svg>
                         </button>
                     </div>
-                    <div style="height: 40px; width: 40px" class="mx-2">
+                    <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Press icon -->
                             <svg xmlns:xlink="http://www.w3.org/1999/xlink"  rpl="" fill="currentColor" height="20" icon-name="author-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -70,14 +67,14 @@ const logoUrl = computed(() => {
         <div class="container-fluid d-flex justify-content-center align-items-center" style=" height: 35px;">
             <!-- Copyright -->
             <div class="text-center">
-                <span class="mx-1" style="font-size: 12px; color: #606060;">Terms of use.</span>
-                <span class="mx-1" style="font-size: 12px; color: #606060;">Privacy policy</span>
+                <span class="mx-1 font-size-12">Terms of use.</span>
+                <span class="mx-1 font-size-12">Privacy policy</span>
             </div>
         </div>
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 35px;">
             <!-- Copyright -->
-            <div class="text-center" style="font-size: 12px; color: #606060;">
-                <span>Pelipper © 2024. All rights reserved.</span>
+            <div class="text-center">
+                <span class="font-size-12">Pelipper © 2024. All rights reserved.</span>
             </div>
         </div>
 

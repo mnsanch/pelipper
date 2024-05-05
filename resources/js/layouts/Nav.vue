@@ -1,56 +1,138 @@
 <template>
-    <!-- <nav class="navbar navbar-expand-lg bg-black display-mode-off-dos" style="z-index: 999999; background-color: black; position: fixed">
-  <div class="container-fluid">
-    <a class="navbar-brand nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto">
-      <div class="logo" style="background-image: url('images/logo_pelipper_claro.svg'); margin-left: 0px; background-size:cover; background-position:center; background-repeat:no-repeat;"></div>
-    </a>
-    <ul class=" d-flex flex-row navbar-nav" style>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto"><img src="assets/icons/home.svg" width="35" height="35" alt="Icono de inicio."></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto&action=carta"><img src="assets/icons/carta.svg" width="35" height="35" alt="Icono de carta."></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=user&action=login"><img src="assets/icons/login.svg" width="35" height="35" alt="Icono de panel de usuario."></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=cesta&action=cesta"><img src="assets/icons/cesta.svg" width="35" height="35" alt="Icono de cesta.">
-        </a>
-      </li>
-      <li class="nav-item">
-        <button class="navbar-toggler my-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><img src="assets/icons/hamburger-icon.png" alt="Icono desplegable." width="30" height="30"></span>
-        </button>
-      </li>
-    </ul>
+    <nav v-if="user?.name" class="navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default" style="z-index: 999999; position: fixed; border-bottom: 1px solid gainsboro">
+            <div class="container-fluid d-flex justify-content-between">
+                
+                <div class="nav-item box-40 d-flex justify-content-center align-items-center " style="margin-left: 8px; margin-right: 8px">
+                    <button class="navbar-toggler my-3 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+                            <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z"></path>
+                        </svg>
+                    </button>
+                </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <a class="navbar-brand nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto">
+                    <router-link to="/" class="navbar-brand logo">
+                        <img src="images/logo_pelipper_claro.svg" width="115" height="34">
+                    </router-link>
+                </a>
 
-        <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto"><button class="btn text-white header-menu-link" type="submit">Home</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto&action=carta"><button class="btn text-white header-menu-link" type="submit">Popular</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=cesta&action=cesta"><button class="btn text-white header-menu-link" type="submit">Most hated</button></a></li>
+                <div class="d-flex">
+                    <div class="box-40 mx-1">
+                        <router-link :to="{name: 'prueba.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
+                            <!-- Add post icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="fuchsia" class="brand-color">
+                                <path class="" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
+                            </svg>
+                        </router-link>
+                    </div>
+                    <div class="box-40 m-0 p-0 d-flex justify-content-center align-items-center" style="margin-left: 8px; margin-right: 8px">
+                        <!-- Profile picture example -->
+                            <router-link :to="{ name: 'perfil.index' }" class="d-flex justify-content-center align-items-center">
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class="box-40 m-0 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="border: 1px solid black; border-radius: 90px"/>
+                            </router-link>
+                    </div>
+                </div>
 
-        <li>
-          <hr class="dropdown-divider">
-        </li>
+                <div class="collapse navbar-collapse bg-color-default" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
+                    <div class="container-fluid border searchbar-dos my-4">
+                        <form action="" method="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
+                                <path class="svg-background-color" d="M19.5 18.616 14.985 14.1a8.528 8.528 0 1 0-.884.884l4.515 4.515.884-.884ZM1.301 8.553a7.253 7.253 0 1 1 7.252 7.253 7.261 7.261 0 0 1-7.252-7.253Z">
+                                </path>
+                            </svg>
+                            <input type="text" placeholder="Search in..." name="searchbar" class="mx-2" style="background-color: transparent; border: none; outline: none;">
+                        </form>
+                    </div>
 
-        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">About Pelipper</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Advertise</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Help</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Blog</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Careers</button></a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#!"><button class="btn text-white header-menu-link" type="submit">Press</button></a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center bg-color-default">
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Home</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Popular</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Most hated</span></button></a></li>
+                        <li>
+                        <hr class="dropdown-divider">
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Create post</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Account</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Log out</span></button></a></li>
+                        <li>
+                        <hr class="dropdown-divider">
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Dark mode</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>About Pelipper</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Advertise</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Help</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Blog</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Careers</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Press</span></button></a></li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <nav v-if="!user?.name" class="navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default" style="z-index: 999999; position: fixed; border-bottom: 1px solid gainsboro">
+            <div class="container-fluid d-flex justify-content-between">
+                <div style="width: 150px">
+                    <div class="nav-item box-40 d-flex justify-content-center align-items-center " style="margin-left: 8px; margin-right: 8px">
+                        <button class="navbar-toggler my-3 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
+                                <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div style="width: 150px">
+                <a class="navbar-brand nav-link text-white" style="align-self: center;" href="127.0.0.1:8000">
+                    <router-link to="/" class="navbar-brand logo">
+                        <img src="images/logo_pelipper_claro.svg" width="115" height="34">
+                    </router-link>
+                </a>
+            </div>
+            <div style="width: 150px">
+                <div class="d-flex justify-content-end">
+                    <div style="height: 40px; width: auto; margin-left: 4px; margin-right: 4px">
+                            <button onclick="" class="special-button p-0 d-flex justify-content-center align-items-center nav-item">
+                                <!-- Log in button -->
+                                <router-link class="nav-a-link" to="/login" style="margin-left: 5px; margin-right: 5px"> Log in </router-link>
+                            </button>
+                        </div>
+                </div>
+            </div>
 
-      </ul>
-      <form class="d-flex m-auto searchbar-dos" role="search">
-        <input class="form-control me-2 text-black-50 searchbar-mini" type="search" placeholder="¿Qué te apetece para comer?" aria-label="Search">
-      </form>
-    </div>
-  </div>
-</nav> -->
-    <nav class="navbar navbar-expand-md navbar-light py-0 header-main-container" style="">
+                <div class="collapse navbar-collapse bg-color-default" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
+                    <div class="container-fluid border searchbar-dos my-4">
+                        <form action="" method="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
+                                <path class="svg-background-color" d="M19.5 18.616 14.985 14.1a8.528 8.528 0 1 0-.884.884l4.515 4.515.884-.884ZM1.301 8.553a7.253 7.253 0 1 1 7.252 7.253 7.261 7.261 0 0 1-7.252-7.253Z">
+                                </path>
+                            </svg>
+                            <input type="text" placeholder="Search in..." name="searchbar" class="mx-2" style="background-color: transparent; border: none; outline: none;">
+                        </form>
+                    </div>
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center bg-color-default">
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Home</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Popular</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Most hated</span></button></a></li>
+                        <li>
+                        <hr class="dropdown-divider">
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Create post</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>My account</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Log out</span></button></a></li>
+                        <li>
+                        <hr class="dropdown-divider">
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Dark mode</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>About Pelipper</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Advertise</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Help</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Blog</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Careers</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Press</span></button></a></li>
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-light py-0 header-main-container header-big">
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 6dvh; padding-left: 2dvw; padding-right: 2dvw">
             <div class="row header-separator" style="height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw;">
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
@@ -75,11 +157,10 @@
                     </div>
                 </div>
                 <template v-if="!user?.name">
-
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px;">
                         <div style="height: 40px; width: 100px; margin-left: 4px; margin-right: 4px">
                             <button class="simple-button p-0 d-flex justify-content-center align-items-center nav-item">
-                                <router-link class="nav-link" to="/register" style="margin-left: 5px; margin-right: 5px">Sign up</router-link>
+                                <router-link class="nav-link" to="/register" style="margin-left: 5px; margin-right: 5px"><span>Sign up</span></router-link>
                             </button>
                         </div>
                         <div style="height: 40px; width: auto; margin-left: 4px; margin-right: 4px">
@@ -88,7 +169,7 @@
                                 <router-link class="nav-a-link" to="/login" style="margin-left: 5px; margin-right: 5px"> Log in </router-link>
                             </button>
                         </div>
-                        <div style="height: 40px; width: 40px; margin-left: 4px; margin-right: 4px">
+                        <div class="box-40" style="margin-left: 4px; margin-right: 4px">
                             <button @click="toggleDarkMode" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Dark mode icon-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -100,15 +181,15 @@
                 </template>
                 <template v-if="user?.name" class="nav-item dropdown">
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px">
-                        <div style="height: 40px; width: 40px">
-                            <router-link :to="{name: 'prueba.create'}" class="addpost-circular-button p-0 d-flex justify-content-center align-items-center">
+                        <div class="box-40">
+                            <router-link :to="{name: 'prueba.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Add post icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="white">
-                                    <path class="svg-addpost-color" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="fuchsia" class="brand-color">
+                                    <path class="" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
                                 </svg>
                             </router-link>
                         </div>
-                        <div style="height: 40px; width: 40px">
+                        <div class="box-40">
                             <button @click="toggleDarkMode" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Dark mode icon-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -117,7 +198,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <div style="height: 40px; width: 40px">
+                        <div class="box-40">
                             <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Log out icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" href="javascript:void(0)" @click="logout">
@@ -126,10 +207,9 @@
                                 </svg>
                             </button>
                         </div>
-                        <div style="height: 40px; width: 40px; margin-left: 8px; margin-right: 8px">
+                        <div class="box-40" style="margin-left: 8px; margin-right: 8px">
                             <!-- Profile picture example -->
-                            <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown"
-                                style="background-color: white">
+                            <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
 
                                 <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>

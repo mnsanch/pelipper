@@ -13,7 +13,7 @@
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <form @submit.prevent="submitLogin">
                                     <div class="d-flex align-items-center mb-3 pb-1">
-                                        <img class="py-0 my-0" src="/images/logo_pelipper_banner.png" width="40" height="40">
+                                        <img class="py-0 my-0" src="/images/logo_pelipper.svg" width="40" height="40">
                                         <!-- <span class="h1 fw-bold py-0 my-0 mx-2 page-title">Log in</span> -->
                                         <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Log in</span>
                                     </div>
@@ -54,9 +54,9 @@
                                     </div>
 
                                     <!--<a class="small text-muted" href="#!">Forgot password?</a>-->
-                                    <router-link class="nav-link mb-3 p-0 pb-lg-2" to="/register" >Don't have an account? <a href="/register">Register here</a></router-link>
-                                    <a href="#!" class="small text-muted">Terms of use.  </a>
-                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                    <router-link class="nav-link mb-3 p-0 pb-lg-2" to="/register"><span>Don't have an account? </span>  <a href="/register">Register here</a></router-link>
+                                    <a href="#!" class="small text-muted"><span>Terms of use. </span></a>
+                                    <a href="#!" class="small text-muted"><span>Privacy policy</span></a>
                                 </form>
                             </div>
                         </div>

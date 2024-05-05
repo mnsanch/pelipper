@@ -1,19 +1,21 @@
 
 <template>
+    <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
+
     <section class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100 my-5">
                 <div class="col col-xl-10">
                     <div class="createpost-container card p-0">
                         <div class="row g-0">
-                            <div class="col-md-12 col-lg-12 d-none d-md-block" style="height: 80px" >
+                            <div class="col-md-12 col-lg-12 d-none d-md-block" style="height: 100px">
                                 <!-- <div class="createpost-banner m-0 p-0"></div> -->
-                                <img src="/images/createpost_banner.svg" class="m-0 p-0" style="width: 100%; height: 80px; background-color: transparent">
+                                <img src="/images/createpost_banner.svg" class="m-0 p-0" style="width: 100%; height: auto; background-color: transparent;">
                             </div>
-                            <div class="col-md-12 col-lg-12 d-flex align-items-center" style="border: 1px solid gainsboro">
-                                <div class="card-body p-4 p-lg-5 text-black">
+                            <div class="col-md-12 col-lg-12 d-flex align-items-center createpost-subcontainer">
+                                <div class="card-body p-4 p-lg-5 text-black bg-color-default" style="border-radius: 0 0 1rem 1rem">
                                     <form @submit.prevent="submitForm" class="p-5">
                                         <div class="d-flex align-items-center mb-3 p-0">
-                                            <img src="/images/logo_pelipper_banner.PNG" width="40" height="40" class="p-0 m-0">
+                                            <img src="/images/logo_pelipper.svg" width="40" height="40" class="p-0 m-0">
                                             <!-- <span class="h1 fw-bold mx-2 my-0 p-0 page-title">create a post</span> -->
                                             <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Create a post</span>
                                         </div>
@@ -51,7 +53,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <div class="form-floating mb-4 mx-0" style="width: 100%; border: 0px"> 
+                                                <div class="form-floating mb-4 mx-0 w-100 border-0"> 
                                                     <v-select multiple v-model="post.ID_Category" :options="categoryList":reduce="category => category.id" label="Category_Name" 
                                                     class="form-control form-control-lg createpost-input py-2 no-border" placeholder="Select category"/>
                                                     <div class="text-danger mt-1">
@@ -64,10 +66,10 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="mb-4 mx-0 border-0 d-flex justify-content-end" style="width: 100%">
-                                                    <div class="mb-3"  style="border-radius: 1.25rem !important; width: 100%">
+                                                <div class="mb-4 mx-0 border-0 d-flex justify-content-end w-100">
+                                                    <div class="mb-3 createpost-dropzone w-100"  style="border-radius: 1.25rem !important" >
                                                         <!-- <h6 class="mt-3">Imagen</h6> -->
-                                                        <DropZone v-model="post.thumbnail"  style="border-radius: 1.25rem !important;  height: 15rem !important;" class=""/>
+                                                        <DropZone v-model="post.thumbnail"  style="border-radius: 1.25rem !important;  height: 15rem !important;" class="createpost-dropzone"/>
                                                         <div class="text-danger mt-1" style="border-radius: 1.25rem !important;">
                                                             <div v-for="message in validationErrors?.thumbnail">
                                                                 {{ message }}
@@ -77,7 +79,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-4 mb-5 mx-0">
+                                        <div class="mt-1 mb-5 mx-0">
                                             <button onclick=""
                                                 class="simple-button createpost-submit-button p-0 d-flex justify-content-center align-items-center h-100">
                                                 <!-- Crear post form button -->
@@ -85,7 +87,7 @@
                                             </button>
                                         </div>
         
-                                        <a href="#!" class="small text-muted">Communeity guidelines. </a>
+                                        <a href="#!" class="small text-muted">Community guidelines. </a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
                                 </div>
