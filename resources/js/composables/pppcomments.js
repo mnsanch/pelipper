@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 export default function useComments() {
     const comments = ref({})
     const comment = ref({})
-    
+
     const router = useRouter()
     const validationErrors = ref({})
     const isLoading = ref(false)
@@ -14,7 +14,6 @@ export default function useComments() {
         axios.get('/api/comments')
         .then(response => {
             comments.value = response.data;
-            console.log(response);
             console.log(response.data);
         })
     }    
@@ -22,18 +21,28 @@ export default function useComments() {
     const getCommentspost = async (id) => {
         axios.get('/api/commentspost/'+id)
         .then(response => {
-            comments.value = response.data.data;
-            console.log(response);
-            console.log(response.data.data);
+            comments.value = response.data;
+            console.log(response.data);
             console.log(comments);
         })
     } 
 
     const storecomment = async (id, comment) => {   
         axios.post('/api/comments/'+ id, comment)
+        .then(response => {
+            getCommentspost(id)
+        })
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Logeate',
+                timer: 5000,
+                timerProgressBar: true,  
+            })
+        })
     }
     
-    const deleteComment = async (id) => {
+    const deleteComment = async (id, post) => {
         swal({
             title: 'Are you sure?',
             text: 'You won\'t be able to revert this action!',
@@ -53,6 +62,8 @@ export default function useComments() {
                                 icon: 'success',
                                 title: 'Post deleted successfully'
                             })
+                            getCommentspost(post)
+
                         })
                         .catch(error => {
                             swal({

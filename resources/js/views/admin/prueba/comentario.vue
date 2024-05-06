@@ -209,10 +209,10 @@
                     </form>
                     </div>
 
-                    <div class="m-0 p-0 w-100 h-100" v-for="(comment) in post.comments">
+                    <div class="m-0 p-0 w-100 h-100" v-for="comment in comments.data">
                         <div class="comment my-3">
                             <div>
-                                <div v-if="comment.ID_User==user.id" @click="deleteComment(comment.id)">
+                                <div v-if="comment.ID_User==user.id" @click="deleteComment(comment.id, route.params.id)">
                                     <div class="d-flex justify-content-center align-items-center delete-comment-button pointer-custom">x</div>
                                 </div>
                                 <div class="comment-info d-flex justify-content-between">
@@ -294,7 +294,7 @@
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
 
     const { value: Comment } = useField('Comment', null, { initialValue: '' });
-    const {comment, storecomment, deleteComment} = useComments()
+    const {comments, storecomment, deleteComment, getCommentspost} = useComments()
     const comentario = reactive({
         Comment
 })
@@ -315,6 +315,7 @@
     onMounted(() => {
         getPostuser(route.params.id)
         getCategoryList()
+        getCommentspost(route.params.id)
     })
     
 </script>

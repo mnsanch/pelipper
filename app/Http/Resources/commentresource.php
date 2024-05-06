@@ -23,7 +23,8 @@ class commentresource extends JsonResource
             'ID_User' => $this->ID_User,
             'ID_Post' => $this->ID_Post ,
             'Comment' => $this->Comment,
-            'created_at' => $this->created_at?->toDateString()
+            'created_at' => $this->created_at?->toDateString(),
+            'user' => $this->user
         ];
     }
 }

@@ -21,7 +21,7 @@ class pppcommentsController extends Controller
 
     public function commentspost($id)
     {
-        $comments = pppcomments::where('ID_Post',$id)->get();
+        $comments = pppcomments::where('ID_Post',$id)->get()->reverse();
         return commentresource::collection($comments);
     }
 
