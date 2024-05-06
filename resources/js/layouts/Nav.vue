@@ -10,9 +10,9 @@
                     </button>
                 </div>
 
-                <a class="navbar-brand nav-link text-white" href="https://www.aitorrodriguez.bernat2024.es/index.php?controller=producto">
+                <a class="navbar-brand nav-link text-white" href="">
                     <router-link to="/" class="navbar-brand logo">
-                        <img src="images/logo_pelipper_claro.svg" width="115" height="34">
+                        <img src="/images/logo_pelipper_claro.svg" width="115" height="34">
                     </router-link>
                 </a>
 

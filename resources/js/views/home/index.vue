@@ -161,7 +161,7 @@
                             </div>
                             <router-link :to="{ name: 'post.usuario', params: { id: post.ID_User, avatar: post.Avatar, nombre:post.Usuario  } }"><span class="mx-2 post-user-data">{{post.Usuario}}</span></router-link>
                             <span class="post-user-data-separator"> · </span>
-                            <span v-for="category in post.ID_Category" class="mx-2 post-user-data post-category">{{ category.Category_Name }}</span>
+                            <span v-for="category in post.ID_Category" class="mx-1 post-user-data post-category">{{ category.Category_Name }}</span>
                             <span class="post-user-data-separator"> · </span>
                             <span class="mx-2 post-user-data">{{post.created_at}}</span>
                         </div>

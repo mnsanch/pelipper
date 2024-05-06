@@ -917,32 +917,12 @@ a {
     transition: background 0.33s, width 0.33s, height 0.33s, margin 0.33s;
 }
     .delete-comment-button:hover {
-        background: orange;
+        background: var(--red-500);
         width: 22px; 
         height: 22px; 
         margin: -7px -7px 0px 0px;
     }
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -954,13 +934,13 @@ a {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    --start-color-1: #00e0d9;
+    /* --start-color-1: #00e0d9; */
     --end-color-1: #e00000;
     --start-color-2: #ef4848;
     --end-color-2: #facc29;
     --start-color-3: #ff0080;
-    --end-color-3: #7527c4;
-    background-image: linear-gradient(-45deg,var(--start-color-1),var(--end-color-1),var(--start-color-2),var(--end-color-2),var(--start-color-3),var(--end-color-3));
+    /* --end-color-3: #7527c4; */
+    background-image: linear-gradient(-45deg,var(--end-color-1),var(--start-color-2),var(--end-color-2),var(--start-color-3));
     animation: gradient 10s ease-in-out infinite;
     background-size: 400% 400%
 }
