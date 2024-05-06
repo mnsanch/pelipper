@@ -12,7 +12,7 @@
 
                 <a class="navbar-brand nav-link text-white" href="">
                     <router-link to="/" class="navbar-brand logo">
-                        <img src="/images/logo_pelipper_claro.svg" width="115" height="34">
+                        <img src="/images/logo_pelipper_claro.svg" width="153" height="45">
                     </router-link>
                 </a>
 
@@ -82,7 +82,7 @@
                 <div style="width: 150px">
                 <a class="navbar-brand nav-link text-white" style="align-self: center;" href="127.0.0.1:8000">
                     <router-link to="/" class="navbar-brand logo">
-                        <img src="images/logo_pelipper_claro.svg" width="115" height="34">
+                        <img src="/images/logo_pelipper_claro.svg" width="153" height="45">
                     </router-link>
                 </a>
             </div>
@@ -136,9 +136,9 @@
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 6dvh; padding-left: 2dvw; padding-right: 2dvw">
             <div class="row header-separator" style="height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw;">
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
-                <div class="col-2 p-0 container-fluid d-flex flex-row align-items-center" style="height: 6dvh">
-                    <router-link to="/" class="navbar-brand logo">
-                        <img src="images/logo_pelipper_claro.svg" width="115" height="34">
+                <div class="col-2 p-0 container-fluid d-flex flex-row align-items-center m-0" style="height: 57px">
+                    <router-link to="/" class="navbar-brand logo h-100 m-0 p-0 d-flex align-items-center">
+                        <img src="/images/logo_pelipper_claro.svg" width="153" height="45">
                     </router-link>
                 </div>
                 <!-- <ul class="col-1 navbar-nav mt-2 mt-lg-0 me-auto mb-2 mb-lg-0">
@@ -250,9 +250,9 @@ import { useRouter } from 'vue-router';
     const swal = inject('$swal')
     const router = useRouter()
 
-    const test = () => {
-        console.log('hola')
-    }
+    // const test = () => {
+    //     console.log('hola')
+    // }
 
     const toggleDarkMode = () => {
     var element = document.body;

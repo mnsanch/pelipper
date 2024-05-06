@@ -52,7 +52,7 @@ export default function useAuth() {
                 await loginUser()
                 swal({
                     icon: 'success',
-                    title: 'Login correcto',
+                    title: 'Welcome!',
                     showConfirmButton: false,
                     timer: 1500
                 })

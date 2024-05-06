@@ -249,7 +249,7 @@ export default function usePosts() {
             .catch(error => {
                 swal({
                     icon: 'error',
-                    title: 'Logeate',
+                    title: 'Log in to vote.',
                     timer: 5000,
                     timerProgressBar: true,        
                 })
@@ -264,7 +264,7 @@ export default function usePosts() {
         .catch(error => {
             swal({
                 icon: 'error',
-                title: 'Logeate',
+                title: 'Log in to vote',
                 timer: 5000,
                 timerProgressBar: true,  
             })

@@ -14,7 +14,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel Vue 3 Stater</title>
+    <title>Pelipper</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo_pelipper.svg">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
