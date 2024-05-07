@@ -29,16 +29,18 @@
                         <tbody>
                             <tr v-for="(post, index) in posts.data" :key="post.id">
                                 <td class="text-center">{{post.id}}</td>
-                                <td>{{post.ID_Category}}</td> 
-                                <td></td>
+                                <td class="text-center"><div v-for="category in post.ID_Category">
+                                        {{ category.Category_Name }}
+                                    </div></td> 
+                                <td class="text-center">{{post.Usuario}}</td>
                                 <td>  
                                     <img :src="post.original_image" alt="image" height="70">
                                 </td>
-                                <td>{{post.Title}}</td>
-                                <th>{{post.Post}}</th>
-                                <th>{{post.Upvote}}</th>
-                                <th>{{post.Downvote}}</th>
-                                <th>{{post.created_at}}</th>
+                                <td class="text-center">{{post.Title}}</td>
+                                <td class="text-center">{{post.Post}}</td>
+                                <td class="text-center">{{post.Upvote}}</td>
+                                <td class="text-center">{{post.Downvote}}</td>
+                                <td class="text-center">{{post.created_at}}</td>
                                 <td class="px-6 py-4 text-sm">
                                     <router-link v-if="can('post-edit')"
                                                  :to="{ name: 'prueba.edit', params: { id: post.id } }" class="badge bg-primary">Edit
@@ -51,8 +53,6 @@
                     </table>
                 </div>
             </div>
-            {{ posts }}
-
         </div>
     </div>
 </template>
