@@ -31,14 +31,13 @@ const model = ref([
         ]
     },
     {
-        label: 'Ejercicios',
+        label: 'Categorias',
         items: [
-            { label: 'Ejercicios', icon: 'pi pi-fw pi-id-card', to: '/admin/exercises', permision: 'exercise-list' },
             { label: 'Categorias', icon: 'pi pi-fw pi-id-card', to: '/admin/categories', permision: 'category-list' }
         ]
     },
     {
-        label: 'Prueba',
+        label: 'Posts',
         items: [
             { label: 'Post', icon: 'pi pi-fw pi-id-card', to: '/admin/prueba', permision: 'post-list' }
         ]
@@ -49,18 +48,6 @@ const model = ref([
             { label: 'Comentarios', icon: 'pi pi-fw pi-id-card', to: '/admin/comments', permision: 'post-list' }
         ]
     },
-    {
-        label: 'Posts',
-        items: [
-            { label: 'Posts', icon: 'pi pi-fw pi-id-card', to: '/admin/posts', permision: 'post-list' }
-        ]
-    },
-    {
-        label: 'Tasks',
-        items: [
-            { label: 'Tasks', icon: 'pi pi-fw pi-id-card', to: '/admin/tasks', permision: 'category-list' }
-        ]
-    }
 ]);
 </script>
 

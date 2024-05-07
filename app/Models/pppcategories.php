@@ -9,6 +9,8 @@ class pppcategories extends Model
 {
     use HasFactory;
     protected $fillable = ['Category_Name'];
+    public $timestamps = false; 
+
 
     public function posts()
     {

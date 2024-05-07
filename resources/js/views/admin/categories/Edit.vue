@@ -9,12 +9,12 @@
                             <label for="post-title" class="form-label">
                                 Title
                             </label>
-                            <input v-model="category.name" id="post-title" type="text" class="form-control">
+                            <input v-model="category.Category_Name" id="post-title" type="text" class="form-control">
                             <div class="text-danger mt-1">
-                                {{ errors.name }}
+                                {{ errors.Category_Name }}
                             </div>
                             <div class="text-danger mt-1">
-                                <div v-for="message in validationErrors?.name">
+                                <div v-for="message in validationErrors?.Category_Name">
                                     {{ message }}
                                 </div>
                             </div>
@@ -42,14 +42,14 @@ defineRule('required', required)
 defineRule('min', min);
 
     const schema = {
-        name: 'required|min:3'
+        Category_Name: 'required|min:3'
     }
 
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
-    const { value: name } = useField('name', null, { initialValue: '' });
+    const { value: Category_Name } = useField('Category_Name', null, { initialValue: '' });
     const { category: postData, getCategory, updateCategory, validationErrors, isLoading } = useCategories()
     const category = reactive({
-        name
+        Category_Name
     })
     const route = useRoute()
     function submitForm() {
@@ -62,6 +62,6 @@ defineRule('min', min);
     // https://vuejs.org/api/reactivity-core.html#watcheffect
     watchEffect(() => {
         category.id = postData.value.id
-        category.name = postData.value.name
+        category.Category_Name = postData.value.Category_Name
     })
 </script>

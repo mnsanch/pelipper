@@ -33,9 +33,9 @@ export default function useCategories() {
     }
 
     const getCategory = async (id) => {
-        axios.get('/api/categories/' + id)
+        axios.get('/api/pppcategories/' + id)
             .then(response => {
-                category.value = response.data.data;
+                category.value = response.data;
             })
     }
 
@@ -44,8 +44,8 @@ export default function useCategories() {
 
         isLoading.value = true
         validationErrors.value = {}
-
-        axios.post('/api/categories', category)
+        console.log(category)
+        axios.post('/api/pppcategories', category)
             .then(response => {
                 router.push({name: 'categories.index'})
                 swal({
@@ -66,8 +66,9 @@ export default function useCategories() {
 
         isLoading.value = true
         validationErrors.value = {}
+        console.log(category.id)
 
-        axios.put('/api/categories/' + category.id, category)
+        axios.put('/api/pppcategories/update/' + category.id, category)
             .then(response => {
                 router.push({name: 'categories.index'})
                 swal({
@@ -120,6 +121,7 @@ export default function useCategories() {
         axios.get('/api/pppcategories')
             .then(response => {
                 categoryList.value = response.data.data;
+                console.log(response.data.data)
             })
     }
 
