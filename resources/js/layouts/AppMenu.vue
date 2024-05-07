@@ -44,6 +44,12 @@ const model = ref([
         ]
     },
     {
+        label: 'Comentarios',
+        items: [
+            { label: 'Comentarios', icon: 'pi pi-fw pi-id-card', to: '/admin/comments', permision: 'post-list' }
+        ]
+    },
+    {
         label: 'Posts',
         items: [
             { label: 'Posts', icon: 'pi pi-fw pi-id-card', to: '/admin/posts', permision: 'post-list' }

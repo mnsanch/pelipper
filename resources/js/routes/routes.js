@@ -17,7 +17,8 @@ const PruebaCreate  = ()  => import('../views/admin/prueba/Create.vue');
 const PruebaEdit  = ()  => import('../views/admin/prueba/Edit.vue');
 const PerfilEdit  = ()  => import('../views/profile/edit.vue');
 const PostUsuario  = ()  => import('../views/home/user.vue');
-const PostComentario = ()  => import('../views/admin/prueba/comentario.vue');
+const PostComentario = ()  => import('../views/admin/comments/comentario.vue');
+const Comentario = ()  => import('../views/admin/comments/Index.vue');
 
 
 
@@ -153,6 +154,17 @@ export default [
                 path: 'posts/edit/:id',
                 component: PostsEdit,
                 meta: { breadCrumb: 'Edit post' }
+            },
+            {
+                name: 'comments',
+                path: 'comments',
+                children: [
+                    {
+                        name: 'comments.index',
+                        path: '',
+                        component: Comentario,
+                    },
+                ]
             },
             {
                 name: 'tasks',
