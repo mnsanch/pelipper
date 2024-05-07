@@ -48,6 +48,7 @@ Route::get('pppcategories',[pppCategory::class,'index']);
 Route::post('pppcategories/',[pppCategory::class,'store']);
 Route::get('pppcategories/{id}',[pppCategory::class,'category']);
 Route::put('pppcategories/update/{id}',[pppCategory::class,'update']);
+Route::delete('pppcategories/delete/{id}',[pppCategory::class,'destroy']);
 
 Route::delete('deleteuser/{id}',[UserController::class,'destroy']); 
 Route::get('avatar/{id}',[UserController::class,'getAvatar']);

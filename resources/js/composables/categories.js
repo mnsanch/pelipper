@@ -98,14 +98,14 @@ export default function useCategories() {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    axios.delete('/api/categories/' + id)
+                    axios.delete('/api/pppcategories/delete/' + id)
                         .then(response => {
-                            getCategories()
                             router.push({name: 'categories.index'})
                             swal({
                                 icon: 'success',
                                 title: 'Category deleted successfully'
                             })
+                            getCategoryList()
                         })
                         .catch(error => {
                             swal({

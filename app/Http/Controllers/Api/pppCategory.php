@@ -34,13 +34,18 @@ class pppCategory extends Controller
 
     public function update($id, StoreCategoryRequest $request)
     {
-        // return $request;
-        // $this->authorize('category-edit');
+        $this->authorize('category-edit');
         $category = pppcategories::findOrFail($id);
 
         $category->update($request->validated());
 
         return new CategoryResource($category);
+    }
+
+    public function destroy($id){
+        $category = pppcategories::find($id);
+        $category->delete();
+        return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
 }
