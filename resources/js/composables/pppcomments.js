@@ -31,11 +31,11 @@ export default function useComments() {
         axios.post('/api/comments/'+ id, comment)
         .then(response => {
             getCommentspost(id)
-        })
+        }) 
         .catch(error => {
             swal({
                 icon: 'error',
-                title: 'Logeate',
+                title: 'You must be logged',
                 timer: 5000,
                 timerProgressBar: true,  
             })

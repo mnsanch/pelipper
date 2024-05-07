@@ -244,7 +244,7 @@ export default function usePosts() {
     const sumarVoto = async (post) => {
             axios.put('/api/pppposts/'+post.id+'/upvote')  
             .then(response => {
-                getPosts()
+                getreversePosts()
             })
             .catch(error => {
                 swal({
@@ -259,7 +259,7 @@ export default function usePosts() {
     const restarVoto = async (post) => {
         axios.put('/api/pppposts/'+post.id+'/downvote')  
         .then(response => {
-            getPosts()
+            getreversePosts()
         })
         .catch(error => {
             swal({
@@ -274,14 +274,14 @@ export default function usePosts() {
     const quitarupvote = async (post) => {
         axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
         .then(response => {
-            getPosts()
+            getreversePosts()
         }) 
     }
 
     const quitardownvote = async (post) => {
         axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
         .then(response => {
-            getPosts()
+            getreversePosts()
         }) 
     }
 
