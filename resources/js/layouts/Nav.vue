@@ -212,16 +212,16 @@
                             <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
 
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + user.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
                                 <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
 
 
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><router-link class="dropdown-item" to="/admin">Admin</router-link></li>
-                                    <li><router-link to="/admin/posts" class="dropdown-item">Post</router-link></li>
+                                <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+                                    <li><router-link class="dropdown-item user-dropdown-text" to="/admin">Admin</router-link></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="javascript:void(0)" @click="logout">Logout</a></li>
-                                    <router-link :to="{ name: 'perfil.index' }" class="dropdown-item">Perfil</router-link>
+                                    <li><router-link :to="{ name: 'post.usuario', params: { id: user.id, avatar:user.avatar, nombre:user.name  } }" class="dropdown-item user-dropdown-text">Mis Posts</router-link></li>
+                                    <li><router-link :to="{ name: 'perfil.index' }" class="dropdown-item user-dropdown-text">Perfil</router-link></li>
+                                    <li><a class="dropdown-item user-dropdown-text" href="javascript:void(0)" @click="logout">Logout</a></li>
                                 </ul>
                             </li>
                         </div>
@@ -245,7 +245,6 @@ import { useRouter } from 'vue-router';
     const store = useStore();
     const user = computed(() => store.getters["auth/user"])
     const { processing, logout } = useAuth();
-    const numero = ref(0);
     const userId = ref('');
     const swal = inject('$swal')
     const router = useRouter()
@@ -279,21 +278,8 @@ window.onload = function() {
 
     
     onMounted(() => {
-
-    axios.get('/api/id')
-    .then(response => {
-        userId.value = response.data;
-        // Ahora, puedes usar userId en tu solicitud para obtener el avatar
-        axios.get('/api/avatar/' + userId.value)
-            .then(response => {
-                console.log(response.data);
-                console.log(userId);
-                numero.value = response.data;
-            });
-    })
-
     
-});
+    });
 
 
 </script>

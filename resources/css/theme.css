@@ -217,6 +217,15 @@ textarea {
 	height: 34px;
 }
 
+.user-dropdown {
+    background: var(--switchcolor1);
+    color: var(--switchcolor7) !important;
+}
+
+.user-dropdown-text{
+    color: var(--switchcolor7) !important;
+}
+
 /* -------------------------------- FOOTER -------------------------- */
 
 .footer-separator {
