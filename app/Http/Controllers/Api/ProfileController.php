@@ -18,6 +18,9 @@ class ProfileController extends Controller
         $profile = Auth::user();
         $profile->name = $request->name;
         $profile->email = $request->email;
+        if ($request->password==$request->password_confirmation && $request->password!="") {
+            $profile->password = bcrypt($request->password);
+        }
 
         if ($profile->save()) {
             return $this->successResponse($profile, 'User updated');;

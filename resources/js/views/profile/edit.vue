@@ -46,7 +46,7 @@
                                             </div>
                                         </div>
                                         <div class="form-floating position-relative mb-4">
-                                            <input v-model="a" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword" placeholder="Password" required>
+                                            <input v-model="profile.password" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword" placeholder="Password">
                                             <label class="px-4" for="floatingPassword">New password</label>
                                             <button type="button" id="togglePassword" class="btn-login-password" @click="togglePasswordVisibility('floatingPassword','togglePassword')">
                                                 <!-- SVG por defecto -->
@@ -62,7 +62,7 @@
                                         </div>
 
                                         <div class="form-floating position-relative">
-                                            <input v-model="a" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword2" placeholder="Password" required>
+                                            <input v-model="profile.password_confirmation" type="password" class="form-control form-control-lg createpost-input" id="floatingPassword2" placeholder="Password">
                                             <label class="px-4" for="floatingPassword2">Confirm password</label>
                                             <button type="button" id="togglePassword2" class="btn-login-password" @click="togglePasswordVisibility('floatingPassword2','togglePassword2')">
                                                 <!-- SVG por defecto -->
@@ -134,10 +134,14 @@ defineRule('min', min);
     // Define actual fields for validation
     const { value: name } = useField('name', null, { initialValue: '' });
     const { value: email } = useField('email', null, { initialValue: '' });
+    const { value: password } = useField('password', null, { initialValue: '' });
+    const { value: password_confirmation } = useField('password_confirmation', null, { initialValue: '' });
     const { profile: profileData, getProfile, updateProfile, validationErrors, isLoading, deleteuser } = useProfile()
     const profile = reactive({
         name,
-        email
+        email,
+        password,
+        password_confirmation
     })
     function submitForm() {
         validate().then(form => { if (form.valid) updateProfile(profile) })

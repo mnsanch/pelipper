@@ -36,6 +36,7 @@ export default function useProfile() {
                         icon: 'success',
                         title: 'Profile updated successfully'
                     })
+                    console.log(data)
                 }
             })
             .catch(error => {
