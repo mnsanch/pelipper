@@ -56,10 +56,10 @@
                                                     <v-select multiple v-model="post.ID_Category" :options="categoryList":reduce="category => category.id" label="Category_Name" 
                                                     class="form-control form-control-lg createpost-input py-2 no-border" placeholder="Select category"/>
                                                     <div class="text-danger mt-1">
-                                                        {{ errors.categories }}
+                                                        {{ errors.ID_Category }}
                                                     </div>
                                                     <div class="text-danger mt-1">
-                                                        <div v-for="message in validationErrors?.categories">
+                                                        <div v-for="message in validationErrors?.ID_Category">
                                                             {{ message }}
                                                         </div>
                                                     </div>
@@ -105,10 +105,11 @@
     import useCategories from "@/composables/categories";
     import usePosts from "@/composables/pppposts";
     import { useForm, useField, defineRule } from "vee-validate";
-    import { required, min, max } from "@/validation/rules"
+    import { required, min, max, notnull } from "@/validation/rules"
     import TextEditorComponent from "@/components/TextEditorComponent.vue";
     import DropZone from "@/components/DropZone.vue";
     defineRule('required', required)
+    defineRule('notnull', notnull)
     defineRule('min', min);
     defineRule('max', max);
 
@@ -116,7 +117,7 @@
     const schema = {
     Title: 'required',
     Post: 'required|min:3|max:300',
-    ID_Category: 'required'
+    ID_Category: 'required|notnull'
 }
     // Create a form context with the validation schema
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
