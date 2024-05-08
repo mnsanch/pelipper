@@ -147,8 +147,8 @@ class pppPostController extends Controller
         $post->update($request->validated());
         $category = pppcategories::findMany($request->ID_Category);
         $post->categories()->sync($category);
+        $post->media()->delete();
         if($request->hasFile('thumbnail')) {
-            $post->media()->delete();
             $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
         }
         return new pruebaresource($post);
@@ -183,14 +183,14 @@ class pppPostController extends Controller
 
     public function quitarupvote($id) {
         $post = pppposts::findOrFail($id);
-        $post->decrement('Downvote');
+        $post->decrement('Upvote');
         $post->votes()->detach();
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
     public function quitardownvote($id) {
         $post = pppposts::findOrFail($id);
-        $post->increment('Upvote');
+        $post->increment('Downvote');
         $post->votes()->detach();
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }

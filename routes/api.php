@@ -34,7 +34,7 @@ Route::get('ppppostsmasodiado',[pppPostController::class,'indexodiado']);
 Route::get('ppppostsmasvotado',[pppPostController::class,'indexvotado']);
 Route::delete('pppposts/{id}',[pppPostController::class,'destroy']);
 Route::post('pppposts/',[pppPostController::class,'store']);
-Route::put('pppposts/update/{id}',[pppPostController::class,'update']);
+Route::post('pppposts/update/{id}',[pppPostController::class,'update']);
 Route::get('ppppost/{id}', [pppPostController::class, 'getPostedit']);
 Route::get('ppppostuser/{id}', [pppPostController::class, 'getPost']);
 Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);

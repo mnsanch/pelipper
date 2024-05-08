@@ -101,20 +101,20 @@ export default function usePosts() {
             })
     }
 
-    const storePost = async (exercise) => {
+    const storePost = async (post) => {
         if (isLoading.value) return;
 
         isLoading.value = true
         validationErrors.value = {}
 
-        let serializedExercise = new FormData()
-        for (let item in exercise) {
-            if (exercise.hasOwnProperty(item)) {
-                serializedExercise.append(item, exercise[item])
+        let serializedPost = new FormData()
+        for (let item in post) {
+            if (post.hasOwnProperty(item)) {
+                serializedPost.append(item, post[item])
             }
         }
 
-        axios.post('/api/pppposts', serializedExercise, {
+        axios.post('/api/pppposts', serializedPost, {
             headers: {
                 "content-type": "multipart/form-data"
             }
@@ -126,7 +126,7 @@ export default function usePosts() {
                     title: 'Exercise saved successfully'
                 })
             })
-            .catch(error => {
+            .catch(error => {serializedPost
                 if (error.response?.data) {
                     validationErrors.value = error.response.data.errors
                 }
@@ -139,8 +139,14 @@ export default function usePosts() {
 
         isLoading.value = true
         validationErrors.value = {}
+        let serializedPost = new FormData()
+        for (let item in post) {
+            if (post.hasOwnProperty(item)) {
+                serializedPost.append(item, post[item])
+            }
+        }
         console.log(post);
-        axios.put('/api/pppposts/update/' + post.id, post)
+        axios.post('/api/pppposts/update/' + post.id, serializedPost)
             .then(response => {
                 router.push({name: 'home'})
                 swal({
