@@ -212,7 +212,7 @@ export default function usePosts() {
                 if (result.isConfirmed) {
                     axios.delete('/api/pppposts/' + id)
                         .then(response => {
-                            getPosts()
+                            getreversePosts()
                             swal({
                                 icon: 'success',
                                 title: 'Post deleted successfully'
