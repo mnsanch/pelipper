@@ -32,8 +32,8 @@
     --switchcolor9: #000000;
 	--switchcolor10: #EBEBEB;
     --switchcolor11: #EF324C; /* BRAND COLOR */
-    /* --switchcolor12 */
-
+    --switchlogo1: url('/images/logo_pelipper_claro.svg') !important;
+    --switchlogo2: url('/images/logo_pelipper_icono_claro.svg') !important;
 }
 
 .dark-mode {
@@ -48,8 +48,42 @@
     --switchcolor9: #FFFFFF;
 	--switchcolor10: #1F2729;
     --switchcolor11: #EF324C; /* BRAND COLOR */
-
+    --switchlogo1: url('/images/logo_pelipper_oscuro.svg') !important;
+    --switchlogo2: url('/images/logo_pelipper_icono_oscuro.svg') !important;
 }
+
+
+
+
+
+.header-logo-pelipper {
+    width: 153px;
+    height: 45px;
+    background-image: var(--switchlogo1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%; /* Ajustar la imagen al tamaño del contenedor */
+}
+
+.aside-logo-pelipper {
+    width: 26px;
+    height: 26px;
+    background-image: var(--switchlogo2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%; /* Ajustar la imagen al tamaño del contenedor */
+}
+
+.appfooter-logo-pelipper {
+    width: 30px;
+    height: 30px;
+    background-image: var(--switchlogo2);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%; /* Ajustar la imagen al tamaño del contenedor */
+}
+
+
 
 * {
     color: var(--switchcolor7);
@@ -212,10 +246,10 @@ textarea {
 
 /* LOGO */
 
-.logo {
+/* .logo {
 	width: 115px; 
 	height: 34px;
-}
+} */
 
 .user-dropdown {
     background: var(--switchcolor1);

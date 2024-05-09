@@ -17,7 +17,8 @@ const logoUrl = computed(() => {
                     <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Logo -->
-                            <img class="py-0 my-0" src="/images/logo_pelipper.svg" width="30" height="30">
+                            <!-- <img class="py-0 my-0" src="/images/logo_pelipper.svg" width="30" height="30"> -->
+                            <div class="appfooter-logo-pelipper"></div>
                         </button>
                     </div>
                     <div class="box-40 mx-2">

@@ -101,9 +101,9 @@
 
                                         <div class="row">
                                             <div class="form-floating mb-4">
-                                                <input type="text" class="form-control form-control-lg createpost-input"
+                                                <input v-model="registerForm.name" type="text" class="form-control form-control-lg createpost-input"
                                                     id="floatingInput" placeholder="name@example.com">
-                                                <label class="px-4" for="floatingInput">Nombre</label>
+                                                <label class="px-4" for="floatingInput">Name</label>
                                             </div>
                                             <div class="text-danger mt-1">
                                                 <div v-for="message in validationErrors?.name">
@@ -111,7 +111,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-4">
-                                                <input type="text" class="form-control form-control-lg createpost-input"
+                                                <input v-model="registerForm.email" type="text" class="form-control form-control-lg createpost-input"
                                                     id="floatingInput" placeholder="name@example.com">
                                                 <label class="px-4" for="floatingInput">Email</label>
                                             </div>
@@ -121,8 +121,8 @@
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-4">
-                                                <input v-model="a" type="email" class="form-control form-control-lg createpost-input" id="floatingInput" placeholder="{{ profile.email }}" required> <!--value="{{ profile.email }}"-->
-                                                <label class="px-4" for="floatingInput">Email</label>
+                                                <input v-model="registerForm.password" type="password" class="form-control form-control-lg createpost-input" id="floatingInput" placeholder="{{ profile.email }}" required> <!--value="{{ profile.email }}"-->
+                                                <label class="px-4" for="floatingInput">Password</label>
                                                 <div class="text-danger mt-1">
                                                 </div>
                                             </div>
@@ -132,9 +132,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-4">
-                                                <input type="text" class="form-control form-control-lg createpost-input"
+                                                <input v-model="registerForm.password_confirmation" type="password" class="form-control form-control-lg createpost-input"
                                                     id="floatingInput" placeholder="name@example.com">
-                                                <label class="px-4" for="floatingInput">Nombre</label>
+                                                <label class="px-4" for="floatingInput">Confirm password</label>
                                             </div>
                                             <div class="text-danger mt-1">
                                                 <div v-for="message in validationErrors?.name">
