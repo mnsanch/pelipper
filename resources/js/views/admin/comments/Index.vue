@@ -4,11 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between pb-2 mb-2">
-                        <h5 class="card-title">Todos los posts</h5>
-                        <div>
-                            <router-link :to="{name: 'prueba.create'}" class="btn btn-success">Nueva Post</router-link>
-                        </div>
-
+                        <h5 class="card-title">Todos los comentarios</h5>
                     </div>
 
                     <table class="table table-hover table-sm">

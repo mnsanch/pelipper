@@ -41,10 +41,7 @@
                                 <td class="text-center">{{post.Upvote}}</td>
                                 <td class="text-center">{{post.Downvote}}</td>
                                 <td class="text-center">{{post.created_at}}</td>
-                                <td class="px-6 py-4 text-sm">
-                                    <router-link v-if="can('post-edit')"
-                                                 :to="{ name: 'prueba.edit', params: { id: post.id } }" class="badge bg-primary">Edit
-                                    </router-link>
+                                <td class="px-6 py-4 text-sm text-center">
                                     <a href="#" v-if="can('post-delete')" @click="deletePost(post.id)"
                                        class="ms-2 badge bg-danger">Delete</a>
                                 </td>

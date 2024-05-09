@@ -3,6 +3,7 @@ import { useRouter } from 'vue-router'
 
 export default function useUsers() {
     const users = ref([])
+    const id = ref([])
     const user = ref({
         name: ''
     })
@@ -31,10 +32,24 @@ export default function useUsers() {
             })
     }
 
+    const getUserhome = async () => {
+        axios.get('/api/id')
+            .then(response => {
+                axios.get('/api/users/' + response.data)
+                .then(response => {
+                    user.value = response.data.data;
+                    console.log(user.value)
+                })
+            })
+    }
+
     const getUser = async (id) => {
+        console.log(id)
+
         axios.get('/api/users/' + id)
             .then(response => {
                 user.value = response.data.data;
+                console.log(user.value)
             })
     }
 
@@ -125,8 +140,10 @@ export default function useUsers() {
     return {
         users,
         user,
+        id,
         getUsers,
         getUser,
+        getUserhome,
         storeUser,
         updateUser,
         deleteUser,

@@ -159,7 +159,7 @@
                         </form>
                     </div>
                 </div>
-                <template v-if="!user?.name">
+                <template v-if="!usuario?.name">
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px;">
                         <div style="height: 40px; width: 100px; margin-left: 4px; margin-right: 4px">
                             <button class="simple-button p-0 d-flex justify-content-center align-items-center nav-item">
@@ -182,7 +182,7 @@
                         </div>
                     </div>
                 </template>
-                <template v-if="user?.name" class="nav-item dropdown">
+                <template v-if="usuario?.name" class="nav-item dropdown">
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px">
                         <div class="box-40">
                             <router-link :to="{name: 'prueba.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
@@ -215,14 +215,16 @@
                             <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
 
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + user.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + usuario.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
                                 <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
 
 
                                 <ul class="dropdown-menu dropdown-menu-end user-dropdown">
-                                    <li><router-link class="dropdown-item user-dropdown-text" to="/admin">Admin</router-link></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><router-link :to="{ name: 'post.usuario', params: { id: user.id, avatar:user.avatar, nombre:user.name  } }" class="dropdown-item user-dropdown-text">Mis Posts</router-link></li>
+                                    <div v-for="roles in user.roles">
+                                        <li v-if="roles.name=='admin'"><router-link class="dropdown-item user-dropdown-text" to="/admin">Admin</router-link></li>
+                                        <li v-if="roles.name=='admin'"><hr class="dropdown-divider"></li>
+                                    </div>
+                                    <li><router-link :to="{ name: 'post.usuario', params: { id: usuario.id, avatar:usuario.avatar, nombre:usuario.name  } }" class="dropdown-item user-dropdown-text">Mis Posts</router-link></li>
                                     <li><router-link :to="{ name: 'perfil.index' }" class="dropdown-item user-dropdown-text">Perfil</router-link></li>
                                     <li><a class="dropdown-item user-dropdown-text" href="javascript:void(0)" @click="logout">Logout</a></li>
                                 </ul>
@@ -240,14 +242,16 @@
 <script setup>
 import { useStore} from "vuex";
 import useAuth from "@/composables/auth";
+import useUsers from "@/composables/users";
 import {computed, onMounted, ref, inject} from "vue";
 import axios from "axios";
 import LocaleSwitcher from "../components/LocaleSwitcher.vue";
 import { useRouter } from 'vue-router';
 
     const store = useStore();
-    const user = computed(() => store.getters["auth/user"])
+    const usuario = computed(() => store.getters["auth/user"])
     const { processing, logout } = useAuth();
+    const { user, getUserhome } = useUsers();
     const userId = ref('');
     const swal = inject('$swal')
     const router = useRouter()
@@ -281,7 +285,8 @@ window.onload = function() {
 
     
     onMounted(() => {
-    
+        console.log(usuario.id)
+        getUserhome()
     });
 
 
