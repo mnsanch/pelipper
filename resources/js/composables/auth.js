@@ -165,7 +165,6 @@ export default function useAuth() {
                 user.email = ''
                 store.dispatch('auth/logout')
                 router.push({ name: 'home' })
-                location.reload();
             })
             .catch(error => {
                 // swal({

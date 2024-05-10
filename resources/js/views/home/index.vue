@@ -14,7 +14,7 @@
         <div class="block-disapear aside-container-left">
             <!-- Aquí va el menú izquierdo -->
             <ul class="block-disapear aside-ul-container-left">
-                <div class="d-flex align-items-center aside-menu-nav-element-marked pointer-custom">
+                <router-link :to="{ name: 'home' }" class="d-flex align-items-center aside-menu-nav-element-marked pointer-custom">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="position-absolute">
                         <defs>
                             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -26,19 +26,19 @@
                     </svg>
 
                     <li class="aside-list-element">Home</li>
-                </div>
-                <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
+                </router-link>
+                <router-link :to="{ name: 'homepopular' }" class="d-flex align-items-center aside-menu-nav-element pointer-custom">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="position-absolute">
                         <path d="M10 0a10 10 0 1 0 10 10A10.01 10.01 0 0 0 10 0Zm0 18.75a8.7 8.7 0 0 1-5.721-2.145l8.471-8.471v4.148H14V6.638A.647.647 0 0 0 13.362 6H7.718v1.25h4.148L3.4 15.721A8.739 8.739 0 1 1 10 18.75Z"></path>
                     </svg>
                     <li class="aside-list-element ">Popular</li>
-                </div>
-                <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
+                </router-link>
+                <router-link :to="{ name: 'homehated' }" class="d-flex align-items-center aside-menu-nav-element pointer-custom">
                     <svg rpl="" fill="currentColor" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,0,0,1,0,0)" class="position-absolute">
                         <path d="M10 0a10 10 0 1 0 10 10A10.01 10.01 0 0 0 10 0Zm5 17.171V6h-1.25v11.894a8.66 8.66 0 0 1-2.75.794V10H9.75v8.737A8.684 8.684 0 0 1 6.47 18H7v-4H5.75v3.642a8.753 8.753 0 1 1 9.25-.471Z"></path>
                     </svg>
                     <li class="aside-list-element ">Most hated</li>
-                </div>
+                </router-link>
                 <hr>
                 <li class="aside-title">CATEGORIES</li>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
@@ -64,8 +64,7 @@
                 <hr>
                 <li class="aside-title">RESOURCES</li>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
-                    <div class="m-0 p-0 position-absolute aside-logo-pelipper"></div>
-                    <!-- <img src="/images/logo_pelipper.svg" width="26" height="26" class="py-0 my-0 position-absolute"> -->
+                    <img src="/images/logo_pelipper.svg" width="26" height="26" class="py-0 my-0 position-absolute">
                     <li class="aside-list-element ">About Pelipper</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">

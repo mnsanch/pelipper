@@ -56,6 +56,16 @@ export default [
                 component: () => import('../views/home/index.vue'),
             },
             {
+                path: 'popular',
+                name: 'homepopular',
+                component: () => import('../views/home/indexpopular.vue'),
+            },
+            {
+                path: 'hated',
+                name: 'homehated',
+                component: () => import('../views/home/indexhated.vue'),
+            },
+            {
                 path: 'posts',
                 name: 'public-posts.index',
                 component: () => import('../views/posts/index.vue'),

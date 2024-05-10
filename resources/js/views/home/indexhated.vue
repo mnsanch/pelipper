@@ -1,13 +1,16 @@
 <template>
-    <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
 
-    <body>
+<body>
 
-    <br>
-    
-    <div class="home-main-container" style="margin-top: 78px !important">
-        <!-- Menú lateral izquierdo -->
-        <aside class="aside-main-left block-disapear">
+<br>
+
+<div class="home-main-container" style="margin-top: 78px !important">
+    <!-- <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;">
+        <pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect>
+    </svg> -->
+
+    <!-- Menú lateral izquierdo -->
+    <aside class="aside-main-left block-disapear">
         <div class="block-disapear aside-container-left">
             <!-- Aquí va el menú izquierdo -->
             <ul class="block-disapear aside-ul-container-left">
@@ -25,7 +28,13 @@
                 </router-link>
                 <router-link :to="{ name: 'homehated' }" class="d-flex align-items-center aside-menu-nav-element pointer-custom">
                     <svg rpl="" fill="currentColor" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" transform="matrix(-1,0,0,1,0,0)" class="position-absolute">
-                        <path d="M10 0a10 10 0 1 0 10 10A10.01 10.01 0 0 0 10 0Zm5 17.171V6h-1.25v11.894a8.66 8.66 0 0 1-2.75.794V10H9.75v8.737A8.684 8.684 0 0 1 6.47 18H7v-4H5.75v3.642a8.753 8.753 0 1 1 9.25-.471Z"></path>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color: #ec068c"></stop>
+                            <stop offset="100%" style="stop-color: #F35F0E"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path d="M10 0a10 10 0 1 0 10 10A10.01 10.01 0 0 0 10 0Zm5 17.171V6h-1.25v11.894a8.66 8.66 0 0 1-2.75.794V10H9.75v8.737A8.684 8.684 0 0 1 6.47 18H7v-4H5.75v3.642a8.753 8.753 0 1 1 9.25-.471Z" fill="url(#gradient)"></path>
                     </svg>
                     <li class="aside-list-element ">Most hated</li>
                 </router-link>
@@ -113,61 +122,101 @@
             </ul>
         </div>
     </aside>
-    
-        <!-- Mid container -->
-        <div class="container p-0 block-expand home-mid-main-container">
-    
-            <!-- Banner principal -->
-            <div class="row p-0 m-0 home-banner-container">
-                <div class="row justify-content-end p-0 m-0">
-                    <div class="home-banner-element-a">
-                        <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100">
-                    </div>
-                </div>
-                <div class="row p-0 m-0 home-banner-subcontainer">
-                    <div class="col-1 m-0 home-banner-element-b">
-                        <!-- <div class="px-2 mx-4 home-banner-element-c"></div> -->
-                        <div class="p-0 mx-4 home-banner-element-c">  
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + avatar + '/Normal.png'" class="w-100 h-100 nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
-                        </div>
 
-                    </div>
-                    <div class="col mx-2">
-                        <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">{{nombre}}</h2>
-                    </div>
+    <!-- Mid container -->
+    <div class="container p-0 block-expand home-mid-main-container">
+
+        <!-- Banner principal -->
+        <div class="row p-0 m-0 home-banner-container">
+            <div class="row justify-content-end p-0 m-0">
+                <div class="home-banner-element-a">
+                    <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100">
                 </div>
             </div>
-            <div class="row p-0 mx-0 my-5">
-                <main class="col-9 home-main-snippet">
-                    <!-- Contenido central -->
-                    <div class="m-0 p-0 w-100 h-100" v-for="(post, index) in posts.data" :key="post.id">
-                        <div class="post-container">
-                            <!-- User data -->
-                            <div class="d-flex align-items-center post-user-data">
-                                <div class="p-0 avatar-image">  
-                                    <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar)"/>
-                                </div>
-                                <router-link :to="{ name: 'post.usuario', params: { id: post.ID_User, avatar: post.Avatar } }"><span class="mx-2 post-user-data">{{post.Usuario}}</span></router-link>
-                                <span class="post-user-data-separator"> · </span>
-                                <span v-for="category in post.ID_Category" class="mx-2 post-user-data post-category">{{ category.Category_Name }}</span>
-                                <span class="post-user-data-separator"> · </span>
-                                <span class="mx-2 post-user-data">{{post.created_at}}</span>
+            <div class="row p-0 m-0 home-banner-subcontainer">
+                <div class="col-1 m-0 home-banner-element-b">
+                    <!-- <div class="px-2 mx-4 home-banner-element-c"></div> -->
+                    <img src="/images/logo_pelipper_banner.PNG" class="mx-4 home-banner-element-c">
+                </div>
+                <div class="col mx-2">
+                    <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">pelipper community</h2>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row p-0 mx-0 my-5">
+            <main class="col-9 home-main-snippet">
+                <!-- Contenido central -->
+                <div class="m-0 p-0 w-100 h-100" v-for="(post, index) in posts.data" :key="post.id">
+                    <div class="post-container">
+                        <!-- User data -->
+                        <div class="d-flex align-items-center post-user-data">
+                            <div class="p-0 avatar-image">  
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar,post.Usuario)"/>
                             </div>
-    
-                            <!-- Post content -->
-                            <div style="height: fit-content !important">
-                                <h3 class="post-title block-disapear">{{post.Title}}</h3>
-                                <p class="post-context">{{post.Post}}</p>
-                                <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
-                                    <img :src='post.original_image' class="post-image">
-                                </div>
+                            <router-link :to="{ name: 'post.usuario', params: { id: post.ID_User, avatar: post.Avatar, nombre:post.Usuario  } }"><span class="mx-2 post-user-data">{{post.Usuario}}</span></router-link>
+                            <span class="post-user-data-separator"> · </span>
+                            <span v-for="category in post.ID_Category" class="mx-1 post-user-data post-category">{{ category.Category_Name }}</span>
+                            <span class="post-user-data-separator"> · </span>
+                            <span class="mx-2 post-user-data">{{post.created_at}}</span>
+                        </div>
+
+                        <!-- Post content -->
+                        <div style="height: fit-content !important">
+                            <h3 class="post-title">{{post.Title}}</h3>
+                            <p class="post-context">{{post.Post}}</p>
+                            <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
+                                <img :src='post.original_image' class="post-image">
                             </div>
-                            
-                            <div class="d-flex justify-content-between post-button-container">
-                                <div class="d-flex flex-row">
-                                    <!--Boton upvote/downvote-->
-                                    <div v-if="post.votes.length==0" class="d-flex align-items-center post-vote-button">
-                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVotousuario(post)">
+                        </div>
+                        
+                        <div class="d-flex justify-content-between post-button-container">
+                            <div class="d-flex flex-row">
+                                <!--Boton upvote/downvote-->
+                                <div v-if="post.votes.length==0" class="d-flex align-items-center post-vote-button">
+                                    <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVotohated(post)">
+                                        <span>
+                                            <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
+                                    <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVotohated(post)">
+                                        <span>
+                                            <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                                <p v-for="vote in post.votes">
+                                    <p v-if="vote.vote==1">
+                                        <div class="d-flex align-items-center post-vote-button">
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="quitarupvotehated(post)">
+                                            <span>
+                                                <svg rpl="" fill="orange" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18.706 8.953 10.834.372A1.123 1.123 0 0 0 10 0a1.128 1.128 0 0 0-.833.368L1.29 8.957a1.249 1.249 0 0 0-.171 1.343 1.114 1.114 0 0 0 1.007.7H6v6.877A1.125 1.125 0 0 0 7.123 19h5.754A1.125 1.125 0 0 0 14 17.877V11h3.877a1.114 1.114 0 0 0 1.005-.7 1.251 1.251 0 0 0-.176-1.347Z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVotohated(post)">
+                                            <span>
+                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        </div>
+                                    </p>
+                                    <p v-if="vote.vote==0">
+                                        <div class="d-flex align-items-center post-vote-button">
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVotohated(post)">
                                             <span>
                                                 <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
@@ -175,143 +224,98 @@
                                             </span>
                                         </button>
                                         <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVotousuario(post)">
+                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="quitardownvotehated(post)">
                                             <span>
-                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
+                                                <svg rpl="" fill="blue" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M18.88 9.7a1.114 1.114 0 0 0-1.006-.7H14V2.123A1.125 1.125 0 0 0 12.877 1H7.123A1.125 1.125 0 0 0 6 2.123V9H2.123a1.114 1.114 0 0 0-1.005.7 1.25 1.25 0 0 0 .176 1.348l7.872 8.581a1.124 1.124 0 0 0 1.667.003l7.876-8.589A1.248 1.248 0 0 0 18.88 9.7Z"></path>
                                                 </svg>
                                             </span>
                                         </button>
-                                    </div>
-                                    <p v-for="vote in post.votes">
-                                        <p v-if="vote.vote==1">
-                                            <div class="d-flex align-items-center post-vote-button">
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="quitarupvoteusuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="orange" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M18.706 8.953 10.834.372A1.123 1.123 0 0 0 10 0a1.128 1.128 0 0 0-.833.368L1.29 8.957a1.249 1.249 0 0 0-.171 1.343 1.114 1.114 0 0 0 1.007.7H6v6.877A1.125 1.125 0 0 0 7.123 19h5.754A1.125 1.125 0 0 0 14 17.877V11h3.877a1.114 1.114 0 0 0 1.005-.7 1.251 1.251 0 0 0-.176-1.347Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVotousuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            </div>
-                                        </p>
-                                        <p v-if="vote.vote==0">
-                                            <div class="d-flex align-items-center post-vote-button">
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVotousuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="quitardownvoteusuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="blue" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M18.88 9.7a1.114 1.114 0 0 0-1.006-.7H14V2.123A1.125 1.125 0 0 0 12.877 1H7.123A1.125 1.125 0 0 0 6 2.123V9H2.123a1.114 1.114 0 0 0-1.005.7 1.25 1.25 0 0 0 .176 1.348l7.872 8.581a1.124 1.124 0 0 0 1.667.003l7.876-8.589A1.248 1.248 0 0 0 18.88 9.7Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            </div>
-                                        </p>
+                                        </div>
                                     </p>
-                                    <!--Boton comentarios-->
-                                        <router-link :to="{ name: 'post.comentario', params: { id: post.id } }">
-                                            <div class="simple-button p-0 px-2 d-flex justify-content-center align-items-center post-comment-button">
-                                                <svg class="mx-2 icon-comment" rpl="" aria-hidden="true" fill="currentColor" height="20" icon-name="comment-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M7.725 19.872a.718.718 0 0 1-.607-.328.725.725 0 0 1-.118-.397V16H3.625A2.63 2.63 0 0 1 1 13.375v-9.75A2.629 2.629 0 0 1 3.625 1h12.75A2.63 2.63 0 0 1 19 3.625v9.75A2.63 2.63 0 0 1 16.375 16h-4.161l-4 3.681a.725.725 0 0 1-.489.191ZM3.625 2.25A1.377 1.377 0 0 0 2.25 3.625v9.75a1.377 1.377 0 0 0 1.375 1.375h4a.625.625 0 0 1 .625.625v2.575l3.3-3.035a.628.628 0 0 1 .424-.165h4.4a1.377 1.377 0 0 0 1.375-1.375v-9.75a1.377 1.377 0 0 0-1.374-1.375H3.625Z"></path>
-                                                </svg>
-                                                <span class="p-0 d-flex justify-content-center align-items-center post-quantity-indicator">{{ post.comments.length }}</span>
-                                            </div>
-                                        </router-link>
-                                </div>
-                                <!-- Botones edit + delete -->
-                                <div class="d-flex d-flex flex-row align-items-end">
-                                    <!--Boton edit-->
-                                    <router-link v-if="post.ID_User==user.id" :to="{ name: 'prueba.edit', params: { id: post.id } }" class="box-40 mx-2">
-                                        <button onclick="" class="post-edit-button p-0 d-flex justify-content-center align-items-center">
-                                            <svg rpl="" fill="currentColor" height="20" icon-name="edit-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m18.236 3.158-1.4-1.4a2.615 2.615 0 0 0-3.667-.021L1.336 13.318a1.129 1.129 0 0 0-.336.8v3.757A1.122 1.122 0 0 0 2.121 19h3.757a1.131 1.131 0 0 0 .8-.337L18.256 6.826a2.616 2.616 0 0 0-.02-3.668ZM5.824 17.747H2.25v-3.574l9.644-9.435L15.259 8.1l-9.435 9.647ZM17.363 5.952l-1.23 1.257-3.345-3.345 1.257-1.23a1.362 1.362 0 0 1 1.91.01l1.4 1.4a1.364 1.364 0 0 1 .008 1.908Z"></path>
+                                </p>
+                                <!--Boton comentarios-->
+                                    <router-link :to="{ name: 'post.comentario', params: { id: post.id } }">
+                                        <div class="simple-button p-0 px-2 d-flex justify-content-center align-items-center post-comment-button">
+                                            <svg class="mx-2 icon-comment" rpl="" aria-hidden="true" fill="currentColor" height="20" icon-name="comment-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.725 19.872a.718.718 0 0 1-.607-.328.725.725 0 0 1-.118-.397V16H3.625A2.63 2.63 0 0 1 1 13.375v-9.75A2.629 2.629 0 0 1 3.625 1h12.75A2.63 2.63 0 0 1 19 3.625v9.75A2.63 2.63 0 0 1 16.375 16h-4.161l-4 3.681a.725.725 0 0 1-.489.191ZM3.625 2.25A1.377 1.377 0 0 0 2.25 3.625v9.75a1.377 1.377 0 0 0 1.375 1.375h4a.625.625 0 0 1 .625.625v2.575l3.3-3.035a.628.628 0 0 1 .424-.165h4.4a1.377 1.377 0 0 0 1.375-1.375v-9.75a1.377 1.377 0 0 0-1.374-1.375H3.625Z"></path>
                                             </svg>
-                                        </button>
+                                            <span class="p-0 d-flex justify-content-center align-items-center post-quantity-indicator">{{ post.comments.length }}</span>
+                                        </div>
                                     </router-link>
-                                    <!--Boton delete-->
-                                    <div class="box-40 mx-0" v-if="post.ID_User==user.id" @click="deletePosthome(post.id)">
-                                        <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
-                                            <svg rpl="" fill="currentColor" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
+                            </div>
+                            <!-- Botones edit + delete -->
+                            <div class="d-flex d-flex flex-row align-items-end">
+                                <!--Boton edit-->
+                                <router-link v-if="post.ID_User==user.id" :to="{ name: 'prueba.edit', params: { id: post.id } }" class="box-40 mx-2">
+                                    <button onclick="" class="post-edit-button p-0 d-flex justify-content-center align-items-center">
+                                        <svg rpl="" fill="currentColor" height="20" icon-name="edit-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m18.236 3.158-1.4-1.4a2.615 2.615 0 0 0-3.667-.021L1.336 13.318a1.129 1.129 0 0 0-.336.8v3.757A1.122 1.122 0 0 0 2.121 19h3.757a1.131 1.131 0 0 0 .8-.337L18.256 6.826a2.616 2.616 0 0 0-.02-3.668ZM5.824 17.747H2.25v-3.574l9.644-9.435L15.259 8.1l-9.435 9.647ZM17.363 5.952l-1.23 1.257-3.345-3.345 1.257-1.23a1.362 1.362 0 0 1 1.91.01l1.4 1.4a1.364 1.364 0 0 1 .008 1.908Z"></path>
+                                        </svg>
+                                    </button>
+                                </router-link>
+                                <!--Boton delete-->
+                                <div class="box-40 mx-0" v-if="post.ID_User==user.id" @click="deletePosthome(post.id)">
+                                    <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
+                                        <svg rpl="" fill="currentColor" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <hr class="post-hr-separator">
                     </div>
-    
-    
-                </main>
-    
-                <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
-                    <div class="right-aside-container-bg aside-container-right">
-                        <ul class="m-0 aside-ul-container-right">
-                            <li class="scoreboard-title">TOP MONTHLY POSTS</li>
-                            <li class="scoreboard-top-users">#1 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-top-users">#2 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-top-users">#3 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#4 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#5 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#6 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#7 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#8 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#9 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#10 <span class="px-2">Usuario a</span></li>
-                        </ul>
-                    </div>
-                    <br>
-                    <div class="right-aside-container-bg aside-container-right">
-                        <ul class="m-0 aside-ul-container-right">
-                            <li class="guidelines-title">OFFICIAL GUIDELINES</li>
-                            <li class="guidelines-text">The rules of Pelipper include no harassing, no spamming, no posting illegal content, no sharing personal information without consent, and respecting copyright.</li>
-                            <li class="guidelines-text">Users are expected to follow the rules.</li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
+                    <hr class="post-hr-separator">
+                </div>
+
+
+            </main>
+
+            <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
+                <div class="right-aside-container-bg aside-container-right">
+                    <ul class="m-0 aside-ul-container-right">
+                        <li class="scoreboard-title">TOP MONTHLY POSTS</li>
+                        <li class="scoreboard-top-users">#1 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-top-users">#2 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-top-users">#3 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#4 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#5 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#6 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#7 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#8 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#9 <span class="px-2">Usuario a</span></li>
+                        <li class="scoreboard-users">#10 <span class="px-2">Usuario a</span></li>
+                    </ul>
+                </div>
+                <br>
+                <div class="right-aside-container-bg aside-container-right">
+                    <ul class="m-0 aside-ul-container-right">
+                        <li class="guidelines-title">OFFICIAL GUIDELINES</li>
+                        <li class="guidelines-text">The rules of Pelipper include no harassing, no spamming, no posting illegal content, no sharing personal information without consent, and respecting copyright.</li>
+                        <li class="guidelines-text">Users are expected to follow the rules.</li>
+                    </ul>
+                </div>
+            </aside>
         </div>
     </div>
-    </body>
-    </template>
-<style>
-</style>
+</div>
+</body>
+</template>
+
 <script setup>
-    import {onMounted, ref, computed} from "vue";
+    import {onMounted, computed} from "vue";
     import usePosts from "@/composables/pppposts";
     import useCategories from "@/composables/categories";
-    import { useRoute } from "vue-router";
     import { useStore } from 'vuex';
-
-
 
     import {useAbility} from '@casl/vue'
 
-    const {posts, getPostsuser, getreversePosts, getPostsbestrated, getPostslowestrated, getPostsmostnegativevotes, getPostsmostvoted, sumarVotousuario, restarVotousuario, quitarupvoteusuario, quitardownvoteusuario, deletePosthome} = usePosts()
+    const {posts, avatrlink, getPosts, getreversePosts, getPostsbestrated, getPostslowestrated, getPostsmostnegativevotes, getPostsmostvoted, sumarVotohated, restarVotohated, deletePosthome, quitarupvotehated, quitardownvotehated} = usePosts()
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
-    const route = useRoute()
 
     const store = useStore();
     const user = computed(() => store.state.auth.user)
-    const avatar= ref({})
-    const nombre= ref({})
 
     const handleOrdenChange = (event) => {
         const selectedOption = event.target.value;
@@ -331,11 +335,8 @@
     }
 
     onMounted(() => {
-        getPostsuser(route.params.id)
+        getPostslowestrated()
         getCategoryList()
-        avatar.value=route.params.avatar
-        nombre.value=route.params.nombre
-        
     })
     
 </script>

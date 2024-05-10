@@ -304,36 +304,124 @@ export default function usePosts() {
                 timerProgressBar: true,        
             })
         })
-}
+    }
 
-const restarVotousuario = async (post) => {
-    axios.put('/api/pppposts/'+post.id+'/downvote')  
-    .then(response => {
-        getPostsuser(post.ID_User)
-    })
-    .catch(error => {
-        swal({
-            icon: 'error',
-            title: 'Log in to vote',
-            timer: 5000,
-            timerProgressBar: true,  
+    const restarVotousuario = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/downvote')  
+        .then(response => {
+            getPostsuser(post.ID_User)
         })
-    })
-}
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Log in to vote',
+                timer: 5000,
+                timerProgressBar: true,  
+            })
+        })
+    }
 
-const quitarupvoteusuario = async (post) => {
-    axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
-    .then(response => {
-        getPostsuser(post.ID_User)
-    }) 
-}
+    const quitarupvoteusuario = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
+        .then(response => {
+            getPostsuser(post.ID_User)
+        }) 
+    }
 
-const quitardownvoteusuario = async (post) => {
-    axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
-    .then(response => {
-        getPostsuser(post.ID_User)
-    }) 
-}
+    const quitardownvoteusuario = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
+        .then(response => {
+            getPostsuser(post.ID_User)
+        }) 
+    }
+
+    const sumarVotopopular = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/upvote')  
+        .then(response => {
+            getPostsbestrated()
+        })
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Log in to vote.',
+                timer: 5000,
+                timerProgressBar: true,        
+            })
+        })
+    }
+
+    const restarVotopopular = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/downvote')  
+        .then(response => {
+            getPostsbestrated()
+        })
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Log in to vote',
+                timer: 5000,
+                timerProgressBar: true,  
+            })
+        })
+    }
+
+    const quitarupvotepopular = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
+        .then(response => {
+            getPostsbestrated()
+        }) 
+    }
+
+    const quitardownvotepopular = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
+        .then(response => {
+            getPostsbestrated()
+        }) 
+    }
+
+    const sumarVotohated = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/upvote')  
+        .then(response => {
+            getPostslowestrated()
+        })
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Log in to vote.',
+                timer: 5000,
+                timerProgressBar: true,        
+            })
+        })
+    }
+
+    const restarVotohated = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/downvote')  
+        .then(response => {
+            getPostslowestrated()
+        })
+        .catch(error => {
+            swal({
+                icon: 'error',
+                title: 'Log in to vote',
+                timer: 5000,
+                timerProgressBar: true,  
+            })
+        })
+    }
+
+    const quitarupvotehated = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitarupvote')  
+        .then(response => {
+            getPostslowestrated()
+        }) 
+    }
+
+    const quitardownvotehated = async (post) => {
+        axios.put('/api/pppposts/'+post.id+'/quitardownvote')  
+        .then(response => {
+            getPostslowestrated()
+        }) 
+    }
 
     
     
@@ -363,6 +451,14 @@ const quitardownvoteusuario = async (post) => {
         restarVotousuario,
         quitarupvoteusuario,
         quitardownvoteusuario,
+        sumarVotopopular,
+        restarVotopopular,
+        quitarupvotepopular,
+        quitardownvotepopular,
+        sumarVotohated,
+        restarVotohated,
+        quitarupvotehated,
+        quitardownvotehated,
         validationErrors,
         isLoading
         
