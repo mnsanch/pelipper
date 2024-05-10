@@ -4,12 +4,12 @@
     <section class="container py-5 h-100 my-5">
         <div class="row d-flex justify-content-center align-items-center h-100 mx-0 w-100">
 
-                <div class="login-container p-0 w-50">
+                <div class=" p-0 w-50"><!-- <div class="login-container p-0 w-50"> -->
                     <div class="row g-0">
-                        <div class="col-md-2 col-lg-2 d-none d-md-block">
+                        <div class="col-md-2 col-lg-2 d-flex justify-content-end d-none d-md-block m-0 p-0">
                             <div class="login-banner m-0 p-0"></div>
                         </div>
-                        <div class="col-md-10 col-lg-10 px-5 d-flex align-items-center" style="">
+                        <div class="login-container col-md-10 col-lg-10 px-5 d-flex align-items-center" style="">
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <form @submit.prevent="submitLogin">
                                     <div class="d-flex align-items-center mb-3 pb-1">

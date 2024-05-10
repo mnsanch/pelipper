@@ -271,7 +271,7 @@ textarea {
 .login-container {
     background-color: var(--switchcolor1);
     border: 1px solid var(--switchcolor10);
-    border-radius: 1rem;
+    border-radius: 0 1rem 1rem 0;
 }
 
 .login-banner {
