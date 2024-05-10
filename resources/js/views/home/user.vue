@@ -293,7 +293,7 @@
 <style>
 </style>
 <script setup>
-    import {onMounted, ref, computed} from "vue";
+    import {onMounted, ref, computed, onUpdated} from "vue";
     import usePosts from "@/composables/pppposts";
     import useCategories from "@/composables/categories";
     import { useRoute } from "vue-router";
@@ -307,6 +307,8 @@
     const {categoryList, getCategoryList} = useCategories()
     const {can} = useAbility();
     const route = useRoute()
+    let mediaIdAux =  route.params.avatar;
+
 
     const store = useStore();
     const user = computed(() => store.state.auth.user)
@@ -337,6 +339,17 @@
         nombre.value=route.params.nombre
         
     })
+
+    onUpdated( async() => {
+      // Comprueba si el ID del medio show ha cambiado
+      if(mediaIdAux !=route.params.avatar){
+        mediaIdAux = route.params.avatar;
+        getPostsuser(route.params.id)
+        getCategoryList()
+        avatar.value=route.params.avatar
+        nombre.value=route.params.nombre
+      }
+    });
     
 </script>
 
