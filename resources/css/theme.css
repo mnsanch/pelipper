@@ -984,8 +984,7 @@ a {
     input[type='radio'] {
         accent-color: var(--switchcolor11);
         background: transparent !important;
-        /* box-shadow: 1px 20px linear-gradient(to right, #F35F0E, #ec068c); */
-        box-shadow: 1px 2px 5px red;
+
     }
 
 

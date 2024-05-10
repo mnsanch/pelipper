@@ -4,7 +4,7 @@
     <section class="container py-5 h-100 my-5">
         <div class="row d-flex justify-content-center align-items-center h-100 mx-0 w-100">
 
-                <div class=" p-0 w-50"><!-- <div class="login-container p-0 w-50"> -->
+                <div class="login-container p-0 w-50">
                     <div class="row g-0">
                         <div class="col-md-2 col-lg-2 d-flex justify-content-end d-none d-md-block m-0 p-0">
                             <div class="login-banner m-0 p-0"></div>

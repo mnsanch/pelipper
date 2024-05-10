@@ -1,8 +1,8 @@
 <template>
-    <nav v-if="user?.name" class="navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default" style="z-index: 999999; position: fixed; border-bottom: 1px solid gainsboro">
+    <nav v-if="user?.name" class="row navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default" style="z-index: 999999; position: fixed; border-bottom: 1px solid gainsboro">
             <div class="container-fluid d-flex justify-content-between">
                 
-                <div class="nav-item box-40 d-flex justify-content-center align-items-center " style="margin-left: 8px; margin-right: 8px">
+                <div class="nav-item box-40 d-flex justify-content-center align-items-center" style="margin-left: 8px; margin-right: 8px">
                     <button class="navbar-toggler my-3 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
                             <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z"></path>
@@ -11,7 +11,7 @@
                 </div>
 
                 <a class="navbar-brand nav-link text-white" href="">
-                    <router-link to="/" class="navbar-brand logo">
+                    <router-link to="/" class="m-0 py-0">
                         <div class="header-logo-pelipper" style="width:153; height:45"></div>
                         <!-- <img src="/images/logo_pelipper_claro.svg" width="153" height="45"> -->
                     </router-link>
@@ -28,13 +28,27 @@
                     </div>
                     <div class="box-40 m-0 p-0 d-flex justify-content-center align-items-center" style="margin-left: 8px; margin-right: 8px">
                         <!-- Profile picture example -->
-                            <router-link :to="{ name: 'perfil.index' }" class="d-flex justify-content-center align-items-center">
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + numero + '/Normal.png'" class="box-40 m-0 p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="border: 1px solid black; border-radius: 90px"/>
-                            </router-link>
+                        <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
+                                <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + usuario.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
+                                <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
+
+
+                                <ul class="dropdown-menu dropdown-menu-end user-dropdown">
+                                    <div v-for="roles in user.roles">
+                                        <li v-if="roles.name=='admin'"><router-link class="dropdown-item user-dropdown-text" to="/admin">Admin</router-link></li>
+                                        <li v-if="roles.name=='admin'"><hr class="dropdown-divider"></li>
+                                    </div>
+                                    <li><router-link :to="{ name: 'post.usuario', params: { id: usuario.id, avatar:usuario.avatar, nombre:usuario.name  } }" class="dropdown-item user-dropdown-text">Mis Posts</router-link></li>
+                                    <li><router-link :to="{ name: 'perfil.index' }" class="dropdown-item user-dropdown-text">Perfil</router-link></li>
+                                    <li><a class="dropdown-item user-dropdown-text" href="javascript:void(0)" @click="logout">Logout</a></li>
+                                </ul>
+                            </li>
                     </div>
                 </div>
 
-                <div class="collapse navbar-collapse bg-color-default" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
+                <div class="collapse navbar-collapse bg-color-default w-100" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
                     <div class="container-fluid border searchbar-dos my-4">
                         <form action="" method="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
@@ -45,26 +59,26 @@
                         </form>
                     </div>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center bg-color-default">
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Home</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Popular</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Most hated</span></button></a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center bg-color-default w-100">
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Home</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Popular</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Most hated</span></button></a></li>
                         <li>
                         <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Create post</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Account</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Log out</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Create post</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Account</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Log out</span></button></a></li>
                         <li>
                         <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Dark mode</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>About Pelipper</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Advertise</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Help</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Blog</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Careers</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Press</span></button></a></li>
+                        <li class="nav-item"><button @click="toggleDarkMode"class="btn text-white header-menu-link w-100"><span>Dark mode</span></button></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>About Pelipper</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Advertise</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Help</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Blog</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Careers</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Press</span></button></a></li>
                     </ul>
                 </div>
         </div>
@@ -99,8 +113,8 @@
                 </div>
             </div>
 
-                <div class="collapse navbar-collapse bg-color-default" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
-                    <div class="container-fluid border searchbar-dos my-4">
+                <div class="collapse navbar-collapse bg-color-default w-100" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
+                    <div class="container-fluid border searchbar-dos mt-4 p-0 mx-0 mb-0 w-100 ">
                         <form action="" method="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
                                 <path class="svg-background-color" d="M19.5 18.616 14.985 14.1a8.528 8.528 0 1 0-.884.884l4.515 4.515.884-.884ZM1.301 8.553a7.253 7.253 0 1 1 7.252 7.253 7.261 7.261 0 0 1-7.252-7.253Z">
@@ -110,26 +124,26 @@
                         </form>
                     </div>
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center bg-color-default">
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Home</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Popular</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Most hated</span></button></a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center bg-color-default w-100">
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Home</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Popular</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Most hated</span></button></a></li>
                         <li>
                         <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Create post</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>My account</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Log out</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Create post</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>My account</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100"><span>Log out</span></button></a></li>
                         <li>
                         <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item"><a class="nav-link" href=""><button class="btn text-white header-menu-link w-100" type="submit"><span>Dark mode</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>About Pelipper</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Advertise</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Help</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Blog</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Careers</span></button></a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100" type="submit"><span>Press</span></button></a></li>
+                        <li class="nav-item"><button @click="toggleDarkMode"class="btn text-white header-menu-link w-100"><span>Dark mode</span></button></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>About Pelipper</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Advertise</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Help</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Blog</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Careers</span></button></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!"><button class="btn text-white header-menu-link w-100"><span>Press</span></button></a></li>
                     </ul>
                 </div>
         </div>
