@@ -1,12 +1,12 @@
 <template>
 
-    <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
+    <svg class="react-flowbackground background-puntitos" data-testid="rfbackground"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
 
-    <section class="container py-5 h-100">
+    <section class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-6 col-xl-6">
-                    <div class="createpost-container card p-0">
-                        <div class="row g-0 mt-5 border">
+                    <div class="createpost-container card p-0 my-6">
+                        <div class="row g-0 mt-5 register-container-border ">
                             <!-- <div class="d-none d-md-block"> 
                                 <div class="createpost-banner m-0 p-0"></div>
                             </div> -->
@@ -76,7 +76,7 @@
 
 
                                             <div class="p-4 mt-4 m-0 register-question-container">
-                                                <div class="row my-4">
+                                                <div class="row mt-2 mb-4">
                                                     <span class="">*Choose wiselly, this will define your profile picture and can’t be changed:</span>
                                                 </div>
                                                 <p class="m-0 p-0 register-question-title">You discover a treasure:</p>
@@ -127,12 +127,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-4 mb-5 mx-0">
-                                            <button onclick="" class="simple-button createpost-submit-button p-0 d-flex justify-content-center align-items-center h-100">
-                                                <span>Create account</span>
-                                            </button>
-                                        </div>
-        
+                                        <div class="mt-4 mb-5 mx-0 p-0">
+                                        <button onclick="" class="simple-button login-submit-button mx-0 p-0 d-flex justify-content-center align-items-center h-100">
+                                            <span>Register</span>
+                                        </button>
+                                    </div>
                                         <a href="#!" class="small text-muted">Community guidelines. </a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
                                     </form>
@@ -143,7 +142,7 @@
                 </div>
             </div>
         </section>
-        <app-footer style="margin-top: 0; position: static"></app-footer>
+        <app-footer class="mt-0 position-static"></app-footer>
 </template>
 
 <script setup>
