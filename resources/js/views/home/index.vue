@@ -269,7 +269,7 @@
             </main>
 
             <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
-                <div class="right-aside-container-bg aside-container-right">
+                <!-- <div class="right-aside-container-bg aside-container-right">
                     <ul class="m-0 aside-ul-container-right">
                         <li class="scoreboard-title">TOP MONTHLY POSTS</li>
                         <li class="scoreboard-top-users">#1 <span class="px-2">Usuario a</span></li>
@@ -284,7 +284,7 @@
                         <li class="scoreboard-users">#10 <span class="px-2">Usuario a</span></li>
                     </ul>
                 </div>
-                <br>
+                <br> -->
                 <div class="right-aside-container-bg aside-container-right">
                     <ul class="m-0 aside-ul-container-right">
                         <li class="guidelines-title">OFFICIAL GUIDELINES</li>

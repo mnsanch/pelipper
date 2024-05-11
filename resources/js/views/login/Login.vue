@@ -13,7 +13,7 @@
                             <div class="card-body p-4 p-lg-5 text-black">
                                 <form @submit.prevent="submitLogin">
                                     <div class="d-flex align-items-center mb-3 pb-1">
-                                        <img class="py-0 my-0" src="/images/logo_pelipper.svg" width="40" height="40">
+                                        <div class="title-logo-pelipper p-0 m-0"></div>
                                         <!-- <span class="h1 fw-bold py-0 my-0 mx-2 page-title">Log in</span> -->
                                         <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Log in</span>
                                     </div>
