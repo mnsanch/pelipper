@@ -54,7 +54,7 @@
                 <hr>
                 <li class="aside-title">RESOURCES</li>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
-                    <img src="/images/logo_pelipper.svg" width="26" height="26" class="py-0 my-0 position-absolute">
+                    <div class="py-0 my-0 position-absolute aside-logo-pelipper"></div>
                     <li class="aside-list-element ">About Pelipper</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">

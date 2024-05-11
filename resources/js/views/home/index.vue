@@ -5,10 +5,6 @@
 <br>
 
 <div class="home-main-container" style="margin-top: 78px !important">
-    <!-- <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;">
-        <pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect>
-    </svg> -->
-
     <!-- Menú lateral izquierdo -->
     <aside class="aside-main-left block-disapear">
         <div class="block-disapear aside-container-left">
@@ -64,7 +60,7 @@
                 <hr>
                 <li class="aside-title">RESOURCES</li>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
-                    <img src="/images/logo_pelipper.svg" width="26" height="26" class="py-0 my-0 position-absolute">
+                    <div class="py-0 my-0 position-absolute aside-logo-pelipper"></div>
                     <li class="aside-list-element ">About Pelipper</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">

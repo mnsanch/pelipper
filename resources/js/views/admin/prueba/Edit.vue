@@ -1,5 +1,5 @@
 <template>
-    <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
+    <svg class="react-flowbackground background-puntitos" data-testid="rfbackground"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
 
     <section class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100 my-5">
@@ -8,7 +8,7 @@
                         <div class="row g-0">
                             <div class="col-md-12 col-lg-12 d-none d-md-block" style="height: 100px">
                                 <!-- <div class="createpost-banner m-0 p-0"></div> -->
-                                <img src="/images/createpost_banner.svg" class="m-0 p-0" style="width: 100%; height: auto; background-color: transparent;">
+                                <img src="/images/createpost_banner.svg" class="m-0 p-0 w-100 h-auto bg-transparent">
                             </div>
                             <div class="col-md-12 col-lg-12 d-flex align-items-center createpost-subcontainer">
                                 <div class="card-body p-4 p-lg-5 text-black bg-color-default" style="border-radius: 0 0 1rem 1rem">
@@ -66,10 +66,10 @@
                                                 </div>
 
                                                 <div class="mb-4 mx-0 border-0 d-flex justify-content-end w-100">
-                                                    <div class="mb-3 createpost-dropzone w-100"  style="border-radius: 1.25rem !important" >
+                                                    <div class="mb-3 createpost-dropzone w-100">
                                                         <!-- <h6 class="mt-3">Imagen</h6> -->
-                                                        <DropZone v-model="post.thumbnail"  style="border-radius: 1.25rem !important;  height: 15rem !important;" class="createpost-dropzone"/>
-                                                        <div class="text-danger mt-1" style="border-radius: 1.25rem !important;">
+                                                        <DropZone v-model="post.thumbnail" class="createpost-dropzone"/>
+                                                        <div class="text-danger mt-1">
                                                             <div v-for="message in validationErrors?.thumbnail">
                                                                 {{ message }}
                                                             </div>

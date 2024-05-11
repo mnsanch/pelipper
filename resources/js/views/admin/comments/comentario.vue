@@ -57,7 +57,7 @@
                 <hr>
                 <li class="aside-title">RESOURCES</li>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
-                    <img src="/images/logo_pelipper.svg" width="26" height="26" class="py-0 my-0 position-absolute">
+                    <div class="py-0 my-0 position-absolute aside-logo-pelipper"></div>
                     <li class="aside-list-element ">About Pelipper</li>
                 </div>
                 <div class="d-flex align-items-center aside-menu-nav-element pointer-custom">
@@ -155,7 +155,7 @@
                             </div>
                             <span  class="mx-2 post-user-data pointer-custom" @click="avatrlink(post.ID_User,post.Avatar,post.Usuario)">{{post.Usuario}}</span>
                             <span class="post-user-data-separator"> · </span>
-                            <span v-for="category in post.ID_Category" class="mx-2 post-user-data">{{ category.Category_Name }}</span>
+                            <span v-for="category in post.ID_Category" class="mx-2 post-user-data post-category">{{ category.Category_Name }}</span>
                             <span class="post-user-data-separator"> · </span>
                             <span class="mx-2 post-user-data">{{post.created_at}}</span>
                         </div>

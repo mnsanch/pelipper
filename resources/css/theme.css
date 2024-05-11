@@ -390,6 +390,8 @@ textarea {
 }
 .createpost-dropzone {
     background-color: var(--switchcolor4) !important;
+    border-radius: 1.25rem !important;
+    height: 15rem !important;
 }
 .createpost-input {
     height: 3.5rem !important;
