@@ -15,7 +15,7 @@
                                     <div class="d-flex align-items-center mb-3 p-0">
                                         <div class="title-logo-pelipper p-0 m-0"></div>
                                         <!-- <span class="h1 fw-bold mx-2 my-0 p-0 page-title">profile</span> -->
-                                        <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">profile</span>
+                                        <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Profile</span>
                                     </div>
 
                                     <h5 class="fw-normal mb-5 pb-3">Edit your profile.</h5>

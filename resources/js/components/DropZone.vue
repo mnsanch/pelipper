@@ -43,7 +43,7 @@
 
         <label for="fileInput" class="file-label text-center" v-if=" !thumbnail && !modelValue">
 
-            <div style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+            <div class="dropzone-padding">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#FFFFFF" class="bi bi-image"
                 viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>

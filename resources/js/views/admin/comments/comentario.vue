@@ -241,17 +241,17 @@
                 <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
                     <div class="right-aside-container-bg aside-container-right">
                         <ul class="m-0 aside-ul-container-right">
-                            <li class="scoreboard-title">TOP MONTHLY POSTS</li>
-                            <li class="scoreboard-top-users">#1 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-top-users">#2 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-top-users">#3 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#4 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#5 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#6 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#7 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#8 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#9 <span class="px-2">Usuario a</span></li>
-                            <li class="scoreboard-users">#10 <span class="px-2">Usuario a</span></li>
+                            <li class="scoreboard-title">TOP MONTHLY USERS</li>
+                            <li class="scoreboard-top-users">#1 <span class="px-2">Panda2000</span></li>
+                            <li class="scoreboard-top-users">#2 <span class="px-2">Davido</span></li>
+                            <li class="scoreboard-top-users">#3 <span class="px-2">CuteFatDuck</span></li>
+                            <li class="scoreboard-users">#4 <span class="px-2">alansitooo</span></li>
+                            <li class="scoreboard-users">#5 <span class="px-2">Sucralosa01</span></li>
+                            <li class="scoreboard-users">#6 <span class="px-2">DwightSchrute</span></li>
+                            <li class="scoreboard-users">#7 <span class="px-2">Pepitogrillo</span></li>
+                            <li class="scoreboard-users">#8 <span class="px-2">wake_up_samurai</span></li>
+                            <li class="scoreboard-users">#9 <span class="px-2">anonymouse</span></li>
+                            <li class="scoreboard-users">#10 <span class="px-2">xXxGoku666xXx</span></li>
                         </ul>
                     </div>
                     <br>
