@@ -1,8 +1,8 @@
 <template>
-    <nav v-if="user?.name" class="row navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default" style="z-index: 999999; position: fixed; border-bottom: 1px solid gainsboro">
+    <nav v-if="user?.name" class="row navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default main-nav-header">
             <div class="container-fluid d-flex justify-content-between">
                 
-                <div class="nav-item box-40 d-flex justify-content-center align-items-center" style="margin-left: 8px; margin-right: 8px">
+                <div class="nav-item box-40 d-flex justify-content-center align-items-center mx-8px">
                     <button class="navbar-toggler my-3 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
                             <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z"></path>
@@ -12,7 +12,7 @@
 
                 <a class="navbar-brand nav-link text-white" href="">
                     <router-link to="/" class="m-0 py-0">
-                        <div class="header-logo-pelipper" style="width:153; height:45"></div>
+                        <div class="header-logo-pelipper"></div>
                         <!-- <img src="/images/logo_pelipper_claro.svg" width="153" height="45"> -->
                     </router-link>
                 </a>
@@ -26,7 +26,7 @@
                             </svg>
                         </router-link>
                     </div>
-                    <div class="box-40 m-0 p-0 d-flex justify-content-center align-items-center" style="margin-left: 8px; margin-right: 8px">
+                    <div class="box-40 m-0 p-0 d-flex justify-content-center align-items-center mx-8px">
                         <!-- Profile picture example -->
                         <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <div class="collapse navbar-collapse bg-color-default w-100" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
+                <div class="collapse navbar-collapse bg-color-default w-100" id="navbarSupportedContent">
                     <div class="container-fluid border searchbar-dos my-4">
                         <form action="" method="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
@@ -83,10 +83,10 @@
                 </div>
         </div>
     </nav>
-    <nav v-if="!user?.name" class="navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default" style="z-index: 999999; position: fixed; border-bottom: 1px solid gainsboro">
+    <nav v-if="!user?.name" class="navbar navbar-expand-lg bg-black display-mode-off-dos w-100 header-small bg-color-default main-nav-header">
             <div class="container-fluid d-flex justify-content-between">
-                <div style="width: 150px">
-                    <div class="nav-item box-40 d-flex justify-content-center align-items-center " style="margin-left: 8px; margin-right: 8px">
+                <div class="m-0 p-0 w-fit-content">
+                    <div class="nav-item box-40 d-flex justify-content-center align-items-center mx-8px">
                         <button class="navbar-toggler my-3 d-flex justify-content-center align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50">
                                 <path d="M 3 9 A 1.0001 1.0001 0 1 0 3 11 L 47 11 A 1.0001 1.0001 0 1 0 47 9 L 3 9 z M 3 24 A 1.0001 1.0001 0 1 0 3 26 L 47 26 A 1.0001 1.0001 0 1 0 47 24 L 3 24 z M 3 39 A 1.0001 1.0001 0 1 0 3 41 L 47 41 A 1.0001 1.0001 0 1 0 47 39 L 3 39 z"></path>
@@ -94,15 +94,15 @@
                         </button>
                     </div>
                 </div>
-                <div style="width: 150px">
+                <div class="m-0 p-0 w-fit-content">
                 <a class="navbar-brand nav-link text-white" style="align-self: center;" href="127.0.0.1:8000">
                     <router-link to="/" class="navbar-brand logo">
-                        <div class="header-logo-pelipper" style="width:153; height:45"></div>
+                        <div class="header-logo-pelipper"></div>
                         <!-- <img src="/images/logo_pelipper_claro.svg" width="153" height="45"> -->
                     </router-link>
                 </a>
-            </div>
-            <div style="width: 150px">
+                </div>
+                <div class="m-0 p-0 w-fit-content">
                 <div class="d-flex justify-content-end">
                     <div style="height: 40px; width: auto; margin-left: 4px; margin-right: 4px">
                             <button onclick="" class="special-button p-0 d-flex justify-content-center align-items-center nav-item">
@@ -152,9 +152,9 @@
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 6dvh; padding-left: 2dvw; padding-right: 2dvw">
             <div class="row header-separator" style="height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw;">
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
-                <div class="col-2 p-0 container-fluid d-flex flex-row align-items-center m-0" style="height: 57px">
+                <div class="col-2 p-0 container-fluid d-flex flex-row align-items-center m-0 h-57px">
                     <router-link to="/" class="navbar-brand logo h-100 m-0 p-0 d-flex align-items-center">
-                        <div class="header-logo-pelipper" style="width:153; height:45"></div>
+                        <div class="header-logo-pelipper"></div>
                         <!-- <img src="/images/logo_pelipper_claro.svg" width="153" height="45"> -->
                     </router-link>
                 </div>
@@ -224,7 +224,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="box-40" style="margin-left: 8px; margin-right: 8px">
+                        <div class="box-40 mx-8px">
                             <!-- Profile picture example -->
                             <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->

@@ -4,10 +4,8 @@
     
     <br>
     
-    <div class="home-main-container" style="margin-top: 78px !important">
-        <!-- <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;">
-            <pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect>
-        </svg> -->
+    <div class="home-main-container mt-78px">
+
     
         <!-- Menú lateral izquierdo -->
         <aside class="aside-main-left block-disapear">
@@ -161,39 +159,21 @@
                         </div>
 
                         <!-- Post content -->
-                        <div style="height: fit-content !important">
+                        <div class="h-fit-content">
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
                             <div class="px-0 d-flex align-items-center justify-content-center" style="border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color: gainsboro"  v-if="(post.original_image!=null)"> 
-                                <img :src='post.original_image' style="max-width: 100%; max-height: 480px !important">
+                                <img :src='post.original_image'>
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-between">
                         <div class="d-flex flex-row">
-                            <!--Boton upvote/downvote-->
-                            <!-- <div class="d-flex align-items-center post-vote-button">
-                                <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVoto(post)">
-                                    <span>
-                                        <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
-                                        </svg>
-                                    </span>
-                                </button>
-                                <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVoto(post)">
-                                    <span>
-                                        <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div> -->
                         </div>
                     </div>
                     <form @submit.prevent="submitForm">
                         <div class="mt-3 mb-3">
-                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control createpost-input" placeholder="Comenta algo, ¿no?" style="height:100px !important"></textarea> 
+                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control createpost-input" placeholder="Say something!" style="height:100px !important"></textarea> 
                             <div class="text-danger mt-1">
                                 {{ errors.Comment }}
                             </div>

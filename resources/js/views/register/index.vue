@@ -142,10 +142,10 @@
                 </div>
             </div>
         </section>
-        <footer style="">
-        <div class="container-fluid footer-separator d-flex justify-content-center align-items-center" style="height: 57px;">
-            <div class="row" style="height: 57px">
-                <div class="col-3 p-0 d-flex flex-row align-items-center" style="height: 57px;">
+        <footer>
+        <div class="container-fluid footer-separator d-flex justify-content-center align-items-center h-57px">
+            <div class="row h-57px">
+                <div class="col-3 p-0 d-flex flex-row align-items-center h-57px">
                     <div class="box-40 mx-2">
                         <button onclick="" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Logo -->
@@ -197,14 +197,14 @@
             </div>
         </div>
 
-        <div class="container-fluid d-flex justify-content-center align-items-center" style=" height: 35px;">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-35px">
             <!-- Copyright -->
             <div class="text-center">
                 <span class="mx-1 font-size-12">Terms of use.</span>
                 <span class="mx-1 font-size-12">Privacy policy</span>
             </div>
         </div>
-        <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 35px;">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-35px">
             <!-- Copyright -->
             <div class="text-center">
                 <span class="font-size-12">Pelipper © 2024. All rights reserved.</span>

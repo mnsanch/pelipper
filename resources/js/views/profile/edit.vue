@@ -79,7 +79,7 @@
                                     </div>
 
                                     <div class="mt-4 mb-5 mx-0 d-flex justify-content-between">
-                                        <button :disabled="isLoading" class="simple-button login-submit-button mx-0 py-0 px-2 d-flex justify-content-center align-items-center h-100" style=" width: fit-content">
+                                        <button :disabled="isLoading" class="simple-button login-submit-button mx-0 py-0 px-2 d-flex justify-content-center align-items-center h-100 w-fit-content">
                                             <div v-show="isLoading" class=""></div>
                                             <!-- Iniciar sesion form button -->
                                             <span v-if="isLoading">Processing...</span>

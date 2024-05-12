@@ -4,10 +4,8 @@
 
 <br>
 
-<div class="home-main-container" style="margin-top: 78px !important">
-    <!-- <svg class="react-flowbackground" data-testid="rfbackground" style="position: absolute; z-index: -1; width: 100%; height: 100%; top: 0px; left: 0px;">
-        <pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect>
-    </svg> -->
+<div class="home-main-container mt-78px">
+
 
     <!-- Menú lateral izquierdo -->
     <aside class="aside-main-left block-disapear">
@@ -166,7 +164,7 @@
                         </div>
 
                         <!-- Post content -->
-                        <div style="height: fit-content !important">
+                        <div class="h-fit-content">
                             <h3 class="post-title">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
                             <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
