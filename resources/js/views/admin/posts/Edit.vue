@@ -38,7 +38,7 @@
                                                 </div>
                                                 <div class="form-floating position-relative mb-4">
                                                     <textarea v-model="post.Post" class="form-control form-control-lg createpost-input textarea h-15rem"
-                                                        placeholder="Context" rows="4" maxlength="300"></textarea>
+                                                        placeholder="Context" rows="4" maxlength="301"></textarea>
                                                     <label class="px-4" for="floatingPassword">Context</label>
                                                     <div class="text-danger mt-1">
                                                         {{ errors.Post }}
