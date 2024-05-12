@@ -131,12 +131,14 @@ class PostController extends Controller
     public function getPostedit($id)
     {
         $post = posts::findOrFail($id);
-        $posts = new pruebaresource($post);
+        $categories = $post->categories()->pluck('id')->toArray(); // Obtener los IDs de las categorías asociadas al post
+        $post['ID_Category'] = $categories;   
 
-        if ($posts->ID_User != auth()->id()) {
+
+        if ($post->ID_User != auth()->id()) {
             return false;
         } else {
-            return $posts;
+            return $post;
         }
     }
 
