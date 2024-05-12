@@ -21,20 +21,25 @@ class posts extends Model implements HasMedia
 
     protected $table = 'posts';
 
+    // vinculo con user en la tabla intermedia
     public function user()
     {
         return $this->belongsTo(User::class, 'ID_User');
     }
+
+    // vinculo con categorias en la tabla intermedia
     public function categories()
     {
         return $this->belongsToMany(categories::class, 'post_categories');
     }
 
+    // cojer todos los comentarios del post
     public function comments()
     {
         return $this->hasMany(comments::class, 'ID_Post')->with('user');
     }
 
+    // vincular un usuario con un post cuando ha votado para que se guarde su voto
     public function votes()
     {
         $userId = Auth::id();

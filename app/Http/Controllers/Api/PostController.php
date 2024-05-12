@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Models\posts;
 use App\Models\votes;
-use App\Http\Resources\pruebaresource;
+use App\Http\Resources\postresource;
 use App\Http\Resources\editpostresource;
 use App\Models\categories;
 
@@ -16,6 +16,7 @@ use App\Models\categories;
 
 class PostController extends Controller
 {
+    // funcion cojer todos los posts
     public function index()
     {
         $posts = posts::with('media')->get();
@@ -26,10 +27,10 @@ class PostController extends Controller
             $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
         
-        return pruebaresource::collection($posts);
+        return postresource::collection($posts);
     }
     
-    
+    // funcion cojer todos los posts del mas nuevo al mas antiguo
     public function indexreverse() {
         $posts = posts::with('media')->get();
         foreach ($posts as $post) {
@@ -38,9 +39,10 @@ class PostController extends Controller
             $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
         $reversedPosts = $posts->reverse();
-        return pruebaresource::collection($reversedPosts);
+        return postresource::collection($reversedPosts);
     }
 
+    // funcion cojoer los posts mejor valorados
     public function indexpositivo() {
         $posts = posts::with('media')->get();
         foreach ($posts as $post) {
@@ -50,9 +52,10 @@ class PostController extends Controller
         }
         $posts = $posts->sortByDesc('Totalvotes');
         
-        return pruebaresource::collection($posts);
+        return postresource::collection($posts);
     } 
 
+    // funcion cojoer los posts menor valorados
     public function indexnegativo() {
         $posts = posts::with('media')->get();
         foreach ($posts as $post) {
@@ -62,9 +65,10 @@ class PostController extends Controller
         }
         $posts = $posts->sortBy('Totalvotes');
         
-        return pruebaresource::collection($posts);
+        return postresource::collection($posts);
     } 
 
+    // funcion cojoer los posts con mas posts negativos
     public function indexodiado() {
         $posts = posts::with('media','comments')->get();
         foreach ($posts as $post) {
@@ -74,8 +78,10 @@ class PostController extends Controller
         }
         $posts = $posts->sortBy('Downvote');
         
-        return pruebaresource::collection($posts);
+        return postresource::collection($posts);
     } 
+
+    // funcion cojoer los posts con mas votado independientemente del voto
     public function indexvotado() {
         $posts = posts::with('media')->get();
         foreach ($posts as $post) {
@@ -86,7 +92,7 @@ class PostController extends Controller
         }
         $posts = $posts->sortByDesc('Globalvotes');
         
-        return pruebaresource::collection($posts);
+        return postresource::collection($posts);
     } 
 
     public function indexusuario($id)
@@ -98,15 +104,17 @@ class PostController extends Controller
             $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
         
-        return pruebaresource::collection($posts);
+        return postresource::collection($posts);
     }
 
+    // funcion eliminar post
     public function destroy($id){
         $posts = posts::find($id);
         $posts->delete();
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
+    // funcion crear post
     public function store(StorePostRequest $request) {
         $validatedData = $request->validated();
         $validatedData['ID_User'] = auth()->id();   
@@ -117,18 +125,21 @@ class PostController extends Controller
         if ($request->hasFile('thumbnail')) {
             $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
         }
-        return new pruebaresource($post);
+        return new postresource($post);
 
     }
 
+    // funcion cojer solo un post por id
     public function getPost($id)
     {
         $post = posts::findOrFail($id);
         $post->Avatar = $post->user->avatar; 
         $post->nombre_usuario = $post->user->name; 
         $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
-        return new pruebaresource($post);
+        return new postresource($post);
     }
+
+    // funcion cojer post para editar
      public function getPostedit($id)
     {
         $post = posts::findOrFail($id);
@@ -143,7 +154,7 @@ class PostController extends Controller
         }
     }
 
-
+    // funcion actualizar post
     public function update( $id, StorePostRequest $request)
     {
         $post = posts::find($id);
@@ -156,10 +167,11 @@ class PostController extends Controller
         }elseif ($request->thumbnail=="") {
             $post->media()->delete();
             }
-        return new pruebaresource($post);
+        return new postresource($post);
         
     }
 
+    // funcion poner upvote
     public function upvote($id) {
         $post = posts::findOrFail($id);
         $creado = votes::where('posts_id', $id)->first();
@@ -170,9 +182,10 @@ class PostController extends Controller
         $creacion['user_id'] = auth()->id();   
         $post->votes()->attach($creacion, ['vote' => 1]);
         $post->increment('Upvote');
-        return new pruebaresource($post);
+        return new postresource($post);
     }
 
+    // funcion poner downvote
     public function downvote($id) {
         $post = posts::findOrFail($id);
         $creado = votes::where('posts_id', $id)->first();
@@ -186,6 +199,7 @@ class PostController extends Controller
         return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
     }
 
+    // funcion quitarupvote
     public function quitarupvote($id) {
         $post = posts::findOrFail($id);
         $post->decrement('Upvote');
@@ -193,6 +207,7 @@ class PostController extends Controller
         return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
+    // funcion quitardownvote
     public function quitardownvote($id) {
         $post = posts::findOrFail($id);
         $post->increment('Downvote');

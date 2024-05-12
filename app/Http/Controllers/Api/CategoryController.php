@@ -10,20 +10,19 @@ use App\Models\categories;
 
 class CategoryController extends Controller
 {
-    // public function index() {
-    //     $posts = categories::all()->toarray();
-    //     return $posts;
-    // }
+    // funcion cojer todas las categorias
     public function index()
     {
         return CategoryResource::collection(categories::all());
     }
 
+    // funcion cojer categoria por id
     public function category($id)
     {
         return categories::findOrFail($id);
     }
 
+    // funcion crear categoria
     public function store(StoreCategoryRequest $request)
     {
         $this->authorize('category-create');
@@ -32,6 +31,7 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
+    // funcion actualizar categoria
     public function update($id, StoreCategoryRequest $request)
     {
         $this->authorize('category-edit');
@@ -42,6 +42,7 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
+    // funcion eliminar categoria
     public function destroy($id){
         $category = categories::find($id);
         $category->delete();

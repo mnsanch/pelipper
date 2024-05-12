@@ -13,6 +13,7 @@ class ProfileController extends Controller
     /**
      * @throws ValidationException
      */
+    // funcion actualizar usuario
     public function update(UpdateProfileRequest $request)
     {
         $profile = Auth::user();

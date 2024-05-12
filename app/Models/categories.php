@@ -11,7 +11,7 @@ class categories extends Model
     protected $fillable = ['Category_Name'];
     public $timestamps = false; 
 
-
+    // vinculo con post en la tabla intermedia
     public function posts()
     {
         return $this->belongsToMany(posts::class, 'post_categories');
