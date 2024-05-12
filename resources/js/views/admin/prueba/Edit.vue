@@ -78,6 +78,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        {{ post }}
                                         <div class="mt-1 mb-5 mx-0">
                                             <button onclick=""
                                                 class="simple-button createpost-submit-button p-0 d-flex justify-content-center align-items-center h-100">
@@ -85,6 +86,7 @@
                                                 <span>Post it</span>
                                             </button>
                                         </div>
+                                        
         
                                         <a href="#!" class="small text-muted">Community guidelines. </a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
@@ -103,7 +105,7 @@
     import { onMounted, reactive, watchEffect } from "vue";
     import { useRoute } from "vue-router";
     import useCategories from "@/composables/categories";
-    import usePosts from "@/composables/pppposts";
+    import usePosts from "@/composables/posts";
     import { useForm, useField, defineRule } from "vee-validate";
     import { required, min, max, notnull } from "@/validation/rules"
     import TextEditorComponent from "@/components/TextEditorComponent.vue";
@@ -142,6 +144,7 @@
         getCategoryList()
         console.log(route.params.id);
         console.log(route.params.id);
+        console.log(postData);
     })
     // https://vuejs.org/api/reactivity-core.html#watcheffect
     watchEffect(() => {

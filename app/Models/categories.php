@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pppcategories extends Model
+class categories extends Model
 {
     use HasFactory;
     protected $fillable = ['Category_Name'];
@@ -14,7 +14,7 @@ class pppcategories extends Model
 
     public function posts()
     {
-        return $this->belongsToMany(pppposts::class, 'ppppost_categories');
+        return $this->belongsToMany(posts::class, 'post_categories');
     }
 
 }

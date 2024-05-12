@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ppppost_categories>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\rols>
  */
-class PpppostCategoriesFactory extends Factory
+class RolsFactory extends Factory
 {
     /**
      * Define the model's default state.

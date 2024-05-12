@@ -104,7 +104,7 @@ import {onMounted, reactive, ref} from "vue";
 import TextEditorComponent from "@/components/TextEditorComponent.vue";
 import DropZone from "@/components/DropZone.vue";
 import useCategories from "@/composables/categories";
-import usePosts from "@/composables/pppposts";
+import usePosts from "@/composables/posts";
 import {useForm, useField, defineRule} from "vee-validate";
 import {required, notnull, min, max} from "@/validation/rules"
 

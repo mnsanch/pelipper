@@ -50,8 +50,8 @@ class User extends Authenticatable
         $this->notify(new UserResetPasswordNotification($token));
     }
 
-    public function pppposts()
+    public function posts()
     {
-        return $this->hasMany(pppposts::class);
+        return $this->hasMany(posts::class);
     }
 }

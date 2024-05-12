@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pppvotes', function (Blueprint $table) {
+        Schema::create('votes', function (Blueprint $table) {
             $table->unsignedBigInteger('users_id');
-            $table->unsignedBigInteger('pppposts_id');
+            $table->unsignedBigInteger('posts_id');
             $table->boolean('vote');
-            $table->foreign('pppposts_id')->references('id')->on('pppposts')->onDelete('cascade');
+            $table->foreign('posts_id')->references('id')->on('posts')->onDelete('cascade');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->primary(['users_id', 'pppposts_id']);
+            $table->primary(['users_id', 'posts_id']);
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pppvotes');
+        Schema::dropIfExists('votes');
     }
 };

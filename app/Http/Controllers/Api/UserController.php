@@ -7,8 +7,8 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use App\Models\pppposts;
-use App\Models\pppcomments;
+use App\Models\posts;
+use App\Models\comments;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -117,11 +117,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $posts = pppposts::where('ID_User', $id)->get();
+        $posts = posts::where('ID_User', $id)->get();
         foreach ($posts as $post) {
             $post->delete();
         }
-        $comments = pppcomments::where('ID_User', $id)->get();
+        $comments = comments::where('ID_User', $id)->get();
         foreach ($comments as $comment) {
                 $comment->delete();
         }

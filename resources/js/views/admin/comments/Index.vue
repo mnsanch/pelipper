@@ -42,7 +42,7 @@
 
 <script setup>
     import {ref, onMounted, watch} from "vue";
-    import useComments from "@/composables/pppcomments";
+    import useComments from "@/composables/comments";
     import {useAbility} from '@casl/vue'
 
     const search_category = ref('')

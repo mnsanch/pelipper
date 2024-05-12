@@ -294,7 +294,7 @@
 </style>
 <script setup>
     import {onMounted, ref, computed, onUpdated} from "vue";
-    import usePosts from "@/composables/pppposts";
+    import usePosts from "@/composables/posts";
     import useCategories from "@/composables/categories";
     import { useRoute } from "vue-router";
     import { useStore } from 'vuex';

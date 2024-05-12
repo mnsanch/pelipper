@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pppcomments extends Model
+class comments extends Model
 {
     use HasFactory;
     protected $fillable = ['ID_User','ID_Post','Comment'];

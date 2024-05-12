@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pppcomments', function (Blueprint $table) {
-            $table->foreign('ID_Post')->references('id')->on('pppposts')->onDelete('cascade');
+        Schema::table('comments', function (Blueprint $table) {
+            $table->foreign('ID_Post')->references('id')->on('posts')->onDelete('cascade');
         });
     }
 

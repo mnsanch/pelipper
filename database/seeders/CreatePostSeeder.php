@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\pppcategories;
-use App\Models\pppposts;
+use App\Models\categories;
+use App\Models\posts;
 use Database\Factories\AvatarsFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -19,25 +19,25 @@ class CreatePostSeeder extends Seeder
      */
     public function run()
     {
-        $categoria = pppcategories::create([
+        $categoria = categories::create([
             'Category_Name' => 'Prueba'
         ]);
-        $post = pppposts::create([
+        $post = posts::create([
             'ID_User' => '1',
             'Title' => 'Prueba',
             'Post' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit elit quis massa convallis ornare.',
             'Upvote' => '25',
             'Downvote' => '-15'
         ]);
-        $post->categories()->attach(['pppcategories_id' => 1], ['pppposts_id' => 1]);
-        $post2 = pppposts::create([
+        $post->categories()->attach(['categories_id' => 1], ['posts_id' => 1]);
+        $post2 = posts::create([
             'ID_User' => '1',
             'Title' => 'Prueba2',
             'Post' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit elit quis massa convallis ornare.',
             'Upvote' => '73',
             'Downvote' => '-1'
         ]);
-        $post2->categories()->attach(['pppcategories_id' => 1], ['pppposts_id' => 2]);
+        $post2->categories()->attach(['categories_id' => 1], ['posts_id' => 2]);
 
     }
 }

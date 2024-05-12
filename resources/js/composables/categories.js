@@ -33,7 +33,7 @@ export default function useCategories() {
     }
 
     const getCategory = async (id) => {
-        axios.get('/api/pppcategories/' + id)
+        axios.get('/api/categories/' + id)
             .then(response => {
                 category.value = response.data;
             })
@@ -45,7 +45,7 @@ export default function useCategories() {
         isLoading.value = true
         validationErrors.value = {}
         console.log(category)
-        axios.post('/api/pppcategories', category)
+        axios.post('/api/categories', category)
             .then(response => {
                 router.push({name: 'categories.index'})
                 swal({
@@ -68,7 +68,7 @@ export default function useCategories() {
         validationErrors.value = {}
         console.log(category.id)
 
-        axios.put('/api/pppcategories/update/' + category.id, category)
+        axios.put('/api/categories/update/' + category.id, category)
             .then(response => {
                 router.push({name: 'categories.index'})
                 swal({
@@ -98,7 +98,7 @@ export default function useCategories() {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    axios.delete('/api/pppcategories/delete/' + id)
+                    axios.delete('/api/categories/delete/' + id)
                         .then(response => {
                             router.push({name: 'categories.index'})
                             swal({
@@ -118,7 +118,7 @@ export default function useCategories() {
     }
 
     const getCategoryList = async () => {
-        axios.get('/api/pppcategories')
+        axios.get('/api/categories')
             .then(response => {
                 categoryList.value = response.data.data;
                 console.log(response.data.data)

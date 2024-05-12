@@ -304,7 +304,7 @@
 
 <script setup>
     import {onMounted, computed} from "vue";
-    import usePosts from "@/composables/pppposts";
+    import usePosts from "@/composables/posts";
     import useCategories from "@/composables/categories";
     import { useStore } from 'vuex';
 

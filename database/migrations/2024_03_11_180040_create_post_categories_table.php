@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ppppost_categories', function (Blueprint $table) {
-            $table->unsignedBigInteger('pppcategories_id');
-            $table->unsignedBigInteger('pppposts_id');
-            $table->foreign('pppcategories_id')->references('id')->on('pppcategories')->onDelete('cascade');
-            $table->foreign('pppposts_id')->references('id')->on('pppposts')->onDelete('cascade');
-            $table->primary(['pppcategories_id', 'pppposts_id']);
+        Schema::create('post_categories', function (Blueprint $table) {
+            $table->unsignedBigInteger('categories_id');
+            $table->unsignedBigInteger('posts_id');
+            $table->foreign('categories_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('posts_id')->references('id')->on('posts')->onDelete('cascade');
+            $table->primary(['categories_id', 'posts_id']);
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ppppost_categories');
+        Schema::dropIfExists('post_categories');
     }
 };

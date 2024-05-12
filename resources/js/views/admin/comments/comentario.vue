@@ -272,8 +272,8 @@
 </style>
 <script setup>
     import {onMounted,reactive, ref, computed} from "vue";
-    import usePosts from "@/composables/pppposts";
-    import useComments from "@/composables/pppcomments";
+    import usePosts from "@/composables/posts";
+    import useComments from "@/composables/comments";
     import useCategories from "@/composables/categories";
     import { useRoute } from "vue-router";
     import { useStore } from 'vuex';

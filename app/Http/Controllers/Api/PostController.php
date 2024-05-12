@@ -1,132 +1,198 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
-use App\Http\Resources\PostResource;
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\posts;
+use App\Models\votes;
+use App\Http\Resources\pruebaresource;
+use App\Models\categories;
+
+
+
 
 class PostController extends Controller
 {
     public function index()
     {
-        $orderColumn = request('order_column', 'created_at');
-        if (!in_array($orderColumn, ['id', 'title', 'created_at'])) {
-            $orderColumn = 'created_at';
+        $posts = posts::with('media')->get();
+    
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name;
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
-        $orderDirection = request('order_direction', 'desc');
-        if (!in_array($orderDirection, ['asc', 'desc'])) {
-            $orderDirection = 'desc';
-        }
-        $posts = Post::with('media')
-            ->whereHas('categories', function ($query) {
-                if (request('search_category')) {
-                    $categories = explode(",", request('search_category'));
-                    $query->whereIn('id', $categories);
-                }
-            })
-            ->when(request('search_id'), function ($query) {
-                $query->where('id', request('search_id'));
-            })
-            ->when(request('search_title'), function ($query) {
-                $query->where('title', 'like', '%' . request('search_title') . '%');
-            })
-            ->when(request('search_content'), function ($query) {
-                $query->where('content', 'like', '%' . request('search_content') . '%');
-            })
-            ->when(request('search_global'), function ($query) {
-                $query->where(function ($q) {
-                    $q->where('id', request('search_global'))
-                        ->orWhere('title', 'like', '%' . request('search_global') . '%')
-                        ->orWhere('content', 'like', '%' . request('search_global') . '%');
-
-                });
-            })
-            ->when(!auth()->user()->hasPermissionTo('post-all'), function ($query) {
-                $query->where('user_id', auth()->id());
-            })
-            ->orderBy($orderColumn, $orderDirection)
-            ->paginate(50);
-        return PostResource::collection($posts);
-    }
-
-    public function store(StorePostRequest $request)
-    {
-        $this->authorize('post-create');
-
-        $validatedData = $request->validated();
-        $validatedData['user_id'] = auth()->id();
-        $post = Post::create($validatedData);
-
-        $categories = explode(",", $request->categories);
-        $category = Category::findMany($categories);
-        $post->categories()->attach($category);
-
-        if ($request->hasFile('thumbnail')) {
-            $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images');
-        }
-
-        return new PostResource($post);
-    }
-
-    public function show(Post $post)
-    {
-        $this->authorize('post-edit');
-        if ($post->user_id !== auth()->user()->id && !auth()->user()->hasPermissionTo('post-all')) {
-            return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own posts']);
-        } else {
-            return new PostResource($post);
-        }
-    }
-
-
-    //NO edita imagen
-    public function update(Post $post, StorePostRequest $request)
-    {
-        $this->authorize('post-edit');
         
-        if ($post->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('post-all')) {
-            return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only edit your own posts']);
-        } else {
-            $post->update($request->validated());
-            //error_log(json_encode($request->categories));
-
-            $category = Category::findMany($request->categories);
-            $post->categories()->sync($category);
-
-            return new PostResource($post);
+        return pruebaresource::collection($posts);
+    }
+    
+    
+    public function indexreverse() {
+        $posts = posts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
+        $reversedPosts = $posts->reverse();
+        return pruebaresource::collection($reversedPosts);
     }
 
-    public function destroy(Post $post)
-    {
-        $this->authorize('post-delete');
-        if ($post->user_id !== auth()->id() && !auth()->user()->hasPermissionTo('post-all')) {
-            return response()->json(['status' => 405, 'success' => false, 'message' => 'You can only delete your own posts']);
-        } else {
-            $post->delete();
-            return response()->noContent();
+    public function indexpositivo() {
+        $posts = posts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         }
+        $posts = $posts->sortByDesc('Totalvotes');
+        
+        return pruebaresource::collection($posts);
+    } 
+
+    public function indexnegativo() {
+        $posts = posts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        }
+        $posts = $posts->sortBy('Totalvotes');
+        
+        return pruebaresource::collection($posts);
+    } 
+
+    public function indexodiado() {
+        $posts = posts::with('media','comments')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        }
+        $posts = $posts->sortBy('Downvote');
+        
+        return pruebaresource::collection($posts);
+    } 
+    public function indexvotado() {
+        $posts = posts::with('media')->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name; 
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+            $post->Globalvotes = (($post->Upvote) - ($post->Downvote)); 
+        }
+        $posts = $posts->sortByDesc('Globalvotes');
+        
+        return pruebaresource::collection($posts);
+    } 
+
+    public function indexusuario($id)
+    {
+        $posts = posts::with(['media', 'user'])->where('ID_User',$id)->get();
+        foreach ($posts as $post) {
+            $post->Avatar = $post->user->avatar; 
+            $post->nombre_usuario = $post->user->name;
+            $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        }
+        
+        return pruebaresource::collection($posts);
     }
 
-    public function getPosts()
-    {
-        $posts = Post::with('categories')->with('media')->latest()->paginate();
-        return PostResource::collection($posts);
-
+    public function destroy($id){
+        $posts = posts::find($id);
+        $posts->delete();
+        return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
     }
 
-    public function getCategoryByPosts($id)
-    {
-        $posts = Post::whereRelation('categories', 'category_id', '=', $id)->paginate();
+    public function store(StorePostRequest $request) {
+        $validatedData = $request->validated();
+        $validatedData['ID_User'] = auth()->id();   
+        $post = posts::create($validatedData);
+        $categories = explode(",", $request->ID_Category);
+        $category = categories::findMany($categories);
+        $post->categories()->attach($category);
+        if ($request->hasFile('thumbnail')) {
+            $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
+        }
+        return new pruebaresource($post);
 
-        return PostResource::collection($posts);
     }
 
     public function getPost($id)
     {
-        return Post::with('categories', 'user', 'media')->findOrFail($id);
+        $post = posts::findOrFail($id);
+        $post->Avatar = $post->user->avatar; 
+        $post->nombre_usuario = $post->user->name; 
+        $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
+        return new pruebaresource($post);
     }
+    public function getPostedit($id)
+    {
+        $post = posts::findOrFail($id);
+        $posts = new pruebaresource($post);
+
+        if ($posts->ID_User != auth()->id()) {
+            return false;
+        } else {
+            return $posts;
+        }
+    }
+
+
+    public function update( $id, StorePostRequest $request)
+    {
+        $post = posts::find($id);
+        $post->update($request->validated());
+        $category = categories::findMany($request->ID_Category);
+        $post->categories()->sync($category);
+        $post->media()->delete();
+        if($request->hasFile('thumbnail')) {
+            $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
+        }
+        return new pruebaresource($post);
+        
+    }
+
+    public function upvote($id) {
+        $post = posts::findOrFail($id);
+        $creado = votes::where('posts_id', $id)->first();
+        if ($creado!=null) {
+            $post->increment('Downvote');
+            $post->votes()->detach();
+        }
+        $creacion['user_id'] = auth()->id();   
+        $post->votes()->attach($creacion, ['vote' => 1]);
+        $post->increment('Upvote');
+        return new pruebaresource($post);
+    }
+
+    public function downvote($id) {
+        $post = posts::findOrFail($id);
+        $creado = votes::where('posts_id', $id)->first();
+        if ($creado!=null) {
+            $post->decrement('Upvote');
+            $post->votes()->detach();
+        }
+        $creacion['user_id'] = auth()->id();   
+        $post->votes()->attach($creacion, ['vote' => 0]);
+        $post->decrement('Downvote');
+        return response()->json(['status' => 'success', 'message' => 'Upvote count updated successfully']);
+    }
+
+    public function quitarupvote($id) {
+        $post = posts::findOrFail($id);
+        $post->decrement('Upvote');
+        $post->votes()->detach();
+        return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
+    }
+
+    public function quitardownvote($id) {
+        $post = posts::findOrFail($id);
+        $post->increment('Downvote');
+        $post->votes()->detach();
+        return response()->json(['success'=>true, 'data'=> 'Tarea eliminada']);
+    }
+
 }

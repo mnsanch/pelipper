@@ -1,16 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PermissionController;
-use App\Http\Controllers\Api\PostController;
-use App\Http\Controllers\Api\ExerciseController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\RoleController;
-use App\Http\Controllers\Api\TaskController;
-use App\Http\Controllers\Api\pppPostController;
-use App\Http\Controllers\Api\pppCategory;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\pppcommentsController;
+use App\Http\Controllers\Api\commentsController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,44 +16,39 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 Route::post('forget-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('forget.password.post');
 Route::post('reset-password', [ResetPasswordController::class, 'reset'])->name('password.reset');
 
-Route::get('tasks',[TaskController::class,'index']);
-Route::post('tasks/',[TaskController::class,'store']);
-Route::put('tasks/update/{id}',[TaskController::class,'update']);
-Route::delete('tasks/{id}',[TaskController::class,'destroy']);
-
 //-------------------------------------
-Route::get('pppposts',[pppPostController::class,'index']);
-Route::get('ppppostsreverse',[pppPostController::class,'indexreverse']);
-Route::get('ppppostsmasupvote',[pppPostController::class,'indexpositivo']);
-Route::get('ppppostsmasdownvote',[pppPostController::class,'indexnegativo']);
-Route::get('ppppostsmasodiado',[pppPostController::class,'indexodiado']);
-Route::get('ppppostsmasvotado',[pppPostController::class,'indexvotado']);
-Route::delete('pppposts/{id}',[pppPostController::class,'destroy']);
-Route::post('pppposts/',[pppPostController::class,'store']);
-Route::post('pppposts/update/{id}',[pppPostController::class,'update']);
-Route::get('ppppost/{id}', [pppPostController::class, 'getPostedit']);
-Route::get('ppppostuser/{id}', [pppPostController::class, 'getPost']);
-Route::put('/pppposts/{id}/upvote', [pppPostController::class, 'upvote']);
-Route::put('/pppposts/{id}/downvote', [pppPostController::class, 'downvote']);
-Route::put('/pppposts/{id}/quitarupvote', [pppPostController::class, 'quitarupvote']);
-Route::put('/pppposts/{id}/quitardownvote', [pppPostController::class, 'quitardownvote']);
-Route::get('pppposts/{id}',[pppPostController::class,'indexusuario']);
+Route::get('posts',[PostController::class,'index']);
+Route::get('postsreverse',[PostController::class,'indexreverse']);
+Route::get('postsmasupvote',[PostController::class,'indexpositivo']);
+Route::get('postsmasdownvote',[PostController::class,'indexnegativo']);
+Route::get('postsmasodiado',[PostController::class,'indexodiado']);
+Route::get('postsmasvotado',[PostController::class,'indexvotado']);
+Route::delete('posts/{id}',[PostController::class,'destroy']);
+Route::post('posts/',[PostController::class,'store']);
+Route::post('posts/update/{id}',[PostController::class,'update']);
+Route::get('post/{id}', [PostController::class, 'getPostedit']);
+Route::get('postuser/{id}', [PostController::class, 'getPost']);
+Route::put('/posts/{id}/upvote', [PostController::class, 'upvote']);
+Route::put('/posts/{id}/downvote', [PostController::class, 'downvote']);
+Route::put('/posts/{id}/quitarupvote', [PostController::class, 'quitarupvote']);
+Route::put('/posts/{id}/quitardownvote', [PostController::class, 'quitardownvote']);
+Route::get('posts/{id}',[PostController::class,'indexusuario']);
 
 
-Route::get('pppcategories',[pppCategory::class,'index']);
-Route::post('pppcategories/',[pppCategory::class,'store']);
-Route::get('pppcategories/{id}',[pppCategory::class,'category']);
-Route::put('pppcategories/update/{id}',[pppCategory::class,'update']);
-Route::delete('pppcategories/delete/{id}',[pppCategory::class,'destroy']);
+Route::get('categories',[CategoryController::class,'index']);
+Route::post('categories/',[CategoryController::class,'store']);
+Route::get('categories/{id}',[CategoryController::class,'category']);
+Route::put('categories/update/{id}',[CategoryController::class,'update']);
+Route::delete('categories/delete/{id}',[CategoryController::class,'destroy']);
 
 Route::delete('deleteuser/{id}',[UserController::class,'destroy']); 
 Route::get('avatar/{id}',[UserController::class,'getAvatar']);
 Route::get('id',[UserController::class,'getID']);
 
-Route::get('comments',[pppcommentsController::class,'index']);
-Route::post('comments/{id}',[pppcommentsController::class,'store']);
-Route::get('commentspost/{id}',[pppcommentsController::class,'commentspost']);
-Route::delete('comment/{id}',[pppcommentsController::class,'destroy']);
+Route::get('comments',[commentsController::class,'index']);
+Route::post('comments/{id}',[commentsController::class,'store']);
+Route::get('commentspost/{id}',[commentsController::class,'commentspost']);
+Route::delete('comment/{id}',[commentsController::class,'destroy']);
 
 
 
@@ -66,20 +57,13 @@ Route::delete('comment/{id}',[pppcommentsController::class,'destroy']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('users', UserController::class);
-    Route::apiResource('posts', PostController::class);
-    Route::apiResource('categories', CategoryController::class);
     Route::apiResource('roles', RoleController::class);
     //Route::apiResource('exercises', ExerciseController::class);
-    Route::post('exercises/', [ExerciseController::class,'store']); //Guardar
-    Route::get('exercises', [ExerciseController::class,'index']); //Listar
-    Route::get('exercises/{exercise}', [ExerciseController::class,'show']); //Mostrar
-    Route::post('exercises/update/{id}', [ExerciseController::class,'update']); //Editar
 
     Route::get('role-list', [RoleController::class, 'getList']);
     Route::get('role-permissions/{id}', [PermissionController::class, 'getRolePermissions']);
     Route::put('/role-permissions', [PermissionController::class, 'updateRolePermissions']);
     Route::apiResource('permissions', PermissionController::class);
-    Route::get('category-list', [CategoryController::class, 'getList']);
     Route::get('/user', [ProfileController::class, 'user']);
     Route::put('/user', [ProfileController::class, 'update']);
 
@@ -96,7 +80,3 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 });
 
 
-Route::get('category-list', [CategoryController::class, 'getList']);
-Route::get('get-posts', [PostController::class, 'getPosts']);
-Route::get('get-category-posts/{id}', [PostController::class, 'getCategoryByPosts']);
-Route::get('get-post/{id}', [PostController::class, 'getPost']);

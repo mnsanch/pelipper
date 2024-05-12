@@ -9,7 +9,7 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class pppposts extends Model implements HasMedia
+class posts extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
@@ -19,7 +19,7 @@ class pppposts extends Model implements HasMedia
         'Post'
     ];
 
-    protected $table = 'pppposts';
+    protected $table = 'posts';
 
     public function user()
     {
@@ -27,20 +27,18 @@ class pppposts extends Model implements HasMedia
     }
     public function categories()
     {
-        return $this->belongsToMany(pppcategories::class, 'ppppost_categories');
+        return $this->belongsToMany(categories::class, 'post_categories');
     }
 
     public function comments()
     {
-        return $this->hasMany(pppcomments::class, 'ID_Post')->with('user');
+        return $this->hasMany(comments::class, 'ID_Post')->with('user');
     }
 
     public function votes()
     {
         $userId = Auth::id();
-        return $this->belongsToMany(users::class, 'pppvotes')->select('pppvotes.pppposts_id', 'pppvotes.users_id', 'pppvotes.vote')->where('pppvotes.users_id', $userId);
-        // $userId = Auth::id();
-        // return $this->hasMany(pppvote::class, 'pppposts_id')->where('pppuser_id', $userId);
+        return $this->belongsToMany(users::class, 'votes')->select('votes.posts_id', 'votes.users_id', 'votes.vote')->where('votes.users_id', $userId);
     }
 
     public function registerMediaCollections(): void
