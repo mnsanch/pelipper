@@ -8,6 +8,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Models\posts;
 use App\Models\votes;
 use App\Http\Resources\pruebaresource;
+use App\Http\Resources\editpostresource;
 use App\Models\categories;
 
 
@@ -128,17 +129,17 @@ class PostController extends Controller
         $post->Totalvotes = (($post->Upvote) + ($post->Downvote)); 
         return new pruebaresource($post);
     }
-    public function getPostedit($id)
+     public function getPostedit($id)
     {
         $post = posts::findOrFail($id);
-        $categories = $post->categories()->pluck('id')->toArray(); // Obtener los IDs de las categorías asociadas al post
-        $post['ID_Category'] = $categories;   
+        $categories = $post->categories()->pluck('id')->toArray(); 
+        $post['ID_Category'] = $categories; 
+        $posts = new editpostresource($post);
 
-
-        if ($post->ID_User != auth()->id()) {
+        if ($posts->ID_User != auth()->id()) {
             return false;
         } else {
-            return $post;
+            return $posts;
         }
     }
 
@@ -149,8 +150,8 @@ class PostController extends Controller
         $post->update($request->validated());
         $category = categories::findMany($request->ID_Category);
         $post->categories()->sync($category);
-        $post->media()->delete();
         if($request->hasFile('thumbnail')) {
+            $post->media()->delete();
             $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
         }
         return new pruebaresource($post);
