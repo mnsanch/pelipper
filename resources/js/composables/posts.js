@@ -78,8 +78,8 @@ export default function usePosts() {
                 if (response.data==false) {
                     router.push({ name: 'home'})
                 }else{
-                    post.value = response.data;
-                    console.log(response.data);
+                    post.value = response.data.data;
+                    console.log(response.data.datas);
                 }
             })
     }
