@@ -424,6 +424,12 @@ textarea {
     border-radius: 1rem 1rem 0 0; /* Establecer el radio de borde para el lado izquierdo */
 }
 
+.createpost-banner-style {
+    width: 100%;
+    height: auto;
+    background-color: transparent
+}
+
 .createpost-container {
     background-color: var(--switchcolor1);
 }
@@ -1059,6 +1065,29 @@ textarea::-webkit-scrollbar-thumb {
 .img-post-maxsize {max-width: 100%; max-height: 480px !important}
 .h-fit-content {height: fit-content !important}
 .w-fit-content {width: fit-content !important}
+.offset0-stop-color{stop-color: #ec068c}
+.offset100-stop-color{stop-color: #F35F0E}
+.h-8px {height: 8px}
+.wh-2-5-rem {width: 2.5rem; height: 2.5rem}
+.m-21px{margin: 21px}
+.mx-5px{margin-left: 5px; margin-right: 5px}
+.mx-4px{margin-left: 4px; margin-right: 4px}
+.search-input {background-color: transparent; border: none; outline: none;}
+.border-bottom-gainsboro {border-bottom: 1px solid gainsboro}
+.loginbutton-container {height: 40px; width: auto; margin-left: 4px; margin-right: 4px}
+.signinbutton-container {height: 40px; width: 100px; margin-left: 4px; margin-right: 4px}
+.px-8px{height: 6dvh; padding-left: 8px; padding-right: 8px;}
+.nav-row-mid{height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw}
+.header-submain-container {height: 6dvh; padding-left: 2dvw; padding-right: 2dvw}
+.avatar-hearder-circle {background-color: white; border: 1px solid black; border-radius: 90px}
+.h-100px {height:100px !important} 
+.border-radius-bottom{border-radius: 0 0 1rem 1rem}
+.h-15rem{height: 15rem !important}
+.del-acc-button{background-color:  salmon; cursor: pointer;width: fit-content}
+.top-2rem{top: 2rem;}
+.post-original-image{border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color: gainsboro}
+.align-selfcenter{align-self: center}
+.h-6dvh{height: 6dvh}
 .shine {
     display: block;
     font-weight: 700;

@@ -14,8 +14,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" class="position-absolute">
                         <defs>
                             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color: #ec068c"></stop>
-                            <stop offset="100%" style="stop-color: #F35F0E"></stop>
+                            <stop offset="0%" class="offset0-stop-color"></stop> class="offset0-stop-color"
+                            <stop offset="100%" class="offset100-stop-color"></stop> class="offset100-stop-color"
                             </linearGradient>
                         </defs>
                         <path d="m19.724 6.765-9.08-6.11A1.115 1.115 0 0 0 9.368.647L.276 6.765a.623.623 0 0 0 .35 1.141h.444v10.001c.001.278.113.544.31.74.196.195.462.304.739.303h5.16a.704.704 0 0 0 .706-.707v-4.507c0-.76 1.138-1.475 2.02-1.475.882 0 2.02.715 2.02 1.475v4.507a.71.71 0 0 0 .707.707h5.16c.274-.001.538-.112.732-.307.195-.195.305-.46.306-.736v-10h.445a.618.618 0 0 0 .598-.44.625.625 0 0 0-.25-.702Z" fill="url(#gradient)"></path>
