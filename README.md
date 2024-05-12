@@ -3,7 +3,7 @@
 #### Clonar Repositorio 
 
 ```bash
-git clone ....
+git clone https://github.com/mnsanch/pelipper.git
 ```
 
 #### Instalar vía Composer
