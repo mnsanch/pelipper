@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\User;
+use Database\Factories\AvatarsFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -21,7 +22,8 @@ class CreateAdminUserSeeder extends Seeder
         $user = User::create([
             'name' => 'David',
             'email' => 'admin@demo.com',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('12345678'),
+            'avatar' => '0003'
         ]);
 
         $role = Role::create(['name' => 'admin']);
