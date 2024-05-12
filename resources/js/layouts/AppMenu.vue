@@ -39,7 +39,7 @@ const model = ref([
     {
         label: 'Posts',
         items: [
-            { label: 'Post', icon: 'pi pi-fw pi-id-card', to: '/admin/prueba', permision: 'post-list' }
+            { label: 'Post', icon: 'pi pi-fw pi-id-card', to: '/admin/posts', permision: 'post-list' }
         ]
     },
     {

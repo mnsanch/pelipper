@@ -19,7 +19,7 @@
 
                 <div class="d-flex">
                     <div class="box-40 mx-1">
-                        <router-link :to="{name: 'prueba.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
+                        <router-link :to="{name: 'posts.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
                             <!-- Add post icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="fuchsia" class="brand-color">
                                 <path class="" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
@@ -199,7 +199,7 @@
                 <template v-if="usuario?.name" class="nav-item dropdown">
                     <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px">
                         <div class="box-40">
-                            <router-link :to="{name: 'prueba.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
+                            <router-link :to="{name: 'posts.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Add post icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="fuchsia" class="brand-color">
                                     <path class="" d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>

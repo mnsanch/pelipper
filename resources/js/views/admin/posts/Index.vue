@@ -6,7 +6,7 @@
                     <div class="d-flex justify-content-between pb-2 mb-2">
                         <h5 class="card-title">Todos los posts</h5>
                         <div>
-                            <router-link :to="{name: 'prueba.create'}" class="btn btn-success">Nueva Post</router-link>
+                            <router-link :to="{name: 'posts.create'}" class="btn btn-success">Nueva Post</router-link>
                         </div>
 
                     </div>

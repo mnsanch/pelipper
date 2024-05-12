@@ -179,7 +179,7 @@ export default function usePosts() {
                     axios.delete('/api/posts/' + id)
                         .then(response => {
                             getPosts()
-                            router.push({name: 'prueba.index'})
+                            router.push({name: 'posts.index'})
                             swal({
                                 icon: 'success',
                                 title: 'Post deleted successfully'

@@ -4,9 +4,9 @@ import store from "../store";
 const AuthenticatedLayout = () => import('../layouts/Authenticated.vue')
 const GuestLayout = ()  => import('../layouts/Guest.vue');
 
-const Prueba  = ()  => import('../views/admin/prueba/Index.vue');
-const PruebaCreate  = ()  => import('../views/admin/prueba/Create.vue');
-const PruebaEdit  = ()  => import('../views/admin/prueba/Edit.vue');
+const Post  = ()  => import('../views/admin/posts/Index.vue');
+const PostCreate  = ()  => import('../views/admin/posts/Create.vue');
+const PostEdit  = ()  => import('../views/admin/posts/Edit.vue');
 const PerfilEdit  = ()  => import('../views/profile/edit.vue');
 const PostUsuario  = ()  => import('../views/home/user.vue');
 const PostComentario = ()  => import('../views/admin/comments/comentario.vue');
@@ -111,16 +111,16 @@ export default [
                 component: PostComentario,
             },
             {
-                name: 'prueba.edit',
+                name: 'posts.edit',
                 path: 'edit/:id',
-                component: PruebaEdit,
-                meta: { breadCrumb: 'Editar pruebas' }
+                component: PostEdit,
+                meta: { breadCrumb: 'Editar Posts' }
             },
             {
-                name: 'prueba.create',
+                name: 'posts.create',
                 path: 'create',
-                component: PruebaCreate,
-                meta: { breadCrumb: 'Crear pruebas' }
+                component: PostCreate,
+                meta: { breadCrumb: 'Crear Posts' }
             }
         ]
     },
@@ -151,28 +151,16 @@ export default [
                 ]
             },
             {
-                name: 'prueba',
-                path: 'prueba',
-                meta: { breadCrumb: 'Pruebas'},
+                name: 'posts',
+                path: 'posts',
+                meta: { breadCrumb: 'Posts'},
                 children: [
                     {
-                        name: 'prueba.index',
+                        name: 'posts.index',
                         path: '',
-                        component: Prueba,
-                        meta: { breadCrumb: 'Listado pruebas' }
+                        component: Post,
+                        meta: { breadCrumb: 'Listado Posts' }
                     },
-                    // {
-                    //     name: 'prueba.create',
-                    //     path: 'create',
-                    //     component: PruebaCreate,
-                    //     meta: { breadCrumb: 'Crear pruebas' }
-                    // }
-                    // {
-                    //     name: 'prueba.edit',
-                    //     path: 'edit/:id',
-                    //     component: PruebaEdit,
-                    //     meta: { breadCrumb: 'Editar pruebas' }
-                    // }
                 ]
             },
             {
