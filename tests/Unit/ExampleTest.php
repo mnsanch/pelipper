@@ -121,6 +121,9 @@ class ExampleTest extends TestCase
 
     public function test_editar_categoria()
     {
+        $user = User::factory()->create();
+        $user->givePermissionTo('category-edit');
+        $this->actingAs($user);
         $categoria = [
             'Category_Name' => 'test unitario editado',
         ];
