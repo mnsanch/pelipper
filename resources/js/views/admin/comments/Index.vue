@@ -8,7 +8,7 @@
                     </div>
 
                     <table class="table table-hover table-sm">
-                        <thead class="bg-dark text-light">
+                        <thead>
                             <tr>
                                 <th width="50" class="text-center">ID</th>
                                 <th>Nombre Usuario</th>

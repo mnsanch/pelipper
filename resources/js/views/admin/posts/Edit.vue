@@ -78,7 +78,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{ post }}
                                         <div class="mt-1 mb-5 mx-0">
                                             <button onclick=""
                                                 class="simple-button createpost-submit-button p-0 d-flex justify-content-center align-items-center h-100">
