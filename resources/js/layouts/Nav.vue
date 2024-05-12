@@ -31,7 +31,7 @@
                         <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
 
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + usuario.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + usuario.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40 avatar-header-circle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle"/>
                                 <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
 
 
@@ -55,7 +55,7 @@
                                 <path class="svg-background-color" d="M19.5 18.616 14.985 14.1a8.528 8.528 0 1 0-.884.884l4.515 4.515.884-.884ZM1.301 8.553a7.253 7.253 0 1 1 7.252 7.253 7.261 7.261 0 0 1-7.252-7.253Z">
                                 </path>
                             </svg>
-                            <input type="text" placeholder="Search in..." name="searchbar" class="mx-2" style="background-color: transparent; border: none; outline: none;">
+                            <input type="text" placeholder="Search in..." name="searchbar" class="mx-2 search-input">
                         </form>
                     </div>
 
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="m-0 p-0 w-fit-content">
-                <a class="navbar-brand nav-link text-white" style="align-self: center;" href="127.0.0.1:8000">
+                <a class="navbar-brand nav-link text-white align-selfcenter" href="127.0.0.1:8000">
                     <router-link to="/" class="navbar-brand logo">
                         <div class="header-logo-pelipper"></div>
                         <!-- <img src="/images/logo_pelipper_claro.svg" width="153" height="45"> -->
@@ -104,23 +104,23 @@
                 </div>
                 <div class="m-0 p-0 w-fit-content">
                 <div class="d-flex justify-content-end">
-                    <div style="height: 40px; width: auto; margin-left: 4px; margin-right: 4px">
+                    <div class="loginbutton-container">
                             <button onclick="" class="special-button p-0 d-flex justify-content-center align-items-center nav-item">
                                 <!-- Log in button -->
-                                <router-link class="nav-a-link" to="/login" style="margin-left: 5px; margin-right: 5px"> Log in </router-link>
+                                <router-link class="nav-a-link mx-5px" to="/login"> Log in </router-link>
                             </button>
                         </div>
                 </div>
             </div>
 
-                <div class="collapse navbar-collapse bg-color-default w-100" id="navbarSupportedContent" style="border-bottom: 1px solid gainsboro">
+                <div class="collapse navbar-collapse bg-color-default w-100 border-bottom-gainsboro" id="navbarSupportedContent">
                     <div class="container-fluid border searchbar-dos mt-4 p-0 mx-0 mb-0 w-100 ">
                         <form action="" method="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
                                 <path class="svg-background-color" d="M19.5 18.616 14.985 14.1a8.528 8.528 0 1 0-.884.884l4.515 4.515.884-.884ZM1.301 8.553a7.253 7.253 0 1 1 7.252 7.253 7.261 7.261 0 0 1-7.252-7.253Z">
                                 </path>
                             </svg>
-                            <input type="text" placeholder="Search in..." name="searchbar" class="mx-2" style="background-color: transparent; border: none; outline: none;">
+                            <input type="text" placeholder="Search in..." name="searchbar" class="mx-2 search-input">
                         </form>
                     </div>
 
@@ -149,8 +149,8 @@
         </div>
     </nav>
     <nav class="navbar navbar-expand-md navbar-light py-0 header-main-container header-big">
-        <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 6dvh; padding-left: 2dvw; padding-right: 2dvw">
-            <div class="row header-separator" style="height: 6dvh; width: 98dvw; padding-left: 1dvw; padding-right: 1dvw;">
+        <div class="container-fluid d-flex justify-content-center align-items-center header-submain-container">
+            <div class="row header-separator nav-row-mid">
                 <!-- LOGO: Pendiente incluir el H1 y el enlace al logo -->
                 <div class="col-2 p-0 container-fluid d-flex flex-row align-items-center m-0 h-57px">
                     <router-link to="/" class="navbar-brand logo h-100 m-0 p-0 d-flex align-items-center">
@@ -162,31 +162,31 @@
                     <LocaleSwitcher />
                 </ul> -->
                 <!-- SEARCHBAR -->
-                <div class="col-6 p-0 container-fluid d-flex flex-row align-items-center" style="height: 6dvh" id="searchContainer">
+                <div class="col-6 p-0 container-fluid d-flex flex-row align-items-center h-6dvh" id="searchContainer">
                     <div class="container-fluid d-flex flex-row align-items-center searchbar">
                         <form action="" method="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="none">
                                 <path class="svg-background-color" d="M19.5 18.616 14.985 14.1a8.528 8.528 0 1 0-.884.884l4.515 4.515.884-.884ZM1.301 8.553a7.253 7.253 0 1 1 7.252 7.253 7.261 7.261 0 0 1-7.252-7.253Z">
                                 </path>
                             </svg>
-                            <input type="text" placeholder="Search in..." name="searchbar" style="background-color: transparent; border: none; outline: none;">
+                            <input type="text" placeholder="Search in..." name="searchbar" class="search-input">
                         </form>
                     </div>
                 </div>
                 <template v-if="!usuario?.name">
-                    <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px;">
-                        <div style="height: 40px; width: 100px; margin-left: 4px; margin-right: 4px">
+                    <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center px-8px">
+                        <div class="signinbutton-container">
                             <button class="simple-button p-0 d-flex justify-content-center align-items-center nav-item">
-                                <router-link class="nav-link" to="/register" style="margin-left: 5px; margin-right: 5px"><span>Sign up</span></router-link>
+                                <router-link class="nav-link mx-5px" to="/register"><span>Sign up</span></router-link>
                             </button>
                         </div>
-                        <div style="height: 40px; width: auto; margin-left: 4px; margin-right: 4px">
+                        <div class="loginbutton-container">
                             <button onclick="" class="special-button p-0 d-flex justify-content-center align-items-center nav-item">
                                 <!-- Log in button -->
-                                <router-link class="nav-a-link" to="/login" style="margin-left: 5px; margin-right: 5px"> Log in </router-link>
+                                <router-link class="nav-a-link mx-5px" to="/login"> Log in </router-link>
                             </button>
                         </div>
-                        <div class="box-40" style="margin-left: 4px; margin-right: 4px">
+                        <div class="box-40 mx-4px" >
                             <button @click="toggleDarkMode" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Dark mode icon-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -197,7 +197,7 @@
                     </div>
                 </template>
                 <template v-if="usuario?.name" class="nav-item dropdown">
-                    <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center" style="height: 6dvh; padding-left: 8px; padding-right: 8px">
+                    <div class="col-3 p-0 d-flex flex-row justify-content-end align-items-center px-8px">
                         <div class="box-40">
                             <router-link :to="{name: 'posts.create'}" class="circular-button p-0 d-flex justify-content-center align-items-center">
                                 <!-- Add post icon -->
@@ -229,7 +229,7 @@
                             <li class="circular-button p-0 d-flex justify-content-center align-items-center nav-item dropdown">
                                 <!-- <img src="https://www.svgrepo.com/show/316857/profile-simple.svg" width="30" height="30" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
 
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + usuario.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" style="background-color: white; border: 1px solid black; border-radius: 90px"/>
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + usuario.avatar + '/Normal.png'" class=" nav-link dropdown-toggle p-0 box-40 avatar-header-circle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle"/>
                                 <!-- <img src="imagen&quot; + valor_js + &quot;.jpg" alt="Tres cosas"> -->
 
 

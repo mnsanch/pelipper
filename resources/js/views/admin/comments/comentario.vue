@@ -162,7 +162,7 @@
                         <div class="h-fit-content">
                             <h3 class="post-title block-disapear">{{post.Title}}</h3>
                             <p class="post-context">{{post.Post}}</p>
-                            <div class="px-0 d-flex align-items-center justify-content-center" style="border-radius: 15px; margin-bottom: 14px; max-width: auto; height: fit-content !important; background-color: gainsboro"  v-if="(post.original_image!=null)"> 
+                            <div class="px-0 d-flex align-items-center justify-content-center post-original-image"  v-if="(post.original_image!=null)"> 
                                 <img :src='post.original_image'>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                     </div>
                     <form @submit.prevent="submitForm">
                         <div class="mt-3 mb-3">
-                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control createpost-input" placeholder="Say something!" style="height:100px !important"></textarea> 
+                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control createpost-input h-100px" placeholder="Say something!"></textarea> 
                             <div class="text-danger mt-1">
                                 {{ errors.Comment }}
                             </div>

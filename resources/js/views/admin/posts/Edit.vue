@@ -6,12 +6,12 @@
                 <div class="col col-xl-10">
                     <div class="createpost-container card p-0">
                         <div class="row g-0">
-                            <div class="col-md-12 col-lg-12 d-none d-md-block" style="height: 100px">
+                            <div class="col-md-12 col-lg-12 d-none d-md-block h-100px">
                                 <!-- <div class="createpost-banner m-0 p-0"></div> -->
                                 <img src="/images/createpost_banner.svg" class="m-0 p-0 w-100 h-auto bg-transparent">
                             </div>
                             <div class="col-md-12 col-lg-12 d-flex align-items-center createpost-subcontainer">
-                                <div class="card-body p-4 p-lg-5 text-black bg-color-default" style="border-radius: 0 0 1rem 1rem">
+                                <div class="card-body p-4 p-lg-5 text-black bg-color-default border-radius-bottom">
                                     <form @submit.prevent="submitForm" class="p-5">
                                         <div class="d-flex align-items-center mb-3 p-0">
                                             <div class="title-logo-pelipper p-0 m-0"></div>
@@ -37,9 +37,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-floating position-relative mb-4">
-                                                    <textarea v-model="post.Post" class="form-control form-control-lg createpost-input textarea"
-                                                        placeholder="Context" rows="4" maxlength="300"
-                                                        style="height: 15rem !important"></textarea>
+                                                    <textarea v-model="post.Post" class="form-control form-control-lg createpost-input textarea h-15rem"
+                                                        placeholder="Context" rows="4" maxlength="300"></textarea>
                                                     <label class="px-4" for="floatingPassword">Context</label>
                                                     <div class="text-danger mt-1">
                                                         {{ errors.Post }}
