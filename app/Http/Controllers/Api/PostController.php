@@ -153,7 +153,9 @@ class PostController extends Controller
         if($request->hasFile('thumbnail')) {
             $post->media()->delete();
             $post->addMediaFromRequest('thumbnail')->preservingOriginal()->toMediaCollection('images-posts');
-        }
+        }elseif ($request->thumbnail=="") {
+            $post->media()->delete();
+            }
         return new pruebaresource($post);
         
     }
