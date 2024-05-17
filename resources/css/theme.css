@@ -961,7 +961,32 @@ textarea::-webkit-scrollbar-thumb {
 
 
 /*----------------------------------------- CHAT --------------------------------------------------*/
-.chat-container {border: 1px solid black; border-radius: 1.5rem;  overflow-x: hidden; height: 600px}
+
+.chat-header {
+    position: sticky;
+    top: 0;
+    height: 35px; 
+    background-color: var(--switchcolor5) !important;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.chat-cerrarchat {
+    color: #EF324C;
+    transition: font-weight 0.3s ease;
+}
+    .chat-cerrarchat:hover {
+        font-weight: bold;
+    }
+
+
+.chat-main-container {
+    border: 1px solid var(--switchcolor10) !important;
+    border-radius: 0 0 1rem 1rem;
+    overflow-x: hidden;
+    height: 600px
+}
+
 .chat-main-container::-webkit-scrollbar {
     width: 5px;
 }
