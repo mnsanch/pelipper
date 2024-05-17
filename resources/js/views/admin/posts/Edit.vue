@@ -19,7 +19,7 @@
                                             <span class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">Edit your post</span>
                                         </div>
 
-                                        <h5 class="fw-normal mb-5 pb-3">Errors happen, here you can fix them...</h5>
+                                        <h5 class="fw-normal mb-5 pb-3">Mistakes happen, here you can fix them...</h5>
 
                                         <div class="row">
                                             <div class="col-md-8">
