@@ -11,6 +11,8 @@ const PerfilEdit  = ()  => import('../views/profile/edit.vue');
 const PostUsuario  = ()  => import('../views/home/user.vue');
 const PostComentario = ()  => import('../views/admin/comments/comentario.vue');
 const Comentario = ()  => import('../views/admin/comments/Index.vue');
+const Chat = ()  => import('../views/admin/chat/chat.vue');
+
 
 
 
@@ -105,7 +107,13 @@ export default [
                 name: 'post.usuario',
                 path: 'usuario/:id/:avatar/:nombre',
                 component: PostUsuario,
-            },{
+            },
+            {
+                name: 'chat',
+                path: 'chat/:id',
+                component: Chat,
+            },
+            {
                 name: 'post.comentario',
                 path: 'post/:id',
                 component: PostComentario,

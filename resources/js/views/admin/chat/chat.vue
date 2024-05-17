@@ -1,11 +1,12 @@
 <template>
-    <svg class="react-flowbackground background-puntitos" data-testid="rfbackground"><pattern id="pattern-1undefined" x="0.5" y="17.14712706455481" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="translate(-1,-1)"><circle cx="0.5" cy="0.5" r="0.5" fill="#91919a"></circle></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-1undefined)"></rect></svg>
 
     <body>
-
+    
     <br>
     
     <div class="home-main-container mt-78px">
+
+    
         <!-- Menú lateral izquierdo -->
         <aside class="aside-main-left block-disapear">
         <div class="block-disapear aside-container-left">
@@ -121,151 +122,99 @@
             <div class="row p-0 m-0 home-banner-container">
                 <div class="row justify-content-end p-0 m-0">
                     <div class="home-banner-element-a">
-                        <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100">
+                        <p></p>
+                        <!-- <img src="/images/main_banner_pelipper.svg" class="home-banner-element-a w-100"> -->
                     </div>
                 </div>
                 <div class="row p-0 m-0 home-banner-subcontainer">
                     <div class="col-1 m-0 home-banner-element-b">
                         <!-- <div class="px-2 mx-4 home-banner-element-c"></div> -->
-                        <div class="p-0 mx-4 home-banner-element-c">  
-                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + avatar + '/Normal.png'" class="w-100 h-100 nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User)"/>
-                        </div>
-
+                        <img src="/images/logo_pelipper_banner.PNG" class="mx-4 home-banner-element-c">
                     </div>
-                    
                     <div class="col mx-2">
-                        <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">{{nombre}}</h2>
+                        <h2 class="h1 fw-bold py-0 my-0 mx-2 pl-10 font-bold bg-gradient-to-r shine text-transparent bg-clip-text">pelipper community</h2>
                     </div>
                 </div>
-                <router-link :to="{ name: 'chat', params: { id: route.params.id } }">
-                                        <div class="simple-button p-0 px-2 d-flex justify-content-center align-items-center post-comment-button">
-                                            <svg class="mx-2 icon-comment" rpl="" aria-hidden="true" fill="currentColor" height="20" icon-name="comment-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M7.725 19.872a.718.718 0 0 1-.607-.328.725.725 0 0 1-.118-.397V16H3.625A2.63 2.63 0 0 1 1 13.375v-9.75A2.629 2.629 0 0 1 3.625 1h12.75A2.63 2.63 0 0 1 19 3.625v9.75A2.63 2.63 0 0 1 16.375 16h-4.161l-4 3.681a.725.725 0 0 1-.489.191ZM3.625 2.25A1.377 1.377 0 0 0 2.25 3.625v9.75a1.377 1.377 0 0 0 1.375 1.375h4a.625.625 0 0 1 .625.625v2.575l3.3-3.035a.628.628 0 0 1 .424-.165h4.4a1.377 1.377 0 0 0 1.375-1.375v-9.75a1.377 1.377 0 0 0-1.374-1.375H3.625Z"></path>
-                                            </svg>
-                                        </div>
-                                    </router-link>
             </div>
+    
+    
+    
+    
+    
             <div class="row p-0 mx-0 my-5">
                 <main class="col-9 home-main-snippet">
                     <!-- Contenido central -->
-                    <div class="m-0 p-0 w-100 h-100" v-for="(post, index) in posts.data" :key="post.id">
+                    <div class="m-0 p-0 w-100 h-100">
                         <div class="post-container">
-                            <!-- User data -->
-                            <div class="d-flex align-items-center post-user-data">
-                                <div class="p-0 avatar-image">  
-                                    <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar)"/>
-                                </div>
-                                <router-link :to="{ name: 'post.usuario', params: { id: post.ID_User, avatar: post.Avatar } }"><span class="mx-2 post-user-data">{{post.Usuario}}</span></router-link>
-                                <span class="post-user-data-separator"> · </span>
-                                <span v-for="category in post.ID_Category" class="mx-2 post-user-data post-category">{{ category.Category_Name }}</span>
-                                <span class="post-user-data-separator"> · </span>
-                                <span class="mx-2 post-user-data">{{post.created_at}}</span>
+                        <!-- User data -->
+                        <!-- <div class="d-flex align-items-center post-user-data">
+                            <div class="p-0 avatar-image">  
+                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + post.Avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(post.ID_User,post.Avatar,post.Usuario)"/>
                             </div>
-    
-                            <!-- Post content -->
-                            <div class="h-fit-content">
-                                <h3 class="post-title block-disapear">{{post.Title}}</h3>
-                                <p class="post-context">{{post.Post}}</p>
-                                <div class="px-0 d-flex align-items-center justify-content-center post-image-container"  v-if="(post.original_image!=null)"> 
-                                    <img :src='post.original_image' class="post-image">
-                                </div>
+                            <span  class="mx-2 post-user-data pointer-custom" @click="avatrlink(post.ID_User,post.Avatar,post.Usuario)">{{post.Usuario}}</span>
+                            <span class="post-user-data-separator"> · </span>
+                            <span v-for="category in post.ID_Category" class="mx-2 post-user-data post-category">{{ category.Category_Name }}</span>
+                            <span class="post-user-data-separator"> · </span>
+                            <span class="mx-2 post-user-data">{{post.created_at}}</span>
+                        </div> -->
+
+                        <!-- Post content -->
+                        <div class="h-fit-content">
+                            <h3 class="post-title block-disapear">{{post.Title}}</h3>
+                            <p class="post-context">{{post.Post}}</p>
+                            <div class="px-0 d-flex align-items-center justify-content-center post-original-image"  v-if="(post.original_image!=null)"> 
+                                <img :src='post.original_image'>
                             </div>
-                            
-                            <div class="d-flex justify-content-between post-button-container">
-                                <div class="d-flex flex-row">
-                                    <!--Boton upvote/downvote-->
-                                    <div v-if="post.votes.length==0" class="d-flex align-items-center post-vote-button">
-                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVotousuario(post)">
-                                            <span>
-                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                        <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                        <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVotousuario(post)">
-                                            <span>
-                                                <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
-                                                </svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <p v-for="vote in post.votes">
-                                        <p v-if="vote.vote==1">
-                                            <div class="d-flex align-items-center post-vote-button">
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="quitarupvoteusuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="orange" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M18.706 8.953 10.834.372A1.123 1.123 0 0 0 10 0a1.128 1.128 0 0 0-.833.368L1.29 8.957a1.249 1.249 0 0 0-.171 1.343 1.114 1.114 0 0 0 1.007.7H6v6.877A1.125 1.125 0 0 0 7.123 19h5.754A1.125 1.125 0 0 0 14 17.877V11h3.877a1.114 1.114 0 0 0 1.005-.7 1.251 1.251 0 0 0-.176-1.347Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="restarVotousuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M10 20a1.122 1.122 0 0 1-.834-.372l-7.872-8.581A1.251 1.251 0 0 1 1.118 9.7 1.114 1.114 0 0 1 2.123 9H6V2.123A1.125 1.125 0 0 1 7.123 1h5.754A1.125 1.125 0 0 1 14 2.123V9h3.874a1.114 1.114 0 0 1 1.007.7 1.25 1.25 0 0 1-.171 1.345l-7.876 8.589A1.128 1.128 0 0 1 10 20Zm-7.684-9.75L10 18.69l7.741-8.44H12.75v-8h-5.5v8H2.316Zm15.469-.05c-.01 0-.014.007-.012.013l.012-.013Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            </div>
-                                        </p>
-                                        <p v-if="vote.vote==0">
-                                            <div class="d-flex align-items-center post-vote-button">
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-upvote-button" @click="sumarVotousuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="currentColor" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12.877 19H7.123A1.125 1.125 0 0 1 6 17.877V11H2.126a1.114 1.114 0 0 1-1.007-.7 1.249 1.249 0 0 1 .171-1.343L9.166.368a1.128 1.128 0 0 1 1.668.004l7.872 8.581a1.25 1.25 0 0 1 .176 1.348 1.113 1.113 0 0 1-1.005.7H14v6.877A1.125 1.125 0 0 1 12.877 19ZM7.25 17.75h5.5v-8h4.934L10 1.31 2.258 9.75H7.25v8ZM2.227 9.784l-.012.016c.01-.006.014-.01.012-.016Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            <span class="d-flex align-items-center justify-content-center post-quantity-indicator">{{ post.Totalvotes }}</span>
-                                            <button onclick="" class="simple-button p-0 d-flex justify-content-center align-items-center post-downvote-button" @click="quitardownvoteusuario(post)">
-                                                <span>
-                                                    <svg rpl="" fill="blue" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M18.88 9.7a1.114 1.114 0 0 0-1.006-.7H14V2.123A1.125 1.125 0 0 0 12.877 1H7.123A1.125 1.125 0 0 0 6 2.123V9H2.123a1.114 1.114 0 0 0-1.005.7 1.25 1.25 0 0 0 .176 1.348l7.872 8.581a1.124 1.124 0 0 0 1.667.003l7.876-8.589A1.248 1.248 0 0 0 18.88 9.7Z"></path>
-                                                    </svg>
-                                                </span>
-                                            </button>
-                                            </div>
-                                        </p>
-                                    </p>
-                                    <!--Boton comentarios-->
-                                        <router-link :to="{ name: 'post.comentario', params: { id: post.id } }">
-                                            <div class="simple-button p-0 px-2 d-flex justify-content-center align-items-center post-comment-button">
-                                                <svg class="mx-2 icon-comment" rpl="" aria-hidden="true" fill="currentColor" height="20" icon-name="comment-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M7.725 19.872a.718.718 0 0 1-.607-.328.725.725 0 0 1-.118-.397V16H3.625A2.63 2.63 0 0 1 1 13.375v-9.75A2.629 2.629 0 0 1 3.625 1h12.75A2.63 2.63 0 0 1 19 3.625v9.75A2.63 2.63 0 0 1 16.375 16h-4.161l-4 3.681a.725.725 0 0 1-.489.191ZM3.625 2.25A1.377 1.377 0 0 0 2.25 3.625v9.75a1.377 1.377 0 0 0 1.375 1.375h4a.625.625 0 0 1 .625.625v2.575l3.3-3.035a.628.628 0 0 1 .424-.165h4.4a1.377 1.377 0 0 0 1.375-1.375v-9.75a1.377 1.377 0 0 0-1.374-1.375H3.625Z"></path>
-                                                </svg>
-                                                <span class="p-0 d-flex justify-content-center align-items-center post-quantity-indicator">{{ post.comments.length }}</span>
-                                            </div>
-                                        </router-link>
-                                </div>
-                                <!-- Botones edit + delete -->
-                                <div class="d-flex d-flex flex-row align-items-end">
-                                    <!--Boton edit-->
-                                    <router-link v-if="post.ID_User==user.id" :to="{ name: 'posts.edit', params: { id: post.id } }" class="box-40 mx-2">
-                                        <button onclick="" class="post-edit-button p-0 d-flex justify-content-center align-items-center">
-                                            <svg rpl="" fill="currentColor" height="20" icon-name="edit-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="m18.236 3.158-1.4-1.4a2.615 2.615 0 0 0-3.667-.021L1.336 13.318a1.129 1.129 0 0 0-.336.8v3.757A1.122 1.122 0 0 0 2.121 19h3.757a1.131 1.131 0 0 0 .8-.337L18.256 6.826a2.616 2.616 0 0 0-.02-3.668ZM5.824 17.747H2.25v-3.574l9.644-9.435L15.259 8.1l-9.435 9.647ZM17.363 5.952l-1.23 1.257-3.345-3.345 1.257-1.23a1.362 1.362 0 0 1 1.91.01l1.4 1.4a1.364 1.364 0 0 1 .008 1.908Z"></path>
-                                            </svg>
-                                        </button>
-                                    </router-link>
-                                    <!--Boton delete-->
-                                    <div class="box-40 mx-0" v-if="post.ID_User==user.id" @click="deletePostuser(post.id, route.params.id)">
-                                        <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
-                                            <svg rpl="" fill="currentColor" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row">
+                        </div>
+                    </div>
+                    <form @submit.prevent="submitForm">
+                        <div class="mt-3 mb-3">
+                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control createpost-input h-100px" placeholder="Say something!"></textarea> 
+                            <div class="text-danger mt-1">
+                                {{ errors.Comment }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.Comment">
+                                    {{ message }}
                                 </div>
                             </div>
                         </div>
-                        <hr class="post-hr-separator">
+                        <div class="mt-3">
+                            <button class="simple-button">Publish</button>
+                        </div>
+                    </form>
                     </div>
-    
-    
+                    <div class="m-0 p-0 w-100 h-100" v-for="chat in chats">
+                        <div class="comment my-3">
+                            <div>
+                                <!-- <div v-if="chat.ID_User==user.id" @click="deleteComment(chat.id, route.params.id)">
+                                    <div class="d-flex justify-content-center align-items-center delete-comment-button pointer-custom">x</div>
+                                </div> -->
+                                <div class="comment-info d-flex justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div>                                           
+                                            <div class="p-0 avatar-image">  
+                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + chat.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
+                                            </div>
+                                        </div>
+                                        <router-link :to="{ name: 'post.usuario', params: { id: chat.ID_User, avatar: chat.user.avatar, nombre:chat.user.name } }">
+                                            <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
+                                        </router-link>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <p class="m-0 p-0">{{ chat.created_at }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="comment-context">{{ chat.chat }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </main>
     
                 <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
@@ -297,70 +246,58 @@
         </div>
     </div>
     </body>
-    </template>
+</template>
 <style>
 </style>
 <script setup>
-    import {onMounted, ref, computed, onUpdated} from "vue";
+    import {onMounted,reactive, ref, computed} from "vue";
     import usePosts from "@/composables/posts";
-    import useCategories from "@/composables/categories";
+    import useChats from "@/composables/chats";
     import { useRoute } from "vue-router";
     import { useStore } from 'vuex';
 
+    
+    import { useForm, useField, defineRule } from "vee-validate";
+    import { required, min, max } from "@/validation/rules"
 
 
+    defineRule('required', required)
+    defineRule('min', min);
+    defineRule('max', max);
     import {useAbility} from '@casl/vue'
+    
+    const schema = {
+    Comment: 'min:1|max:400',
+}
+    const { validate, errors, resetForm } = useForm({ validationSchema: schema })
 
-    const {posts, getPostsuser, getreversePosts, getPostsbestrated, getPostslowestrated, getPostsmostnegativevotes, getPostsmostvoted, sumarVotousuario, restarVotousuario, quitarupvoteusuario, quitardownvoteusuario, deletePostuser} = usePosts()
-    const {categoryList, getCategoryList} = useCategories()
+    const { value: Comment } = useField('Comment', null, { initialValue: '' });
+    const comentario = reactive({
+        Comment
+})
+
+    function submitForm() {
+        console.log(route.params.id)
+        storecomment(route.params.id,comentario)
+    }
+
+    const {post, getPostuser, sumarVoto, restarVoto, avatrlink} = usePosts()
+    const {chats, getuserchat, storechat} = useChats()
     const {can} = useAbility();
     const route = useRoute()
-    let mediaIdAux =  route.params.avatar;
-
 
     const store = useStore();
     const user = computed(() => store.state.auth.user)
-    const avatar= ref({})
-    const nombre= ref({})
-
-    const handleOrdenChange = (event) => {
-        const selectedOption = event.target.value;
-        if (selectedOption === "ultimo") {
-            getreversePosts();
-        }else if(selectedOption === "primero") {
-            getPosts();
-        }else if(selectedOption === "positivo") {
-            getPostsbestrated();
-        }else if(selectedOption === "negativo") {
-            getPostslowestrated();
-        }else if(selectedOption === "negativonegativo") {
-            getPostsmostnegativevotes();
-        }else if(selectedOption === "votado") {
-            getPostsmostvoted();
-        }
-    }
 
     onMounted(() => {
-        getPostsuser(route.params.id)
-        getCategoryList()
-        avatar.value=route.params.avatar
-        nombre.value=route.params.nombre
-        
+        getuserchat(route.params.id)
     })
-
-    onUpdated( async() => {
-      // Comprueba si el ID del medio show ha cambiado
-      if(mediaIdAux !=route.params.avatar){
-        mediaIdAux = route.params.avatar;
-        getPostsuser(route.params.id)
-        getCategoryList()
-        avatar.value=route.params.avatar
-        nombre.value=route.params.nombre
-      }
-    });
     
 </script>
 
 <style scoped>
+body {
+    font-family: 'Nunito', sans-serif;
+}
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
 </style>

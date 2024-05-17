@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\chatController;
 use App\Http\Controllers\Api\commentsController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
@@ -50,12 +51,18 @@ Route::post('comments/{id}',[commentsController::class,'store']);
 Route::get('commentspost/{id}',[commentsController::class,'commentspost']);
 Route::delete('comment/{id}',[commentsController::class,'destroy']);
 
+Route::get('chat/{id}',[chatController::class,'getchat']);
+Route::post('chat/',[chatController::class,'store']);
+
 
 
 //-----------------------------------------
 
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
+
+
+
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RoleController::class);
     //Route::apiResource('exercises', ExerciseController::class);
