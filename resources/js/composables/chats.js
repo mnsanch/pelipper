@@ -20,12 +20,6 @@ export default function useChats() {
     } 
 
     const storechat = async (id, chat) => {
-        if (isLoading.value) return;
-
-        isLoading.value = true
-        validationErrors.value = {}
-
-
         axios.post('/api/chat', chat)
         .then(response => {
             getuserchat(id)

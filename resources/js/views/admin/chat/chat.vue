@@ -215,7 +215,6 @@
                         </div>
                     </form>
                     </div>
-                    {{ mensage }}
                 </main>
     
                 <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
