@@ -171,22 +171,6 @@
                         <div class="d-flex flex-row">
                         </div>
                     </div>
-                    <form @submit.prevent="submitForm">
-                        <div class="mt-3 mb-3">
-                            <textarea v-model="comentario.Comment" id="post-Comment" type="text" class="form-control createpost-input h-100px" placeholder="Say something!"></textarea> 
-                            <div class="text-danger mt-1">
-                                {{ errors.Comment }}
-                            </div>
-                            <div class="text-danger mt-1">
-                                <div v-for="message in validationErrors?.Comment">
-                                    {{ message }}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-3">
-                            <button class="simple-button">Publish</button>
-                        </div>
-                    </form>
                     </div>
                     <div class="m-0 p-0 w-100 h-100" v-for="chat in chats">
                         <div class="comment my-3">
@@ -214,7 +198,24 @@
                             </div>
                         </div>
                     </div>
+                    <form @submit.prevent="submitForm">
+                        <div class="mt-3 mb-3">
+                            <textarea v-model="mensage.chat" id="post-Comment" type="text" class="form-control createpost-input h-100px" placeholder="Say something!"></textarea> 
+                            <div class="text-danger mt-1">
+                                {{ errors.chat }}
+                            </div>
+                            <div class="text-danger mt-1">
+                                <div v-for="message in validationErrors?.chat">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="simple-button">Publish</button>
+                        </div>
+                    </form>
                     </div>
+                    {{ mensage }}
                 </main>
     
                 <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
@@ -265,24 +266,28 @@
     defineRule('min', min);
     defineRule('max', max);
     import {useAbility} from '@casl/vue'
+    const receptor = ref({})
+
     
     const schema = {
-    Comment: 'min:1|max:400',
+    chat: 'min:1|max:400'
 }
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
+    const {chats, getuserchat, storechat} = useChats()
 
-    const { value: Comment } = useField('Comment', null, { initialValue: '' });
-    const comentario = reactive({
-        Comment
+
+    const { value: chat } = useField('chat', null, { initialValue: '' });
+    const mensage = reactive({
+        chat,
+        receiver_id:receptor
 })
 
     function submitForm() {
         console.log(route.params.id)
-        storecomment(route.params.id,comentario)
+        storechat(route.params.id,mensage)
     }
 
     const {post, getPostuser, sumarVoto, restarVoto, avatrlink} = usePosts()
-    const {chats, getuserchat, storechat} = useChats()
     const {can} = useAbility();
     const route = useRoute()
 
@@ -291,6 +296,7 @@
 
     onMounted(() => {
         getuserchat(route.params.id)
+        receptor.value=route.params.id
     })
     
 </script>
