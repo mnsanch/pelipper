@@ -957,8 +957,57 @@ textarea::-webkit-scrollbar-thumb {
 
 
 
+/* ------------------------------------ CREATE CHAT --------------------------*/
+#ocultar {
+    display: none;
+}
+
+#chk:checked + #ocultar {
+    display: block;
+}
 
 
+
+
+.createchat-element {
+    background-color: var(--switchcolor3);
+    border-radius: 15px;
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+}
+
+.createchat-main-container {
+    border: 1px solid var(--switchcolor10) !important;
+    border-radius: 0 0 1rem 1rem;
+    overflow-x: hidden;
+    height: 250px;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr); /* Poner en el @media que sean 2 columnas*/
+    gap: 5px;
+}
+
+.createchat-main-container::-webkit-scrollbar, .accesschat-main-container::-webkit-scrollbar {
+    width: 5px;
+}
+.createchat-main-container::-webkit-scrollbar-track, .accesschat-main-container::-webkit-scrollbar-track {
+    background-color: none;
+    transition: background-color 0.3s !important
+}
+.createchat-main-container:hover::-webkit-scrollbar-thumb, .accesschat-main-container:hover::-webkit-scrollbar-thumb {
+    background-color: var(--switchcolor3);
+    border-radius: 5px;
+    height: 3.5rem !important;
+    transition: background-color 0.3s !important
+}
+
+.accesschat-main-container {
+    border: 1px solid var(--switchcolor10) !important;
+    border-radius: 0 0 1rem 1rem;
+    overflow-x: hidden;
+    height: 350px;
+}
 
 /*----------------------------------------- CHAT --------------------------------------------------*/
 

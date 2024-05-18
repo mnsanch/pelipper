@@ -190,51 +190,28 @@
 
 
 
+                <div id="mychatbutton">
+                    <button class="chat-fixed-button d-flex">
+                        <svg rpl="" fill="white" height="20" icon-name="chat-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.61 19.872a10.013 10.013 0 0 0 6.51-4.035A9.999 9.999 0 0 0 12.275.264c-1.28-.3-2.606-.345-3.903-.132a10.05 10.05 0 0 0-8.25 8.311 9.877 9.877 0 0 0 1.202 6.491l-1.24 4.078a.727.727 0 0 0 .178.721.72.72 0 0 0 .72.19l4.17-1.193A9.87 9.87 0 0 0 9.998 20c.54 0 1.079-.043 1.612-.128ZM1.558 18.458l1.118-3.69-.145-.24A8.647 8.647 0 0 1 1.36 8.634a8.778 8.778 0 0 1 7.21-7.27 8.765 8.765 0 0 1 8.916 3.995 8.748 8.748 0 0 1-2.849 12.09 8.763 8.763 0 0 1-3.22 1.188 8.68 8.68 0 0 1-5.862-1.118l-.232-.138-3.764 1.076ZM6.006 9a1.001 1.001 0 0 0-.708 1.707A1 1 0 1 0 6.006 9Zm4.002 0a1.001 1.001 0 0 0-.195 1.981 1 1 0 1 0 .195-1.98Zm4.003 0a1.001 1.001 0 1 0 0 2.003 1.001 1.001 0 0 0 0-2.003Z"></path>
+                        </svg>
+                        <p class="my-0 mx-2 p-0 text-white">CHAT</p>
+                    </button>
+                </div>
+
                 <div class="row p-0 mx-0 my-5">
                     <main class="col-9 home-main-snippet">
                         <!-- Contenido central -->
                         <div class="m-0 p-0 w-100"> <!--h-100-->
-                            <button class="simple-button mb-2"><label class="pointer-custom" for="chk">New chat</label></button>
-                            <input type="checkbox" id="chk" class="d-none">
-                            <div id="ocultar">
-                                <div class="m-0 py-2 px-3 w-100 chat-header d-flex justify-content-between">
-                                    <form>
-                                        <input type="text" class="px-2" placeholder="Search by username">
-                                        <button>Search</button>
-                                    </form>
-                                    
-                                    <p class="chat-cerrarchat pointer-custom">Close</p>
-                                </div>
-                                <section class="createchat-main-container">
-                                    <div class="m-0 pr-1 pl-2 w-100" v-for="chat in chats">
-                                        <div class="createchat-element my-1 pointer-custom">
-                                            <div>
-                                                <div class="px-2 py-4 comment-info d-flex justify-content-between h-35px">
-                                                    <div class="d-flex align-items-center">
-                                                        <div>
-                                                            <div class="p-0 avatar-image">  
-                                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + chat.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
-                                                            </div>
-                                                        </div>
-                                                        <router-link :to="{ name: 'post.usuario', params: { id: chat.ID_User, avatar: chat.user.avatar, nombre:chat.user.name } }">
-                                                            <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
-                                                        </router-link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                            <div class="m-0 py-2 px-3 w-100 chat-header d-flex justify-content-between">
+                                <p>You're chatting with <b>marc</b></p>
+                                <p class="chat-cerrarchat pointer-custom">Cerrar chat</p>
                             </div>
-
-                            <div class="mt-4 m-0 py-2 px-3 w-100 chat-header d-flex justify-content-between">
-                                <p class="pointer-custom">Tienes <b>13</b> chats pendientes</p> <!--lenght total de chats-->
-                            </div>
-                            <section class="accesschat-main-container py-2 px-0">
+                            <section class="chat-main-container">
                                 <div class="m-0 pr-1 pl-2 w-100 d-flex" v-for="chat in chats">
-                                    <div class="createchat-element mb-1 pointer-custom">
+                                    <div v-if="user.id==chat.user_id" class="comment my-3 w-50 ml-auto chat-bubble-activeuser">
                                         <div>
-                                            <div class="p-4 comment-info d-flex justify-content-between">
+                                            <div class="comment-info d-flex justify-content-between">
                                                 <div class="d-flex align-items-center">
                                                     <div>
                                                         <div class="p-0 avatar-image">  
@@ -245,28 +222,71 @@
                                                         <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
                                                     </router-link>
                                                 </div>
-                                                <div class="box-40 mx-0">
-                                                    <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
-                                                        <svg rpl="" fill="none" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                                                            <path class="svg-background-color" d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
-                                                        </svg>
-                                                    </button>
+                                                <div class="d-flex align-items-center">
+                                                    <p class="m-0 p-0">{{ chat.created_at }}</p>
                                                 </div>
                                             </div>
+                                            <hr>
+                                            <p class="comment-context">{{ chat.chat }}</p>
+                                        </div>
+                                    </div>
+                                    <div v-if="user.id!=chat.user_id" class="comment my-3 w-50">
+                                        <div>
+                                            <div class="comment-info d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <div class="p-0 avatar-image">  
+                                                            <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + chat.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
+                                                        </div>
+                                                    </div>
+                                                    <router-link :to="{ name: 'post.usuario', params: { id: chat.ID_User, avatar: chat.user.avatar, nombre:chat.user.name } }">
+                                                        <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
+                                                    </router-link>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <p class="m-0 p-0">{{ chat.created_at }}</p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <p class="comment-context">{{ chat.chat }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </section>
+                            <div class="post-container">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row">
+                                    </div>
+                                </div>
+                                <form @submit.prevent="submitForm">
+                                    <div class="mt-3 mb-3">
+                                        <textarea v-model="mensage.chat" id="post-Comment" type="text"
+                                            class="form-control createpost-input h-40px pt-3"
+                                            placeholder="Say something!"></textarea>
+                                        <div class="text-danger mt-1">
+                                            {{ errors.chat }}
+                                        </div>
+                                        <div class="text-danger mt-1">
+                                            <div v-for="message in validationErrors?.chat">
+                                                {{ message }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <button class="simple-button">Send</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </main>
 
                     <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
-                        <!-- <div class="right-aside-container-bg aside-container-right">
+                        <div class="right-aside-container-bg aside-container-right">
                             <ul class="m-0 aside-ul-container-right">
-                                <li class="scoreboard-title">aaaaaaaaaaa</li>
+                                <li class="scoreboard-title">d</li>
                             </ul>
                         </div>
-                        <br> -->
+                        <br>
                         <div class="right-aside-container-bg aside-container-right">
                             <ul class="m-0 aside-ul-container-right">
                                 <li class="guidelines-title">OFFICIAL GUIDELINES</li>
