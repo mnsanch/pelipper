@@ -51,8 +51,6 @@ Route::post('comments/{id}',[commentsController::class,'store']);
 Route::get('commentspost/{id}',[commentsController::class,'commentspost']);
 Route::delete('comment/{id}',[commentsController::class,'destroy']);
 
-Route::get('chat/{id}',[chatController::class,'getchat']);
-Route::post('chat/',[chatController::class,'store']);
 
 
 
@@ -61,7 +59,9 @@ Route::post('chat/',[chatController::class,'store']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
 
-
+    Route::get('chat/{id}',[chatController::class,'getchat']);
+    Route::post('chat/',[chatController::class,'store']);
+    
 
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RoleController::class);

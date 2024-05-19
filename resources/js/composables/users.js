@@ -32,6 +32,14 @@ export default function useUsers() {
             })
     }
 
+    const getallUser = async () => {
+        axios.get('/api/users')
+            .then(response => {
+                users.value = response.data.data;
+                console.log(response.data.data)
+            })
+    }
+
     const getUserhome = async () => {
         axios.get('/api/id')
             .then(response => {
@@ -147,6 +155,7 @@ export default function useUsers() {
         storeUser,
         updateUser,
         deleteUser,
+        getallUser,
         validationErrors,
         isLoading
     }

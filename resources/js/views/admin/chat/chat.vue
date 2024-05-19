@@ -206,18 +206,18 @@
                                     <p class="chat-cerrarchat pointer-custom">Close</p>
                                 </div>
                                 <section class="createchat-main-container">
-                                    <div class="m-0 pr-1 pl-2 w-100" v-for="chat in chats">
+                                    <div class="m-0 pr-1 pl-2 w-100" v-for="user in users">
                                         <div class="createchat-element my-1 pointer-custom">
                                             <div>
                                                 <div class="px-2 py-4 comment-info d-flex justify-content-between h-35px">
                                                     <div class="d-flex align-items-center">
                                                         <div>
                                                             <div class="p-0 avatar-image">  
-                                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + chat.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
+                                                                <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
                                                             </div>
                                                         </div>
-                                                        <router-link :to="{ name: 'post.usuario', params: { id: chat.ID_User, avatar: chat.user.avatar, nombre:chat.user.name } }">
-                                                            <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
+                                                        <router-link :to="{ name: 'chat', params: { id: user.id } }">
+                                                            <p class="my-0 mx-2 p-0">{{ user.name }}</p>
                                                         </router-link>
                                                     </div>
                                                 </div>
@@ -285,9 +285,10 @@
 <style>
 </style>
 <script setup>
-    import {onMounted,reactive, ref, computed} from "vue";
+    import {onMounted,reactive, ref, computed, onUpdated} from "vue";
     import usePosts from "@/composables/posts";
     import useChats from "@/composables/chats";
+    import useUsers from "@/composables/users";
     import { useRoute } from "vue-router";
     import { useStore } from 'vuex';
 
@@ -308,6 +309,7 @@
 }
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
     const {chats, getuserchat, storechat} = useChats()
+    const { users, getUserhome, getallUser } = useUsers();
 
 
     const { value: chat } = useField('chat', null, { initialValue: '' });
@@ -327,11 +329,22 @@
 
     const store = useStore();
     const user = computed(() => store.state.auth.user)
+    let mediaIdAux =  route.params.id
 
     onMounted(() => {
         getuserchat(route.params.id)
         receptor.value=route.params.id
+        getallUser()
     })
+    onUpdated( async() => {
+      // Comprueba si el ID del medio show ha cambiado
+      if(mediaIdAux !=route.params.id){
+        mediaIdAux = route.params.id;
+        getuserchat(route.params.id)
+        receptor.value=route.params.id
+        getallUser()
+      }
+    });
     
 </script>
 
