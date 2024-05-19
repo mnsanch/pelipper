@@ -12,6 +12,7 @@ const PostUsuario  = ()  => import('../views/home/user.vue');
 const PostComentario = ()  => import('../views/admin/comments/comentario.vue');
 const Comentario = ()  => import('../views/admin/comments/Index.vue');
 const Chat = ()  => import('../views/admin/chat/chat.vue');
+const ChatIndex = ()  => import('../views/admin/chat/index.vue');
 
 
 
@@ -112,6 +113,11 @@ export default [
                 name: 'chat',
                 path: 'chat/:id',
                 component: Chat,
+            },
+            {
+                name: 'chat.index',
+                path: 'chat',
+                component: ChatIndex,
             },
             {
                 name: 'post.comentario',
