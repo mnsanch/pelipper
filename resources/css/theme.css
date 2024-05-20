@@ -1033,7 +1033,8 @@ textarea::-webkit-scrollbar-thumb {
     border: 1px solid var(--switchcolor10) !important;
     border-radius: 0 0 1rem 1rem;
     overflow-x: hidden;
-    height: 600px
+    height: 600px;
+    overflow-y: scroll !important;
 }
 
 .chat-main-container::-webkit-scrollbar {
@@ -1049,7 +1050,10 @@ textarea::-webkit-scrollbar-thumb {
     height: 3.5rem !important;
     transition: background-color 0.3s !important
 }
-
+.chat-message-hour {
+    font-weight: 400;
+    font-size:12px
+}
 
 .chat-fixed-button {
     background: linear-gradient(to right, #F35F0E, #ec068c);

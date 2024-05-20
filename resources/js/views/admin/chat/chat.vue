@@ -190,14 +190,7 @@
 
 
 
-                <div id="mychatbutton">
-                    <button class="chat-fixed-button d-flex">
-                        <svg rpl="" fill="white" height="20" icon-name="chat-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.61 19.872a10.013 10.013 0 0 0 6.51-4.035A9.999 9.999 0 0 0 12.275.264c-1.28-.3-2.606-.345-3.903-.132a10.05 10.05 0 0 0-8.25 8.311 9.877 9.877 0 0 0 1.202 6.491l-1.24 4.078a.727.727 0 0 0 .178.721.72.72 0 0 0 .72.19l4.17-1.193A9.87 9.87 0 0 0 9.998 20c.54 0 1.079-.043 1.612-.128ZM1.558 18.458l1.118-3.69-.145-.24A8.647 8.647 0 0 1 1.36 8.634a8.778 8.778 0 0 1 7.21-7.27 8.765 8.765 0 0 1 8.916 3.995 8.748 8.748 0 0 1-2.849 12.09 8.763 8.763 0 0 1-3.22 1.188 8.68 8.68 0 0 1-5.862-1.118l-.232-.138-3.764 1.076ZM6.006 9a1.001 1.001 0 0 0-.708 1.707A1 1 0 1 0 6.006 9Zm4.002 0a1.001 1.001 0 0 0-.195 1.981 1 1 0 1 0 .195-1.98Zm4.003 0a1.001 1.001 0 1 0 0 2.003 1.001 1.001 0 0 0 0-2.003Z"></path>
-                        </svg>
-                        <p class="my-0 mx-2 p-0 text-white">CHAT</p>
-                    </button>
-                </div>
+
 
                 <div class="row p-0 mx-0 my-5">
                     <main class="col-9 home-main-snippet">
@@ -206,12 +199,12 @@
                             <div class="m-0 py-2 px-3 w-100 chat-header d-flex justify-content-between">
                                 <p>You're chatting with <b>{{ route.params.name }}</b></p>
                                 <router-link :to="{name: 'chat.index'}">
-                                    <p class="chat-cerrarchat pointer-custom">Return to my chats</p>
+                                    <p class="pointer-custom">↩ Go back</p>
                                 </router-link>
                             </div>
-                            <section class="chat-main-container">
+                            <div class="chat-main-container" id="scrollableDiv"> <!--SCROLL CHAT CONTAINER-->
                                 <div class="m-0 pr-1 pl-2 w-100 d-flex" v-for="chat in chats">
-                                    <div v-if="user.id==chat.user_id" class="comment my-3 w-50 ml-auto chat-bubble-activeuser">
+                                    <div v-if="user.id==chat.user_id" class="comment my-1 w-50 ml-auto chat-bubble-activeuser">
                                         <div>
                                             <div class="comment-info d-flex justify-content-between">
                                                 <div class="d-flex align-items-center">
@@ -225,14 +218,14 @@
                                                     </router-link>
                                                 </div>
                                                 <div class="d-flex align-items-center">
-                                                    <p class="m-0 p-0">{{ chat.created_at }}</p>
+                                                    <p class="m-0 p-0 chat-message-hour">{{ chat.created_at }}</p>
                                                 </div>
                                             </div>
                                             <hr>
                                             <p class="comment-context">{{ chat.chat }}</p>
                                         </div>
                                     </div>
-                                    <div v-if="user.id!=chat.user_id" class="comment my-3 w-50">
+                                    <div v-if="user.id!=chat.user_id" class="comment my-1 w-50">
                                         <div>
                                             <div class="comment-info d-flex justify-content-between">
                                                 <div class="d-flex align-items-center">
@@ -246,7 +239,7 @@
                                                     </router-link>
                                                 </div>
                                                 <div class="d-flex align-items-center">
-                                                    <p class="m-0 p-0">{{ chat.created_at }}</p>
+                                                    <p class="m-0 p-0 chat-message-hour">{{ chat.created_at }}</p>
                                                 </div>
                                             </div>
                                             <hr>
@@ -254,7 +247,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                                <a id="chatAnchor"> </a>
+                            </div>
                             <div class="post-container">
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-row">
@@ -285,12 +279,6 @@
                     <aside class="col-3 px-0 mx-0 sticky-aside block-disapear aside-container-right">
                         <div class="right-aside-container-bg aside-container-right">
                             <ul class="m-0 aside-ul-container-right">
-                                <li class="scoreboard-title">d</li>
-                            </ul>
-                        </div>
-                        <br>
-                        <div class="right-aside-container-bg aside-container-right">
-                            <ul class="m-0 aside-ul-container-right">
                                 <li class="guidelines-title">OFFICIAL GUIDELINES</li>
                                 <li class="guidelines-text">The rules of Pelipper include no harassing, no spamming, no
                                     posting illegal content, no sharing personal information without consent, and
@@ -307,6 +295,8 @@
 <style>
 </style>
 <script setup>
+
+    
     import {onMounted,reactive, ref, computed} from "vue";
     import usePosts from "@/composables/posts";
     import useChats from "@/composables/chats";
@@ -339,8 +329,8 @@
 })
 
     function submitForm() {
-        console.log(route.params.id)
         storechat(route.params.id,mensage)
+        chat.value = "";
     }
 
     const {post, getPostuser, sumarVoto, restarVoto, avatrlink} = usePosts()
@@ -350,9 +340,19 @@
     const store = useStore();
     const user = computed(() => store.state.auth.user)
 
+    function scrollChatBottom() {
+    // Obtener el div
+    var div = document.getElementById("scrollableDiv");
+    // Hacer scroll al final
+    div.scrollTop = 99999999;
+    }
+
+
     onMounted(() => {
         getchat(route.params.id)
         receptor.value=route.params.id
+        // Llama a scrollChatBottom() después de 1 segundos
+        setTimeout(scrollChatBottom, 1000);
     })
     
 </script>

@@ -203,7 +203,7 @@
                                         <button>Search</button>
                                     </form>
                                     
-                                    <p class="chat-cerrarchat pointer-custom">Close</p>
+                                    <!-- <p class="chat-cerrarchat pointer-custom">Close</p> -->
                                 </div>
                                 <section class="createchat-main-container">
                                     <div class="m-0 pr-1 pl-2 w-100" v-for="user in users">
@@ -228,50 +228,47 @@
                             </div>
 
                             <div class="mt-4 m-0 py-2 px-3 w-100 chat-header d-flex justify-content-between">
-                                <p class="pointer-custom">Tienes <b>{{ chats.length }}</b> chats abiertos</p> <!--lenght total de chats-->
+                                <p class="pointer-custom">You have <b>{{ chats.length }}</b> open chats.</p> <!--lenght total de chats-->
                             </div>
                             <section class="accesschat-main-container py-2 px-0">
                                 <div class="m-0 pr-1 pl-2 w-100 d-flex" v-for="chat in chats">
                                     <div class="createchat-element mb-1 pointer-custom">
                                         <div>
-                                            <div v-if="chat.user.id!=user.id" class="p-4 comment-info d-flex justify-content-between">
+                                            <router-link :to="{ name: 'chat', params: { id: chat.user.id, name: chat.user.name } }" v-if="chat.user.id!=user.id" class="p-4 comment-info d-flex justify-content-between">
                                                 <div class="d-flex align-items-center">
                                                     <div>
                                                         <div class="p-0 avatar-image">  
                                                             <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + chat.user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
                                                         </div>
                                                     </div>
-                                                    <router-link :to="{ name: 'chat', params: { id: chat.user.id, name: chat.user.name } }">
-                                                            <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
-                                                        </router-link>
+                                                    <p class="my-0 mx-2 p-0">{{ chat.user.name }}</p>
                                                 </div>
-                                                <div class="box-40 mx-0">
+                                                <!-- <div class="box-40 mx-0">
                                                     <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
                                                         <svg rpl="" fill="none" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                                                             <path class="svg-background-color" d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
                                                         </svg>
                                                     </button>
-                                                </div>
-                                            </div>
-                                            <div v-if="chat.user.id==user.id" class="p-4 comment-info d-flex justify-content-between">
+                                                </div> -->
+                                            </router-link>
+                                            <router-link :to="{ name: 'chat', params: { id: chat.user2.id, name: chat.user2.name } }" v-if="chat.user.id==user.id" class="p-4 comment-info d-flex justify-content-between">
+                                                
                                                 <div class="d-flex align-items-center">
                                                     <div>
                                                         <div class="p-0 avatar-image">  
                                                             <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + chat.user2.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
                                                         </div>
                                                     </div>
-                                                    <router-link :to="{ name: 'chat', params: { id: chat.user2.id, name: chat.user2.name } }">
-                                                            <p class="my-0 mx-2 p-0">{{ chat.user2.name }}</p>
-                                                        </router-link>
+                                                    <p class="my-0 mx-2 p-0">{{ chat.user2.name }}</p>
                                                 </div>
-                                                <div class="box-40 mx-0">
+                                                <!-- <div class="box-40 mx-0">
                                                     <button onclick="" class="post-delete-button p-0 d-flex justify-content-center align-items-center">
                                                         <svg rpl="" fill="none" height="20" icon-name="delete-outline" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
                                                             <path class="svg-background-color" d="M15.751 6.023 17 6.106l-.761 11.368a2.554 2.554 0 0 1-.718 1.741A2.586 2.586 0 0 1 13.8 20H6.2a2.585 2.585 0 0 1-1.718-.783 2.553 2.553 0 0 1-.719-1.737L3 6.106l1.248-.083.761 11.369c-.005.333.114.656.333.908.22.252.525.415.858.458h7.6c.333-.043.64-.207.859-.46.22-.254.338-.578.332-.912l.76-11.363ZM18 2.983v1.243H2V2.983h4v-.372A2.737 2.737 0 0 1 6.896.718 2.772 2.772 0 0 1 8.875.002h2.25c.729-.03 1.44.227 1.979.716.538.488.86 1.169.896 1.893v.372h4Zm-10.75 0h5.5v-.372a1.505 1.505 0 0 0-.531-1.014 1.524 1.524 0 0 0-1.094-.352h-2.25c-.397-.03-.79.097-1.094.352-.304.256-.495.62-.531 1.014v.372Z"></path>
                                                         </svg>
                                                     </button>
-                                                </div>
-                                            </div>
+                                                </div> -->
+                                            </router-link>
                                         </div>
                                     </div>
                                 </div>
