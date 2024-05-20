@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreChatRequest;
 use App\Http\Resources\chatresource;
 
+use App\Models\User;
 use App\Models\chat;
 
 
@@ -44,9 +45,11 @@ class ChatController extends Controller
 
     public function store(StoreChatRequest $request) {
         $validatedData = $request->validated();
-        $validatedData['user_id'] = auth()->id();   
-        $post = chat::create($validatedData);        
-        return $post;
+        $id = auth()->id(); 
+        $user = User::findOrFail($id);
+        $user->chat()->attach($id, ['receiver_id' => $validatedData['receiver_id'], 'chat' => $validatedData['chat'], 'created_at' => date('Y-m-d H:i:s')
+]);        
+        return $user;
 
     }
 }

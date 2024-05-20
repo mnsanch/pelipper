@@ -52,7 +52,6 @@ Route::get('commentspost/{id}',[commentsController::class,'commentspost']);
 Route::delete('comment/{id}',[commentsController::class,'destroy']);
 
 
-Route::get('userchat/{id}',[chatController::class,'getalluserchat']);
 
 
 //-----------------------------------------
@@ -62,6 +61,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::get('chat/{id}',[chatController::class,'getchat']);
     Route::post('chat/',[chatController::class,'store']);
+    Route::get('userchat/{id}',[chatController::class,'getalluserchat']);
     
 
     Route::apiResource('users', UserController::class);
