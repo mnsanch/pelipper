@@ -22,6 +22,7 @@ class chatresource extends JsonResource
             'receiver_id' => $this->receiver_id,
             'chat' => $this->chat,
             'user' => $this->user,
+            'user2' => $this->user2,
             'created_at' => $this->created_at?->toDateString()
         ];
     }

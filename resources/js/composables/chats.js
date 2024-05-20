@@ -10,8 +10,17 @@ export default function useChats() {
     const isLoading = ref(false)
     const swal = inject('$swal')
 
-    const getuserchat = async (id) => {
+    const getchat = async (id) => {
         axios.get('/api/chat/'+id)
+        .then(response => {
+            chats.value = response.data.data;
+            console.log(response.data.data);
+            console.log(chats);
+        })
+    } 
+
+    const getuserchat = async (id) => {
+        axios.get('/api/userchat/'+id)
         .then(response => {
             chats.value = response.data.data;
             console.log(response.data.data);
@@ -22,7 +31,7 @@ export default function useChats() {
     const storechat = async (id, chat) => {
         axios.post('/api/chat', chat)
         .then(response => {
-            getuserchat(id)
+            getchat(id)
         }) 
         .catch(error => {
             swal({
@@ -37,6 +46,7 @@ export default function useChats() {
     return {
         chats,
         chat,
+        getchat,
         getuserchat,
         storechat
     }

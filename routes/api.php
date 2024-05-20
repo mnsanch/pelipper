@@ -52,6 +52,7 @@ Route::get('commentspost/{id}',[commentsController::class,'commentspost']);
 Route::delete('comment/{id}',[commentsController::class,'destroy']);
 
 
+Route::get('userchat/{id}',[chatController::class,'getalluserchat']);
 
 
 //-----------------------------------------

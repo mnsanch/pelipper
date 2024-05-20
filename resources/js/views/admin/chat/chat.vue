@@ -329,7 +329,7 @@
     chat: 'min:1|max:400'
 }
     const { validate, errors, resetForm } = useForm({ validationSchema: schema })
-    const {chats, getuserchat, storechat} = useChats()
+    const {chats, getchat, storechat} = useChats()
 
 
     const { value: chat } = useField('chat', null, { initialValue: '' });
@@ -351,7 +351,7 @@
     const user = computed(() => store.state.auth.user)
 
     onMounted(() => {
-        getuserchat(route.params.id)
+        getchat(route.params.id)
         receptor.value=route.params.id
     })
     
