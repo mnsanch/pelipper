@@ -1164,6 +1164,16 @@ textarea::-webkit-scrollbar-thumb {
     .login-container {
         width: 100% !important;
     }
+
+    .createchat-main-container {
+        border: 1px solid var(--switchcolor10) !important;
+        border-radius: 0 0 1rem 1rem;
+        overflow-x: hidden;
+        height: 250px;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr); /* Poner en el @media que sean 2 columnas*/
+        gap: 5px;
+    }
 }
 
 /* .dropzone-padding {
