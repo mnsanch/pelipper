@@ -111,7 +111,7 @@ export default [
             },
             {
                 name: 'chat',
-                path: 'chat/:id',
+                path: 'chat/:id/:name',
                 component: Chat,
             },
             {

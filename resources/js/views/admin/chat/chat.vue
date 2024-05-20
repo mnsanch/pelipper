@@ -204,8 +204,10 @@
                         <!-- Contenido central -->
                         <div class="m-0 p-0 w-100"> <!--h-100-->
                             <div class="m-0 py-2 px-3 w-100 chat-header d-flex justify-content-between">
-                                <p>You're chatting with <b>marc</b></p>
-                                <p class="chat-cerrarchat pointer-custom">Cerrar chat</p>
+                                <p>You're chatting with <b>{{ route.params.name }}</b></p>
+                                <router-link :to="{name: 'chat.index'}">
+                                    <p class="chat-cerrarchat pointer-custom">Return to my chats</p>
+                                </router-link>
                             </div>
                             <section class="chat-main-container">
                                 <div class="m-0 pr-1 pl-2 w-100 d-flex" v-for="chat in chats">

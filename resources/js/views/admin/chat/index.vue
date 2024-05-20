@@ -216,7 +216,7 @@
                                                                 <Avatar :image="'https://raw.githubusercontent.com/PMDCollab/SpriteCollab/master/portrait/' + user.avatar + '/Normal.png'" class="nav-link dropdown-toggle post-profile-picture p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" shape="circle" @click="avatrlink(chat.ID_User,chat.user.avatar, chat.user.name)"/>
                                                             </div>
                                                         </div>
-                                                        <router-link :to="{ name: 'chat', params: { id: user.id } }">
+                                                        <router-link :to="{ name: 'chat', params: { id: user.id, name: user.name } }">
                                                             <p class="my-0 mx-2 p-0">{{ user.name }}</p>
                                                         </router-link>
                                                     </div>
