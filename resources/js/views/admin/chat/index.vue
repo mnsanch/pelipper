@@ -348,7 +348,7 @@
     let mediaIdAux =  route.params.id
 
     onMounted(() => {
-        getuserchat(1)
+        getuserchat()
         receptor.value=route.params.id
         getallUser()
     })
@@ -356,7 +356,7 @@
       // Comprueba si el ID del medio show ha cambiado
       if(mediaIdAux !=route.params.id){
         mediaIdAux = route.params.id;
-        getuserchat(route.params.id)
+        getuserchat()
         receptor.value=route.params.id
         getallUser()
       }

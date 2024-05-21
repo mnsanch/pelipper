@@ -19,14 +19,18 @@ export default function useChats() {
         })
     } 
 
-    const getuserchat = async (id) => {
-        axios.get('/api/userchat/'+id)
-        .then(response => {
-            chats.value = response.data.data;
-            console.log(response.data.data);
-            console.log(chats);
-        })
-    } 
+    const getuserchat = async () => {
+        axios.get('/api/id')
+            .then(response => {
+                axios.get('/api/userchat/'+response.data)
+                .then(response => {
+                    chats.value = response.data.data;
+                    console.log(response.data.data);
+                    console.log(chats);
+                })
+            })
+    }
+
 
     const storechat = async (id, chat) => {
         axios.post('/api/chat', chat)
